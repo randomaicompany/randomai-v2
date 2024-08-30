@@ -1,0 +1,312 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+:root {
+  --button-gradient-bg-var-1: linear-gradient(270deg,
+      #ff8e8e 0%,
+      #ffd28e 21.35%,
+      #ecff77 43.23%,
+      #8effe4 64.58%,
+      #8ec9ff 82.81%,
+      #ab8eff 100%);
+  --button-gradient-bg-var-2: linear-gradient(270deg,
+      #ab8eff 0%,
+      #ff8e8e 21.35%,
+      #ffd28e 43.23%,
+      #ecff77 64.58%,
+      #8effe4 82.81%,
+      #8ec9ff 100%);
+  --button-gradient-bg-var-3: linear-gradient(270deg,
+      #8ec9ff 0%,
+      #ab8eff 21.35%,
+      #ff8e8e 43.23%,
+      #ffd28e 64.58%,
+      #ecff77 82.81%,
+      #8effe4 100%);
+  --button-gradient-bg-var-4: linear-gradient(270deg,
+      #8effe4 0%,
+      #8ec9ff 21.35%,
+      #ab8eff 43.23%,
+      #ff8e8e 64.58%,
+      #ffd28e 82.81%,
+      #ecff77 100%);
+  --button-gradient-bg-var-5: linear-gradient(270deg,
+      #ecff77 0%,
+      #8effe4 21.35%,
+      #8ec9ff 43.23%,
+      #ab8eff 64.58%,
+      #ff8e8e 82.81%,
+      #ffd28e 100%);
+}
+
+.rangeSlider .rangeFloat {
+  @apply !bg-brand-accent;
+}
+
+.rangeSlider .rangeHandle:before {
+  box-shadow: 0 0 0 12px #ca3d4a6e !important;
+}
+
+.rangeSlider .pipVal {
+  @apply !text-xs;
+}
+
+@layer base {
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply text-brand-primary;
+
+  }
+
+  .shell {
+    @apply xl:px-32 md:px-8 px-4 mx-auto;
+  }
+
+
+  .material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 350, "GRAD" 0, "opsz" 48;
+  }
+
+  .material-symbols-outlined.filled {
+    font-variation-settings: "FILL" 1, "wght" 350, "GRAD" 0, "opsz" 48;
+  }
+
+  .heading-5xl {
+    @apply font-light;
+    @apply text-[4.25rem];
+    @apply leading-[110%];
+    @apply -ml-1;
+  }
+
+  .heading-4xl {
+    @apply font-light;
+    @apply text-[3.25rem];
+    @apply leading-[100%];
+  }
+
+  .heading-3xl,
+  .rich-content h1 {
+    @apply font-normal;
+    @apply text-[2.25rem];
+    @apply leading-[120%];
+    @apply tracking-[-4%];
+  }
+
+  .heading-2xl,
+  .rich-content h2 {
+    @apply font-normal;
+    @apply text-[1.75rem];
+    @apply leading-[120%];
+    @apply tracking-[-4%];
+  }
+
+  .heading-xl,
+  .rich-content h3 {
+    @apply font-normal;
+    @apply text-[1.4rem];
+    @apply leading-[160%];
+    @apply tracking-[-4%];
+  }
+
+  .heading-lg,
+  .rich-content h4 {
+    @apply font-normal;
+    @apply text-[1.188rem];
+    @apply leading-[160%];
+    @apply tracking-[-4%];
+  }
+
+  .heading,
+  .title,
+  .rich-content h5 {
+    @apply font-normal;
+    @apply text-base;
+    @apply leading-[160%];
+    @apply tracking-[-4%];
+  }
+
+  p,
+  span,
+  input,
+  textarea {
+    @apply leading-relaxed;
+  }
+
+  .heading-5xl strong,
+  .heading-5xl b,
+  .heading-4xl strong,
+  .heading-4xl b,
+  .heading-3xl strong,
+  .heading-3xl b,
+  .heading-2xl strong,
+  .heading-2xl b,
+  .heading-xl strong,
+  .heading-xl b,
+  .heading-lg strong,
+  .heading-lg b {
+    @apply font-medium;
+  }
+}
+
+@layer components {
+  .rich-text ul {
+    @apply list-disc pl-8;
+  }
+
+  .rich-text li {
+    @apply py-2;
+  }
+
+  .rich-text ol {
+    @apply list-decimal pl-8;
+  }
+
+  .input-field {
+    @apply placeholder:text-brand-tertiary/70;
+    @apply px-4 h-[42px] border border-brand-tertiary outline-none;
+    @apply focus:border-brand-accent rounded bg-white;
+    @apply placeholder:font-light;
+    @apply transition-all;
+  }
+
+  .input-field.input-w-icon-left {
+    @apply pl-12;
+  }
+
+  .input-field.input-w-icon-right {
+    @apply pr-12;
+  }
+
+  label.input-field-container {
+    @apply relative inline-block;
+  }
+
+  .button {
+    @apply flex items-center justify-center gap-3;
+    @apply whitespace-nowrap;
+    @apply px-14 text-[15px] h-[58px] border bg-brand-primary border-brand-primary text-white font-semibold;
+
+    @apply active:translate-y-[1px];
+    @apply hover:opacity-95 active:opacity-100 active:shadow-xl transition-all;
+  }
+
+  .button.secondary {
+    @apply bg-white border-brand-primary text-brand-primary;
+    @apply active:translate-y-[1px];
+    @apply hover:opacity-80 active:opacity-100 active:shadow-none;
+  }
+
+  .button.button-sm {
+    @apply px-10 text-sm h-[38px];
+  }
+
+  .button-text {
+    @apply flex items-center gap-2;
+    @apply hover:opacity-70 active:opacity-100 transition-all;
+    @apply font-medium text-sm border-b-2 border-brand-primary;
+  }
+
+  .button-compact {
+    @apply active:scale-[0.99] active:translate-y-[1px];
+    @apply hover:opacity-80 active:opacity-100 active:shadow-xl transition-all;
+    @apply font-medium bg-brand-primary text-[15px] h-[42px] px-4 w-full rounded border-b-2 border-brand-primary text-white flex items-center justify-center gap-4;
+  }
+
+  .button-gradient-bg-var-1 {
+    @apply border-transparent;
+    background: var(--button-gradient-bg-var-1);
+  }
+
+  .button-gradient-bg-var-2 {
+    @apply border-transparent;
+    background: var(--button-gradient-bg-var-2);
+  }
+
+  .button-gradient-bg-var-3 {
+    @apply border-transparent;
+    background: var(--button-gradient-bg-var-3);
+  }
+
+  .button-gradient-bg-var-4 {
+    @apply border-transparent;
+    background: var(--button-gradient-bg-var-4);
+  }
+
+  .button-gradient-bg-var-5 {
+    @apply border-transparent;
+    background: var(--button-gradient-bg-var-5);
+  }
+}
+
+.video-container iframe {
+  @apply md:h-[60vh] md:w-[90vw] w-[90vw] h-[30vh] aspect-video bg-white rounded-xl shadow-2xl;
+}
+
+.splide__thumbs .splide__slide {
+  @apply !border !border-brand-tertiary;
+  @apply !outline-none;
+}
+
+.splide__thumbs .splide__slide.is-active {
+  @apply !border-2 !border-brand-primary;
+}
+
+#sam-image-container {
+  position: relative;
+  width: 640px;
+  height: 420px;
+  max-width: 100%;
+  max-height: 100%;
+  border: 2px dashed #d1d5db;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  cursor: pointer;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+}
+
+.icon {
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.rangeSlider {
+  @apply !m-0;
+}
+
+.rangeSlider .rangeHandle {
+  @apply !h-4 !w-4;
+  @apply !bg-brand-primary;
+  @apply rounded-full;
+}
+
+.rangeSlider.focus .rangeNub {
+  @apply !bg-brand-accent;
+}
+
+
+.blog-popup-html p {
+  @apply mb-4;
+}

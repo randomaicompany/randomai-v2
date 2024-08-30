@@ -1,0 +1,63 @@
+{
+  "id": "rss_block",
+  "type": "SharedSlice",
+  "name": "RssBlock",
+  "description": "RssBlock",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "subtext": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Subtext",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "source_rss": {
+          "type": "Link",
+          "config": {
+            "label": "Source RSS",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "source_name": {
+          "type": "Text",
+          "config": {
+            "label": "Source Name",
+            "placeholder": ""
+          }
+        },
+        "source_logo": {
+          "type": "Image",
+          "config": {
+            "label": "Source Logo",
+            "constraint": {
+              "height": 100,
+              "width": 100
+            },
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

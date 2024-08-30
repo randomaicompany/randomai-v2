@@ -1,0 +1,353 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "AI-powered,",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 3,
+									"end": 10
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Human-inspired.",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 6,
+									"end": 14
+								}
+							]
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Express yourself in a whole new way. Dream up, generate and personalize your garments from the top world fashion brands with Ai",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"image": {
+				"origin": {
+					"id": "WWesmHEgXDs",
+					"url": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxfHx0JTIwc2hpcnR8ZW58MHx8fHwxNzEyMTM1ODA5fDA&ixlib=rb-4.0.3&q=85",
+					"width": 3000,
+					"height": 3000
+				},
+				"url": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxfHx0JTIwc2hpcnR8ZW58MHx8fHwxNzEyMTM1ODA5fDA&ixlib=rb-4.0.3&q=85&rect=0%2C0%2C3000%2C3000&w=1200&h=1200",
+				"width": 1200,
+				"height": 1200,
+				"edit": {
+					"background": "transparent",
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					}
+				},
+				"credits": null,
+				"alt": "man wearing white crew-neck t-shirts",
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"eyebrow_headline": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Eyebrow Headline",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"primary_button_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com"
+				}
+			},
+			"secondary_button_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com"
+				}
+			},
+			"primary_button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "recall",
+				"type": "Text"
+			},
+			"secondary_button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "tape",
+				"type": "Text"
+			},
+			"is_bg_gray": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "withImageGenerator",
+		"primary": {
+			"eyebrow_headline": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nostrud laborum exercitation consequat esse mollit. Fugiat deserunt laborum enim."
+						}
+					}
+				]
+			},
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Facing"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aliqua et proident sunt ut magna aute magna aliquip Lorem qui."
+						}
+					}
+				]
+			},
+			"is_bg_gray": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"link_label": {
+				"__TYPE__": "FieldContent",
+				"value": "wind",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"image",
+						{
+							"__TYPE__": "ImageContent",
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72",
+								"width": 4010,
+								"height": 4010
+							},
+							"url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72?rect=0%2C0%2C4010%2C4010&w=650&h=650",
+							"width": 650,
+							"height": 650,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"thumbnails": {}
+						}
+					],
+					[
+						"top",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "26%"
+						}
+					],
+					[
+						"left",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "36.5%"
+						}
+					],
+					[
+						"width",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "24%"
+						}
+					],
+					[
+						"height",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "28%"
+						}
+					],
+					[
+						"editor_link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "http://twitter.com"
+							}
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"image",
+						{
+							"__TYPE__": "ImageContent",
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89",
+								"width": 3456,
+								"height": 3456
+							},
+							"url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89?rect=0%2C0%2C3456%2C3456&w=650&h=650",
+							"width": 650,
+							"height": 650,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"thumbnails": {}
+						}
+					],
+					[
+						"top",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "26%"
+						}
+					],
+					[
+						"left",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "36.5%"
+						}
+					],
+					[
+						"width",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "28%"
+						}
+					],
+					[
+						"height",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "24%"
+						}
+					],
+					[
+						"editor_link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://slicemachine.dev"
+							}
+						}
+					]
+				]
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "forRssBlogs",
+		"primary": {
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Something so awesome!",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Get Informed\nGet Inspired",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"is_underlined": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

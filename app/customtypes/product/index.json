@@ -1,0 +1,247 @@
+{
+  "format": "page",
+  "id": "product",
+  "label": "Product",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "product": {
+        "type": "IntegrationFields",
+        "config": {
+          "catalog": "randomai-10--products",
+          "label": "Product"
+        }
+      },
+      "is_predesigned": {
+        "type": "Boolean",
+        "config": {
+          "label": "Is it a pre-designed product",
+          "placeholder_false": "No",
+          "placeholder_true": "Yes",
+          "default_value": false
+        }
+      },
+      "review_stars": {
+        "type": "Image",
+        "config": {
+          "label": "Review Stars",
+          "constraint": {
+            "height": 40,
+            "width": 150
+          },
+          "thumbnails": []
+        }
+      },
+      "review_stars_text": {
+        "type": "Text",
+        "config": {
+          "label": "Review Stars Text",
+          "placeholder": ""
+        }
+      },
+      "reviews_link": {
+        "type": "Link",
+        "config": {
+          "label": "Reviews Link",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "select": null
+        }
+      },
+      "placeholder_sicker": {
+        "type": "Image",
+        "config": {
+          "label": "Placeholder Sicker",
+          "constraint": {
+            "width": null,
+            "height": 600
+          },
+          "thumbnails": []
+        }
+      },
+      "product_details": {
+        "type": "Group",
+        "config": {
+          "label": "Product Details",
+          "repeat": true,
+          "fields": {
+            "heading": {
+              "type": "Text",
+              "config": {
+                "label": "Heading",
+                "placeholder": ""
+              }
+            },
+            "content": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Content",
+                "placeholder": "",
+                "allowTargetBlank": false,
+                "multi": "paragraph,preformatted,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl,heading2,heading3,heading4"
+              }
+            }
+          }
+        }
+      },
+      "reviews": {
+        "type": "Group",
+        "config": {
+          "label": "Reviews",
+          "repeat": true,
+          "fields": {
+            "user_name": {
+              "type": "Text",
+              "config": {
+                "label": "User Name",
+                "placeholder": ""
+              }
+            },
+            "title": {
+              "type": "Text",
+              "config": {
+                "label": "Title",
+                "placeholder": ""
+              }
+            },
+            "review": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Review",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "single": "paragraph"
+              }
+            }
+          }
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "cards": {
+              "type": "SharedSlice"
+            },
+            "breadcrumbs": {
+              "type": "SharedSlice"
+            },
+            "blank_space": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      }
+    },
+    "Custom Code": {
+      "head": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Head",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "preformatted"
+        }
+      },
+      "body": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Body",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "preformatted"
+        }
+      }
+    },
+    "Canvas Settings": {
+      "is_front_canvas_enabled": {
+        "type": "Boolean",
+        "config": {
+          "label": "Enable Front Canvas?",
+          "placeholder_false": "No",
+          "placeholder_true": "Yes",
+          "default_value": false
+        }
+      },
+      "is_back_canvas_enabled": {
+        "type": "Boolean",
+        "config": {
+          "label": "Enable Back Canvas?",
+          "placeholder_false": "No",
+          "placeholder_true": "Yes",
+          "default_value": false
+        }
+      },
+      "front": {
+        "type": "Group",
+        "config": {
+          "label": "Front",
+          "repeat": true,
+          "fields": {
+            "property": {
+              "type": "Text",
+              "config": {
+                "label": "Property",
+                "placeholder": ""
+              }
+            },
+            "value": {
+              "type": "Text",
+              "config": {
+                "label": "Value",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "back": {
+        "type": "Group",
+        "config": {
+          "label": "Back",
+          "repeat": true,
+          "fields": {
+            "property": {
+              "type": "Text",
+              "config": {
+                "label": "Property",
+                "placeholder": ""
+              }
+            },
+            "value": {
+              "type": "Text",
+              "config": {
+                "label": "Value",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "id": "collection_product_card",
+  "type": "SharedSlice",
+  "name": "CollectionProductCard",
+  "description": "CollectionProductCard",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "product": {
+          "type": "IntegrationFields",
+          "config": {
+            "catalog": "randomai-10--products",
+            "label": "Product"
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        },
+        "link_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Link Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "review_text": {
+          "type": "Text",
+          "config": {
+            "label": "Review Text",
+            "placeholder": ""
+          }
+        },
+        "gender": {
+          "type": "Text",
+          "config": {
+            "label": "Gender",
+            "placeholder": ""
+          }
+        },
+        "collection": {
+          "type": "Text",
+          "config": {
+            "label": "Collection",
+            "placeholder": ""
+          }
+        },
+        "brand": {
+          "type": "Text",
+          "config": {
+            "label": "Brand",
+            "placeholder": ""
+          }
+        },
+        "product_type": {
+          "type": "Text",
+          "config": {
+            "label": "Product",
+            "placeholder": ""
+          }
+        },
+        "review_stars": {
+          "type": "Image",
+          "config": {
+            "label": "Review Stars",
+            "constraint": {
+              "height": 64
+            },
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {
+              "height": 600
+            },
+            "thumbnails": []
+          }
+        },
+        "swatch": {
+          "type": "Image",
+          "config": {
+            "label": "Swatch",
+            "constraint": {
+              "width": 28,
+              "height": 28
+            },
+            "thumbnails": []
+          }
+        },
+        "color_name": {
+          "type": "Text",
+          "config": {
+            "label": "Color Name",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}

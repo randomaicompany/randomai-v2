@@ -1,0 +1,33 @@
+{
+  "id": "blank_space",
+  "type": "SharedSlice",
+  "name": "BlankSpace",
+  "description": "BlankSpace",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "size": {
+          "type": "Select",
+          "config": {
+            "label": "Size",
+            "placeholder": "",
+            "options": [
+              "Small",
+              "Medium",
+              "Large",
+              "Extra Large"
+            ],
+            "default_value": "Small"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

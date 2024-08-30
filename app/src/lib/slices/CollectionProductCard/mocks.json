@@ -1,0 +1,148 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"text": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
+				}
+			},
+			"review_text": {
+				"__TYPE__": "FieldContent",
+				"value": "composition",
+				"type": "Text"
+			},
+			"link_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ullamco ex consectetur reprehenderit adipisicing aute reprehenderit id irure elit pariatur Lorem incididunt. Est dolore eiusmod esse dolor proident in mollit. Culpa laboris laborum voluptate est reprehenderit incididunt labore pariatur nulla officia veniam et officia excepteur."
+						}
+					}
+				]
+			},
+			"review_stars": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a",
+					"width": 4000,
+					"height": 4000
+				},
+				"url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a?rect=0%2C0%2C4000%2C4000&w=64&h=64",
+				"width": 64,
+				"height": 64,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"collection": {
+				"__TYPE__": "FieldContent",
+				"value": "storm",
+				"type": "Text"
+			},
+			"brand": {
+				"__TYPE__": "FieldContent",
+				"value": "quarter",
+				"type": "Text"
+			},
+			"gender": {
+				"__TYPE__": "FieldContent",
+				"value": "clock",
+				"type": "Text"
+			},
+			"product_type": {
+				"__TYPE__": "FieldContent",
+				"value": "local",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"image",
+						{
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2",
+								"width": 3648,
+								"height": 4560
+							},
+							"url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?rect=0%2C0%2C3648%2C4560&w=480&h=600",
+							"width": 480,
+							"height": 600,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					],
+					[
+						"swatch",
+						{
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118",
+								"width": 4160,
+								"height": 3120
+							},
+							"url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118?rect=520%2C0%2C3120%2C3120&w=28&h=28",
+							"width": 28,
+							"height": 28,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 520,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					],
+					[
+						"color_name",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "percent",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
+	}
+]

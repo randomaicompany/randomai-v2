@@ -1,0 +1,6 @@
+{
+  "repositoryName": "randomai-10",
+  "adapter": "@slicemachine/adapter-sveltekit",
+  "libraries": ["./src/lib/slices"],
+  "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"
+}
