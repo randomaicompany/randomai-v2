@@ -56,7 +56,7 @@
     <textarea
       required
       rows="1"
-      maxlength="80"
+      maxlength="700"
       disabled="{isLoading}"
       bind:value="{prompt}"
       on:input="{debouncedInput}"

@@ -5,14 +5,13 @@
   import { fade, fly } from "svelte/transition";
 
   let openVideoModal = false;
-
   const toggle = () => (openVideoModal = !openVideoModal);
 </script>
 
 <section data-slice-type="{slice.slice_type}" data-slice-variation="{slice.variation}">
   <div class="flex items-end justify-center md:h-[700px]">
     <button on:click="{toggle}" class="relative w-full transition-opacity hover:opacity-80 group">
-      <PrismicImage class="object-cover w-full h-[80vh]" field="{slice.primary.poster}" />
+      <PrismicImage class="object-cover w-full h-full" field="{slice.primary.poster}" />
       <div class="absolute top-0 left-0 flex items-center justify-center w-full h-full">
         <svg
           width="64"

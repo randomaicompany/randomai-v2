@@ -3,6 +3,8 @@
   import { PrismicText } from "@prismicio/svelte";
 
   export let slice;
+
+  console.log(slice.primary.embed[0].text);
 </script>
 
 <section class="shell max-w-4xl">

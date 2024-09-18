@@ -21,8 +21,7 @@
     iframeWindow.document.body.innerHTML = bodyHTMLString;
 
     headScripts.forEach((script) => iframeWindow.document.head.appendChild(script));
-
-    bodyScripts.forEach((script) => iframeWindow.document.body.appendChild(bodyScripts));
+    bodyScripts.forEach((script) => iframeWindow.document.body.appendChild(script));
   };
 
   onMount(() => {
@@ -47,13 +46,11 @@
   </div>
 
   {#if browser}
-    {#if browser}
-      <iframe
-        style="min-height: {slice.primary.minimum_height + 'rem'}"
-        bind:this="{iframe}"
-        class="!aspect-auto overflow-hidden w-full"
-        title="{asText(slice.primary.heading)}"
-        src="/iframeEmbed.html"></iframe>
-    {/if}
+    <iframe
+      bind:this="{iframe}"
+      style="min-height: {slice.primary.minimum_height + 'rem'}"
+      class="!aspect-auto overflow-hidden w-full"
+      title="{asText(slice.primary.heading)}"
+      src="/iframeEmbed.html"></iframe>
   {/if}
 </section>

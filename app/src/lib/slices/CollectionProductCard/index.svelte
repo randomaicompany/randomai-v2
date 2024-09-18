@@ -28,7 +28,7 @@
     }}">
     {#each slice.items as { image }}
       <SplideSlide>
-        <PrismicImage class="object-cover w-full h-96 bg-brand-smoke-darker" field="{image}" />
+        <PrismicImage class="object-contain w-full h-96 bg-brand-smoke-darker" field="{image}" />
       </SplideSlide>
     {/each}
   </Splide>

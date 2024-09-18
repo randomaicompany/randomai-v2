@@ -44,15 +44,12 @@ export const resizeCanvas = (canvas, containerNode) => {
       object.top *= scaleY;
       object.setCoords();
     });
+
     canvas.renderAll();
   }
 };
 
-export const exportCanvas = async (
-  canvas,
-  width = 768,
-  isOutputDataURL = false
-) => {
+export const exportCanvas = async (canvas, width = 768, isOutputDataURL = false) => {
   const originalWidth = canvas.width;
   const desiredWidth = width;
 

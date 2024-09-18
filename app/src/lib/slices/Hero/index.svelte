@@ -20,7 +20,7 @@
     R.pick(["top", "left", "width", "height"]),
     R.toPairs,
     R.map(([key, value]) => key + ":" + value + ";"),
-    R.join(""),
+    R.join("")
   );
 
   const setActiveButtonLink = (event) => {
@@ -108,7 +108,7 @@
         <Splide
           on:mounted="{setActiveButtonLink}"
           on:moved="{setActiveButtonLink}"
-          options="{{ arrows: false, pagination: true }}"
+          options="{{ arrows: true, pagination: false }}"
           hasTrack="{false}"
           aria-label="My Favorite Images"
           class="h-full">
@@ -124,7 +124,7 @@
                     class="absolute top-[26%] object-cover left-[36.5%] w-[24%] h-[28%]" />
                 {/if}
                 <PrismicImage
-                  class="flex-1 object-cover w-full h-full md:h-[600px] h-[400px"
+                  class="flex-1 object-contain w-full h-full md:h-[600px] h-[400px"
                   field="{item.image}" />
               </SplideSlide>
             {/each}
