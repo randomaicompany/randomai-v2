@@ -237,6 +237,29 @@
             }
           }
         }
+      },
+      "style_presets": {
+        "type": "Group",
+        "config": {
+          "label": "Style Presets",
+          "repeat": true,
+          "fields": {
+            "prefix": {
+              "type": "Text",
+              "config": {
+                "label": "Prefix",
+                "placeholder": ""
+              }
+            },
+            "suffix": {
+              "type": "Text",
+              "config": {
+                "label": "Suffix",
+                "placeholder": ""
+              }
+            }
+          }
+        }
       }
     }
   }

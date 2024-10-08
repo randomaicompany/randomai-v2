@@ -242,6 +242,64 @@
           }
         }
       }
+    },
+    "AI Settings": {
+      "guidance_scale": {
+        "type": "Number",
+        "config": {
+          "label": "Guidance Scale",
+          "placeholder": "0.5"
+        }
+      },
+      "num_inference_steps": {
+        "type": "Number",
+        "config": {
+          "label": "Inference Steps",
+          "placeholder": "4"
+        }
+      },
+      "max_sequence_length": {
+        "type": "Number",
+        "config": {
+          "label": "Max Sequence Length",
+          "placeholder": "256"
+        }
+      },
+      "seed": {
+        "type": "Number",
+        "config": {
+          "label": "Seed",
+          "placeholder": "Random value by default. Use a number for seed value."
+        }
+      },
+      "front_height": {
+        "type": "Number",
+        "config": {
+          "label": "Front Height",
+          "placeholder": ""
+        }
+      },
+      "back_height": {
+        "type": "Number",
+        "config": {
+          "label": "Back Height",
+          "placeholder": ""
+        }
+      },
+      "front_width": {
+        "type": "Number",
+        "config": {
+          "label": "Front Width",
+          "placeholder": ""
+        }
+      },
+      "back_width": {
+        "type": "Number",
+        "config": {
+          "label": "Back Width",
+          "placeholder": ""
+        }
+      }
     }
   }
 }

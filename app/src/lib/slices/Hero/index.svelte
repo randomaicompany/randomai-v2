@@ -99,7 +99,7 @@
         </div>
 
         <div class:opacity-50="{!imageUrl}" class:!pointer-events-none="{isLoading || !imageUrl}">
-          <a href="{buttonLink}" class="button">
+          <a href="{buttonLink}" class="button bg-brand-accent border-none">
             {slice.primary.link_label}
           </a>
         </div>

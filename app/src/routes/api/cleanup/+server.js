@@ -27,5 +27,4 @@ export const POST = async ({ request }) => {
     console.error(err);
     return json({ error: true }, { status: 500 });
   }
-
 };

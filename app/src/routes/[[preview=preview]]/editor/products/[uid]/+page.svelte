@@ -60,9 +60,14 @@
     frontCanvas && (isFrontCanvasEmpty = isCanvasEmpty(frontCanvas));
     backCanvas && (isBackCanvasEmpty = isCanvasEmpty(backCanvas));
 
-    if (pageData.is_front_canvas_enabled && isFrontCanvasEmpty) {
+    if (
+      pageData.is_front_canvas_enabled &&
+      pageData.is_back_canvas_enabled &&
+      isFrontCanvasEmpty &&
+      isBackCanvasEmpty
+    ) {
       isAddToCartInProgress = false;
-      return alert("Canvas cannot be empty");
+      return alert("Both sides cannot be empty");
     }
 
     if (isBackCanvasEmpty && !pageData.is_front_canvas_enabled && pageData.is_back_canvas_enabled) {
@@ -92,7 +97,7 @@
         frontImageUrl: frontImageHostedUrl,
         backImageUrl: backImageHostedUrl,
       },
-      Number(quantity),
+      Number(quantity)
     );
 
     isAddToCartInProgress = false;
