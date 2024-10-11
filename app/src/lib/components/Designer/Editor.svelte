@@ -1,8 +1,9 @@
 <script>
   export let data;
   import * as R from "ramda";
-  import user from "stores/user";
   import * as RA from "ramda-adjunct";
+
+  import user from "stores/user";
 
   import { onMount } from "svelte";
   import { browser } from "$app/environment";
@@ -25,14 +26,50 @@
   export let product = {};
   export let images = [];
   export let imageUrl = "";
+  export let isGenerating = false;
   export let generatedImages = [];
   export let promptSuggestions = [];
   export let selectedGalleryImage = null;
+  export let currentViewIdx = 0;
 
   let tabIdx = 0;
-  let isGenerating = false;
+
   $: currentUser = $user;
   $: userId = currentUser?.uid;
+
+  const stylePresets = R.path(["data", "style_presets"], data);
+
+  const getAiSettings = R.pipe(
+    R.path(["productPage", "data"]),
+    R.pick([
+      "front_height",
+      "front_width",
+      "back_height",
+      "back_width",
+      "max_sequence_length",
+      "num_inference_steps",
+      "guidance_scale",
+      "seed",
+    ])
+  );
+
+  const defaultAiSettings = getAiSettings(data);
+  const getCurrentAiSettings = (idx, defaultAiSettings) => {
+    const buildFront = R.pipe(
+      R.omit(["back_height", "back_width"]),
+      RA.renameKeys({ front_height: "height", front_width: "width" }),
+      RA.compact
+    );
+
+    const buildBack = R.pipe(
+      R.omit(["front_height", "front_width"]),
+      RA.renameKeys({ back_height: "height", back_width: "width" }),
+      RA.compact
+    );
+    return R.equals(idx, 0) ? buildFront(defaultAiSettings) : buildBack(defaultAiSettings);
+  };
+
+  $: aiSettings = getCurrentAiSettings(currentViewIdx, defaultAiSettings);
 
   const switchTab = R.curry((idx, _) => (tabIdx = idx));
 
@@ -150,6 +187,8 @@
           bind:imageUrl
           bind:isLoading="{isGenerating}"
           on:generate="{handleImageGenerate}"
+          {aiSettings}
+          {stylePresets}
           {promptSuggestions} />
       </div>
     </div>

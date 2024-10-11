@@ -3,25 +3,20 @@ import { json } from "@sveltejs/kit";
 import { generate } from "root/src/lib/api/replicate.js";
 import { RUNPOD_API_KEY } from "$env/static/private";
 
-export async function GET({ url }) {
+export async function POST({ request }) {
   try {
-    const prompt = url.searchParams.get("prompt");
+    const body = await request.json();
 
     const reqConfig = {
       method: "post",
-      url: "https://api.runpod.ai/v2/xy81yey6y4feu2/runsync",
+      url: "https://api.runpod.ai/v2/t5gcx96q8cx2uk/runsync",
       headers: {
         Authorization: `Bearer ${RUNPOD_API_KEY}`,
         "Content-Type": "application/json",
       },
 
       data: JSON.stringify({
-        input: {
-          prompt: prompt,
-          refiner_inference_steps: 10,
-          width: 768,
-          height: 768,
-        },
+        input: body,
       }),
     };
 
@@ -34,4 +29,3 @@ export async function GET({ url }) {
     return json({ error }, { status: 500 });
   }
 }
-

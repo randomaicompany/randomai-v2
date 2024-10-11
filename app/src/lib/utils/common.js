@@ -1,4 +1,5 @@
 import * as R from "ramda";
+import * as RA from "ramda-adjunct";
 import { browser } from "$app/environment";
 import { goto } from "$app/navigation";
 import { page } from "$app/stores";
@@ -62,13 +63,22 @@ export const findVariantById = (id, product) =>
     })
   )(product);
 
-export const pluckPromptSuggestions =
-  R.ifElse(R.hasPath(["data", "prompt_suggestions"]),
-    R.pipe(
-      R.path(["data", "prompt_suggestions"]),
-      R.pluck("prompt"),
-      R.uniq
-    ),
-    R.always([])
-  )
+export const pluckPromptSuggestions = R.ifElse(
+  R.hasPath(["data", "prompt_suggestions"]),
+  R.pipe(R.path(["data", "prompt_suggestions"]), R.pluck("prompt"), R.uniq),
+  R.always([])
+);
 
+export const extractAISettings = R.pipe(
+  R.prop("data"),
+  R.pick([
+    "front_height",
+    "front_width",
+    "max_sequence_length",
+    "num_inference_steps",
+    "guidance_scale",
+    "seed",
+  ]),
+  RA.compact,
+  RA.renameKeys({ front_height: "height", front_width: "width" })
+);

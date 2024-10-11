@@ -321,6 +321,16 @@ export interface LayoutDocumentDataPromptSuggestionsItem {
  */
 export interface LayoutDocumentDataStylePresetsItem {
   /**
+   * Name field in *Layout → Style Presets*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.style_presets[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
    * Prefix field in *Layout → Style Presets*
    *
    * - **Field Type**: Text

@@ -2,8 +2,10 @@
   export let slice;
   export let context = {};
   import * as R from "ramda";
+  import * as RA from "ramda-adjunct";
   import { asLink } from "@prismicio/client";
-  import { pluckPromptSuggestions } from "utils/common.js";
+
+  import { pluckPromptSuggestions, extractAISettings } from "utils/common.js";
   import { Splide, SplideTrack, SplideSlide } from "@splidejs/svelte-splide";
   import { PrismicLink, PrismicImage, PrismicRichText } from "@prismicio/svelte";
   //
@@ -12,6 +14,8 @@
   let imageUrl = "";
   let isLoading = false;
   let buttonLink = "";
+
+  const stylePresets = R.path(["data", "style_presets"], context);
   const promptSuggestions = pluckPromptSuggestions(context);
 
   const handleImageGenerate = ({ detail: base64Image }) => (imageUrl = base64Image);
@@ -29,6 +33,8 @@
     const link = asLink(item.editor_link);
     return (buttonLink = link);
   };
+
+  const aiSettings = extractAISettings(context);
 </script>
 
 {#if slice.variation == "default"}
@@ -94,8 +100,10 @@
             class="h-16"
             bind:imageUrl
             bind:isLoading
-            on:generate="{handleImageGenerate}"
-            {promptSuggestions} />
+            {stylePresets}
+            {aiSettings}
+            {promptSuggestions}
+            on:generate="{handleImageGenerate}" />
         </div>
 
         <div class:opacity-50="{!imageUrl}" class:!pointer-events-none="{isLoading || !imageUrl}">
@@ -122,6 +130,18 @@
                     alt="geenrated art"
                     style="{outputStyle}"
                     class="absolute top-[26%] object-cover left-[36.5%] w-[24%] h-[28%]" />
+                {/if}
+
+                {#if isLoading}
+                  <div
+                    class="flex items-center justify-center absolute z-10 object-cover top-[36%] left-[39%] w-[24%] h-[28%]">
+                    <div class="w-14 h-14 p-2 rounded-full bg-white">
+                      <div
+                        style="animation-duration:0.4s"
+                        class="bg-transparent border-[3px] rounded-full animate-spin border-r-transparent w-full h-full border-brand-accent">
+                      </div>
+                    </div>
+                  </div>
                 {/if}
                 <PrismicImage
                   class="flex-1 object-contain w-full h-full md:h-[600px] h-[400px"

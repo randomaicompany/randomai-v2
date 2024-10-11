@@ -31,11 +31,13 @@
   let selectedGalleryImage = null;
   let isAddToCartInProgress = false;
   let hasProductAndVariantIds = true;
+  let isGenerating = false;
 
   let choice = {};
   let product = data.productPage.data.product;
   let variant = {};
   let productImages = [];
+  let currentViewIdx = 0;
   let quantity = $page.url.searchParams.get("quantity") || "1";
 
   const promptSuggestions = pluckPromptSuggestions(data);
@@ -147,6 +149,8 @@
           bind:product
           bind:variant
           bind:selectedGalleryImage
+          bind:isGenerating
+          bind:currentViewIdx
           bind:images="{productImages}"
           bind:imageUrl="{generatedImage}" />
       </div>
@@ -158,12 +162,14 @@
           </h2>
         </div>
         <Canvas
+          isLoading="{isGenerating}"
           page="{pageData}"
           {isFrontCanvasOnly}
           bind:canvas
           bind:productImages
           bind:frontCanvas
           bind:backCanvas
+          bind:currentViewIdx
           {canvasStyles} />
       </div>
     </div>

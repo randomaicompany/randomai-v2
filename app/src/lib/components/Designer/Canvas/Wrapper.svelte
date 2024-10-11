@@ -10,13 +10,14 @@
   export let canvas;
   export let frontCanvas;
   export let backCanvas;
+  export let isLoading = false;
 
   export let canvasStyles = [];
   export let productImages = [];
   export let placeholderImage =
     "https://images.prismic.io/randomai-10/ZhPSPhrFxhpPBXhg_Placeholder.png";
 
-  let currentViewIdx = 0;
+  export let currentViewIdx = 0;
   let hasImageLoaded = false;
 
   $: activeImage = productImages[currentViewIdx];
@@ -42,6 +43,7 @@
     {#if page.is_front_canvas_enabled}
       <div class:!visible="{currentViewIdx == 0}" class="invisible">
         <Canvas
+          {isLoading}
           bind:canvas="{frontCanvas}"
           placeholder="{placeholderImage}"
           canvasStyles="{canvasStyles[currentViewIdx]}">
@@ -52,6 +54,7 @@
     {#if page.is_back_canvas_enabled}
       <div class:!visible="{currentViewIdx == 1}" class="invisible">
         <Canvas
+          {isLoading}
           bind:canvas="{backCanvas}"
           placeholder="{placeholderImage}"
           canvasStyles="{canvasStyles[currentViewIdx]}">

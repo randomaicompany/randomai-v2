@@ -1,4 +1,8 @@
 <script>
+  export let aiSettings = {};
+  export let promptSuggestions = [];
+  export let stylePresets = [];
+  import * as RA from "ramda-adjunct";
   import * as R from "ramda";
   import debounce from "debounce";
   //
@@ -13,18 +17,29 @@
   export let prompt = "";
   export let imageUrl = "";
   export let isLoading = false;
-  export let promptSuggestions = [];
-  export let isStickerModeEnabled = false;
-  const stickerPrompt = "in sticker style,";
+
+  let stylePreset = JSON.stringify(R.head(stylePresets));
 
   const dispatch = createEventDispatcher();
   const random = consecutiveUniqueRandom(0, R.dec(R.length(promptSuggestions)));
 
-  const generate = async (prompt) => {
-    if (!prompt.trim()) return;
-    const finalPrompt = isStickerModeEnabled ? stickerPrompt + prompt : prompt;
+  const generate = async (prompt = "") => {
+    const cleanPrompt = prompt.trim();
+    const { prefix, suffix } = JSON.parse(stylePreset);
+
+    if (!cleanPrompt) return;
     isLoading = true;
-    const response = await fetch("/api/generate?prompt=" + finalPrompt);
+
+    const finalPrompt = prefix + prompt + suffix;
+
+    const response = await fetch("/api/generate", {
+      method: "POST",
+      body: JSON.stringify({
+        ...aiSettings,
+        prompt: finalPrompt,
+      }),
+    });
+
     const imageResponse = await response.json();
 
     imageUrl = R.prop("src", imageResponse);
@@ -51,7 +66,7 @@
   const toggleStickerMode = () => (isStickerModeEnabled = !isStickerModeEnabled);
 </script>
 
-<form class:opacity-50="{isLoading}" class="flex gap-2">
+<form class:opacity-50="{isLoading}" class="flex flex-col gap-4">
   <label class="input-field-container !flex items-start gap-4 flex-1">
     <textarea
       required
@@ -224,25 +239,22 @@
             Auto Generate
           </p>
         </button>
-
-        <button
-          type="button"
-          title="sticker mode"
-          on:click="{toggleStickerMode}"
-          class:text-white="{isStickerModeEnabled}"
-          class:bg-brand-accent-light="{isStickerModeEnabled}"
-          class:!border-brand-accent-light="{isStickerModeEnabled}"
-          class="relative flex items-center justify-center gap-2 transition-all rounded-full group hover:ring-offset-2 w-7 h-7 ring-gray-200 text-brand-accent ring-1 hover:ring-brand-accent">
-          <i class="material-symbols-rounded !text-[20.5px]">ar_stickers</i>
-
-          <p
-            class="absolute px-2 text-xs text-white transition-opacity delay-300 opacity-0 select-none bg-brand-black whitespace-nowrap -top-8 group-hover:opacity-100">
-            Sticker Mode
-          </p>
-        </button>
       {/if}
     </div>
   </label>
+
+  {#if RA.isNonEmptyArray(stylePresets)}
+    <div>
+      <label class="input-field-container block w-full">
+        <p class="text-sm font-medium mb-2">Style</p>
+        <select bind:value="{stylePreset}" class="input-field md:text-sm text-base px-2 w-full">
+          {#each stylePresets as { name, ...rest }, idx}
+            <option selected="{idx}" value="{JSON.stringify({ name, ...rest })}">{name}</option>
+          {/each}
+        </select>
+      </label>
+    </div>
+  {/if}
 
   <!-- {#if prompt}
     <div class="pt-4">
