@@ -520,7 +520,77 @@ interface LayoutDocumentData {
    */
   style_presets: prismic.GroupField<
     Simplify<LayoutDocumentDataStylePresetsItem>
+  > /**
+   * Aspect Ratio (Front) field in *Layout*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: 1:1
+   * - **API ID Path**: layout.aspect_ratio_front
+   * - **Tab**: AI Settings
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */;
+  aspect_ratio_front: prismic.SelectField<
+    | "1:1"
+    | "16:9"
+    | "21:9"
+    | "3:2"
+    | "2:3"
+    | "4:5"
+    | "5:4"
+    | "3:4"
+    | "4:3"
+    | "9:16"
+    | "9:21",
+    "filled"
   >;
+
+  /**
+   * Aspect Ratio (Back) field in *Layout*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: 1:1
+   * - **API ID Path**: layout.aspect_ratio_back
+   * - **Tab**: AI Settings
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  aspect_ratio_back: prismic.SelectField<
+    | "1:1"
+    | "16:9"
+    | "21:9"
+    | "3:2"
+    | "2:3"
+    | "4:5"
+    | "5:4"
+    | "3:4"
+    | "4:3"
+    | "9:16"
+    | "9:21",
+    "filled"
+  >;
+
+  /**
+   * Output Quality field in *Layout*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: Enter a value 1 - 100
+   * - **API ID Path**: layout.output_quality
+   * - **Tab**: AI Settings
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  output_quality: prismic.NumberField;
+
+  /**
+   * Seed field in *Layout*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: Random value by default. Use a number for seed value.
+   * - **API ID Path**: layout.seed
+   * - **Tab**: AI Settings
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  seed: prismic.NumberField;
 }
 
 /**
@@ -1020,37 +1090,65 @@ interface ProductDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   back: prismic.GroupField<Simplify<ProductDocumentDataBackItem>> /**
-   * Guidance Scale field in *Product*
+   * Aspect Ratio (Front) field in *Product*
    *
-   * - **Field Type**: Number
-   * - **Placeholder**: 0.5
-   * - **API ID Path**: product.guidance_scale
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: 1:1
+   * - **API ID Path**: product.aspect_ratio_front
    * - **Tab**: AI Settings
-   * - **Documentation**: https://prismic.io/docs/field#number
+   * - **Documentation**: https://prismic.io/docs/field#select
    */;
-  guidance_scale: prismic.NumberField;
+  aspect_ratio_front: prismic.SelectField<
+    | "1:1"
+    | "16:9"
+    | "21:9"
+    | "3:2"
+    | "2:3"
+    | "4:5"
+    | "5:4"
+    | "3:4"
+    | "4:3"
+    | "9:16"
+    | "9:21",
+    "filled"
+  >;
 
   /**
-   * Inference Steps field in *Product*
+   * Aspect Ratio (Back) field in *Product*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: 1:1
+   * - **API ID Path**: product.aspect_ratio_back
+   * - **Tab**: AI Settings
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  aspect_ratio_back: prismic.SelectField<
+    | "1:1"
+    | "16:9"
+    | "21:9"
+    | "3:2"
+    | "2:3"
+    | "4:5"
+    | "5:4"
+    | "3:4"
+    | "4:3"
+    | "9:16"
+    | "9:21",
+    "filled"
+  >;
+
+  /**
+   * Output Quality field in *Product*
    *
    * - **Field Type**: Number
-   * - **Placeholder**: 4
-   * - **API ID Path**: product.num_inference_steps
+   * - **Placeholder**: Enter a value 1 - 100
+   * - **API ID Path**: product.output_quality
    * - **Tab**: AI Settings
    * - **Documentation**: https://prismic.io/docs/field#number
    */
-  num_inference_steps: prismic.NumberField;
-
-  /**
-   * Max Sequence Length field in *Product*
-   *
-   * - **Field Type**: Number
-   * - **Placeholder**: 256
-   * - **API ID Path**: product.max_sequence_length
-   * - **Tab**: AI Settings
-   * - **Documentation**: https://prismic.io/docs/field#number
-   */
-  max_sequence_length: prismic.NumberField;
+  output_quality: prismic.NumberField;
 
   /**
    * Seed field in *Product*
@@ -1062,50 +1160,6 @@ interface ProductDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#number
    */
   seed: prismic.NumberField;
-
-  /**
-   * Front Height field in *Product*
-   *
-   * - **Field Type**: Number
-   * - **Placeholder**: *None*
-   * - **API ID Path**: product.front_height
-   * - **Tab**: AI Settings
-   * - **Documentation**: https://prismic.io/docs/field#number
-   */
-  front_height: prismic.NumberField;
-
-  /**
-   * Back Height field in *Product*
-   *
-   * - **Field Type**: Number
-   * - **Placeholder**: *None*
-   * - **API ID Path**: product.back_height
-   * - **Tab**: AI Settings
-   * - **Documentation**: https://prismic.io/docs/field#number
-   */
-  back_height: prismic.NumberField;
-
-  /**
-   * Front Width field in *Product*
-   *
-   * - **Field Type**: Number
-   * - **Placeholder**: *None*
-   * - **API ID Path**: product.front_width
-   * - **Tab**: AI Settings
-   * - **Documentation**: https://prismic.io/docs/field#number
-   */
-  front_width: prismic.NumberField;
-
-  /**
-   * Back Width field in *Product*
-   *
-   * - **Field Type**: Number
-   * - **Placeholder**: *None*
-   * - **API ID Path**: product.back_width
-   * - **Tab**: AI Settings
-   * - **Documentation**: https://prismic.io/docs/field#number
-   */
-  back_width: prismic.NumberField;
 }
 
 /**

@@ -5,9 +5,9 @@
   import * as RA from "ramda-adjunct";
   import { asLink } from "@prismicio/client";
 
-  import { pluckPromptSuggestions, extractAISettings } from "utils/common.js";
   import { Splide, SplideTrack, SplideSlide } from "@splidejs/svelte-splide";
   import { PrismicLink, PrismicImage, PrismicRichText } from "@prismicio/svelte";
+  import { pluckPromptSuggestions, extractAISettingsDefault } from "utils/common.js";
   //
   import PromptInputForm from "components/PromptInputForm.svelte";
 
@@ -34,7 +34,7 @@
     return (buttonLink = link);
   };
 
-  const aiSettings = extractAISettings(context);
+  const aiSettings = extractAISettingsDefault(context);
 </script>
 
 {#if slice.variation == "default"}

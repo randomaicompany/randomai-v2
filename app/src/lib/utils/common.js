@@ -69,16 +69,23 @@ export const pluckPromptSuggestions = R.ifElse(
   R.always([])
 );
 
-export const extractAISettings = R.pipe(
-  R.prop("data"),
-  R.pick([
-    "front_height",
-    "front_width",
-    "max_sequence_length",
-    "num_inference_steps",
-    "guidance_scale",
-    "seed",
-  ]),
-  RA.compact,
-  RA.renameKeys({ front_height: "height", front_width: "width" })
+export const extractAISettings = R.ifElse(
+  R.isEmpty,
+  R.identity,
+  R.pipe(
+    R.prop("data"),
+    R.pick(["aspect_ratio_front", "aspect_ratio_back", "output_quality", "seed"]),
+    RA.compact
+  )
+);
+
+export const extractAISettingsDefault = R.ifElse(
+  R.isEmpty,
+  R.identity,
+  R.pipe(
+    R.prop("data"),
+    R.pick(["aspect_ratio_front", "output_quality", "seed"]),
+    RA.compact,
+    RA.renameKey("aspect_ratio_front", "aspect_ratio")
+  )
 );

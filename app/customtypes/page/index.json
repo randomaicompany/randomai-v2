@@ -81,8 +81,8 @@
         "config": {
           "label": "Head",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "preformatted"
+          "allowTargetBlank": false,
+          "single": "preformatted"
         }
       },
       "body": {
@@ -90,8 +90,8 @@
         "config": {
           "label": "Body",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "preformatted"
+          "allowTargetBlank": false,
+          "single": "preformatted"
         }
       }
     }

@@ -216,7 +216,7 @@
   .button-compact {
     @apply active:scale-[0.99] active:translate-y-[1px];
     @apply hover:opacity-80 active:opacity-100 active:shadow-xl transition-all;
-    @apply font-medium bg-brand-primary text-[15px] h-[42px] px-4 w-full rounded border-b-2 border-brand-primary text-white flex items-center justify-center gap-4;
+    @apply font-medium bg-brand-accent-light text-[15px] h-[42px] px-4 w-full rounded border-b-2 border-brand-accent-light text-white flex items-center justify-center gap-4;
   }
 
   .button-gradient-bg-var-1 {

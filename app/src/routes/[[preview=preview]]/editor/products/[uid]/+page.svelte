@@ -42,11 +42,6 @@
 
   const promptSuggestions = pluckPromptSuggestions(data);
 
-  const handleSegmentExport = ({ detail }) => {
-    addBase64ImageToCanvas(canvas, detail, "segment-image");
-    toggle();
-  };
-
   const exportAndAddToCart = async () => {
     isAddToCartInProgress = true;
 
@@ -141,18 +136,20 @@
   <div class="shell md:py-16 py-8" class:!hidden="{!hasProductAndVariantIds}">
     <div class="flex flex-col-reverse md:gap-12 gap-4 md:flex-row">
       <div class="flex-0 md:w-[26rem]">
-        <Editor
-          {canvas}
-          {data}
-          {promptSuggestions}
-          bind:choice
-          bind:product
-          bind:variant
-          bind:selectedGalleryImage
-          bind:isGenerating
-          bind:currentViewIdx
-          bind:images="{productImages}"
-          bind:imageUrl="{generatedImage}" />
+        {#if canvas}
+          <Editor
+            {canvas}
+            {data}
+            {promptSuggestions}
+            bind:choice
+            bind:product
+            bind:variant
+            bind:selectedGalleryImage
+            bind:isGenerating
+            bind:currentViewIdx
+            bind:images="{productImages}"
+            bind:imageUrl="{generatedImage}" />
+        {/if}
       </div>
 
       <div class="relative max-w-2xl ml-auto">

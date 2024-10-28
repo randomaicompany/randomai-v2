@@ -67,6 +67,19 @@
 </script>
 
 <form class:opacity-50="{isLoading}" class="flex flex-col gap-4">
+  {#if RA.isNonEmptyArray(stylePresets)}
+    <div>
+      <label class="input-field-container block w-full">
+        <p class="text-sm font-medium mb-2">Style</p>
+        <select bind:value="{stylePreset}" class="input-field md:text-sm text-base px-2 w-full">
+          {#each stylePresets as { name, ...rest }, idx}
+            <option selected="{idx}" value="{JSON.stringify({ name, ...rest })}">{name}</option>
+          {/each}
+        </select>
+      </label>
+    </div>
+  {/if}
+
   <label class="input-field-container !flex items-start gap-4 flex-1">
     <textarea
       required
@@ -242,19 +255,6 @@
       {/if}
     </div>
   </label>
-
-  {#if RA.isNonEmptyArray(stylePresets)}
-    <div>
-      <label class="input-field-container block w-full">
-        <p class="text-sm font-medium mb-2">Style</p>
-        <select bind:value="{stylePreset}" class="input-field md:text-sm text-base px-2 w-full">
-          {#each stylePresets as { name, ...rest }, idx}
-            <option selected="{idx}" value="{JSON.stringify({ name, ...rest })}">{name}</option>
-          {/each}
-        </select>
-      </label>
-    </div>
-  {/if}
 
   <!-- {#if prompt}
     <div class="pt-4">

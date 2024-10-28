@@ -41,29 +41,21 @@
 
   const getAiSettings = R.pipe(
     R.path(["productPage", "data"]),
-    R.pick([
-      "front_height",
-      "front_width",
-      "back_height",
-      "back_width",
-      "max_sequence_length",
-      "num_inference_steps",
-      "guidance_scale",
-      "seed",
-    ])
+    R.pick(["aspect_ratio_front", "aspect_ratio_back", "output_quality", "seed"])
   );
 
   const defaultAiSettings = getAiSettings(data);
+
   const getCurrentAiSettings = (idx, defaultAiSettings) => {
     const buildFront = R.pipe(
-      R.omit(["back_height", "back_width"]),
-      RA.renameKeys({ front_height: "height", front_width: "width" }),
+      R.omit(["aspect_ratio_back"]),
+      RA.renameKey("aspect_ratio_front", "aspect_ratio"),
       RA.compact
     );
 
     const buildBack = R.pipe(
-      R.omit(["front_height", "front_width"]),
-      RA.renameKeys({ back_height: "height", back_width: "width" }),
+      R.omit(["aspect_ratio_front"]),
+      RA.renameKey("aspect_ratio_back", "aspect_ratio"),
       RA.compact
     );
     return R.equals(idx, 0) ? buildFront(defaultAiSettings) : buildBack(defaultAiSettings);
@@ -128,10 +120,12 @@
     if (!browser || !localImageUrl) return;
     addBase64ImageToCanvas(canvas, localImageUrl);
     imageUrl = localImageUrl;
-    setTimeout(() => localStorage.removeItem("imageUrl"), 1000);
+    localStorage.removeItem("imageUrl");
   };
 
-  $: canvas, canvas && setHomeGeneratedImage();
+  onMount(() => {
+    canvas && setHomeGeneratedImage();
+  });
 </script>
 
 <div>

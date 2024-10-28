@@ -189,7 +189,7 @@
           "label": "Head",
           "placeholder": "",
           "allowTargetBlank": true,
-          "multi": "preformatted"
+          "single": "preformatted"
         }
       },
       "body": {
@@ -198,7 +198,7 @@
           "label": "Body",
           "placeholder": "",
           "allowTargetBlank": true,
-          "multi": "preformatted"
+          "single": "preformatted"
         }
       }
     },
@@ -270,25 +270,53 @@
       }
     },
     "AI Settings": {
-      "guidance_scale": {
-        "type": "Number",
+      "aspect_ratio_front": {
+        "type": "Select",
         "config": {
-          "label": "Guidance Scale",
-          "placeholder": "0.5"
+          "label": "Aspect Ratio (Front)",
+          "placeholder": "",
+          "options": [
+            "1:1",
+            "16:9",
+            "21:9",
+            "3:2",
+            "2:3",
+            "4:5",
+            "5:4",
+            "3:4",
+            "4:3",
+            "9:16",
+            "9:21"
+          ],
+          "default_value": "1:1"
         }
       },
-      "num_inference_steps": {
-        "type": "Number",
+      "aspect_ratio_back": {
+        "type": "Select",
         "config": {
-          "label": "Inference Steps",
-          "placeholder": "4"
+          "label": "Aspect Ratio (Back)",
+          "placeholder": "",
+          "options": [
+            "1:1",
+            "16:9",
+            "21:9",
+            "3:2",
+            "2:3",
+            "4:5",
+            "5:4",
+            "3:4",
+            "4:3",
+            "9:16",
+            "9:21"
+          ],
+          "default_value": "1:1"
         }
       },
-      "max_sequence_length": {
+      "output_quality": {
         "type": "Number",
         "config": {
-          "label": "Max Sequence Length",
-          "placeholder": "256"
+          "label": "Output Quality",
+          "placeholder": "Enter a value 1 - 100"
         }
       },
       "seed": {
@@ -296,34 +324,6 @@
         "config": {
           "label": "Seed",
           "placeholder": "Random value by default. Use a number for seed value."
-        }
-      },
-      "front_height": {
-        "type": "Number",
-        "config": {
-          "label": "Front Height",
-          "placeholder": ""
-        }
-      },
-      "back_height": {
-        "type": "Number",
-        "config": {
-          "label": "Back Height",
-          "placeholder": ""
-        }
-      },
-      "front_width": {
-        "type": "Number",
-        "config": {
-          "label": "Front Width",
-          "placeholder": ""
-        }
-      },
-      "back_width": {
-        "type": "Number",
-        "config": {
-          "label": "Back Width",
-          "placeholder": ""
         }
       }
     }
