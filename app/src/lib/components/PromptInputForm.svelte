@@ -62,7 +62,7 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const debouncedInput = debounce(handleInput, 2000);
+  const debouncedInput = debounce(handleInput, 3000);
   const toggleStickerMode = () => (isStickerModeEnabled = !isStickerModeEnabled);
 </script>
 
