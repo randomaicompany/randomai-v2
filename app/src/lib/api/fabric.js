@@ -96,6 +96,7 @@ export const addImageToCanvas = (canvas, imageRef, isPrismicImage) => (type) => 
 export const addBase64ImageToCanvas = (canvas, imageBase64, type = "ai-generated-image") => {
   if (!imageBase64) return;
   const img = new Image();
+  img.crossOrigin = "anonymous";
 
   removeAllImages(canvas);
 
@@ -253,7 +254,6 @@ const resizeCanvasContainer = (canvas, node) => {
 export const replaceActiveImageSrc = (canvas, newSrc) => {
   const activeObject = canvas.getActiveObject();
   if (activeObject && activeObject.type === "image") {
-
     fabric.Image.fromURL(
       newSrc,
       (newImage) => {

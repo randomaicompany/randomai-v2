@@ -15,10 +15,11 @@ export async function POST({ request }) {
     const input = {
       ...body,
       go_fast: true,
+      output_format: "jpg",
     };
 
     const output = await replicate.run("black-forest-labs/flux-schnell", { input });
-    const src = output.toString("base64");
+    const src = output.toString();
 
     return json({ src }, { status: 200 });
   } catch (error) {
