@@ -5,16 +5,17 @@ const replicate = new Replicate({
   auth: REPLICATE_TOKEN,
 });
 
-export default async (imageURL) => {
-  if (!imageURL) return null;
+export default async (imageUrl) => {
+  if (!imageUrl) return null;
 
-  const outputImageURL = await replicate.run(REPLICATE_UPSCALER_MODEL, {
+  const response = await replicate.run(REPLICATE_UPSCALER_MODEL, {
     input: {
       scale: 2,
-      image: imageURL,
+      image: imageUrl,
       face_enhance: true,
     },
   });
 
-  return outputImageURL;
+  const outputImageUrl = response.toString();
+  return outputImageUrl;
 };
