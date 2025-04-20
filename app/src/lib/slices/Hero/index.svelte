@@ -83,19 +83,15 @@
     data-slice-type="{slice.slice_type}"
     data-slice-variation="{slice.variation}"
     class:!bg-brand-smoke-darker="{slice.primary.is_bg_gray}">
-    <div class="shell relative z-[1] flex md:flex-row flex-col-reverse items-center gap-8 py-16">
+    <div class="shell relative z-[1] flex md:flex-row flex-col-reverse items-center gap-4 md:gap-8 py-8 md:py-16">
       <div class="flex-1">
         <div class="mb-2">
           <PrismicRichText field="{slice.primary.eyebrow_headline}" />
         </div>
-        <div class="mb-4 heading-3xl lg:heading-5xl lg:mb-7">
+        <div class="mb-4 heading-3xl lg:heading-5xl lg:mb-2 hidden md:block">
           <PrismicRichText field="{slice.primary.heading}" />
         </div>
-        <div class="max-w-xl text-base">
-          <PrismicRichText field="{slice.primary.description}" />
-        </div>
-
-        <div class="pt-8 pb-4">
+        <div class="pb-4 md:pt-4">
           <PromptInputForm
             class="h-16"
             bind:imageUrl
@@ -105,14 +101,19 @@
             {promptSuggestions}
             on:generate="{handleImageGenerate}" />
         </div>
-
         <div class:opacity-50="{!imageUrl}" class:!pointer-events-none="{isLoading || !imageUrl}">
-          <a href="{buttonLink}" class="button bg-brand-accent border-none">
-            {slice.primary.link_label}
+          <a href="{buttonLink}" class="button bg-brand-accent border-none rounded-md">
+            View Product
           </a>
+        </div>
+        <div class="max-w-xl text-base mt-6">
+          <PrismicRichText field="{slice.primary.description}" />
         </div>
       </div>
       <div class="relative flex-1 md:h-[600px] h-[400px] md:w-auto w-full">
+        <div class="mb-4 heading-2xl lg:heading-5xl lg:mb-2 md:hidden">
+          <PrismicRichText field="{slice.primary.heading}" />
+        </div>
         <Splide
           on:mounted="{setActiveButtonLink}"
           on:moved="{setActiveButtonLink}"

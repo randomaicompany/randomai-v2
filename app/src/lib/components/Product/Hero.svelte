@@ -241,7 +241,7 @@
         </div>
 
         {#if page.is_predesigned}
-          <div class="py-2">
+          <div class="py-2 flex gap-4">
             <button
               on:click="{addProductToCart}"
               disabled="{isAddingToCart}"
@@ -252,23 +252,28 @@
                 Add To Cart
               {/if}
             </button>
+              <a
+                href="/editor/products/{uid}?variant={selectedVariant?.id}&quantity={quantity}"
+                class="text-brand-primary button bg-white border-[#ED7675]">
+                Edit Product
+              </a>
           </div>
         {:else}
           <div class="py-2">
             <a
               href="/editor/products/{uid}?variant={selectedVariant?.id}&quantity={quantity}"
               class="text-white button bg-[#ED7675] border-[#ED7675]">
-              Start Designing</a>
+              Edit Product</a>
           </div>
         {/if}
 
         <div>
           <ul>
-            {#each page.product_details as { heading, content }}
+            {#each page.product_details as { heading, content }, i}
               <li>
-                <DropDownContent name="{heading}">
+                <DropDownContent name={heading} isOpen={i === 0}>
                   <div class="px-4 pb-6 text-sm">
-                    <PrismicRichText field="{content}" />
+                    <PrismicRichText field={content} />
                   </div>
                 </DropDownContent>
               </li>

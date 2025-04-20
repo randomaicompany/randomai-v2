@@ -14,9 +14,15 @@
   export let buttonText = "";
   export let iconName = "model_training";
 
-  export let prompt = "";
   export let imageUrl = "";
   export let isLoading = false;
+
+  export let tempPromt = "";
+  export let prompt = "";
+
+  $: if (!prompt && tempPromt) {
+    prompt = tempPromt;
+  }
 
   let stylePreset = JSON.stringify(R.head(stylePresets));
 
@@ -31,6 +37,7 @@
     isLoading = true;
 
     const finalPrompt = prefix + prompt + suffix;
+    localStorage.setItem("tempPromt", prompt);
 
     const response = await fetch("/api/generate", {
       method: "POST",
@@ -87,14 +94,13 @@
       maxlength="700"
       disabled="{isLoading}"
       bind:value="{prompt}"
-      on:input="{debouncedInput}"
       class:!pr-64="{buttonText}"
       class:!pr-28="{!buttonText}"
       placeholder="Please enter your prompt"
-      class="input-field block min-h-[4rem] !pr-24 py-2 pt-3 w-full md:text-[14px] focus:border-brand-secondary resize-none {className}"
+      class="input-field block min-h-[6rem] !pr-24 py-2 pt-3 w-full md:text-[14px] focus:border-brand-secondary resize-none {className}"
     ></textarea>
 
-    <div class="absolute flex items-center h-8 gap-3 text-sm top-3 right-4">
+    <div class="absolute flex items-center h-8 gap-3 text-sm bottom-4 right-4">
       {#if isLoading}
         <div
           style="animation-duration:0.3s;"
@@ -104,7 +110,7 @@
         <button
           on:click="{() => generate(prompt)}"
           class:hidden="{!prompt}"
-          class="relative group bg-[#fccc26] w-6 h-6 rounded-full ring-1 ring-offset-2 ring-[#fccc26] hover:ring-offset-4 transition-all hover:opacity-80">
+          class="flex items-center justify-center relative group bg-[#fccc26] w-8 h-8 rounded-full ring-1 ring-offset-2 ring-[#fccc26] hover:ring-offset-4 transition-all hover:opacity-80">
           <svg
             class="object-contain w-6 h-6 rounded-full"
             xmlns="http://www.w3.org/2000/svg"
@@ -232,24 +238,7 @@
 
           <p
             class="absolute px-2 text-xs text-white transition-opacity delay-300 opacity-0 select-none right-[-50%] bg-brand-black whitespace-nowrap -top-8 group-hover:opacity-100">
-            Re-run
-          </p>
-        </button>
-
-        <button
-          on:click
-          type="button"
-          disabled="{isLoading}"
-          class:!pl-2="{buttonText}"
-          on:click="{suggestPrompt}"
-          class="relative flex items-center justify-center w-6 h-6 gap-2 transition-all rounded-full group ring-offset-2 ring-gray-200 hover:ring-offset-4 text-brand-green ring-1 hover:ring-brand-green">
-          {#if buttonText}
-            <p class="text-[13px]">{buttonText}</p>
-          {/if}
-          <i class="material-symbols-sharp !text-[21.5px]">{iconName}</i>
-          <p
-            class="absolute px-2 text-xs text-white transition-opacity delay-300 opacity-0 select-none bg-brand-black whitespace-nowrap -top-8 group-hover:opacity-100">
-            Auto Generate
+            Generate
           </p>
         </button>
       {/if}

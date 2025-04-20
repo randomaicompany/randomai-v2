@@ -119,6 +119,7 @@
     isLoading = false;
     hasProductAndVariantIds = true;
   });
+
 </script>
 
 <svelte:head>
@@ -182,6 +183,9 @@
           Add to Cart
         {/if}
       </button>
+      <a href="/products/{product?.handle}" class="button">
+        Product Description
+      </a>
     </footer>
   </div>
 

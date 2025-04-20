@@ -32,6 +32,8 @@
   export let selectedGalleryImage = null;
   export let currentViewIdx = 0;
 
+  export let tempPromt = "";
+
   let tabIdx = 0;
 
   $: currentUser = $user;
@@ -117,10 +119,16 @@
 
   const setHomeGeneratedImage = () => {
     const localImageUrl = localStorage.getItem("imageUrl");
+    const localPromt = localStorage.getItem("tempPromt");
+
     if (!browser || !localImageUrl) return;
     addBase64ImageToCanvas(canvas, localImageUrl);
+
     imageUrl = localImageUrl;
+    tempPromt = localPromt;
+
     localStorage.removeItem("imageUrl");
+    localStorage.removeItem("tempPromt");
   };
 
   onMount(() => {
@@ -171,20 +179,22 @@
       </div>
     </div>
 
-    <div class="relative hidden pt-8" class:!block="{R.equals(tabIdx, 0)}">
-      <Images
-        gallery="{data.data.gallery}"
-        bind:images="{generatedImages}"
-        on:select="{addSelectedImageToCanvas}" />
-      <div class="pt-8">
+    <div class="relative hidden pt-4" class:!block="{R.equals(tabIdx, 0)}">
+      <div class="py-5">
         <PromptInputForm
           bind:imageUrl
           bind:isLoading="{isGenerating}"
           on:generate="{handleImageGenerate}"
           {aiSettings}
           {stylePresets}
-          {promptSuggestions} />
+          {promptSuggestions}
+          tempPromt={tempPromt} 
+        />
       </div>
+      <Images
+        gallery="{data.data.gallery}"
+        bind:images="{generatedImages}"
+        on:select="{addSelectedImageToCanvas}" />
     </div>
   </div>
 </div>
