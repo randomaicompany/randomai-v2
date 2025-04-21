@@ -172,18 +172,18 @@
       </div>
     </div>
 
-    <footer class="flex items-center justify-end gap-4 pt-14">
+    <footer class="flex items-center justify-end gap-4 pt-14 flex-wrap md:flex-nowrap">
       <button
         on:click="{exportAndAddToCart}"
         disabled="{isAddToCartInProgress}"
-        class="border-transparent button bg-brand-accent-light">
+        class="border-transparent button bg-brand-accent-light w-full md:max-w-max">
         {#if isAddToCartInProgress}
           Please wait...
         {:else}
           Add to Cart
         {/if}
       </button>
-      <a href="/products/{product?.handle}" class="button">
+      <a href="/products/{product?.handle}" class="button w-full md:max-w-max">
         Product Description
       </a>
     </footer>

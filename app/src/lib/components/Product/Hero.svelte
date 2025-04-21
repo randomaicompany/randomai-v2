@@ -63,6 +63,7 @@
     if (!browser) return;
     slider && thumbs && slider.sync(thumbs.splide);
   });
+
 </script>
 
 {#if product}
@@ -235,9 +236,11 @@
             {/if}
           </div>
           <Options bind:selectedVariant {product} />
-          <div class="md:py-8 py-4">
-            <QuantityPicker bind:quantity />
-          </div>
+          {#if page.is_predesigned}
+            <div class="md:py-8 py-4">
+                <QuantityPicker bind:quantity />
+            </div>
+          {/if}
         </div>
 
         {#if page.is_predesigned}

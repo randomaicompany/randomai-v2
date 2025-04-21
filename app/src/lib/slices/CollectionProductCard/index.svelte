@@ -16,8 +16,6 @@
 
   const editorLink = `/editor/products/${slice.primary.link?.uid}?variant=${slice.primary.product?.image?.variant_ids?.[0] || slice.primary.product.id}`;
 
-  // console.log('slicees...', slice)
-  console.log('link text....', slice.primary.link_text?.[0]?.text)
 </script>
 
 <div class="relative" data-slice-type="{slice.slice_type}" data-slice-variation="{slice.variation}">

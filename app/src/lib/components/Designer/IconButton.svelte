@@ -2,6 +2,7 @@
   export let label = "";
   export let iconName = "";
   export let className = "";
+  export let isbackground;
 </script>
 
 <button
@@ -11,7 +12,8 @@
 
   {#if label}
     <p
-      class="opacity-0 group-hover:opacity-100 absolute md:top-1.5 -top-6 md:left-full left-auto select-none pointer-events-none whitespace-nowrap text-xs bg-gray-800 text-white p-1 pb-[5px] leading-none px-2 rounded-xl z-[1] transition-all">
+      class={`group-hover:opacity-100 group-hover:translate-x-1 absolute select-none pointer-events-none whitespace-nowrap text-sm border bg-white text-brand-primary p-1 pb-[5px] leading-none px-2 rounded-xl z-[1] transition-all duration-400 translate-x-3 ${isbackground
+       ?'md:opacity-0 left[-40px] md:left-full translate-y-8 md:translate-y-0 text-xs md:text-sm' : 'opacity-0 left-[100%] top-1.5'}`}>
       {label}
     </p>
   {/if}

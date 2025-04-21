@@ -237,7 +237,7 @@
             ></svg>
 
           <p
-            class="absolute px-2 text-xs text-white transition-opacity delay-300 opacity-0 select-none right-[-50%] bg-brand-black whitespace-nowrap -top-8 group-hover:opacity-100">
+            class="absolute px-3 py-1 rounded-full text-[14px] text-brand-primary transition-opacity delay-300 opacity-0 select-none right-[-40%] bg-white border whitespace-nowrap -top-11 group-hover:opacity-100">
             Generate
           </p>
         </button>

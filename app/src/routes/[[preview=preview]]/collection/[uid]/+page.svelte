@@ -92,7 +92,7 @@
         <div class="mb-4 -mt-1.5 inline-flex items-center">
           <h1 class="text-xl md:text-2xl">{title}</h1>
           <button
-            class="flex items-center ml-2 transition-all rounded-full hover:text-red-300 active:text-red-500"
+            class="flex items-center ml-2 transition-all rounded-full hover:text-red-300 active:text-red-500 absolute right-2 top-2"
             on:click="{() => (isFilterPanelOpen = false)}"
             ><i class="material-symbols-rounded !text-xl rounded-full">close</i></button>
         </div>
@@ -142,8 +142,6 @@
 
   <div class="pt-1">
     <button
-      class:ring-1="{isFilterPanelOpen}"
-      class:!bg-gray-100="{isFilterPanelOpen}"
       on:click="{() => (isFilterPanelOpen = !isFilterPanelOpen)}"
       class="bg-brand-accent text-white flex items-center justify-between gap-1 px-4 py-1.5 pl-2 mb-4 rounded-md">
       <i class:rotate-180="{!isFilterPanelOpen}" class="material-symbols-rounded !text-xl"
