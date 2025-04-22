@@ -235,7 +235,9 @@
               </p>
             {/if}
           </div>
-          <Options bind:selectedVariant {product} />
+          {#if page.is_predesigned}
+            <Options bind:selectedVariant {product} />
+          {/if}
           {#if page.is_predesigned}
             <div class="md:py-8 py-4">
                 <QuantityPicker bind:quantity />
