@@ -257,11 +257,6 @@
                 Add To Cart
               {/if}
             </button>
-              <a
-                href="/editor/products/{uid}?variant={selectedVariant?.id}&quantity={quantity}"
-                class="text-brand-primary button bg-white border-[#ED7675]">
-                Edit Product
-              </a>
           </div>
         {:else}
           <div class="py-2">

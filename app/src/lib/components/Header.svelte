@@ -62,7 +62,7 @@
 
     <form action="/search" method="get" class="md:block hidden">
       <label class="input-field-container">
-        <input placeholder="Search" name="query" class="input-field input-w-icon-left" />
+        <input placeholder="Search" name="query" class="input-field shadow-bordered input-w-icon-left" />
         <button type="submit">
           <i class="absolute h-6 material-symbols-rounded opacity-55 top-2.5 left-4">search</i>
         </button>

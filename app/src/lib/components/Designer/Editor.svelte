@@ -144,7 +144,7 @@
         <button
           on:click="{switchTab(0)}"
           class:!bg-brand-smoke-darker="{R.equals(tabIdx, 0)}"
-          class="flex items-center gap-2 p-4 md:py-3 py-2 pl-2 md:text-sm text-xs md:font-normal font-medium transition-all whitespace-nowrap">
+          class="flex items-center gap-2 border border-gray-200 border-r-0 p-4 md:py-3 py-2 pl-2 md:text-sm text-xs md:font-normal font-medium transition-all whitespace-nowrap">
           <i class="material-symbols-rounded">highlight</i>
           <p>Customize Art</p>
         </button>
@@ -153,7 +153,7 @@
         <button
           on:click="{switchTab(1)}"
           class:!bg-brand-smoke-darker="{R.equals(tabIdx, 1)}"
-          class="flex items-center gap-2 p-4 md:py-3 py-2 pl-2 md:text-sm text-xs md:font-normal font-medium transition-all whitespace-nowrap">
+          class="flex items-center border border-gray-200 gap-2 p-4 md:py-3 py-2 pl-2 md:text-sm text-xs md:font-normal font-medium transition-all whitespace-nowrap">
           <i class="material-symbols-rounded">sort_by_alpha</i>
           <p>Customize Text</p>
         </button>
