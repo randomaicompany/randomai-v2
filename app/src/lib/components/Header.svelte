@@ -33,7 +33,7 @@
   </div>
 {/if}
 
-<header class:top-9="{hasNoticeText}" class="sticky top-0 z-10 bg-white border">
+<header class:top-9="{hasNoticeText}" class="sticky top-0 z-10 bg-white border test-class">
   <nav class="shell flex items-center w-full h-20 gap-4">
     <button on:click="{toggleMenu}" class="relative xl:hidden flex items-center justify-center">
       {#if isMenuOpen}
