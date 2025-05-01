@@ -83,67 +83,67 @@
 
 <SliceZone slices="{breadcrumbSlices}" {components} />
 
-<div class:!gap-0="{!isFilterPanelOpen}" class="shell flex items-start gap-16 overflow-x-hidden">
+<div class:!gap-0="{!isFilterPanelOpen}" class="shell flex items-start gap-12 overflow-x-hidden">
   <aside
     class:!max-w-0="{!isFilterPanelOpen}"
-    class="flex-[0_0_14rem] flex flex-col gap-12 max-w-[14rem] overflow-hidden transition-all">
-    <div>
-      <div class="mb-4 -mt-1.5 inline-flex items-center">
-        <h1 class="text-xl md:text-2xl">{title}</h1>
-        <button
-          class="flex items-center ml-2 transition-all rounded-full hover:text-red-300 active:text-red-500"
-          on:click="{() => (isFilterPanelOpen = false)}"
-          ><i class="material-symbols-rounded !text-xl rounded-full">close</i></button>
+    class="flex-[0_0_18rem] flex flex-col mt-[60px] gap-12 max-w-full overflow-hidden transition-all">
+    <div class="p-5 border border-gray-200 rounded-md relative">
+      <div>
+        <div class="mb-4 -mt-1.5 inline-flex items-center">
+          <h1 class="text-xl md:text-2xl">{title}</h1>
+          <button
+            class="flex items-center ml-2 transition-all rounded-full hover:text-red-300 active:text-red-500 absolute right-2 top-2"
+            on:click="{() => (isFilterPanelOpen = false)}"
+            ><i class="material-symbols-rounded !text-xl rounded-full">close</i></button>
+        </div>
+  
+        <div class="px-4 pt-8">
+          <RangeSlider
+            min="{0}"
+            max="{200}"
+            pips
+            float
+            first="label"
+            last="label"
+            bind:values="{filters['priceRange']}" />
+        </div>
       </div>
-
-      <div class="px-4 pt-8">
-        <RangeSlider
-          min="{0}"
-          max="{200}"
-          pips
-          float
-          first="label"
-          last="label"
-          bind:values="{filters['priceRange']}" />
+  
+      <div class="pt-8">
+        <CheckboxGroup label="Gender" options="{page.genders}" bind:values="{filters['genders']}" />
       </div>
-    </div>
-
-    <div class="pt-8">
-      <CheckboxGroup label="Gender" options="{page.genders}" bind:values="{filters['genders']}" />
-    </div>
-
-    <div>
-      <CheckboxGroup
-        label="Collection"
-        options="{page.collections}"
-        bind:values="{filters['collections']}" />
-    </div>
-
-    <div>
-      <CheckboxGroup label="Brand" options="{page.brands}" bind:values="{filters['brands']}" />
-    </div>
-
-    <div>
-      <CheckboxGroup
-        label="Product"
-        options="{page.productTypes}"
-        bind:values="{filters['productTypes']}" />
-    </div>
-
-    <div>
-      <ColorsSwatches
-        label="Colors"
-        options="{page.productColors}"
-        bind:values="{filters['colors']}" />
+  
+      <div>
+        <CheckboxGroup
+          label="Collection"
+          options="{page.collections}"
+          bind:values="{filters['collections']}" />
+      </div>
+  
+      <div>
+        <CheckboxGroup label="Brand" options="{page.brands}" bind:values="{filters['brands']}" />
+      </div>
+  
+      <div>
+        <CheckboxGroup
+          label="Product"
+          options="{page.productTypes}"
+          bind:values="{filters['productTypes']}" />
+      </div>
+  
+      <div>
+        <ColorsSwatches
+          label="Colors"
+          options="{page.productColors}"
+          bind:values="{filters['colors']}" />
+      </div>
     </div>
   </aside>
 
   <div class="pt-1">
     <button
-      class:ring-1="{isFilterPanelOpen}"
-      class:!bg-gray-100="{isFilterPanelOpen}"
       on:click="{() => (isFilterPanelOpen = !isFilterPanelOpen)}"
-      class="flex items-center justify-between gap-1 px-4 py-1.5 pl-2 mb-4 border ring-brand-tertiary">
+      class="bg-brand-accent text-white flex items-center justify-between gap-1 px-4 py-1.5 pl-2 mb-4 rounded-md">
       <i class:rotate-180="{!isFilterPanelOpen}" class="material-symbols-rounded !text-xl"
         >menu_open</i>
 

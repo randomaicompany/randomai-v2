@@ -169,9 +169,9 @@
   }
 
   .input-field {
-    @apply placeholder:text-brand-tertiary/70;
-    @apply px-4 h-[42px] border border-brand-tertiary outline-none;
-    @apply focus:border-brand-accent rounded bg-white;
+    @apply placeholder:text-brand-tertiary;
+    @apply px-4 h-[42px] outline-none;
+    @apply focus:border-brand-accent rounded-md bg-white;
     @apply placeholder:font-light;
     @apply transition-all;
   }

@@ -63,7 +63,7 @@
     {/if}
   {/if}
 
-  <div class="absolute top-4 left-4">
+  <div class="absolute bottom-[-80px] md:bottom-[-100px] left-[50%] translate-x-[-50%]">
     <CanvasOptions {canvas} />
   </div>
 

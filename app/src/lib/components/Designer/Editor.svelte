@@ -32,6 +32,8 @@
   export let selectedGalleryImage = null;
   export let currentViewIdx = 0;
 
+  export let tempPromt = "";
+
   let tabIdx = 0;
 
   $: currentUser = $user;
@@ -117,10 +119,16 @@
 
   const setHomeGeneratedImage = () => {
     const localImageUrl = localStorage.getItem("imageUrl");
+    const localPromt = localStorage.getItem("tempPromt");
+
     if (!browser || !localImageUrl) return;
     addBase64ImageToCanvas(canvas, localImageUrl);
+
     imageUrl = localImageUrl;
+    tempPromt = localPromt;
+
     localStorage.removeItem("imageUrl");
+    localStorage.removeItem("tempPromt");
   };
 
   onMount(() => {
@@ -136,7 +144,7 @@
         <button
           on:click="{switchTab(0)}"
           class:!bg-brand-smoke-darker="{R.equals(tabIdx, 0)}"
-          class="flex items-center gap-2 p-4 md:py-3 py-2 pl-2 md:text-sm text-xs md:font-normal font-medium transition-all whitespace-nowrap">
+          class="flex items-center gap-2 border border-gray-200 border-r-0 p-4 md:py-3 py-2 pl-2 md:text-sm text-xs md:font-normal font-medium transition-all whitespace-nowrap">
           <i class="material-symbols-rounded">highlight</i>
           <p>Customize Art</p>
         </button>
@@ -145,7 +153,7 @@
         <button
           on:click="{switchTab(1)}"
           class:!bg-brand-smoke-darker="{R.equals(tabIdx, 1)}"
-          class="flex items-center gap-2 p-4 md:py-3 py-2 pl-2 md:text-sm text-xs md:font-normal font-medium transition-all whitespace-nowrap">
+          class="flex items-center border border-gray-200 gap-2 p-4 md:py-3 py-2 pl-2 md:text-sm text-xs md:font-normal font-medium transition-all whitespace-nowrap">
           <i class="material-symbols-rounded">sort_by_alpha</i>
           <p>Customize Text</p>
         </button>
@@ -171,20 +179,22 @@
       </div>
     </div>
 
-    <div class="relative hidden pt-8" class:!block="{R.equals(tabIdx, 0)}">
-      <Images
-        gallery="{data.data.gallery}"
-        bind:images="{generatedImages}"
-        on:select="{addSelectedImageToCanvas}" />
-      <div class="pt-8">
+    <div class="relative hidden pt-4" class:!block="{R.equals(tabIdx, 0)}">
+      <div class="py-5">
         <PromptInputForm
           bind:imageUrl
           bind:isLoading="{isGenerating}"
           on:generate="{handleImageGenerate}"
           {aiSettings}
           {stylePresets}
-          {promptSuggestions} />
+          {promptSuggestions}
+          tempPromt={tempPromt} 
+        />
       </div>
+      <Images
+        gallery="{data.data.gallery}"
+        bind:images="{generatedImages}"
+        on:select="{addSelectedImageToCanvas}" />
     </div>
   </div>
 </div>

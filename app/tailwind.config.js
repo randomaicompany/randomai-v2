@@ -5,6 +5,9 @@ export default {
       fontFamily: {
         sans: ["Poppins", "sans-serif"],
       },
+      boxShadow: {
+        'bordered': 'rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px',
+      },
       colors: {
         "brand-primary": "#3D3D3D",
         "brand-secondary": "#434D56",
