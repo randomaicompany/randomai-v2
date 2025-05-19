@@ -143,7 +143,7 @@
   <div class="pt-1">
     <button
       on:click="{() => (isFilterPanelOpen = !isFilterPanelOpen)}"
-      class="bg-brand-accent text-white flex items-center justify-between gap-1 px-4 py-1.5 pl-2 mb-4 rounded-md">
+      class="bg-brand-accent-light text-white flex items-center justify-between gap-1 px-4 py-1.5 pl-2 mb-4 rounded-md ml-auto">
       <i class:rotate-180="{!isFilterPanelOpen}" class="material-symbols-rounded !text-xl"
         >menu_open</i>
 

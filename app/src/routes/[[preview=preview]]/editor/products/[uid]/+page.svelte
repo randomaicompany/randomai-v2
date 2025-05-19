@@ -146,7 +146,7 @@
 {:else}
   <div class="shell md:py-16 py-8" class:!hidden="{!hasProductAndVariantIds}">
     <div class="flex flex-col-reverse md:gap-12 gap-4 md:flex-row">
-      <div class="flex-0 md:w-[26rem] mt-[100px] md:mt-0">
+      <div class="flex-0 md:w-[30rem] mt-[100px] md:mt-0">
         {#if canvas}
           <Editor
             {canvas}
@@ -161,6 +161,25 @@
             bind:images="{productImages}"
             bind:imageUrl="{generatedImage}" />
         {/if}
+
+        <footer class="flex items-center justify-end gap-4 pt-[50px] md:pt-[20px] flex-wrap md:flex-nowrap">
+          <button
+            on:click="{exportAndAddToCart}"
+            disabled="{isAddToCartInProgress}"
+            class="border-transparent button bg-brand-accent-light w-full md:max-w-max">
+            {#if isAddToCartInProgress}
+              Please wait...
+            {:else}
+              Add to Cart
+            {/if}
+          </button>
+          <!-- <a href="/products/{uid}" class="button w-full md:max-w-max">
+            Product Description
+          </a> -->
+          <button on:click={openModal} class="button w-full md:max-w-max">
+            Product Description
+          </button>
+        </footer>
       </div>
 
       <div class="relative max-w-2xl ml-auto">
@@ -182,7 +201,7 @@
       </div>
     </div>
 
-    <footer class="flex items-center justify-end gap-4 pt-[50px] md:pt-[120px] flex-wrap md:flex-nowrap">
+    <!-- <footer class="flex items-center justify-end gap-4 pt-[50px] md:pt-[120px] flex-wrap md:flex-nowrap">
       <button
         on:click="{exportAndAddToCart}"
         disabled="{isAddToCartInProgress}"
@@ -193,13 +212,10 @@
           Add to Cart
         {/if}
       </button>
-      <!-- <a href="/products/{uid}" class="button w-full md:max-w-max">
-        Product Description
-      </a> -->
       <button on:click={openModal} class="button w-full md:max-w-max">
         Product Description
       </button>
-    </footer>
+    </footer> -->
   </div>
 
   {#if !hasProductAndVariantIds}

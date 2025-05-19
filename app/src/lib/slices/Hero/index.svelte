@@ -114,7 +114,7 @@
         </div>
       </div>
       <div class="relative flex-1 md:h-[600px] h-[400px] md:w-auto w-full">
-        <div class="mb-4 heading-2xl lg:heading-5xl lg:mb-2 md:hidden">
+        <div class="mb-4 heading-3xl lg:heading-5xl lg:mb-2 md:hidden">
           <PrismicRichText field="{slice.primary.heading}" />
         </div>
         <Splide
@@ -133,7 +133,7 @@
                     src="{imageUrl}"
                     alt="geenrated art"
                     style="{outputStyle}"
-                    class="absolute top-[26%] object-cover left-[36.5%] w-[24%] h-[28%]" />
+                    class="absolute top-[26%] object-cover left-[36.5%] 2xl:max-w-[150px] 2xl:translate-x-[15px] w-[20%] h-[28%]" />
                 {/if}
 
                 {#if isLoading}

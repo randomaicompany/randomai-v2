@@ -1,6 +1,8 @@
 <script>
   import { PrismicLink } from "@prismicio/svelte";
   export let data;
+
+  console.log("data", data.results);
 </script>
 
 <div class="shell max-w-5xl py-16">
@@ -10,13 +12,32 @@
     {#each data.results as page}
       {#if page?.uid}
         <li>
-          <PrismicLink class="block p-4 bg-white border border-gray-400" field="{page}">
-            <p class="inline-block p-2 py-1 text-xs uppercase bg-brand-smoke-darker">{page.type}</p>
+          <PrismicLink
+            class="block p-4 bg-white border border-gray-400"
+            field={page}
+          >
+            {#if page.data?.product?.image?.src}
+              <div class="max-w-[500px] mb-4">
+                <img
+                  src={page.data.product.image.src}
+                  alt="Product"
+                  class="mb-4"
+                />
+              </div>
+            {/if}
+
+            <p
+              class="inline-block p-2 py-1 text-xs uppercase bg-brand-smoke-darker"
+            >
+              {page.type}
+            </p>
             <div class="mb-8">
               <p class="mt-2 text-xs text-gray-600">{page.url}</p>
             </div>
 
-            <div class="inline-flex items-center gap-4 p-4 py-2 text-xs border border-gray-400">
+            <div
+              class="inline-flex items-center gap-4 p-4 py-2 text-xs border border-gray-400"
+            >
               <i class="material-symbols-rounded !text-lg">open_in_new</i>
               <p>View this Page</p>
             </div>
