@@ -88,7 +88,7 @@
         <div class="mb-2">
           <PrismicRichText field="{slice.primary.eyebrow_headline}" />
         </div>
-        <div class="mb-4 heading-3xl lg:heading-5xl lg:mb-2 hidden md:block">
+        <div class="mb-4 heading-3xl lg:heading-5xl lg:mb-2 hidden md:block whitespace-nowrap">
           <PrismicRichText field="{slice.primary.heading}" />
         </div>
         <div class="max-w-xl text-base mt-6 hidden md:block">

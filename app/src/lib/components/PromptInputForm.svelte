@@ -17,11 +17,14 @@
   export let imageUrl = "";
   export let isLoading = false;
 
+  let hasInitializedPrompt = false;
   export let tempPromt = "";
   export let prompt = "";
 
-  $: if (!prompt && tempPromt) {
+  $: if (!hasInitializedPrompt && !prompt?.trim() && tempPromt?.trim()) {
+    console.log("Setting prompt from tempPromt:", tempPromt);
     prompt = tempPromt;
+    hasInitializedPrompt = true;
   }
 
   let stylePreset = JSON.stringify(R.head(stylePresets));
@@ -69,12 +72,25 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      if (!isLoading && prompt.trim()) {
+        generate(prompt);
+      }
+    }
+  };
+
   const debouncedInput = debounce(handleInput, 3000);
   const toggleStickerMode = () =>
     (isStickerModeEnabled = !isStickerModeEnabled);
 </script>
 
-<form class:opacity-50={isLoading} class="flex flex-col gap-4 relative">
+<form
+  class:opacity-50={isLoading}
+  class="flex flex-col gap-4 relative"
+  on:submit|preventDefault={() => generate(prompt)}
+>
   {#if RA.isNonEmptyArray(stylePresets)}
     <div>
       <label class="input-field-container block w-full">
@@ -93,17 +109,19 @@
     </div>
   {/if}
 
-  <label class="input-field-container items-start gap-4 flex-1 input-box input-field shadow-bordered block min-h-[10em] py-2 pt-3 w-full text-[14px]">
+  <label
+    class="input-field-container items-start gap-4 flex-1 input-box input-field shadow-bordered block min-h-[10em] py-2 pt-3 w-full text-[14px]"
+  >
     <textarea
       required
       rows="1"
       maxlength="700"
       disabled={isLoading}
       bind:value={prompt}
+      on:keydown={handleKeyDown}
       placeholder="Enter your prompt to generate an image"
       class="w-full resize-none font-light mb-10 outline-none ring-0 focus:ring-0 focus:outline-none border-none focus:border-none min-h-[5rem] {className}"
     ></textarea>
-
 
     <div
       class="absolute flex items-center h-8 gap-3 text-sm bottom-2 md:bottom-4 left-[115px] md:left-[130px] mt-5"
@@ -114,7 +132,7 @@
           class="w-5 h-5 bg-transparent border-2 rounded-full animate-spin border-r-transparent border-brand-accent"
         ></div>
       {:else}
-      <button
+        <button
           on:click={() => generate(prompt)}
           disabled={!prompt}
           class="flex items-center justify-center relative group bg-[#fccc26] hover:ring-offset-4 transition-all hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -132,23 +150,23 @@
             Generate
           </p>
         </button>
-    
+
         <button
           on:click
           type="button"
           disabled={isLoading}
           class:!pl-2={buttonText}
           on:click={suggestPrompt}
-          class="relative flex items-center justify-center w-6 h-6 gap-2 transition-all rounded-full group ring-offset-2 ring-gray-200 hover:ring-offset-4 text-brand-green ring-1 hover:ring-brand-green"
+          class="relative flex items-center justify-center w-6 h-6 gap-2 transition-all rounded-full group ring-offset-2 ring-gray-200 hover:ring-offset-4 text-brand-green ring-1 hover:bg-brand-green hover:text-white hover:ring-brand-green"
         >
           {#if buttonText}
             <p class="text-[13px]">{buttonText}</p>
           {/if}
           <i class="material-symbols-sharp !text-[21.5px]">{iconName}</i>
           <p
-            class="absolute px-2 py-1 rounded-sm text-xs text-white transition-opacity delay-300 opacity-0 select-none bg-brand-black whitespace-nowrap -bottom-8 group-hover:opacity-100"
+            class="absolute px-2 py-1 rounded-sm text-xs text-white transition-opacity delay-300 opacity-0 select-none bg-brand-green whitespace-nowrap -bottom-8 group-hover:opacity-100"
           >
-            Auto Generate Generate
+            Random Prompt
           </p>
         </button>
       {/if}

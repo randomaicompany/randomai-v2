@@ -32,19 +32,29 @@
   beforeNavigate(() => (isMenuOpen = false));
 
   let query = "";
-
   let debounceTimeout;
+  let inputRef;
+
   function handleInput(event) {
     query = event.target.value;
-
     clearTimeout(debounceTimeout);
     debounceTimeout = setTimeout(() => {
       const trimmed = query.trim();
-      goto(
-        trimmed ? `/search?query=${encodeURIComponent(trimmed)}` : "/search"
-      );
-    }, 300); // 300ms debounce
+
+      const active = document.activeElement;
+
+      goto(trimmed ? `/search?query=${encodeURIComponent(trimmed)}` : "/search", {
+        keepfocus: true,
+        noScroll: true,
+        replaceState: true,
+      }).then(() => {
+        if (active === inputRef) {
+          inputRef?.focus();
+        }
+      });
+    }, 300);
   }
+
 </script>
 
 {#if hasNoticeText}
@@ -92,20 +102,25 @@
 
     <form on:submit|preventDefault class="md:block hidden">
       <label class="input-field-container">
+        <!-- svelte-ignore a11y-autofocus -->
         <input
+          bind:this={inputRef}
           placeholder="Search"
           name="query"
           class="input-field shadow-bordered input-w-icon-left"
           on:input={handleInput}
+          autofocus
         />
         <button type="submit">
           <i
             class="absolute h-6 material-symbols-rounded opacity-55 top-2.5 left-4"
-            >search</i
           >
+            search
+          </i>
         </button>
       </label>
     </form>
+    
 
     <ul class="flex items-center gap-1">
       <li class="h-[42px] w-[42px] flex items-center justify-center">
