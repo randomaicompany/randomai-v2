@@ -182,7 +182,7 @@
                         {/if}
                       </div>
 
-                      <p class="mt-2 text-sm font-thin line-clamp-2">
+                      <p class="mt-2 text-sm line-clamp-2">
                         {convertToPlainText(item.content)}
                       </p>
 
@@ -255,7 +255,7 @@
           <h3 class="text-lg font-medium">{previewItem.title}</h3>
         </div>
 
-        <div class="mt-2 text-sm font-thin blog-popup-html">{@html previewItem.content}</div>
+        <div class="mt-2 text-sm blog-popup-html">{@html previewItem.content}</div>
 
         <ul class="flex flex-wrap items-center gap-2 mt-4">
           {#each previewItem.categories as category}

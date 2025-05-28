@@ -1,5 +1,7 @@
 <script>
   import { goto } from "$app/navigation";
+  import { page } from "$app/stores";
+  import { get } from "svelte/store";
 
   export let data;
   import { onMount } from "svelte";
@@ -33,7 +35,9 @@
 
   let query = "";
   let debounceTimeout;
-  let inputRef;
+  let inputRef; 
+
+  $: shouldAutofocus = $page.url.pathname.includes("/search");
 
   function handleInput(event) {
     query = event.target.value;
@@ -43,18 +47,20 @@
 
       const active = document.activeElement;
 
-      goto(trimmed ? `/search?query=${encodeURIComponent(trimmed)}` : "/search", {
-        keepfocus: true,
-        noScroll: true,
-        replaceState: true,
-      }).then(() => {
+      goto(
+        trimmed ? `/search?query=${encodeURIComponent(trimmed)}` : "/search",
+        {
+          keepfocus: true,
+          noScroll: true,
+          replaceState: true,
+        }
+      ).then(() => {
         if (active === inputRef) {
           inputRef?.focus();
         }
       });
     }, 300);
   }
-
 </script>
 
 {#if hasNoticeText}
@@ -109,7 +115,7 @@
           name="query"
           class="input-field shadow-bordered input-w-icon-left"
           on:input={handleInput}
-          autofocus
+          autofocus={shouldAutofocus ? true : undefined}
         />
         <button type="submit">
           <i
@@ -120,7 +126,6 @@
         </button>
       </label>
     </form>
-    
 
     <ul class="flex items-center gap-1">
       <li class="h-[42px] w-[42px] flex items-center justify-center">

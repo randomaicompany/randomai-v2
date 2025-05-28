@@ -88,10 +88,14 @@
         <div class="mb-2">
           <PrismicRichText field="{slice.primary.eyebrow_headline}" />
         </div>
-        <div class="mb-4 heading-3xl lg:heading-5xl lg:mb-2 hidden md:block whitespace-nowrap">
-          <PrismicRichText field="{slice.primary.heading}" />
+        <div class="mb-4 lg:mb-2 hidden md:block">
+          <!-- <PrismicRichText field="{slice.primary.heading}" /> -->
+           <h1 class="text-6xl leading-[45px] max-w-[1200px] font-inter">
+            AI-<span class="font-ultra leading-5">Powered</span>,
+            <span class="inline-block whitespace-nowrap leading-5">human-<span class="font-ultra">Inspired</span>.</span>
+           </h1>
         </div>
-        <div class="max-w-xl text-base mt-6 hidden md:block">
+        <div class="max-w-xl text-base mt-2 hidden md:block">
           <PrismicRichText field="{slice.primary.description}" />
         </div>
         <div class="pb-4 md:pt-4">
@@ -114,8 +118,10 @@
         </div>
       </div>
       <div class="relative flex-1 md:h-[600px] h-[400px] md:w-auto w-full">
-        <div class="mb-4 heading-3xl lg:heading-5xl lg:mb-2 md:hidden">
-          <PrismicRichText field="{slice.primary.heading}" />
+        <div class="mb-4 heading-3xl leading-[26px] lg:heading-5xl lg:mb-2 md:hidden">
+          <!-- <PrismicRichText field="{slice.primary.heading}" /> -->
+           AI-<span class="font-ultra leading-5">Powered</span>,
+            <span class="inline-block whitespace-nowrap leading-5">human-<span class="font-ultra">Inspired</span>.</span>
         </div>
         <Splide
           on:mounted="{setActiveButtonLink}"
