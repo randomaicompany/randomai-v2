@@ -41,6 +41,37 @@
   };
 
   $: browser && (document.body.style.overflow = isModalOpen ? "hidden" : "auto");
+
+  let scrollContainer;
+
+  let isAtStart = true;
+  let isAtEnd = false;
+  const scrollByAmount = 200;
+
+  function updateButtonStates() {
+    if (!scrollContainer) return;
+    isAtStart = scrollContainer.scrollLeft <= 0;
+    isAtEnd =
+      scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth;
+  }
+
+  const scrollLeft = () => {
+    scrollContainer.scrollBy({ left: -scrollByAmount, behavior: "smooth" });
+  };
+
+  const scrollRight = () => {
+    scrollContainer.scrollBy({ left: scrollByAmount, behavior: "smooth" });
+  };
+
+  function handleScroll() {
+    updateButtonStates();
+  }
+
+  // Ensure correct state on mount
+  import { onMount } from "svelte";
+  onMount(() => {
+    updateButtonStates();
+  });
 </script>
 
 <svelte:head>
@@ -54,7 +85,45 @@
 
 <SliceZone slices="{heroSlice}" {components} />
 
-<ul
+<div class="relative max-w-7xl mx-auto mb-8">
+  <!-- Scroll Buttons -->
+  <button
+    on:click={scrollLeft}
+    disabled={isAtStart}
+    class="text-brand-accent-light absolute right-10 top -top-[40px] z-10 rounded-full cursor-pointer"
+    aria-label="Scroll left"
+  >
+    ◀
+  </button>
+
+  <button
+    on:click={scrollRight}
+    disabled={isAtEnd}
+    class="text-brand-accent-light absolute right-3 -top-[40px] bg-white rounded-full cursor-pointer"
+    aria-label="Scroll right"
+  >
+    ▶
+  </button>
+
+  <!-- Scrollable List -->
+  <ul
+    bind:this={scrollContainer}
+    on:scroll={handleScroll}
+    class="flex items-start gap-4 overflow-x-auto scrollbar-hide p-2 bg-white rounded scroll-smooth">
+    {#each data.feeds as feed}
+      <li>
+        <a
+          href={`#${feed.name}`}
+          class="block whitespace-nowrap px-4 py-2 text-sm font-medium rounded border hover:text-brand-accent bg-gray-50"
+        >
+          {feed.name}
+        </a>
+      </li>
+    {/each}
+  </ul>
+</div>
+
+<!-- <ul
   class="flex items-start gap-4 max-w-7xl mx-auto overflow-x-auto scrollbar-hide mb-8 bg-white p-2 rounded">
   {#each data.feeds as feed}
     <li>
@@ -64,7 +133,7 @@
         >{feed.name}</a>
     </li>
   {/each}
-</ul>
+</ul> -->
 
 <div class="shell pb-16">
   <div class="flex flex-col gap-16">
@@ -113,7 +182,7 @@
                         {/if}
                       </div>
 
-                      <p class="mt-2 text-sm font-thin line-clamp-2">
+                      <p class="mt-2 text-sm line-clamp-2">
                         {convertToPlainText(item.content)}
                       </p>
 
@@ -186,7 +255,7 @@
           <h3 class="text-lg font-medium">{previewItem.title}</h3>
         </div>
 
-        <div class="mt-2 text-sm font-thin blog-popup-html">{@html previewItem.content}</div>
+        <div class="mt-2 text-sm blog-popup-html">{@html previewItem.content}</div>
 
         <ul class="flex flex-wrap items-center gap-2 mt-4">
           {#each previewItem.categories as category}
@@ -208,3 +277,11 @@
 {#if data.data.body && data.data.body.length > 0}
   {@html data.data.body[0].text}
 {/if}
+
+
+<style>
+  button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+</style>

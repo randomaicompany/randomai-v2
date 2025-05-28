@@ -43,7 +43,12 @@
 
   const getAiSettings = R.pipe(
     R.path(["productPage", "data"]),
-    R.pick(["aspect_ratio_front", "aspect_ratio_back", "output_quality", "seed"])
+    R.pick([
+      "aspect_ratio_front",
+      "aspect_ratio_back",
+      "output_quality",
+      "seed",
+    ])
   );
 
   const defaultAiSettings = getAiSettings(data);
@@ -60,7 +65,9 @@
       RA.renameKey("aspect_ratio_back", "aspect_ratio"),
       RA.compact
     );
-    return R.equals(idx, 0) ? buildFront(defaultAiSettings) : buildBack(defaultAiSettings);
+    return R.equals(idx, 0)
+      ? buildFront(defaultAiSettings)
+      : buildBack(defaultAiSettings);
   };
 
   $: aiSettings = getCurrentAiSettings(currentViewIdx, defaultAiSettings);
@@ -127,6 +134,8 @@
     imageUrl = localImageUrl;
     tempPromt = localPromt;
 
+    console.log("tempPromt", tempPromt);
+
     localStorage.removeItem("imageUrl");
     localStorage.removeItem("tempPromt");
   };
@@ -142,18 +151,20 @@
     <ul class="inline-flex flex-row items-center md:pt-8">
       <li class="flex-1">
         <button
-          on:click="{switchTab(0)}"
-          class:!bg-brand-smoke-darker="{R.equals(tabIdx, 0)}"
-          class="flex items-center gap-2 border border-gray-200 border-r-0 p-4 md:py-3 py-2 pl-2 md:text-sm text-xs md:font-normal font-medium transition-all whitespace-nowrap">
+          on:click={switchTab(0)}
+          class:!bg-brand-smoke-darker={R.equals(tabIdx, 0)}
+          class="flex items-center gap-2 border border-gray-200 border-r-0 p-4 md:py-3 py-2 pl-2 md:text-sm text-xs md:font-normal font-medium transition-all whitespace-nowrap"
+        >
           <i class="material-symbols-rounded">highlight</i>
           <p>Customize Art</p>
         </button>
       </li>
       <li class="flex-1">
         <button
-          on:click="{switchTab(1)}"
-          class:!bg-brand-smoke-darker="{R.equals(tabIdx, 1)}"
-          class="flex items-center border border-gray-200 gap-2 p-4 md:py-3 py-2 pl-2 md:text-sm text-xs md:font-normal font-medium transition-all whitespace-nowrap">
+          on:click={switchTab(1)}
+          class:!bg-brand-smoke-darker={R.equals(tabIdx, 1)}
+          class="flex items-center border border-gray-200 gap-2 p-4 md:py-3 py-2 pl-2 md:text-sm text-xs md:font-normal font-medium transition-all whitespace-nowrap"
+        >
           <i class="material-symbols-rounded">sort_by_alpha</i>
           <p>Customize Text</p>
         </button>
@@ -162,39 +173,43 @@
 
     <div>
       {#if RA.isNotEmpty(product)}
-        <div class="hidden" class:!block="{R.equals(tabIdx, 0)}">
-          <h2 class="pt-10 heading-2xl md:block hidden">{product?.title || ""}</h2>
+        <div class="hidden" class:!block={R.equals(tabIdx, 0)}>
+          <h2 class="pt-10 heading-2xl md:block hidden">
+            {product?.title || ""}
+          </h2>
           <Options
-            on:change="{setVariant}"
+            on:change={setVariant}
             bind:choice
-            bind:selectedVariant="{variant}"
-            {product} />
+            bind:selectedVariant={variant}
+            {product}
+          />
         </div>
       {/if}
 
-      <div class="hidden" class:!block="{R.equals(tabIdx, 1)}">
+      <div class="hidden" class:!block={R.equals(tabIdx, 1)}>
         <div class="py-8">
           <Text bind:canvas />
         </div>
       </div>
     </div>
 
-    <div class="relative hidden pt-4" class:!block="{R.equals(tabIdx, 0)}">
+    <div class="relative hidden pt-4" class:!block={R.equals(tabIdx, 0)}>
       <div class="py-5">
         <PromptInputForm
           bind:imageUrl
-          bind:isLoading="{isGenerating}"
-          on:generate="{handleImageGenerate}"
+          bind:isLoading={isGenerating}
+          on:generate={handleImageGenerate}
           {aiSettings}
           {stylePresets}
           {promptSuggestions}
-          tempPromt={tempPromt} 
+          {tempPromt}
         />
       </div>
       <Images
-        gallery="{data.data.gallery}"
-        bind:images="{generatedImages}"
-        on:select="{addSelectedImageToCanvas}" />
+        gallery={data.data.gallery}
+        bind:images={generatedImages}
+        on:select={addSelectedImageToCanvas}
+      />
     </div>
   </div>
 </div>

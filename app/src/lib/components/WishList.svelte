@@ -87,19 +87,19 @@
                       stroke-width="1.5"></path>
                   </svg>
                 </button>
-                <div class="block">
+                <a href={item.link} class="block">
                   <img
                     alt="product"
                     src="{item.image}"
                     class="object-cover w-full p-4 mb-4 bg-gray-100 h-80" />
 
                   <div>
-                    <p>{item.title}</p>
+                    <p class="min-h-[52px] line-clamp-2">{item.title}</p>
                     <p class=" text-brand-tertiary">${item.price}</p>
                   </div>
 
                   <a href="{item.link}" class="py-1 mt-4 button-compact">Start Designing</a>
-                </div>
+                </a>
               </li>
             {/each}
           </ul>
