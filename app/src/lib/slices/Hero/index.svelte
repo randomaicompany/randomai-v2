@@ -83,7 +83,7 @@
     data-slice-type="{slice.slice_type}"
     data-slice-variation="{slice.variation}"
     class:!bg-brand-smoke-darker="{slice.primary.is_bg_gray}">
-    <div class="shell relative z-[1] flex md:flex-row flex-col-reverse items-center gap-4 md:gap-8 py-8 md:py-16">
+    <div class="shell max-w-[1600px] relative z-[1] flex md:flex-row flex-col-reverse items-center gap-4 md:gap-8 py-8 md:py-16">
       <div class="flex-1">
         <div class="mb-2">
           <PrismicRichText field="{slice.primary.eyebrow_headline}" />

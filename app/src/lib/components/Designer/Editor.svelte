@@ -177,6 +177,17 @@
           <h2 class="pt-10 heading-2xl md:block hidden">
             {product?.title || ""}
           </h2>
+          <div class="py-5">
+            <PromptInputForm
+              bind:imageUrl
+              bind:isLoading={isGenerating}
+              on:generate={handleImageGenerate}
+              {aiSettings}
+              {stylePresets}
+              {promptSuggestions}
+              {tempPromt}
+            />
+          </div>
           <Options
             on:change={setVariant}
             bind:choice
@@ -194,17 +205,6 @@
     </div>
 
     <div class="relative hidden pt-4" class:!block={R.equals(tabIdx, 0)}>
-      <div class="py-5">
-        <PromptInputForm
-          bind:imageUrl
-          bind:isLoading={isGenerating}
-          on:generate={handleImageGenerate}
-          {aiSettings}
-          {stylePresets}
-          {promptSuggestions}
-          {tempPromt}
-        />
-      </div>
       <Images
         gallery={data.data.gallery}
         bind:images={generatedImages}
