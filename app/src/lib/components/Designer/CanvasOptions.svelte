@@ -58,22 +58,22 @@
 {#if canvas}
   <div class="tools-box-wrapper flex flex-col justify-center">
     <div class="flex gap-2 p-2 rounded-md tools-box shadow-[0px_2px_8px_rgba(99,99,99,0.2)]">
-      <IconButton
-        label="Vertically align"
-        iconName="vertical_align_center"
-        on:click="{() => verticallyAlign(canvas)}" />
-
-      <IconButton
-        label="Horizontally align"
-        iconName="align_horizontal_center"
-        on:click="{() => horizontallyAlign(canvas)}" />
-
       <IconButton label="Delete" iconName="delete" on:click="{() => deleteItem(canvas)}" />
 
       <IconButton
         label="Clear everything"
         iconName="clear_all"
         on:click="{() => clearAll(canvas)}" />
+
+      <IconButton
+        label="Vertically align"
+        iconName="vertical_align_center"
+        on:click="{() => verticallyAlign(canvas)}" />
+
+       <IconButton
+        label="Horizontally align"
+        iconName="align_horizontal_center"
+        on:click="{() => horizontallyAlign(canvas)}" />
 
       <!-- <IconButton
         label="Bring to front"

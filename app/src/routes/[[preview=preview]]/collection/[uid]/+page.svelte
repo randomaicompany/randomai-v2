@@ -97,7 +97,7 @@
             ><i class="material-symbols-rounded !text-xl rounded-full">close</i></button>
         </div>
   
-        <div class="px-4 pt-8">
+        <div class="px-4 pt-4 mb-6">
           <RangeSlider
             min="{0}"
             max="{200}"

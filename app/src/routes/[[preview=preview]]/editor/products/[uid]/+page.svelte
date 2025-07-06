@@ -144,7 +144,7 @@
 {#if isLoading}
   <p class="block p-4 text-center">Loading...</p>
 {:else}
-  <div class="shell md:py-16 py-8" class:!hidden="{!hasProductAndVariantIds}">
+  <div class="shell md:py-16 py-8 max-w-[1600px]" class:!hidden="{!hasProductAndVariantIds}">
     <div class="flex flex-col-reverse md:gap-12 gap-4 md:flex-row">
       <div class="flex-0 md:w-[30rem] mt-[100px] md:mt-0">
         {#if canvas}
