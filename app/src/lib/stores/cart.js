@@ -48,7 +48,7 @@ export const fetchCartItems = async () => {
     } catch (error) {
       console.log(error);
       localStorage.removeItem("checkoutId");
-      location.reload();
+      // location.reload();
     }
   }
 };
