@@ -16,6 +16,8 @@
 
   const editorLink = `/editor/products/${slice.primary.link?.uid}?variant=${slice.primary.product?.image?.variant_ids?.[0] || slice.primary.product.id}`;
 
+  console.log(slice)
+
 </script>
 
 <div class="relative" data-slice-type="{slice.slice_type}" data-slice-variation="{slice.variation}">
@@ -31,7 +33,7 @@
     }}">
     {#each slice.items as { image }}
       <SplideSlide>
-        {#if slice.primary.link_text?.[0]?.text !== 'Buy Now'}
+        {#if slice.primary.link_text?.[0]?.text.trim().toLowerCase() !== 'buy now'}
           <a href={editorLink}>
             <PrismicImage class="object-cover object-top w-full h-96 bg-brand-smoke-darker" field="{image}" />
           </a>
@@ -61,7 +63,7 @@
   <div class="min-h-[10rem] flex flex-col">
     <div class="flex-1">
       <p class="text-base font-medium">
-        {#if slice.primary.link_text?.[0]?.text !== 'Buy Now'}
+        {#if slice.primary.link_text?.[0]?.text.trim().toLowerCase() !== 'buy now'}
           <a href={editorLink}>
             {slice?.primary?.product?.title || ""}
           </a>
@@ -86,7 +88,7 @@
     </div>
 
     {#if isFilled.link(slice.primary.link)}
-      {#if slice.primary.link_text?.[0]?.text !== 'Buy Now'}
+      {#if slice.primary.link_text?.[0]?.text.trim().toLowerCase() !== 'buy now'}
         <div class="pt-4">
           <a href={editorLink} class="button button-compact">
             <PrismicText field={slice.primary.link_text} />
