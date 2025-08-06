@@ -5,19 +5,81 @@
   import * as R from "ramda";
   import { Splide, SplideSlide } from "@splidejs/svelte-splide";
   import { PrismicImage, PrismicLink, PrismicRichText, PrismicText } from "@prismicio/svelte";
+  import { onMount } from 'svelte';
 
   import Heart from "components/Heart.svelte";
   import { isFilled } from "@prismicio/client";
 
   let slider;
   let activeIdx = 0;
+  let zoomContainers = [];
+
   const goToSlide = (idx) => () => (slider.go(idx), (activeIdx = idx));
   const handleSlideMove = (event) => (activeIdx = event.detail.index);
 
   const editorLink = `/editor/products/${slice.primary.link?.uid}?variant=${slice.primary.product?.image?.variant_ids?.[0] || slice.primary.product.id}`;
 
-  console.log(slice)
+  // Initialize zoom functionality after component mounts
+  onMount(() => {
+    zoomContainers.forEach((container, index) => {
+      if (container) {
+        const img = container.querySelector('img');
+        const overlay = container.querySelector('.zoom-overlay');
+        
+        if (img && overlay) {
+          const zoomSrc = img.getAttribute('data-zoom') || img.src;
+          
+          const handleMouseMove = (e) => {
+            const rect = container.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
 
+            // Calculate zoom position
+            const xPercent = (x / rect.width) * 100;
+            const yPercent = (y / rect.height) * 100;
+
+            // Update overlay background
+            overlay.style.backgroundImage = `url('${zoomSrc}')`;
+            overlay.style.backgroundSize = '200%'; // 2x zoom
+            overlay.style.backgroundPosition = `${xPercent}% ${yPercent}%`;
+            overlay.style.backgroundRepeat = 'no-repeat';
+          };
+
+          const handleMouseEnter = () => {
+            overlay.style.opacity = '1';
+            overlay.style.visibility = 'visible';
+          };
+
+          const handleMouseLeave = () => {
+            overlay.style.opacity = '0';
+            overlay.style.visibility = 'hidden';
+          };
+
+          container.addEventListener('mousemove', handleMouseMove);
+          container.addEventListener('mouseenter', handleMouseEnter);
+          container.addEventListener('mouseleave', handleMouseLeave);
+
+          // Cleanup function
+          return () => {
+            container.removeEventListener('mousemove', handleMouseMove);
+            container.removeEventListener('mouseenter', handleMouseEnter);
+            container.removeEventListener('mouseleave', handleMouseLeave);
+          };
+        }
+      }
+    });
+  });
+
+  // Function to get zoom URL for image - you'll need to adapt this to your image structure
+  const getZoomUrl = (image, newWidth, newHeight) => {
+    const parsedUrl = new URL(image.url || image.src);
+
+  parsedUrl.searchParams.set('w', newWidth);
+  parsedUrl.searchParams.set('h', newHeight);
+
+    // Replace this logic with however you determine the zoom URL from your image field
+    return parsedUrl.toString();
+  };
 </script>
 
 <div class="relative" data-slice-type="{slice.slice_type}" data-slice-variation="{slice.variation}">
@@ -31,17 +93,29 @@
       arrows: false,
       pagination: false,
     }}">
-    {#each slice.items as { image }}
+    {#each slice.items as { image }, index}
       <SplideSlide>
-        {#if slice.primary.link_text?.[0]?.text.trim().toLowerCase() !== 'buy now'}
-          <a href={editorLink}>
-            <PrismicImage class="object-cover object-top w-full h-96 bg-brand-smoke-darker" field="{image}" />
-          </a>
-        {:else}
-          <PrismicLink field="{slice.primary.link}">
-            <PrismicImage class="object-cover object-top w-full h-96 bg-brand-smoke-darker" field="{image}" />
-          </PrismicLink>
-        {/if}
+        <div class="zoom-container relative overflow-hidden" bind:this={zoomContainers[index]}>
+          {#if slice.primary.link_text?.[0]?.text.trim().toLowerCase() !== 'buy now'}
+            <a href={editorLink}>
+              <PrismicImage 
+                class="object-cover object-top w-full h-96 bg-brand-smoke-darker" 
+                field="{image}"
+                data-zoom="{getZoomUrl(image,1200,1200)}"
+              />
+            </a>
+          {:else}
+            <PrismicLink field="{slice.primary.link}">
+              <PrismicImage 
+                class="object-cover object-top w-full h-96 bg-brand-smoke-darker" 
+                field="{image}"
+                data-zoom="{getZoomUrl(image,1200,1200)}"
+              />
+            </PrismicLink>
+          {/if}
+          <div class="zoom-overlay absolute inset-0 pointer-events-none transition-opacity duration-300" 
+               style="opacity: 0; visibility: hidden;"></div>
+        </div>
       </SplideSlide>
     {/each}
   </Splide>
@@ -104,3 +178,23 @@
     {/if}
   </div>
 </div>
+
+<style>
+  .zoom-container {
+    position: relative;
+    cursor: crosshair;
+  }
+  
+  .zoom-overlay {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(1px);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .zoom-container:hover .zoom-overlay {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+</style>
