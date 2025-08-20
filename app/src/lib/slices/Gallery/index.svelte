@@ -7,6 +7,9 @@
   import { fade, fly } from "svelte/transition";
   import { PrismicImage, PrismicRichText, PrismicText } from "@prismicio/svelte";
   import { browser } from "$app/environment";
+  import IconButton from "../../components/Designer/IconButton.svelte";
+  
+  
 
   export let slice;
 
@@ -20,6 +23,14 @@
   const openCurrent = (item) => () => {
     currentItem = item;
     isOpen = true;
+  };
+
+
+  const copyToClipboard = (text) => {
+    console.log(text[0].text)
+    navigator.clipboard.writeText(text[0].text).then(() => {
+      console.log("Copied to clipboard:", text[0].text);
+    });
   };
 
   $: isOpen,
@@ -76,8 +87,9 @@
       class="max-w-lg w-full p-8 rounded-lg bg-white mt-[16vh] shadow-xl overflow-auto">
       <PrismicImage class="object-contain rounded-lg mb-4" field="{currentItem.image}" />
 
-      <p class="font-medium md:text-xl text-lg mb-2">
+      <p class="font-medium md:text-xl text-lg mb-2 flex justify-between">
         <PrismicText field="{currentItem.title}" />
+         <IconButton label="copy" iconName="content_copy" on:click="{() => copyToClipboard(currentItem.description)}" />
       </p>
 
       <PrismicText field="{currentItem.description}" />

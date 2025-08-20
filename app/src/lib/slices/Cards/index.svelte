@@ -6,13 +6,73 @@
   import { isFilled } from "@prismicio/client";
   import { Splide, SplideSlide } from "@splidejs/svelte-splide";
   import { PrismicLink, PrismicText, PrismicImage, PrismicRichText } from "@prismicio/svelte";
-
+    import { onMount } from 'svelte';
+  let zoomContainers = [];
   const prepareTags = (item) => {
     const tags = R.defaultTo("", R.prop("tags", item));
     const tagsString = R.trim(tags);
     const tagsList = R.defaultTo([], R.split(",", tagsString));
     const tagsListNormalized = R.map(R.pipe(R.trim), tagsList);
     return R.reject(R.isEmpty, tagsListNormalized);
+  };
+   onMount(() => {
+    zoomContainers.forEach((container, index) => {
+      if (container) {
+        const img = container.querySelector('img');
+        const overlay = container.querySelector('.zoom-overlay');
+        
+        if (img && overlay) {
+          const zoomSrc = img.getAttribute('data-zoom') || img.src;
+          
+          const handleMouseMove = (e) => {
+            const rect = container.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Calculate zoom position
+            const xPercent = (x / rect.width) * 100;
+            const yPercent = (y / rect.height) * 100;
+
+            // Update overlay background
+            overlay.style.backgroundImage = `url('${zoomSrc}')`;
+            overlay.style.backgroundSize = '200%'; // 2x zoom
+            overlay.style.backgroundPosition = `${xPercent}% ${yPercent}%`;
+            overlay.style.backgroundRepeat = 'no-repeat';
+          };
+
+          const handleMouseEnter = () => {
+            overlay.style.opacity = '1';
+            overlay.style.visibility = 'visible';
+          };
+
+          const handleMouseLeave = () => {
+            overlay.style.opacity = '0';
+            overlay.style.visibility = 'hidden';
+          };
+
+          container.addEventListener('mousemove', handleMouseMove);
+          container.addEventListener('mouseenter', handleMouseEnter);
+          container.addEventListener('mouseleave', handleMouseLeave);
+
+          // Cleanup function
+          return () => {
+            container.removeEventListener('mousemove', handleMouseMove);
+            container.removeEventListener('mouseenter', handleMouseEnter);
+            container.removeEventListener('mouseleave', handleMouseLeave);
+          };
+        }
+      }
+    });
+  });
+
+    const getZoomUrl = (image, newWidth, newHeight) => {
+    const parsedUrl = new URL(image.url || image.src);
+
+  parsedUrl.searchParams.set('w', newWidth);
+  parsedUrl.searchParams.set('h', newHeight);
+
+    // Replace this logic with however you determine the zoom URL from your image field
+    return parsedUrl.toString();
   };
 </script>
 
@@ -35,18 +95,23 @@
         class="grid grid-cols-1 gap-16 mt-12 md:gap-2 {slice.primary.is_4_col_layout
           ? 'md:grid-cols-4'
           : 'md:grid-cols-3'} ">
-        {#each slice.items as item}
-          <li>
+        {#each slice.items as item , index}
+          <li >
             <PrismicLink
               field="{item.link}"
               class="block transition-opacity hover:opacity-90 group">
-              <div class="bg-brand-smoke-darker">
+              <div class="bg-brand-smoke-darker zoom-container relative overflow-hidden" bind:this={zoomContainers[index]}>
                 <PrismicImage
                   field="{item.image}"
+                   data-zoom="{getZoomUrl(item.image,1200,1200)}"
                   class="w-full h-96 {slice.primary.is_cover
                     ? 'object-cover'
                     : 'object-contain'} " />
+
+            <div class="zoom-overlay absolute inset-0 pointer-events-none transition-opacity duration-300" 
+               style="opacity: 0; visibility: hidden;"></div>
               </div>
+              
 
               <div class="mt-4 text-base font-medium">
                 <PrismicRichText field="{item.title}" />
@@ -63,6 +128,7 @@
                   {/each}
                 </ul>
               {/if}
+            
             </PrismicLink>
           </li>
         {/each}
@@ -527,3 +593,24 @@
     </div>
   </section>
 {/if}
+
+
+<style>
+  .zoom-container {
+    position: relative;
+    cursor: crosshair;
+  }
+  
+  .zoom-overlay {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(1px);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .zoom-container:hover .zoom-overlay {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+</style>
