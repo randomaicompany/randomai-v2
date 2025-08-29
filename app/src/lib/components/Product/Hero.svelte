@@ -49,6 +49,8 @@
 
   const addProductToCart = async () => {
     try {
+      console.log("Adding to cart", selectedVariant, quantity);
+      
       isAddingToCart = true;
       await addToCart(selectedVariant.admin_graphql_api_id, quantity);
       isAddingToCart = false;

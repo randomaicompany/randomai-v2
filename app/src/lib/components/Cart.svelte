@@ -36,6 +36,9 @@
 
     return map;
   };
+
+  console.log($cart)
+
 </script>
 
 {#if isCartOpen}
@@ -101,11 +104,11 @@
           </div>
 
           <div class="w-full">
-            <p class="text-base font-medium leading-snug">{lineItem.title}</p>
+            <p class="text-base font-medium leading-snug">{lineItem.variant?.product?.title}</p>
             <small class="text-brand-tertiary">{lineItem.variant.title}</small>
             <div class="flex items-center justify-between">
               <p class="flex-1 mt-4 text-base">
-                ${lineItem?.variant?.price?.amount}
+                ${lineItem?.variant?.price}
               </p>
 
               <ul class="inline-flex items-center mt-4">
@@ -145,7 +148,7 @@
           <div class="flex items-center justify-between mb-8">
             <p class="text-lg">Subtotal:</p>
             <p class="text-lg font-semibold">
-              ${$cart?.subtotalPrice?.amount || "..."}
+              ${$cart?.subtotalPrice || "..."}
             </p>
           </div>
 
