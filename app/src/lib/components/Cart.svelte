@@ -1,6 +1,7 @@
 <script>
   import { fade, fly } from "svelte/transition";
-  import { cart, decrementItem, incrementItem } from "root/src/lib/stores/cart";
+  import { cart, decrementItem, incrementItem, removeItem } from "root/src/lib/stores/cart";
+
 
   export let isLoading = false;
   export let isCartOpen = false;
@@ -37,7 +38,12 @@
     return map;
   };
 
-  console.log($cart)
+  const remove = (variantId) => async () => {
+    isLoading = true;
+    console.log(variantId);
+    await removeItem(variantId);
+    isLoading = false;
+  };
 
 </script>
 
@@ -66,11 +72,22 @@
     </div>
 
     <ul class="flex-1 overflow-auto">
-      {#each $cart?.lineItems || [] as lineItem}
+  {#each $cart?.lineItems || [] as lineItem}
         {@const frontImageUrl = attributesToMap(lineItem)["front"]}
         {@const backImageUrl = attributesToMap(lineItem)["back"]}
         <li
-          class="flex flex-col items-start w-full gap-4 p-4 border-b text-stone-700 border-stone-200">
+          class="flex flex-col items-start w-full gap-4 p-4 border-b text-stone-700 border-stone-200 relative">
+          <!-- Remove Icon Button -->
+          <button
+            class="absolute top-2 right-2 p-1 rounded hover:bg-red-100 transition"
+            aria-label="Remove item"
+            on:click={remove(lineItem.variant.id)}
+            disabled={isLoading}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-red-500">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
           <div class="flex gap-2">
             {#if frontImageUrl || backImageUrl}
               <div

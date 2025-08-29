@@ -1,7 +1,7 @@
 // src/stores/cart.js
 import { browser } from "$app/environment";
 import { get, writable } from "svelte/store";
-import { addLineItems, fetchCheckout, createCheckout, updateLineItems } from "root/src/lib/shopify";
+import { addLineItems, fetchCheckout, createCheckout, updateLineItems, removeLineItems } from "root/src/lib/shopify";
 
 let initialCart = {
   lineItems: [],
@@ -246,14 +246,19 @@ export const decrementItem = async (variantId) => {
 
 export const removeItem = async (variantId) => {
   const currentCart = get(cart);
-  
-  if (!currentCart.lineItems) return;
+  if (!currentCart.lineItems || !currentCart.id) return;
 
-  const lineItems = currentCart.lineItems.filter(
-    (lineItem) => lineItem.variant.id !== variantId
+  // Find the lineItem(s) with this variantId
+  const lineItemsToRemove = currentCart.lineItems.filter(
+    (lineItem) => lineItem.variant.id === variantId
   );
+  if (lineItemsToRemove.length === 0) return;
 
-  await updateCart({ ...currentCart, lineItems });
+  // Shopify expects lineItem.id, not variant.id
+  const lineItemIds = lineItemsToRemove.map(item => item.id);
+  const updatedCart = await removeLineItems(currentCart.id, lineItemIds);
+  cart.set(updatedCart);
+  return updatedCart;
 };
 
 export const updateCart = async (_cart) => {

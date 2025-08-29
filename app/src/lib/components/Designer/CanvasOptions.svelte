@@ -1,6 +1,7 @@
 <script>
   import { ref } from "firebase/storage";
   import { storage } from "$lib/firebase";
+  import { fabric } from "fabric";
 
   export let isRemovingBackground;
   import {
@@ -17,6 +18,35 @@
   export let canvas;
 
   import IconButton from "./IconButton.svelte";
+
+  // Zoom state and helpers
+  let zoom = 1;
+  export let minZoom = 0.25;
+  export let maxZoom = 4;
+  export let zoomStep = 0.1;
+
+  $: if (canvas && typeof canvas.getZoom === "function") {
+    // keep local zoom in sync when canvas changes externally
+    zoom = canvas.getZoom();
+  }
+
+  const setZoom = (value) => {
+    if (!canvas) return;
+    const clamped = Math.max(minZoom, Math.min(maxZoom, value));
+    const center = new fabric.Point(canvas.getWidth() / 2, canvas.getHeight() / 2);
+    canvas.zoomToPoint(center, clamped);
+    zoom = canvas.getZoom();
+    canvas.requestRenderAll();
+  };
+
+  const zoomIn = () => setZoom(zoom + zoomStep);
+  const zoomOut = () => setZoom(zoom - zoomStep);
+  const resetZoom = () => {
+    if (!canvas) return;
+    canvas.setViewportTransform([1, 0, 0, 1, 0, 0]);
+    zoom = 1;
+    canvas.requestRenderAll();
+  };
 
   const removeBackground = async () => {
     if (!canvas) return;
@@ -74,6 +104,24 @@
         label="Horizontally align"
         iconName="align_horizontal_center"
         on:click="{() => horizontallyAlign(canvas)}" />
+
+      <!-- Zoom controls -->
+      <div class="mx-2 h-6 w-px bg-gray-200 self-center" aria-hidden="true"></div>
+      <IconButton label="Zoom out" iconName="zoom_out" on:click={zoomOut} />
+      <div class="flex items-center gap-2 px-1">
+        <input
+          class="w-28 accent-brand-accent"
+          type="range"
+          min={minZoom}
+          max={maxZoom}
+          step={zoomStep}
+          value={zoom}
+          on:input={(e) => setZoom(+e.target.value)}
+          aria-label="Canvas zoom" />
+        <span class="text-xs w-10 text-center select-none">{Math.round(zoom * 100)}%</span>
+      </div>
+      <IconButton label="Zoom in" iconName="zoom_in" on:click={zoomIn} />
+      <IconButton label="Reset zoom" iconName="center_focus_strong" on:click={resetZoom} />
 
       <!-- <IconButton
         label="Bring to front"
