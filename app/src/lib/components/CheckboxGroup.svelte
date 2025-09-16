@@ -1,33 +1,32 @@
 <script>
-  import * as R from "ramda";
-  import Checkbox from "./Checkbox.svelte";
+	import * as R from 'ramda';
+	import Checkbox from './Checkbox.svelte';
 
-  /**
-   * @typedef {Object} Props
-   * @property {string} [label]
-   * @property {any} [values]
-   * @property {any} [options]
-   */
+	/**
+	 * @typedef {Object} Props
+	 * @property {string} [label]
+	 * @property {any} [values]
+	 * @property {any} [options]
+	 */
 
-  /** @type {Props} */
-  let { label = "", values = $bindable([]), options = [] } = $props();
+	/** @type {Props} */
+	let { label = '', values = $bindable([]), options = [] } = $props();
 
-  const updateValues = (option) => () => {
-    return (values = R.includes(option, values)
-      ? R.without([option], values)
-      : R.append(option, values));
-  };
+	const updateValues = (option) => () => {
+		return (values = R.includes(option, values)
+			? R.without([option], values)
+			: R.append(option, values));
+	};
 </script>
 
 <div>
-  <p class="mb-2 text-xl">{label}</p>
-  <ul class="mb-6">
-    {#each options as option (option)}
-      <li
-        class="font-normaltext-brand-secondary flex items-center justify-between text-sm">
-        <p>{option}</p>
-        <Checkbox isChecked={true} on:change={updateValues(option)} />
-      </li>
-    {/each}
-  </ul>
+	<p class="mb-2 text-xl">{label}</p>
+	<ul class="mb-6">
+		{#each options as option (option)}
+			<li class="font-normaltext-brand-secondary flex items-center justify-between text-sm">
+				<p>{option}</p>
+				<Checkbox isChecked={true} on:change={updateValues(option)} />
+			</li>
+		{/each}
+	</ul>
 </div>
