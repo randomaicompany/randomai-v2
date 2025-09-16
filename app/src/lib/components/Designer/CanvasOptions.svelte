@@ -12,7 +12,7 @@
     horizontallyAlign,
     getImageInCanvas,
     hasImageInCanvas,
-    replaceActiveImageSrc,
+    replaceActiveImageSrc
   } from "root/src/lib/api/fabric";
 
   export let canvas;
@@ -33,7 +33,10 @@
   const setZoom = (value) => {
     if (!canvas) return;
     const clamped = Math.max(minZoom, Math.min(maxZoom, value));
-    const center = new fabric.Point(canvas.getWidth() / 2, canvas.getHeight() / 2);
+    const center = new fabric.Point(
+      canvas.getWidth() / 2,
+      canvas.getHeight() / 2
+    );
     canvas.zoomToPoint(center, clamped);
     zoom = canvas.getZoom();
     canvas.requestRenderAll();
@@ -60,12 +63,14 @@
 
     if (!imageSRC) {
       isRemovingBackground = false;
-      return alert("No image selected. Please select an image to remove the background.");
+      return alert(
+        "No image selected. Please select an image to remove the background."
+      );
     }
 
     const response = await fetch(`/api/cleanup`, {
       method: "POST",
-      body: JSON.stringify({ imageUrl: imageSRC }),
+      body: JSON.stringify({ imageUrl: imageSRC })
     });
 
     const data = await response.json();
@@ -87,26 +92,31 @@
 
 {#if canvas}
   <div class="tools-box-wrapper flex flex-col justify-center">
-    <div class="flex gap-2 p-2 rounded-md tools-box shadow-[0px_2px_8px_rgba(99,99,99,0.2)]">
-      <IconButton label="Delete" iconName="delete" on:click="{() => deleteItem(canvas)}" />
+    <div
+      class="tools-box flex gap-2 rounded-md p-2 shadow-[0px_2px_8px_rgba(99,99,99,0.2)]">
+      <IconButton
+        label="Delete"
+        iconName="delete"
+        on:click={() => deleteItem(canvas)} />
 
       <IconButton
         label="Clear everything"
         iconName="clear_all"
-        on:click="{() => clearAll(canvas)}" />
+        on:click={() => clearAll(canvas)} />
 
       <IconButton
         label="Vertically align"
         iconName="vertical_align_center"
-        on:click="{() => verticallyAlign(canvas)}" />
+        on:click={() => verticallyAlign(canvas)} />
 
-       <IconButton
+      <IconButton
         label="Horizontally align"
         iconName="align_horizontal_center"
-        on:click="{() => horizontallyAlign(canvas)}" />
+        on:click={() => horizontallyAlign(canvas)} />
 
       <!-- Zoom controls -->
-      <div class="mx-2 h-6 w-px bg-gray-200 self-center" aria-hidden="true"></div>
+      <div class="mx-2 h-6 w-px self-center bg-gray-200" aria-hidden="true">
+      </div>
       <IconButton label="Zoom out" iconName="zoom_out" on:click={zoomOut} />
       <div class="flex items-center gap-2 px-1">
         <input
@@ -118,10 +128,14 @@
           value={zoom}
           on:input={(e) => setZoom(+e.target.value)}
           aria-label="Canvas zoom" />
-        <span class="text-xs w-10 text-center select-none">{Math.round(zoom * 100)}%</span>
+        <span class="w-10 select-none text-center text-xs"
+          >{Math.round(zoom * 100)}%</span>
       </div>
       <IconButton label="Zoom in" iconName="zoom_in" on:click={zoomIn} />
-      <IconButton label="Reset zoom" iconName="center_focus_strong" on:click={resetZoom} />
+      <IconButton
+        label="Reset zoom"
+        iconName="center_focus_strong"
+        on:click={resetZoom} />
 
       <!-- <IconButton
         label="Bring to front"
@@ -131,13 +145,13 @@
       {#if !isRemovingBackground}
         <IconButton
           className="!bg-brand-accent-light !text-white !border-brand-accent-light active:!bg-brand-accent"
-          on:click="{removeBackground}"
+          on:click={removeBackground}
           label="Clear Background"
           isbackground={true}
           iconName="wallpaper" />
       {:else}
         <div
-          class="h-6 w-6 rounded-full border-brand-accent border-2 border-r-transparent animate-spin">
+          class="h-6 w-6 animate-spin rounded-full border-2 border-brand-accent border-r-transparent">
         </div>
       {/if}
     </div>

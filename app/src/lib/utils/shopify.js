@@ -6,7 +6,7 @@ const zipOptions = R.pipe(
   R.addIndex(R.map)(({ value }, idx) => {
     const optionName = R.concat("option", R.toString(R.inc(idx)));
     return {
-      [optionName]: value,
+      [optionName]: value
     };
   }),
   R.mergeAll
@@ -21,9 +21,9 @@ export const formatVariantOptions = R.pipe(
     options: R.map(
       R.evolve({
         name: R.identity,
-        values: R.pluck("value"),
+        values: R.pluck("value")
       })
-    ),
+    )
   })
 );
 
@@ -35,6 +35,9 @@ const getImageProp = R.ifElse(
 
 export const findVariantImages = R.curry((product, variant) => {
   const nth = R.flip(R.nth);
-  const idx = R.findIndex(R.propEq(getImageProp(variant), "id"), R.prop("images", product));
+  const idx = R.findIndex(
+    R.propEq(getImageProp(variant), "id"),
+    R.prop("images", product)
+  );
   return R.map(R.pipe(nth(product.images)), [idx, R.inc(idx)]);
 });

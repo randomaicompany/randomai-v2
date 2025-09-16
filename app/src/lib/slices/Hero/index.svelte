@@ -6,8 +6,15 @@
   import { asLink } from "@prismicio/client";
 
   import { Splide, SplideTrack, SplideSlide } from "@splidejs/svelte-splide";
-  import { PrismicLink, PrismicImage, PrismicRichText } from "@prismicio/svelte";
-  import { pluckPromptSuggestions, extractAISettingsDefault } from "utils/common.js";
+  import {
+    PrismicLink,
+    PrismicImage,
+    PrismicRichText
+  } from "@prismicio/svelte";
+  import {
+    pluckPromptSuggestions,
+    extractAISettingsDefault
+  } from "utils/common.js";
   //
   import PromptInputForm from "components/PromptInputForm.svelte";
 
@@ -18,7 +25,8 @@
   const stylePresets = R.path(["data", "style_presets"], context);
   const promptSuggestions = pluckPromptSuggestions(context);
 
-  const handleImageGenerate = ({ detail: base64Image }) => (imageUrl = base64Image);
+  const handleImageGenerate = ({ detail: base64Image }) =>
+    (imageUrl = base64Image);
 
   const getDisplayStyles = R.pipe(
     R.pick(["top", "left", "width", "height"]),
@@ -40,30 +48,35 @@
 {#if slice.variation == "default"}
   <section
     class="bg-white"
-    data-slice-type="{slice.slice_type}"
-    data-slice-variation="{slice.variation}"
-    class:!bg-brand-smoke-darker="{slice.primary.is_bg_gray}">
-    <div class="relative flex lg:flex-row flex-col-reverse items-center min-h-[80vh]">
-      <div class="shell relative z-[1] md:pb-0 pb-24">
+    data-slice-type={slice.slice_type}
+    data-slice-variation={slice.variation}
+    class:!bg-brand-smoke-darker={slice.primary.is_bg_gray}>
+    <div
+      class="relative flex min-h-[80vh] flex-col-reverse items-center lg:flex-row">
+      <div class="shell relative z-[1] pb-24 md:pb-0">
         <div class="lg:w-1/2">
           <div class="mb-2">
-            <PrismicRichText field="{slice.primary.eyebrow_headline}" />
+            <PrismicRichText field={slice.primary.eyebrow_headline} />
           </div>
-          <div class="mb-4 heading-4xl lg:heading-5xl lg:mb-7">
-            <PrismicRichText field="{slice.primary.heading}" />
+          <div class="heading-4xl lg:heading-5xl mb-4 lg:mb-7">
+            <PrismicRichText field={slice.primary.heading} />
           </div>
           <div class="max-w-xl text-base">
-            <PrismicRichText field="{slice.primary.description}" />
+            <PrismicRichText field={slice.primary.description} />
           </div>
 
-          <div class="grid grid-cols-1 gap-4 mt-10 md:grid-cols-2">
+          <div class="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">
             {#if slice.primary.secondary_button_text}
-              <PrismicLink class="button secondary" field="{slice.primary.secondary_button_link}"
+              <PrismicLink
+                class="button secondary"
+                field={slice.primary.secondary_button_link}
                 >{slice.primary.secondary_button_text}</PrismicLink>
             {/if}
 
             {#if slice.primary.primary_button_text}
-              <PrismicLink class="button" field="{slice.primary.primary_button_link}"
+              <PrismicLink
+                class="button"
+                field={slice.primary.primary_button_link}
                 >{slice.primary.primary_button_text}</PrismicLink>
             {/if}
           </div>
@@ -71,32 +84,34 @@
       </div>
 
       <PrismicImage
-        class="lg:absolute top-0 right-0 flex-1 lg:w-[60%] lg:py-0 py-16 h-full object-contain"
-        field="{slice.primary.image}" />
+        class="right-0 top-0 h-full flex-1 object-contain py-16 lg:absolute lg:w-[60%] lg:py-0"
+        field={slice.primary.image} />
     </div>
   </section>
 {/if}
 
 {#if slice.variation == "withImageGenerator"}
   <section
-    class="pb-16 bg-white"
-    data-slice-type="{slice.slice_type}"
-    data-slice-variation="{slice.variation}"
-    class:!bg-brand-smoke-darker="{slice.primary.is_bg_gray}">
-    <div class="shell max-w-[1600px] relative z-[1] flex md:flex-row flex-col-reverse items-center gap-4 md:gap-8 py-8 md:py-16">
+    class="bg-white pb-16"
+    data-slice-type={slice.slice_type}
+    data-slice-variation={slice.variation}
+    class:!bg-brand-smoke-darker={slice.primary.is_bg_gray}>
+    <div
+      class="shell relative z-[1] flex max-w-[1600px] flex-col-reverse items-center gap-4 py-8 md:flex-row md:gap-8 md:py-16">
       <div class="flex-1">
         <div class="mb-2">
-          <PrismicRichText field="{slice.primary.eyebrow_headline}" />
+          <PrismicRichText field={slice.primary.eyebrow_headline} />
         </div>
-        <div class="mb-4 lg:mb-2 hidden md:block">
+        <div class="mb-4 hidden md:block lg:mb-2">
           <!-- <PrismicRichText field="{slice.primary.heading}" /> -->
-           <h1 class="text-6xl leading-[45px] max-w-[1200px] font-inter">
+          <h1 class="max-w-[1200px] font-inter text-6xl leading-[45px]">
             AI-<span class="font-ultra leading-5">Powered</span>,
-            <span class="inline-block whitespace-nowrap leading-5">human-<span class="font-ultra">Inspired</span>.</span>
-           </h1>
+            <span class="inline-block whitespace-nowrap leading-5"
+              >human-<span class="font-ultra">Inspired</span>.</span>
+          </h1>
         </div>
-        <div class="max-w-xl text-base mt-2 hidden md:block">
-          <PrismicRichText field="{slice.primary.description}" />
+        <div class="mt-2 hidden max-w-xl text-base md:block">
+          <PrismicRichText field={slice.primary.description} />
         </div>
         <div class="pb-4 md:pt-4">
           <PromptInputForm
@@ -106,28 +121,34 @@
             {stylePresets}
             {aiSettings}
             {promptSuggestions}
-            on:generate="{handleImageGenerate}" />
+            on:generate={handleImageGenerate} />
         </div>
-        <div class:opacity-50="{!imageUrl}" class:!pointer-events-none="{isLoading || !imageUrl}">
-          <a href="{buttonLink}" class="button bg-brand-accent border-none rounded-md">
+        <div
+          class:opacity-50={!imageUrl}
+          class:!pointer-events-none={isLoading || !imageUrl}>
+          <a
+            href={buttonLink}
+            class="button rounded-md border-none bg-brand-accent">
             View Product
           </a>
         </div>
-        <div class="max-w-xl text-base mt-6 md:hidden">
-          <PrismicRichText field="{slice.primary.description}" />
+        <div class="mt-6 max-w-xl text-base md:hidden">
+          <PrismicRichText field={slice.primary.description} />
         </div>
       </div>
-      <div class="relative flex-1 md:h-[600px] h-[400px] md:w-auto w-full">
-        <div class="mb-4 heading-3xl leading-[26px] lg:heading-5xl lg:mb-2 md:hidden">
+      <div class="relative h-[400px] w-full flex-1 md:h-[600px] md:w-auto">
+        <div
+          class="heading-3xl lg:heading-5xl mb-4 leading-[26px] md:hidden lg:mb-2">
           <!-- <PrismicRichText field="{slice.primary.heading}" /> -->
-           AI-<span class="font-ultra leading-5">Powered</span>,
-            <span class="inline-block whitespace-nowrap leading-5">human-<span class="font-ultra">Inspired</span>.</span>
+          AI-<span class="font-ultra leading-5">Powered</span>,
+          <span class="inline-block whitespace-nowrap leading-5"
+            >human-<span class="font-ultra">Inspired</span>.</span>
         </div>
         <Splide
-          on:mounted="{setActiveButtonLink}"
-          on:moved="{setActiveButtonLink}"
-          options="{{ arrows: true, pagination: false }}"
-          hasTrack="{false}"
+          on:mounted={setActiveButtonLink}
+          on:moved={setActiveButtonLink}
+          options={{ arrows: true, pagination: false }}
+          hasTrack={false}
           aria-label="My Favorite Images"
           class="h-full">
           <SplideTrack class="h-full">
@@ -136,26 +157,26 @@
               <SplideSlide class="relative h-full">
                 {#if imageUrl}
                   <img
-                    src="{imageUrl}"
+                    src={imageUrl}
                     alt="geenrated art"
-                    style="{outputStyle}"
-                    class="absolute top-[26%] object-cover left-[36.5%] 2xl:max-w-[150px] 2xl:translate-x-[15px] w-[20%] h-[28%]" />
+                    style={outputStyle}
+                    class="absolute left-[36.5%] top-[26%] h-[28%] w-[20%] object-cover 2xl:max-w-[150px] 2xl:translate-x-[15px]" />
                 {/if}
 
                 {#if isLoading}
                   <div
-                    class="flex items-center justify-center absolute z-10 object-cover top-[36%] left-[39%] w-[24%] h-[28%]">
-                    <div class="w-14 h-14 p-2 rounded-full bg-white">
+                    class="absolute left-[39%] top-[36%] z-10 flex h-[28%] w-[24%] items-center justify-center object-cover">
+                    <div class="h-14 w-14 rounded-full bg-white p-2">
                       <div
                         style="animation-duration:0.4s"
-                        class="bg-transparent border-[3px] rounded-full animate-spin border-r-transparent w-full h-full border-brand-accent">
+                        class="h-full w-full animate-spin rounded-full border-[3px] border-brand-accent border-r-transparent bg-transparent">
                       </div>
                     </div>
                   </div>
                 {/if}
                 <PrismicImage
-                  class="flex-1 object-contain w-full h-full md:h-[600px] h-[400px"
-                  field="{item.image}" />
+                  class="h-[400px h-full w-full flex-1 object-contain md:h-[600px]"
+                  field={item.image} />
               </SplideSlide>
             {/each}
           </SplideTrack>
@@ -168,18 +189,19 @@
 {#if slice.variation == "forRssBlogs"}
   <section
     class="py-24"
-    data-slice-type="{slice.slice_type}"
-    data-slice-variation="{slice.variation}">
+    data-slice-type={slice.slice_type}
+    data-slice-variation={slice.variation}>
     <div class="shell max-w-3xl text-center">
-      <div class="relative mb-4 !font-medium leading-snug heading-3xl lg:heading-4xl">
-        <PrismicRichText field="{slice.primary.heading}" />
+      <div
+        class="heading-3xl lg:heading-4xl relative mb-4 !font-medium leading-snug">
+        <PrismicRichText field={slice.primary.heading} />
 
         {#if slice.primary.is_underlined}
-          <div class="lg:w-[60%] w-[42%] h-1 bg-red-500 mx-auto"></div>
+          <div class="mx-auto h-1 w-[42%] bg-red-500 lg:w-[60%]"></div>
         {/if}
       </div>
       <div class="mx-auto text-lg">
-        <PrismicRichText field="{slice.primary.description}" />
+        <PrismicRichText field={slice.primary.description} />
       </div>
     </div>
   </section>

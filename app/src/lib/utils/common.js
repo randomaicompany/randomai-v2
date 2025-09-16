@@ -17,7 +17,7 @@ export const clickOutside = (node) => {
   return {
     destroy() {
       document.removeEventListener("click", handleClick, true);
-    },
+    }
   };
 };
 
@@ -28,7 +28,7 @@ export const getProductSearchParams = () => {
   const variantId = search.get("variant");
   return {
     productId,
-    variantId,
+    variantId
   };
 };
 
@@ -74,7 +74,12 @@ export const extractAISettings = R.ifElse(
   R.identity,
   R.pipe(
     R.prop("data"),
-    R.pick(["aspect_ratio_front", "aspect_ratio_back", "output_quality", "seed"]),
+    R.pick([
+      "aspect_ratio_front",
+      "aspect_ratio_back",
+      "output_quality",
+      "seed"
+    ]),
     RA.compact
   )
 );

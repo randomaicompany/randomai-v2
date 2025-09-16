@@ -5,8 +5,8 @@ export const removeBackground = async (imageURL) => {
     const response = await fetch("/cleanup", {
       method: "POST",
       body: JSON.stringify({
-        imageURL,
-      }),
+        imageURL
+      })
     });
     const data = await response.json();
     return data;
@@ -34,7 +34,10 @@ const getPositionAndScale = (canvas, image) => {
   let scaleX = 1;
   let scaleY = 1;
 
-  if (image.width > canvasWidth - margin * 2 || image.height > canvasHeight - margin * 2) {
+  if (
+    image.width > canvasWidth - margin * 2 ||
+    image.height > canvasHeight - margin * 2
+  ) {
     const maxScaleX = (canvasWidth - margin * 2) / image.width;
     const maxScaleY = (canvasHeight - margin * 2) / image.height;
     const maxScale = Math.min(maxScaleX, maxScaleY);
@@ -50,7 +53,7 @@ const getPositionAndScale = (canvas, image) => {
     scaleX,
     scaleY,
     left: xCenter - (image.width * scaleX) / 2,
-    top: yCenter - (image.height * scaleY) / 2,
+    top: yCenter - (image.height * scaleY) / 2
   };
 };
 
@@ -62,38 +65,46 @@ export const bringToFront = (canvas) => {
   canvas.renderAll();
 };
 
-export const addImageToCanvas = (canvas, imageRef, isPrismicImage) => (type) => {
-  // removeAllImages(canvas);
-  const src = isPrismicImage ? asImageSrc(imageRef) : imageRef;
+export const addImageToCanvas =
+  (canvas, imageRef, isPrismicImage) => (type) => {
+    // removeAllImages(canvas);
+    const src = isPrismicImage ? asImageSrc(imageRef) : imageRef;
 
-  fabric.Image.fromURL(
-    src,
-    (image) => {
-      const { scaleX, scaleY, top, left } = getPositionAndScale(canvas, image);
+    fabric.Image.fromURL(
+      src,
+      (image) => {
+        const { scaleX, scaleY, top, left } = getPositionAndScale(
+          canvas,
+          image
+        );
 
-      const imgObject = image.set({
-        top,
-        left,
-        scaleX,
-        scaleY,
-        hasBorders: true,
-        hasControls: true,
-      });
+        const imgObject = image.set({
+          top,
+          left,
+          scaleX,
+          scaleY,
+          hasBorders: true,
+          hasControls: true
+        });
 
-      if (type) {
-        imgObject.objectType = type;
-      }
+        if (type) {
+          imgObject.objectType = type;
+        }
 
-      canvas.add(imgObject);
-      canvas.setActiveObject(imgObject);
+        canvas.add(imgObject);
+        canvas.setActiveObject(imgObject);
 
-      return;
-    },
-    { crossOrigin: "anonymous" }
-  );
-};
+        return;
+      },
+      { crossOrigin: "anonymous" }
+    );
+  };
 
-export const addBase64ImageToCanvas = (canvas, imageBase64, type = "ai-generated-image") => {
+export const addBase64ImageToCanvas = (
+  canvas,
+  imageBase64,
+  type = "ai-generated-image"
+) => {
   if (!imageBase64) return;
   const img = new Image();
   img.crossOrigin = "anonymous";
@@ -109,7 +120,7 @@ export const addBase64ImageToCanvas = (canvas, imageBase64, type = "ai-generated
       scaleX,
       scaleY,
       hasBorders: true,
-      hasControls: true,
+      hasControls: true
     });
 
     imgObject.objectType = type;
@@ -166,7 +177,7 @@ export const addTextToCanvas = (canvas, data) => {
     fontFamily,
     fill: textColor,
     hasBorders: true,
-    hasControls: true, // Shows resize handles
+    hasControls: true // Shows resize handles
   });
 
   canvas.add(text);
@@ -261,7 +272,7 @@ export const replaceActiveImageSrc = (canvas, newSrc) => {
         activeObject.setElement(newImage.getElement());
         activeObject.set({
           scaleX,
-          scaleY,
+          scaleY
         });
         canvas.renderAll();
       },
@@ -285,8 +296,14 @@ export const putBoundaryConstraints = (canvas) => {
     const width = canvas.width;
     const height = canvas.height;
 
-    obj.top = Math.max(top, Math.min(obj.top, height - obj.height * obj.scaleY));
-    obj.left = Math.max(left, Math.min(obj.left, width - obj.width * obj.scaleX));
+    obj.top = Math.max(
+      top,
+      Math.min(obj.top, height - obj.height * obj.scaleY)
+    );
+    obj.left = Math.max(
+      left,
+      Math.min(obj.left, width - obj.width * obj.scaleX)
+    );
   });
 
   canvas.on("object:scaling", (e) => {

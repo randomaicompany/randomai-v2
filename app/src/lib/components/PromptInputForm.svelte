@@ -46,8 +46,8 @@
       method: "POST",
       body: JSON.stringify({
         ...aiSettings,
-        prompt: finalPrompt,
-      }),
+        prompt: finalPrompt
+      })
     });
 
     const imageResponse = await response.json();
@@ -88,21 +88,18 @@
 
 <form
   class:opacity-50={isLoading}
-  class="flex flex-col gap-4 relative"
-  on:submit|preventDefault={() => generate(prompt)}
->
+  class="relative flex flex-col gap-4"
+  on:submit|preventDefault={() => generate(prompt)}>
   {#if RA.isNonEmptyArray(stylePresets)}
     <div>
       <label class="input-field-container block w-full">
-        <p class="text-sm font-medium mb-2">Style</p>
+        <p class="mb-2 text-sm font-medium">Style</p>
         <select
           bind:value={stylePreset}
-          class="input-field border border-gray-200 md:text-sm text-base px-2 w-full"
-        >
+          class="input-field w-full border border-gray-200 px-2 text-base md:text-sm">
           {#each stylePresets as { name, ...rest }, idx}
             <option selected={idx} value={JSON.stringify({ name, ...rest })}
-              >{name}</option
-            >
+              >{name}</option>
           {/each}
         </select>
       </label>
@@ -110,8 +107,7 @@
   {/if}
 
   <label
-    class="input-field-container items-start gap-4 flex-1 input-box input-field shadow-bordered block min-h-[10em] py-2 pt-3 w-full text-[14px]"
-  >
+    class="input-field-container input-box input-field block min-h-[10em] w-full flex-1 items-start gap-4 py-2 pt-3 text-[14px] shadow-bordered">
     <textarea
       required
       rows="1"
@@ -120,32 +116,28 @@
       bind:value={prompt}
       on:keydown={handleKeyDown}
       placeholder="Enter your prompt to generate an image"
-      class="w-full resize-none font-light mb-10 outline-none ring-0 focus:ring-0 focus:outline-none border-none focus:border-none min-h-[5rem] {className}"
+      class="mb-10 min-h-[5rem] w-full resize-none border-none font-light outline-none ring-0 focus:border-none focus:outline-none focus:ring-0 {className}"
     ></textarea>
 
     <div
-      class="absolute flex items-center h-8 gap-3 text-sm bottom-2 md:bottom-4 left-[115px] md:left-[130px] mt-5"
-    >
+      class="absolute bottom-2 left-[115px] mt-5 flex h-8 items-center gap-3 text-sm md:bottom-4 md:left-[130px]">
       {#if isLoading}
         <div
           style="animation-duration:0.3s;"
-          class="w-5 h-5 bg-transparent border-2 rounded-full animate-spin border-r-transparent border-brand-accent"
-        ></div>
+          class="h-5 w-5 animate-spin rounded-full border-2 border-brand-accent border-r-transparent bg-transparent">
+        </div>
       {:else}
         <button
           on:click={() => generate(prompt)}
           disabled={!prompt}
-          class="flex items-center justify-center relative group bg-[#fccc26] hover:ring-offset-4 transition-all hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed"
-        >
+          class="group relative flex items-center justify-center bg-[#fccc26] transition-all hover:opacity-80 hover:ring-offset-4 disabled:cursor-not-allowed disabled:opacity-50">
           <p
-            class="flex items-center gap-1 absolute right-0 px-3 py-1 md:py-[6px] font-medium rounded-full text-[12px] md:text-[14px] text-white transition-opacity delay-300 bg-[#fccc26] whitespace-nowrap"
-          >
-            <span class="flex items-center justify-center w-4 h-4 md:w-5">
+            class="absolute right-0 flex items-center gap-1 whitespace-nowrap rounded-full bg-[#fccc26] px-3 py-1 text-[12px] font-medium text-white transition-opacity delay-300 md:py-[6px] md:text-[14px]">
+            <span class="flex h-4 w-4 items-center justify-center md:w-5">
               <img
                 src="/magic-wand.png"
                 alt="Magic Wand"
-                class="w-4 h-4 invert object-contain"
-              />
+                class="h-4 w-4 object-contain invert" />
             </span>
             Generate
           </p>
@@ -157,15 +149,13 @@
           disabled={isLoading}
           class:!pl-2={buttonText}
           on:click={suggestPrompt}
-          class="relative flex items-center justify-center w-6 h-6 gap-2 transition-all rounded-full group ring-offset-2 ring-gray-200 hover:ring-offset-4 text-brand-green ring-1 hover:bg-brand-green hover:text-white hover:ring-brand-green"
-        >
+          class="group relative flex h-6 w-6 items-center justify-center gap-2 rounded-full text-brand-green ring-1 ring-gray-200 ring-offset-2 transition-all hover:bg-brand-green hover:text-white hover:ring-brand-green hover:ring-offset-4">
           {#if buttonText}
             <p class="text-[13px]">{buttonText}</p>
           {/if}
           <i class="material-symbols-sharp !text-[21.5px]">{iconName}</i>
           <p
-            class="absolute px-2 py-1 rounded-sm text-xs text-white transition-opacity delay-300 opacity-0 select-none bg-brand-green whitespace-nowrap -bottom-8 group-hover:opacity-100"
-          >
+            class="absolute -bottom-8 select-none whitespace-nowrap rounded-sm bg-brand-green px-2 py-1 text-xs text-white opacity-0 transition-opacity delay-300 group-hover:opacity-100">
             Random Prompt
           </p>
         </button>

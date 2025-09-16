@@ -9,8 +9,8 @@ export const getProduct = async (productId) => {
     `https://${PUBLIC_SHOPIFY_DOMAIN}/admin/api/2024-04/products/${productId}.json`,
     {
       headers: {
-        "X-Shopify-Access-Token": SHOPIFY_API_PASSWORD,
-      },
+        "X-Shopify-Access-Token": SHOPIFY_API_PASSWORD
+      }
     }
   );
 
@@ -22,8 +22,8 @@ export const getVariant = async (variantId) => {
     `https://${PUBLIC_SHOPIFY_DOMAIN}/admin/api/2024-04/variants/${variantId}.json`,
     {
       headers: {
-        "X-Shopify-Access-Token": SHOPIFY_API_PASSWORD,
-      },
+        "X-Shopify-Access-Token": SHOPIFY_API_PASSWORD
+      }
     }
   );
 

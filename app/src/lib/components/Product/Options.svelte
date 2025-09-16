@@ -13,7 +13,10 @@
 
   const findVariant = (choice, variants) =>
     R.find((variant) => {
-      if (variant.option1 === choice.option1 && variant.option2 === choice.option2) {
+      if (
+        variant.option1 === choice.option1 &&
+        variant.option2 === choice.option2
+      ) {
         return variant;
       }
     }, variants);
@@ -26,7 +29,10 @@
 
   const getMatchedColors = R.curry((listOfName, listWithHex) => {
     const uniqColorsWithHex = R.uniqBy(R.prop("name"), listWithHex);
-    return R.filter(({ name }) => R.includes(name, listOfName), uniqColorsWithHex);
+    return R.filter(
+      ({ name }) => R.includes(name, listOfName),
+      uniqColorsWithHex
+    );
   });
 
   const setOption = R.curry((value, position, _) => {
@@ -52,27 +58,27 @@
 </script>
 
 <div class="flex flex-col">
-  <div class="flex flex-wrap mt-4">
+  <div class="mt-4 flex flex-wrap">
     {#await fetchAndSetHexColors()}
       <p>Loading...</p>
     {:then colorsList}
-      <ul class="flex flex-col w-full gap-2">
+      <ul class="flex w-full flex-col gap-2">
         {#each product.options as option, idx}
           {@const optionKey = R.concat("option", R.toString(R.inc(idx)))}
 
           {#if R.propEq("Color", "name", option)}
             <li>
-              <Accordion isOpen="{true}" name="{option.name}">
-                <ul class="flex flex-wrap gap-2 pt-1 pl-1 text-center">
+              <Accordion isOpen={true} name={option.name}>
+                <ul class="flex flex-wrap gap-2 pl-1 pt-1 text-center">
                   {#each getMatchedColors(option.values, colorsList) as { name, hex }}
                     {@const isActive = R.propEq(name, optionKey, choice)}
                     <li>
                       <button
-                        title="{name}"
+                        title={name}
                         style="background-color: {hex};"
-                        on:click="{setOption(name, idx)}"
-                        class:!ring-brand-primary="{isActive}"
-                        class="w-6 h-6 transition-all border-2 rounded-full outline-none ring-2 ring-transparent active:opacity-80 hover:ring-brand-tertiary ring-offset-1"
+                        on:click={setOption(name, idx)}
+                        class:!ring-brand-primary={isActive}
+                        class="h-6 w-6 rounded-full border-2 outline-none ring-2 ring-transparent ring-offset-1 transition-all hover:ring-brand-tertiary active:opacity-80"
                       ></button>
                     </li>
                   {/each}
@@ -82,15 +88,15 @@
           {/if}
 
           {#if R.propEq("Size", "name", option)}
-            <Accordion isOpen="{true}" name="{option.name}">
+            <Accordion isOpen={true} name={option.name}>
               <ul class="flex flex-wrap gap-2 pt-1">
                 {#each option.values as size}
                   {@const isActive = R.propEq(size, optionKey, choice)}
                   <li>
                     <button
-                      on:click="{setOption(size, idx)}"
-                      class:!border-brand-primary="{isActive}"
-                      class="w-10 text-sm border-2 h-9">{size}</button>
+                      on:click={setOption(size, idx)}
+                      class:!border-brand-primary={isActive}
+                      class="h-9 w-10 border-2 text-sm">{size}</button>
                   </li>
                 {/each}
               </ul>

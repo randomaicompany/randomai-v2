@@ -14,6 +14,6 @@ export default (node) => {
   return {
     destroy() {
       document.removeEventListener("click", handleClick, true);
-    },
+    }
   };
 };

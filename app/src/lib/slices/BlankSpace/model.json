@@ -17,12 +17,7 @@
           "config": {
             "label": "Size",
             "placeholder": "",
-            "options": [
-              "Small",
-              "Medium",
-              "Large",
-              "Extra Large"
-            ],
+            "options": ["Small", "Medium", "Large", "Extra Large"],
             "default_value": "Small"
           }
         }

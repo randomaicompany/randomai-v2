@@ -10,11 +10,11 @@ const pluckColors = R.pipe(
   R.map(
     R.pipe(
       R.evolve({
-        color_codes: R.head,
+        color_codes: R.head
       }),
       RA.renameKeys({
         color_name: "name",
-        color_codes: "hex",
+        color_codes: "hex"
       })
     )
   )
@@ -26,8 +26,8 @@ export const getColors = async () => {
   const response = await axios.get(url, {
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${PRINTFUL_TOKEN}`,
-    },
+      Authorization: `Bearer ${PRINTFUL_TOKEN}`
+    }
   });
 
   const colors = pluckColors(response);

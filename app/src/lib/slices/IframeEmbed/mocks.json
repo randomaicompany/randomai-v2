@@ -1,58 +1,58 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"head": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Sunt labore Lorem est proident aute sint laborum culpa occaecat."
-						}
-					}
-				]
-			},
-			"body": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Ut fugiat do culpa amet cillum ut mollit esse quis mollit quis aute."
-						}
-					}
-				]
-			},
-			"minimum_height": {
-				"__TYPE__": "FieldContent",
-				"value": "drew",
-				"type": "Text"
-			},
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Peace"
-						}
-					}
-				]
-			},
-			"subtext": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Eiusmod mollit cillum cillum pariatur cupidatat esse nulla do tempor tempor culpa consequat ullamco laborum. Consectetur ipsum adipisicing et aliquip tempor incididunt ea labore velit. Nostrud sunt enim esse voluptate exercitation magna magna est est consequat."
-						}
-					}
-				]
-			}
-		},
-		"items": []
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "head": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Sunt labore Lorem est proident aute sint laborum culpa occaecat."
+            }
+          }
+        ]
+      },
+      "body": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Ut fugiat do culpa amet cillum ut mollit esse quis mollit quis aute."
+            }
+          }
+        ]
+      },
+      "minimum_height": {
+        "__TYPE__": "FieldContent",
+        "value": "drew",
+        "type": "Text"
+      },
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Peace"
+            }
+          }
+        ]
+      },
+      "subtext": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Eiusmod mollit cillum cillum pariatur cupidatat esse nulla do tempor tempor culpa consequat ullamco laborum. Consectetur ipsum adipisicing et aliquip tempor incididunt ea labore velit. Nostrud sunt enim esse voluptate exercitation magna magna est est consequat."
+            }
+          }
+        ]
+      }
+    },
+    "items": []
+  }
 ]

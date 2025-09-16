@@ -1,4 +1,3 @@
-
 import fs from "fs";
 import { REMOVE_BG_TOKEN } from "$env/static/private";
 
@@ -10,7 +9,7 @@ export default async (url) => {
   const response = await fetch("https://api.remove.bg/v1.0/removebg", {
     method: "POST",
     headers: { "X-Api-Key": REMOVE_BG_TOKEN },
-    body: formData,
+    body: formData
   });
 
   return response;

@@ -3,8 +3,12 @@ import * as R from "ramda";
 export const pluckListByProp = (prop, list) =>
   R.pipe(R.pluck("primary"), R.flatten, R.pluck(prop), R.uniq)(list);
 
-export const getBreadcrumbSlices = R.filter(R.propEq("breadcrumbs", "slice_type"));
-export const getProductCardSlices = R.filter(R.propEq("collection_product_card", "slice_type"));
+export const getBreadcrumbSlices = R.filter(
+  R.propEq("breadcrumbs", "slice_type")
+);
+export const getProductCardSlices = R.filter(
+  R.propEq("collection_product_card", "slice_type")
+);
 
 export const getAllColorSwatches = R.pipe(
   R.pluck("items"),

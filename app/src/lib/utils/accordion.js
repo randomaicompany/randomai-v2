@@ -10,12 +10,12 @@ export const accordion = (node, isOpen) => {
         [
           {
             height: initialHeight + "px",
-            overflow: "hidden",
+            overflow: "hidden"
           },
           {
             height: 0,
-            overflow: "hidden",
-          },
+            overflow: "hidden"
+          }
         ],
         { duration: 150, fill: "both", easing: "ease-in-out" }
       );
@@ -25,6 +25,6 @@ export const accordion = (node, isOpen) => {
       } else {
         animation.reverse();
       }
-    },
+    }
   };
 };

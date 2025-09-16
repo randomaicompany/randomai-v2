@@ -7,8 +7,8 @@ export default async () => {
       method: "get",
       url: "https://api.printful.com/product-templates",
       headers: {
-        Authorization: `Bearer ${PRINTFUL_TOKEN}`,
-      },
+        Authorization: `Bearer ${PRINTFUL_TOKEN}`
+      }
     });
 
     return response.data;

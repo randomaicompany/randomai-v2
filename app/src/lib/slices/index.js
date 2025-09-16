@@ -25,5 +25,5 @@ export const components = {
   hero: Hero,
   iframe_embed: IframeEmbed,
   rss_block: RssBlock,
-  video: Video,
+  video: Video
 };

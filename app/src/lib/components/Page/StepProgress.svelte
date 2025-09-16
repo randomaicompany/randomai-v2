@@ -8,19 +8,23 @@
 </script>
 
 <div
-  class:w-[20%]="{isFistStep}"
-  class:w-[50%]="{isSecondStep}"
-  class:w-[99.9%]="{isLastStep}"
-  class="h-1.5 bg-brand-accent-light rounded-xl transition-all">
+  class:w-[20%]={isFistStep}
+  class:w-[50%]={isSecondStep}
+  class:w-[99.9%]={isLastStep}
+  class="h-1.5 rounded-xl bg-brand-accent-light transition-all">
 </div>
 <div class="shell py-4">
   <ul class="flex items-center justify-between text-sm text-brand-tertiary">
-    <li class:font-semibold="{isFistStep}" class:text-brand-primary="{isFistStep}">
+    <li class:font-semibold={isFistStep} class:text-brand-primary={isFistStep}>
       Select a style
     </li>
-    <li class:font-semibold="{isSecondStep}" class:text-brand-primary="{isSecondStep}">
+    <li
+      class:font-semibold={isSecondStep}
+      class:text-brand-primary={isSecondStep}>
       Create with AI
     </li>
-    <li class:font-semibold="{isLastStep}" class:text-brand-primary="{isLastStep}">Finalize</li>
+    <li class:font-semibold={isLastStep} class:text-brand-primary={isLastStep}>
+      Finalize
+    </li>
   </ul>
 </div>

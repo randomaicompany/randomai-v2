@@ -3,13 +3,13 @@
 </script>
 
 <div class="w-full">
-  <div class="flex items-center w-full gap-2">
+  <div class="flex w-full items-center gap-2">
     <button
-      on:click="{() => quantity >= 2 && (quantity = quantity - 1)}"
-      class="inline-flex items-center justify-center w-8 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100"
+      on:click={() => quantity >= 2 && (quantity = quantity - 1)}
+      class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-100 focus:outline-none"
       type="button">
       <svg
-        class="w-2 h-2"
+        class="h-2 w-2"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -24,24 +24,24 @@
     </button>
     <div>
       <p
-        class="flex items-center justify-center h-8 px-2 overflow-hidden text-sm text-gray-900 rounded-full outline-none min-w-8 bg-gray-50 text-ellipsis">
+        class="flex h-8 min-w-8 items-center justify-center overflow-hidden text-ellipsis rounded-full bg-gray-50 px-2 text-sm text-gray-900 outline-none">
         {quantity}
       </p>
       <input
         type="number"
-        bind:value="{quantity}"
+        bind:value={quantity}
         class="hidden"
         placeholder="1"
         min="1"
         required />
     </div>
     <button
-      on:click="{() => (quantity = quantity + 1)}"
-      class="inline-flex items-center justify-center w-8 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100"
+      on:click={() => (quantity = quantity + 1)}
+      class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-100 focus:outline-none"
       type="button">
       <span class="sr-only">Quantity button</span>
       <svg
-        class="w-2 h-2"
+        class="h-2 w-2"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

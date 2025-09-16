@@ -21,14 +21,14 @@ export default (storeId, shopifyOrderPayload) => {
     const files =
       customAttributes.map((prop) => ({
         type: prop?.name,
-        url: prop?.value,
+        url: prop?.value
       })) || [];
 
     return {
       templateId,
       variantId,
       quantity,
-      files,
+      files
     };
   });
 
@@ -45,14 +45,14 @@ export default (storeId, shopifyOrderPayload) => {
       city: address.city,
       country: address.country_code,
       address1: address.address1,
-      state_code: address.province_code,
+      state_code: address.province_code
     },
 
     items: cleanedLineItems.map((item) => ({
       quantity: item.quantity,
       variant_id: item.variantId,
       template_id: item.templateId,
-      files: item.files,
-    })),
+      files: item.files
+    }))
   };
 };

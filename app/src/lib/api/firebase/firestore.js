@@ -7,13 +7,13 @@ import {
   getDocs,
   orderBy,
   collection,
-  serverTimestamp,
+  serverTimestamp
 } from "firebase/firestore";
 
 export const addDocument = async (collectionName, data) => {
   const body = {
     ...data,
-    createdDate: serverTimestamp(),
+    createdDate: serverTimestamp()
   };
 
   await addDoc(collection(db, collectionName), body);
@@ -34,7 +34,7 @@ export const fetchDocumentsByUserId = async (collectionName, userId) => {
 
     return {
       id: doc.id,
-      ...doc.data(),
+      ...doc.data()
     };
   });
 

@@ -5,7 +5,7 @@ import { FIREBASE_ADMIN_SERVICE_CREDENTIALS } from "$env/static/private";
 
 const admin = initializeApp(
   {
-    credential: cert(JSON.parse(FIREBASE_ADMIN_SERVICE_CREDENTIALS)),
+    credential: cert(JSON.parse(FIREBASE_ADMIN_SERVICE_CREDENTIALS))
   },
   "admin-sdk"
 );

@@ -6,7 +6,7 @@ import {
   getAllColorSwatches,
   getProductCardSlices,
   getBreadcrumbSlices,
-  getLastBreadcrumbItemText,
+  getLastBreadcrumbItemText
 } from "./utils";
 
 export async function load({ params, fetch, cookies }) {
@@ -30,13 +30,13 @@ export async function load({ params, fetch, cookies }) {
       genders: pluckListByProp("gender", productCardSlices),
       productColors: getAllColorSwatches(productCardSlices),
       collections: pluckListByProp("collection", productCardSlices),
-      productTypes: pluckListByProp("product_type", productCardSlices),
+      productTypes: pluckListByProp("product_type", productCardSlices)
     };
 
     return {
       page,
       meta_title: pageResponse.data.meta_title,
-      meta_description: pageResponse.data.meta_description,
+      meta_description: pageResponse.data.meta_description
     };
   } catch (error) {
     console.log({ error });

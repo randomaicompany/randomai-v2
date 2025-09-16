@@ -4,13 +4,13 @@ export const addToCartWithProps = (data, quantity) => {
   const attributes = [
     {
       key: "front",
-      value: data.frontImageUrl,
+      value: data.frontImageUrl
     },
 
     {
       key: "back",
-      value: data.backImageUrl,
-    },
+      value: data.backImageUrl
+    }
   ];
 
   const compactAttributes = attributes.filter(({ value }) => !!value);

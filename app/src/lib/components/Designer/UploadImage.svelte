@@ -7,14 +7,17 @@
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
 
-    if (selectedFile && (selectedFile.type === "image/jpeg" || selectedFile.type === "image/png")) {
+    if (
+      selectedFile &&
+      (selectedFile.type === "image/jpeg" || selectedFile.type === "image/png")
+    ) {
       const reader = new FileReader();
       reader.onload = function (e) {
         const blobURL = URL.createObjectURL(selectedFile);
 
         dispatch("change", {
           name: String(Date.now()),
-          blobURL,
+          blobURL
         });
 
         const timeout = setTimeout(() => {
@@ -33,9 +36,14 @@
 <div>
   <label
     for="file"
-    class="flex items-center gap-1 cursor-pointer group text-brand-accent md:text-sm text-xs">
+    class="group flex cursor-pointer items-center gap-1 text-xs text-brand-accent md:text-sm">
     <i class="material-symbols-rounded !text-xl">upload</i>
     <span class="block group-hover:underline">Upload Image</span>
   </label>
-  <input id="file" class="hidden" type="file" bind:files="{file}" on:change="{handleFileChange}" />
+  <input
+    id="file"
+    class="hidden"
+    type="file"
+    bind:files={file}
+    on:change={handleFileChange} />
 </div>

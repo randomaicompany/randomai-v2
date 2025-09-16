@@ -15,6 +15,6 @@
   $: src, (isLoading = true);
 </script>
 
-<div class:!opacity-50="{isLoading}" class="transition-opacity opacity-100">
-  <img {src} {alt} {...$$restProps} on:load="{handleLoad}" />
+<div class:!opacity-50={isLoading} class="opacity-100 transition-opacity">
+  <img {src} {alt} {...$$restProps} on:load={handleLoad} />
 </div>

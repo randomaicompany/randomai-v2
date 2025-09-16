@@ -8,11 +8,18 @@
   const toggle = () => (openVideoModal = !openVideoModal);
 </script>
 
-<section data-slice-type="{slice.slice_type}" data-slice-variation="{slice.variation}">
+<section
+  data-slice-type={slice.slice_type}
+  data-slice-variation={slice.variation}>
   <div class="flex items-end justify-center md:h-[700px]">
-    <button on:click="{toggle}" class="relative w-full transition-opacity hover:opacity-80 group">
-      <PrismicImage class="object-cover w-full h-full" field="{slice.primary.poster}" />
-      <div class="absolute top-0 left-0 flex items-center justify-center w-full h-full">
+    <button
+      on:click={toggle}
+      class="group relative w-full transition-opacity hover:opacity-80">
+      <PrismicImage
+        class="h-full w-full object-cover"
+        field={slice.primary.poster} />
+      <div
+        class="absolute left-0 top-0 flex h-full w-full items-center justify-center">
         <svg
           width="64"
           height="64"
@@ -39,16 +46,16 @@
 
 {#if openVideoModal}
   <div
-    in:fade="{{ duration: 200 }}"
-    out:fade="{{ duration: 200, delay: 200 }}"
+    in:fade={{ duration: 200 }}
+    out:fade={{ duration: 200, delay: 200 }}
     role="button"
-    class="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-brand-primary/90">
+    class="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-brand-primary/90">
     <div
-      in:fly="{{ duration: 200, y: 24, delay: 200 }}"
-      out:fly="{{ duration: 200, y: 24 }}"
+      in:fly={{ duration: 200, y: 24, delay: 200 }}
+      out:fly={{ duration: 200, y: 24 }}
       use:clickOutside
-      on:clickOutside="{toggle}"
-      class="flex items-center justify-center w-full max-w-4xl video-container h-96">
+      on:clickOutside={toggle}
+      class="video-container flex h-96 w-full max-w-4xl items-center justify-center">
       {@html slice.primary.embed.html}
     </div>
   </div>

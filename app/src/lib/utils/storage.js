@@ -5,7 +5,7 @@ export const uploadBase64ToServer = async (base64Data) => {
   const requestOptions = {
     method: "POST",
     body: formdata,
-    redirect: "follow",
+    redirect: "follow"
   };
 
   const response = await fetch("/storage", requestOptions);
@@ -23,8 +23,8 @@ export const uploadBlobToGCS = async (blob) => {
     method: "PUT",
     body: blob,
     headers: {
-      "Content-Type": "image/png",
-    },
+      "Content-Type": "image/png"
+    }
   };
 
   const signURLResponse = await fetch("/storage");

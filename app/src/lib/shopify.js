@@ -1,32 +1,37 @@
 // src/lib/shopify.js
 import {
   PUBLIC_SHOPIFY_DOMAIN,
-  PUBLIC_SHOPIFY_STOREFRONT_TOKEN,
+  PUBLIC_SHOPIFY_STOREFRONT_TOKEN
 } from "$env/static/public";
-import { CREATE_CART_MUTATION,ADD_TO_CART_MUTATION,UPDATE_CART_MUTATION,REMOVE_FROM_CART_MUTATION,GET_CART_QUERY } from "./graphqa";
-
+import {
+  CREATE_CART_MUTATION,
+  ADD_TO_CART_MUTATION,
+  UPDATE_CART_MUTATION,
+  REMOVE_FROM_CART_MUTATION,
+  GET_CART_QUERY
+} from "./graphqa";
 
 // Modern Shopify Storefront API client
 class ShopifyStorefront {
   constructor(domain, storefrontAccessToken) {
     this.domain = domain;
     this.storefrontAccessToken = storefrontAccessToken;
-    this.apiVersion = '2024-07'; // Latest API version
+    this.apiVersion = "2024-07"; // Latest API version
     this.endpoint = `https://${domain}/api/${this.apiVersion}/graphql.json`;
   }
 
   async query(query, variables = {}) {
     try {
       const response = await fetch(this.endpoint, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'X-Shopify-Storefront-Access-Token': this.storefrontAccessToken,
+          "Content-Type": "application/json",
+          "X-Shopify-Storefront-Access-Token": this.storefrontAccessToken
         },
         body: JSON.stringify({
           query,
-          variables,
-        }),
+          variables
+        })
       });
 
       if (!response.ok) {
@@ -36,13 +41,13 @@ class ShopifyStorefront {
       const data = await response.json();
 
       if (data.errors) {
-        console.error('GraphQL errors:', data.errors);
+        console.error("GraphQL errors:", data.errors);
         throw new Error(data.errors[0].message);
       }
 
       return data.data;
     } catch (error) {
-      console.error('Shopify API error:', error);
+      console.error("Shopify API error:", error);
       throw error;
     }
   }
@@ -54,7 +59,6 @@ const shopify = new ShopifyStorefront(
   PUBLIC_SHOPIFY_STOREFRONT_TOKEN
 );
 
-
 // Helper function to transform cart data
 function transformCartData(cartData) {
   if (!cartData) return null;
@@ -62,26 +66,27 @@ function transformCartData(cartData) {
   return {
     id: cartData.id,
     checkoutUrl: cartData.checkoutUrl,
-    totalPrice: cartData.estimatedCost?.totalAmount?.amount || '0.00',
-    subtotalPrice: cartData.estimatedCost?.subtotalAmount?.amount || '0.00',
-    totalTax: cartData.estimatedCost?.totalTaxAmount?.amount || '0.00',
-    currencyCode: cartData.estimatedCost?.totalAmount?.currencyCode || 'USD',
-    lineItems: cartData.lines?.edges?.map(edge => ({
-      id: edge.node.id,
-      quantity: edge.node.quantity,
-      variant: {
-        id: edge.node.merchandise.id,
-        title: edge.node.merchandise.title,
-        price: edge.node.merchandise.price.amount,
-        product: {
-          id: edge.node.merchandise.product.id,
-          title: edge.node.merchandise.product.title,
-          handle: edge.node.merchandise.product.handle,
-        }
-      },
-      totalPrice: edge.node.estimatedCost?.totalAmount?.amount || '0.00',
-      customAttributes: edge.node.attributes || []
-    })) || []
+    totalPrice: cartData.estimatedCost?.totalAmount?.amount || "0.00",
+    subtotalPrice: cartData.estimatedCost?.subtotalAmount?.amount || "0.00",
+    totalTax: cartData.estimatedCost?.totalTaxAmount?.amount || "0.00",
+    currencyCode: cartData.estimatedCost?.totalAmount?.currencyCode || "USD",
+    lineItems:
+      cartData.lines?.edges?.map((edge) => ({
+        id: edge.node.id,
+        quantity: edge.node.quantity,
+        variant: {
+          id: edge.node.merchandise.id,
+          title: edge.node.merchandise.title,
+          price: edge.node.merchandise.price.amount,
+          product: {
+            id: edge.node.merchandise.product.id,
+            title: edge.node.merchandise.product.title,
+            handle: edge.node.merchandise.product.handle
+          }
+        },
+        totalPrice: edge.node.estimatedCost?.totalAmount?.amount || "0.00",
+        customAttributes: edge.node.attributes || []
+      })) || []
   };
 }
 
@@ -89,7 +94,7 @@ function transformCartData(cartData) {
 export const createCheckout = async () => {
   try {
     console.log("Creating new cart...");
-    
+
     const data = await shopify.query(CREATE_CART_MUTATION, {
       input: {
         lines: []
@@ -113,26 +118,26 @@ export const createCheckout = async () => {
 export const addLineItems = async (cartId = "", lineItemsToAdd = []) => {
   try {
     console.log("addLineItems called with:", { cartId, lineItemsToAdd });
-    
+
     if (!cartId || cartId.trim() === "") {
       console.error("Cart ID is missing or empty:", cartId);
       throw new Error("Cart ID is required and cannot be empty");
     }
-    
+
     if (!lineItemsToAdd || lineItemsToAdd.length === 0) {
       console.error("Line items array is missing or empty:", lineItemsToAdd);
       throw new Error("Line items to add are required");
     }
 
     // Transform line items to the correct format
-    const lines = lineItemsToAdd.map(item => ({
+    const lines = lineItemsToAdd.map((item) => ({
       merchandiseId: item.variantId,
       quantity: parseInt(item.quantity, 10),
       attributes: item.customAttributes || []
     }));
 
     console.log("Adding line items to cart:", cartId);
-    
+
     const data = await shopify.query(ADD_TO_CART_MUTATION, {
       cartId,
       lines
@@ -159,8 +164,8 @@ export const updateLineItems = async (cartId = "", lineItemsToUpdate = []) => {
     }
 
     console.log("Updating line items:", { cartId, lineItemsToUpdate });
-    
-    const lines = lineItemsToUpdate.map(item => ({
+
+    const lines = lineItemsToUpdate.map((item) => ({
       id: item.id,
       quantity: parseInt(item.quantity, 10)
     }));
@@ -184,14 +189,17 @@ export const updateLineItems = async (cartId = "", lineItemsToUpdate = []) => {
 };
 
 // Remove line items from cart
-export const removeLineItems = async (cartId = "", lineItemIdsToRemove = []) => {
+export const removeLineItems = async (
+  cartId = "",
+  lineItemIdsToRemove = []
+) => {
   try {
     if (!cartId) {
       throw new Error("Cart ID is required");
     }
 
     console.log("Removing line items:", { cartId, lineItemIdsToRemove });
-    
+
     const data = await shopify.query(REMOVE_FROM_CART_MUTATION, {
       cartId,
       lineIds: lineItemIdsToRemove
@@ -218,7 +226,7 @@ export const fetchCheckout = async (cartId = "") => {
     }
 
     console.log("Fetching cart:", cartId);
-    
+
     const data = await shopify.query(GET_CART_QUERY, {
       cartId
     });
@@ -271,7 +279,7 @@ export const fetchAllProducts = async () => {
       first: 100
     });
 
-    return data.products.edges.map(edge => edge.node);
+    return data.products.edges.map((edge) => edge.node);
   } catch (error) {
     console.error("Error fetching products:", error);
     throw error;

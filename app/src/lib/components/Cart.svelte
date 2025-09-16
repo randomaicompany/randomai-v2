@@ -146,7 +146,7 @@
                   <button
                     on:click={decrement(lineItem.variant.id)}
                     disabled={isLoading}
-                    class="active:border-brand-yellow active:bg-brand-smoke-darker border bg-white p-1 transition-all">
+                    class="active:border-brand-yellow border bg-white p-1 transition-all active:bg-brand-smoke-darker">
                     <i class="material-symbols-rounded !text-lg">remove</i>
                   </button>
                 </li>
@@ -158,7 +158,7 @@
                   <button
                     disabled={isLoading}
                     on:click={increment(lineItem.variant.id)}
-                    class="active:border-brand-yellow active:bg-brand-smoke-darker border bg-white p-1 transition-all">
+                    class="active:border-brand-yellow border bg-white p-1 transition-all active:bg-brand-smoke-darker">
                     <i class="material-symbols-rounded !text-lg">add</i>
                   </button>
                 </li>

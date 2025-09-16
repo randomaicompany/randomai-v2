@@ -5,11 +5,13 @@
   import { isFilled } from "@prismicio/client";
   import { clickOutside } from "utils/common";
   import { fade, fly } from "svelte/transition";
-  import { PrismicImage, PrismicRichText, PrismicText } from "@prismicio/svelte";
+  import {
+    PrismicImage,
+    PrismicRichText,
+    PrismicText
+  } from "@prismicio/svelte";
   import { browser } from "$app/environment";
   import IconButton from "../../components/Designer/IconButton.svelte";
-  
-  
 
   export let slice;
 
@@ -25,9 +27,8 @@
     isOpen = true;
   };
 
-
   const copyToClipboard = (text) => {
-    console.log(text[0].text)
+    console.log(text[0].text);
     navigator.clipboard.writeText(text[0].text).then(() => {
       console.log("Copied to clipboard:", text[0].text);
     });
@@ -40,32 +41,34 @@
 </script>
 
 <section
-  data-slice-type="{slice.slice_type}"
-  data-slice-variation="{slice.variation}"
+  data-slice-type={slice.slice_type}
+  data-slice-variation={slice.variation}
   class="shell">
-  <div class="mb-2 text-3xl md:text-4xl md:mb-4">
-    <PrismicRichText field="{slice.primary.heading}" />
+  <div class="mb-2 text-3xl md:mb-4 md:text-4xl">
+    <PrismicRichText field={slice.primary.heading} />
   </div>
 
   <div class="text-base text-brand-primary/70">
-    <PrismicRichText field="{slice.primary.subtext}" />
+    <PrismicRichText field={slice.primary.subtext} />
   </div>
 
-  <div class="grid sm:grid-cols-2 grid-cols-1 gap-2 pt-14 md:grid-cols-3">
+  <div class="grid grid-cols-1 gap-2 pt-14 sm:grid-cols-2 md:grid-cols-3">
     {#each R.splitEvery(2, slice.items) as group}
       <ul class="grid gap-2">
         {#each group as item, idx}
-          <li class="relative group">
-            <PrismicImage class="object-cover h-full max-w-full rounded-lg" field="{item.image}" />
+          <li class="group relative">
+            <PrismicImage
+              class="h-full max-w-full rounded-lg object-cover"
+              field={item.image} />
             {#if isFilled.richText(item.title) || isFilled.richText(item.description)}
               <button
-                on:click="{openCurrent(item)}"
-                class="absolute top-0 left-0 text-left flex flex-col justify-end w-full h-full p-6 overflow-hidden transition-opacity rounded-lg opacity-0 cursor-pointer bg-black/50 group-hover:opacity-100">
+                on:click={openCurrent(item)}
+                class="absolute left-0 top-0 flex h-full w-full cursor-pointer flex-col justify-end overflow-hidden rounded-lg bg-black/50 p-6 text-left opacity-0 transition-opacity group-hover:opacity-100">
                 <p class="mb-2 text-base font-medium text-white">
-                  <PrismicText field="{item.title}" />
+                  <PrismicText field={item.title} />
                 </p>
-                <p class="text-sm text-gray-200 md:text-base line-clamp-2">
-                  <PrismicText field="{item.description}" />
+                <p class="line-clamp-2 text-sm text-gray-200 md:text-base">
+                  <PrismicText field={item.description} />
                 </p>
               </button>
             {/if}
@@ -78,21 +81,26 @@
 
 {#if isOpen}
   <div
-    transition:fade="{{ duration: 200 }}"
-    class="fixed top-0 left-0 w-full h-full bg-gray-900/50 flex items-start justify-center z-10 p-4 overflow-auto">
+    transition:fade={{ duration: 200 }}
+    class="fixed left-0 top-0 z-10 flex h-full w-full items-start justify-center overflow-auto bg-gray-900/50 p-4">
     <div
-      transition:fly="{{ y: 12, duration: 200 }}"
+      transition:fly={{ y: 12, duration: 200 }}
       use:clickOutside
-      on:clickOutside="{close}"
-      class="max-w-lg w-full p-8 rounded-lg bg-white mt-[16vh] shadow-xl overflow-auto">
-      <PrismicImage class="object-contain rounded-lg mb-4" field="{currentItem.image}" />
+      on:clickOutside={close}
+      class="mt-[16vh] w-full max-w-lg overflow-auto rounded-lg bg-white p-8 shadow-xl">
+      <PrismicImage
+        class="mb-4 rounded-lg object-contain"
+        field={currentItem.image} />
 
-      <p class="font-medium md:text-xl text-lg mb-2 flex justify-between">
-        <PrismicText field="{currentItem.title}" />
-         <IconButton label="copy" iconName="content_copy" on:click="{() => copyToClipboard(currentItem.description)}" />
+      <p class="mb-2 flex justify-between text-lg font-medium md:text-xl">
+        <PrismicText field={currentItem.title} />
+        <IconButton
+          label="copy"
+          iconName="content_copy"
+          on:click={() => copyToClipboard(currentItem.description)} />
       </p>
 
-      <PrismicText field="{currentItem.description}" />
+      <PrismicText field={currentItem.description} />
     </div>
   </div>
 {/if}

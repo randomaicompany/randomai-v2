@@ -9,16 +9,16 @@
 
 <div>
   <button
-    on:click="{toggle}"
-    class="flex items-center flex-1 w-full py-2 text-sm font-medium text-left cursor-pointer">
+    on:click={toggle}
+    class="flex w-full flex-1 cursor-pointer items-center py-2 text-left text-sm font-medium">
     {name}
     <i
-      class:rotate-180="{isOpen}"
-      class="!text-lg material-symbols-rounded transition-transform duration-150 ml-2"
+      class:rotate-180={isOpen}
+      class="material-symbols-rounded ml-2 !text-lg transition-transform duration-150"
       >expand_more</i>
   </button>
 
-  <div use:accordion="{isOpen}">
+  <div use:accordion={isOpen}>
     <div class="overflow-hidden text-base transition-all">
       <slot />
     </div>

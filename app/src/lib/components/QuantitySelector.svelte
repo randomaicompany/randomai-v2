@@ -5,22 +5,22 @@
   const decrement = () => (quantity = quantity - 1);
 </script>
 
-<div class="flex items-center justify-between w-28">
+<div class="flex w-28 items-center justify-between">
   <button
-    on:click="{decrement}"
-    class="flex items-center justify-center w-8 min-w-[2rem] h-8 border rounded-full active:bg-brand-smoke-darker">
+    on:click={decrement}
+    class="flex h-8 w-8 min-w-[2rem] items-center justify-center rounded-full border active:bg-brand-smoke-darker">
     <i class="material-symbols-rounded !text-lg">remove</i>
   </button>
 
   <input
     type="number"
     min="1"
-    bind:value="{quantity}"
-    class="w-24 pl-4 overflow-hidden text-sm text-center border-none outline-none appearance-none" />
+    bind:value={quantity}
+    class="w-24 appearance-none overflow-hidden border-none pl-4 text-center text-sm outline-none" />
 
   <button
-    on:click="{increment}"
-    class="flex items-center justify-center w-8 min-w-[2rem] h-8 border rounded-full active:bg-brand-smoke-darker">
+    on:click={increment}
+    class="flex h-8 w-8 min-w-[2rem] items-center justify-center rounded-full border active:bg-brand-smoke-darker">
     <i class="material-symbols-rounded !text-lg">add</i>
   </button>
 </div>

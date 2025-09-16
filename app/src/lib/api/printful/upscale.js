@@ -2,7 +2,7 @@ import Replicate from "replicate";
 import { REPLICATE_UPSCALER_MODEL, REPLICATE_TOKEN } from "$env/static/private";
 
 const replicate = new Replicate({
-  auth: REPLICATE_TOKEN,
+  auth: REPLICATE_TOKEN
 });
 
 export default async (imageUrl) => {
@@ -12,8 +12,8 @@ export default async (imageUrl) => {
     input: {
       scale: 2,
       image: imageUrl,
-      face_enhance: true,
-    },
+      face_enhance: true
+    }
   });
 
   const outputImageUrl = response.toString();

@@ -5,6 +5,6 @@ export async function load({ fetch, cookies }) {
   const page = await client.getSingle("layout");
 
   return {
-    data: page.data,
+    data: page.data
   };
 }

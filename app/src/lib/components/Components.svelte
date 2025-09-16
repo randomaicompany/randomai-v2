@@ -2,9 +2,10 @@
   import PromptInputForm from "components/PromptInputForm.svelte";
 </script>
 
-<section class="p-16 border shell bg-stone-100 max-w-4xl mb-8">
+<section class="shell mb-8 max-w-4xl border bg-stone-100 p-16">
   <PromptInputForm>
-    <button class="button-compact bg-[#ED7675] border-[#ED7675] text-[15px] font-normal">
+    <button
+      class="button-compact border-[#ED7675] bg-[#ED7675] text-[15px] font-normal">
       <svg
         width="14"
         height="20"
@@ -23,7 +24,7 @@
 
 <hr />
 
-<section class="p-16 border shell bg-stone-100 max-w-4xl">
+<section class="shell max-w-4xl border bg-stone-100 p-16">
   <h1 class="heading-5xl">Heading 1 XL</h1>
   <h1 class="heading-4xl">Heading 1</h1>
   <h2 class="heading-3xl">Heading 2</h2>
@@ -32,19 +33,24 @@
   <h5 class="heading-lg">Heading 5</h5>
   <h6 class="heading">Heading 6</h6>
 </section>
-<section class="p-16 border shell bg-stone-100 max-w-4xl">
+<section class="shell max-w-4xl border bg-stone-100 p-16">
   <div class="flex flex-col items-center gap-8">
     <button class="button">Start Creating</button>
 
     <button class="button border-2">Start Creating</button>
 
-    <button class="button bg-brand-primary border-brand-primary text-white">Start Creating</button>
-
-    <button class="button border-2 bg-brand-black border-brand-primary text-white"
+    <button class="button border-brand-primary bg-brand-primary text-white"
       >Start Creating</button>
 
-    <button class="button border-2 bg-[#1E30E1] border-[#1E30E1] text-white">
-      <img class="h-[28px] w-[28px] invert" alt="icon" src="/icons/cart-outline.svg" />
+    <button
+      class="button border-2 border-brand-primary bg-brand-black text-white"
+      >Start Creating</button>
+
+    <button class="button border-2 border-[#1E30E1] bg-[#1E30E1] text-white">
+      <img
+        class="h-[28px] w-[28px] invert"
+        alt="icon"
+        src="/icons/cart-outline.svg" />
       <span>Start Creating</span>
     </button>
   </div>
@@ -52,9 +58,12 @@
   <hr class="my-8" />
 
   <div class="flex flex-col items-center gap-8">
-    <button class="button button-sm bg-white border-brand-primary text-brand-primary">Login</button>
+    <button
+      class="button button-sm border-brand-primary bg-white text-brand-primary"
+      >Login</button>
 
-    <button class="button button-sm border-2 bg-white border-brand-primary text-brand-primary"
+    <button
+      class="button button-sm border-2 border-brand-primary bg-white text-brand-primary"
       >Login</button>
   </div>
 
@@ -71,7 +80,7 @@
 
   <hr />
 
-  <div class="flex flex-col items-center gap-8 mt-8 max-w-md mx-auto">
+  <div class="mx-auto mt-8 flex max-w-md flex-col items-center gap-8">
     <button class="button-compact">
       <svg
         width="16"
@@ -87,7 +96,7 @@
       <span>Generate AI art</span>
     </button>
 
-    <button class="button-compact shadow button-gradient-bg-var-1">
+    <button class="button-compact button-gradient-bg-var-1 shadow">
       <svg
         width="16"
         height="22"
@@ -102,7 +111,8 @@
       <span>Generate AI art</span>
     </button>
 
-    <button class="button-compact shadow button-gradient-bg-var-2 animate-bg-gradients">
+    <button
+      class="button-compact button-gradient-bg-var-2 animate-bg-gradients shadow">
       <svg
         width="16"
         height="22"
@@ -117,7 +127,7 @@
       <span>Generate AI art</span>
     </button>
 
-    <button class="button-compact shadow button-gradient-bg-var-3">
+    <button class="button-compact button-gradient-bg-var-3 shadow">
       <svg
         width="16"
         height="22"
@@ -132,7 +142,7 @@
       <span>Generate AI art</span>
     </button>
 
-    <button class="button-compact shadow button-gradient-bg-var-4">
+    <button class="button-compact button-gradient-bg-var-4 shadow">
       <svg
         width="16"
         height="22"
@@ -147,7 +157,7 @@
       <span>Generate AI art</span>
     </button>
 
-    <button class="button-compact shadow button-gradient-bg-var-5">
+    <button class="button-compact button-gradient-bg-var-5 shadow">
       <svg
         width="16"
         height="22"

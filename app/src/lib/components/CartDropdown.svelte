@@ -7,10 +7,15 @@
 
 <div class="relative">
   <button
-    on:click="{toggle}"
-    class:bg-brand-smoke-darker="{isOpen}"
-    class="z-10 p-3 transition-all rounded-full">
-    <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    on:click={toggle}
+    class:bg-brand-smoke-darker={isOpen}
+    class="z-10 rounded-full p-3 transition-all">
+    <svg
+      width="24"
+      height="22"
+      viewBox="0 0 24 22"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0_753_8007)">
         <path
           d="M7.90896 21.2492C8.4738 21.2492 8.93169 20.7903 8.93169 20.2242C8.93169 19.6581 8.4738 19.1992 7.90896 19.1992C7.34412 19.1992 6.88623 19.6581 6.88623 20.2242C6.88623 20.7903 7.34412 21.2492 7.90896 21.2492Z"
@@ -47,12 +52,12 @@
 
   {#if isOpen}
     <div
-      transition:fly="{{ duration: 300, y: 12 }}"
-      class="absolute top-full z-100 w-[24rem] right-1/2">
-      <ul class="text-left bg-white border rounded shadow-2xl">
+      transition:fly={{ duration: 300, y: 12 }}
+      class="z-100 absolute right-1/2 top-full w-[24rem]">
+      <ul class="rounded border bg-white text-left shadow-2xl">
         {#each [1, 2, 3] as idx}
-          <li class="flex gap-2 p-4 border-b last:border-b-transparent">
-            <div class="flex w-16 border min-w-[4rem] bg-brand-smoke">
+          <li class="flex gap-2 border-b p-4 last:border-b-transparent">
+            <div class="flex w-16 min-w-[4rem] border bg-brand-smoke">
               <img
                 alt="front"
                 class="object-cover"
@@ -66,7 +71,7 @@
                 src="https://s3-alpha-sig.figma.com/img/2fef/b59e/2905eab7563e6030c50fbb1026839671?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mn406s98kBaGBimjOaVL34Nc0rPlYS6QiUN-rZ1jBN4OLL1SZZcoY~YLW57j~uuaneru0qWkGJIuF~hU3Ax76yqO6~P8hLwno1SpgjsjB6RW-CUptzfSCxWthcFfQ4ANvXsvn7yLcFRWcJovXCWZZv9EXzhhjRgymQ3z90sRkYHW0R~560dugmrY08LPI4213pnFd7bVJsLULlJExoQB8vKmBAqTPDE-Lq1I3a~ITN2L~02qVngMOsBS2JQYiOqXeiMybudJaNOzIYIx6v-YlrQquiiUCJS05-64pxWQYkZyq3qP9w8ZkU0UZZ420MWCtI2MxidJre3fvaslTKnq7w__" />
             </div>
 
-            <div class="flex-1 ml-4">
+            <div class="ml-4 flex-1">
               <div class="flex flex-col gap-2">
                 <p class="font-medium">Hoodie in cotton</p>
                 <p class="text-sm font-light">CA$40.00</p>
@@ -83,12 +88,13 @@
           </li>
         {/each}
 
-        <li class="flex flex-col w-full gap-2 p-4 pt-8">
-          <a href="/cart" class="w-full h-12 font-normal button secondary">View Cart</a>
+        <li class="flex w-full flex-col gap-2 p-4 pt-8">
+          <a href="/cart" class="button secondary h-12 w-full font-normal"
+            >View Cart</a>
 
           <a
             href="/checkout"
-            class="w-full h-12 font-normal button bg-brand-accent-light border-brand-accent-light"
+            class="button h-12 w-full border-brand-accent-light bg-brand-accent-light font-normal"
             >Checkout</a>
         </li>
       </ul>

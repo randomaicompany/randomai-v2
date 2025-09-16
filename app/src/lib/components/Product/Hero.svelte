@@ -14,7 +14,12 @@
 
   import { asLink, isFilled } from "@prismicio/client";
   import { Splide, SplideSlide } from "@splidejs/svelte-splide";
-  import { PrismicText, PrismicImage, PrismicRichText, PrismicLink } from "@prismicio/svelte";
+  import {
+    PrismicText,
+    PrismicImage,
+    PrismicRichText,
+    PrismicLink
+  } from "@prismicio/svelte";
 
   import Image from "components/Image.svelte";
   import Options from "components/Product/Options.svelte";
@@ -37,7 +42,8 @@
   const frontStyles = convertToStyles(page.front);
   const backStyles = convertToStyles(page.back);
 
-  $: selectedVariant, (variantImages = findVariantImages(product, selectedVariant));
+  $: selectedVariant,
+    (variantImages = findVariantImages(product, selectedVariant));
 
   const changeImageIdx = (event) => {
     currentImageIdx = event.detail.index;
@@ -50,7 +56,7 @@
   const addProductToCart = async () => {
     try {
       console.log("Adding to cart", selectedVariant, quantity);
-      
+
       isAddingToCart = true;
       await addToCart(selectedVariant.admin_graphql_api_id, quantity);
       isAddingToCart = false;
@@ -65,53 +71,52 @@
     if (!browser) return;
     slider && thumbs && slider.sync(thumbs.splide);
   });
-
 </script>
 
 {#if product}
-  <div class="shell pt-8 pb-16 md:pt-0">
-    <div class="md:hidden block pb-4">
+  <div class="shell pb-16 pt-8 md:pt-0">
+    <div class="block pb-4 md:hidden">
       <p class="md:heading-2xl heading-lg font-medium">
         {product.title}
       </p>
     </div>
 
-    <div class="flex flex-col items-start gap-8 md:gap-16 md:flex-row relative">
-      <div class="self-start w-full select-none">
+    <div class="relative flex flex-col items-start gap-8 md:flex-row md:gap-16">
+      <div class="w-full select-none self-start">
         <Splide
-          bind:this="{slider}"
-          on:move="{changeImageIdx}"
-          on:dragging="{hidePlaceholder}"
-          options="{{ pagination: false, arrows: false }}"
+          bind:this={slider}
+          on:move={changeImageIdx}
+          on:dragging={hidePlaceholder}
+          options={{ pagination: false, arrows: false }}
           aria-label="product images">
           {#each variantImages as image, idx}
             {#if image?.src}
               <SplideSlide>
-                <div class="relative max-w-xl mx-auto md:border-none border">
+                <div class="relative mx-auto max-w-xl border md:border-none">
                   {#if !page.is_predesigned && isPlaceholderVisible}
-                    <div in:fade="{{ duration: 200 }}">
+                    <div in:fade={{ duration: 200 }}>
                       {#if currentImageIdx == 0}
                         {#if page.is_front_canvas_enabled}
-                          <div style="{frontStyles}" class="absolute">
+                          <div style={frontStyles} class="absolute">
                             <PrismicImage
-                              class="object-contain z-[2] p-4"
-                              field="{page.placeholder_sicker}" />
+                              class="z-[2] object-contain p-4"
+                              field={page.placeholder_sicker} />
                           </div>
                         {/if}
                       {/if}
 
                       {#if currentImageIdx == 1}
                         {#if page.is_back_canvas_enabled}
-                          <div style="{backStyles}" class="absolute">
+                          <div style={backStyles} class="absolute">
                             <PrismicImage
-                              class="object-contain z-[2] p-4 "
-                              field="{page.placeholder_sicker}" />
+                              class="z-[2] object-contain p-4 "
+                              field={page.placeholder_sicker} />
                           </div>
                         {/if}
                       {/if}
                     </div>
                   {/if}
-                  <Image class="object-contain" src="{image?.src}" />
+                  <Image class="object-contain" src={image?.src} />
                 </div>
               </SplideSlide>
             {/if}
@@ -124,10 +129,12 @@
             {#if image?.src}
               <button
                 class="border opacity-50"
-                class:!opacity-100="{isCurrent}"
-                class:border-brand-accent="{isCurrent}"
-                on:click="{changeSlide(idx)}">
-                <Image src="{image?.src}" class="md:w-20 md:h-20 h-14 w-14 object-contain" />
+                class:!opacity-100={isCurrent}
+                class:border-brand-accent={isCurrent}
+                on:click={changeSlide(idx)}>
+                <Image
+                  src={image?.src}
+                  class="h-14 w-14 object-contain md:h-20 md:w-20" />
               </button>
             {/if}
           {/each}
@@ -137,7 +144,7 @@
           <p class="text-base font-medium">
             Reviews ({R.length(page.reviews)})
           </p>
-          <ul class="flex flex-col max-w-xl gap-8 pt-6">
+          <ul class="flex max-w-xl flex-col gap-8 pt-6">
             {#each page.reviews || [] as { user_name, title, review }}
               <li>
                 <svg
@@ -176,28 +183,44 @@
                       <rect width="20" height="19" fill="white"></rect>
                     </clipPath>
                     <clipPath id="clip1_1718_4100">
-                      <rect width="20" height="19" fill="white" transform="translate(22)"></rect>
+                      <rect
+                        width="20"
+                        height="19"
+                        fill="white"
+                        transform="translate(22)"></rect>
                     </clipPath>
                     <clipPath id="clip2_1718_4100">
-                      <rect width="20" height="19" fill="white" transform="translate(44)"></rect>
+                      <rect
+                        width="20"
+                        height="19"
+                        fill="white"
+                        transform="translate(44)"></rect>
                     </clipPath>
                     <clipPath id="clip3_1718_4100">
-                      <rect width="20" height="19" fill="white" transform="translate(66)"></rect>
+                      <rect
+                        width="20"
+                        height="19"
+                        fill="white"
+                        transform="translate(66)"></rect>
                     </clipPath>
                     <clipPath id="clip4_1718_4100">
-                      <rect width="20" height="19" fill="white" transform="translate(88)"></rect>
+                      <rect
+                        width="20"
+                        height="19"
+                        fill="white"
+                        transform="translate(88)"></rect>
                     </clipPath>
                   </defs>
                 </svg>
 
                 <div>
-                  <p class="mt-3 mb-3 text-xs text-brand-secondary">
+                  <p class="mb-3 mt-3 text-xs text-brand-secondary">
                     {user_name}
                   </p>
                   <div>
                     <p class="mb-3 text-base text-brand-primary">{title}</p>
                     <p class="text-sm font-light text-brand-secondary">
-                      <PrismicText field="{review}" />
+                      <PrismicText field={review} />
                     </p>
                   </div>
                 </div>
@@ -207,22 +230,26 @@
         </div>
       </div>
 
-      <div class="flex flex-col gap-8 flex-[0_0_28rem]">
+      <div class="flex flex-[0_0_28rem] flex-col gap-8">
         <div class="flex flex-col md:gap-[18px]">
           <h1 class="text-4xl">
-            <PrismicText field="{page.heading}" />
+            <PrismicText field={page.heading} />
           </h1>
 
-          <p class="md:heading-2xl heading-xl md:block hidden">
+          <p class="md:heading-2xl heading-xl hidden md:block">
             {product.title}
           </p>
 
           {#if isFilled.link(page.reviews_link)}
-            <PrismicLink field="{page.reviews_link}" class="flex items-center gap-2">
+            <PrismicLink
+              field={page.reviews_link}
+              class="flex items-center gap-2">
               <PrismicImage
-                field="{page.review_stars}"
-                class="object-contain object-left w-32 h-8 mr-2" />
-              <p class="text text-sm/8 text-rush-blue-500">{page.review_stars_text}</p>
+                field={page.review_stars}
+                class="mr-2 h-8 w-32 object-contain object-left" />
+              <p class="text text-rush-blue-500 text-sm/8">
+                {page.review_stars_text}
+              </p>
             </PrismicLink>
           {/if}
 
@@ -241,18 +268,18 @@
             <Options bind:selectedVariant {product} />
           {/if}
           {#if page.is_predesigned}
-            <div class="md:py-8 py-4">
-                <QuantityPicker bind:quantity />
+            <div class="py-4 md:py-8">
+              <QuantityPicker bind:quantity />
             </div>
           {/if}
         </div>
 
         {#if page.is_predesigned}
-          <div class="py-2 flex gap-4">
+          <div class="flex gap-4 py-2">
             <button
-              on:click="{addProductToCart}"
-              disabled="{isAddingToCart}"
-              class="text-white button w-full bg-[#ED7675] border-[#ED7675]">
+              on:click={addProductToCart}
+              disabled={isAddingToCart}
+              class="button w-full border-[#ED7675] bg-[#ED7675] text-white">
               {#if isAddingToCart}
                 Adding to Cart...
               {:else}
@@ -264,7 +291,7 @@
           <div class="py-2">
             <a
               href="/editor/products/{uid}?variant={selectedVariant?.id}&quantity={quantity}"
-              class="text-white button bg-[#ED7675] border-[#ED7675]">
+              class="button border-[#ED7675] bg-[#ED7675] text-white">
               Edit Product</a>
           </div>
         {/if}
@@ -288,7 +315,7 @@
         <p class="text-base font-medium">
           Reviews ({R.length(page.reviews)})
         </p>
-        <ul class="flex flex-col max-w-xl gap-8 pt-6">
+        <ul class="flex max-w-xl flex-col gap-8 pt-6">
           {#each page.reviews || [] as { user_name, title, review }}
             <li>
               <svg
@@ -327,28 +354,44 @@
                     <rect width="20" height="19" fill="white"></rect>
                   </clipPath>
                   <clipPath id="clip1_1718_4100">
-                    <rect width="20" height="19" fill="white" transform="translate(22)"></rect>
+                    <rect
+                      width="20"
+                      height="19"
+                      fill="white"
+                      transform="translate(22)"></rect>
                   </clipPath>
                   <clipPath id="clip2_1718_4100">
-                    <rect width="20" height="19" fill="white" transform="translate(44)"></rect>
+                    <rect
+                      width="20"
+                      height="19"
+                      fill="white"
+                      transform="translate(44)"></rect>
                   </clipPath>
                   <clipPath id="clip3_1718_4100">
-                    <rect width="20" height="19" fill="white" transform="translate(66)"></rect>
+                    <rect
+                      width="20"
+                      height="19"
+                      fill="white"
+                      transform="translate(66)"></rect>
                   </clipPath>
                   <clipPath id="clip4_1718_4100">
-                    <rect width="20" height="19" fill="white" transform="translate(88)"></rect>
+                    <rect
+                      width="20"
+                      height="19"
+                      fill="white"
+                      transform="translate(88)"></rect>
                   </clipPath>
                 </defs>
               </svg>
 
               <div>
-                <p class="mt-3 mb-3 text-xs text-brand-secondary">
+                <p class="mb-3 mt-3 text-xs text-brand-secondary">
                   {user_name}
                 </p>
                 <div>
                   <p class="mb-3 text-base text-brand-primary">{title}</p>
                   <p class="text-sm font-light text-brand-secondary">
-                    <PrismicText field="{review}" />
+                    <PrismicText field={review} />
                   </p>
                 </div>
               </div>

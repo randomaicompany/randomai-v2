@@ -2,7 +2,7 @@ import Replicate from "replicate";
 import { REPLICATE_TOKEN, REPLICATE_MODEL_ID } from "$env/static/private";
 
 const replicate = new Replicate({
-  auth: REPLICATE_TOKEN,
+  auth: REPLICATE_TOKEN
 });
 
 export const generate = async (prompt) => {
@@ -15,13 +15,13 @@ export const generate = async (prompt) => {
     num_outputs: 1,
     guidance_scale: 1,
     negative_prompt: "worst quality, low quality",
-    num_inference_steps: 4,
+    num_inference_steps: 4
   };
 
   const output = await replicate.run(REPLICATE_MODEL_ID, {
     input: {
-      ...input,
-    },
+      ...input
+    }
   });
 
   return output;

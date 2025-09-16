@@ -14,12 +14,13 @@
 </script>
 
 <div>
-  <p class="text-xl mb-2">{label}</p>
+  <p class="mb-2 text-xl">{label}</p>
   <ul class="mb-6">
     {#each options as option}
-      <li class="flex items-center justify-between text-sm font-normaltext-brand-secondary">
+      <li
+        class="font-normaltext-brand-secondary flex items-center justify-between text-sm">
         <p>{option}</p>
-        <Checkbox isChecked="{true}" on:change="{updateValues(option)}" />
+        <Checkbox isChecked={true} on:change={updateValues(option)} />
       </li>
     {/each}
   </ul>

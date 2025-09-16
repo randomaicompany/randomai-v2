@@ -8,6 +8,6 @@ export const load = async ({ params }) => {
   return {
     productPage,
     meta_description: productPage.data.meta_description,
-    meta_title: productPage.data.meta_title,
+    meta_title: productPage.data.meta_title
   };
 };

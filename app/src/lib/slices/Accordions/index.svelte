@@ -11,26 +11,28 @@
 
 <section
   class="shell"
-  class:max-w-5xl="{slice.primary.is_narrow}"
-  data-slice-type="{slice.slice_type}"
-  data-slice-variation="{slice.variation}">
+  class:max-w-5xl={slice.primary.is_narrow}
+  data-slice-type={slice.slice_type}
+  data-slice-variation={slice.variation}>
   {#each slice.items as item, idx}
     <button
-      on:click="{toggle(idx)}"
-      class="flex items-center w-full gap-2 p-4 text-left border-b outline-none">
+      on:click={toggle(idx)}
+      class="flex w-full items-center gap-2 border-b p-4 text-left outline-none">
       <div class="w-full font-medium">
-        <PrismicRichText field="{item.heading}" />
+        <PrismicRichText field={item.heading} />
       </div>
-      <i class:rotate-180="{state[idx]}" class="transition-transform material-symbols-rounded"
+      <i
+        class:rotate-180={state[idx]}
+        class="material-symbols-rounded transition-transform"
         >keyboard_arrow_down</i>
     </button>
 
     {#if state[idx]}
       <div
-        transition:slide="{{ duration: 300 }}"
-        class="p-4 border-b border-transparent last:border-transparent"
-        class:border-b-gray-200="{isFilled.richText(item.content)}">
-        <PrismicRichText field="{item.content}" />
+        transition:slide={{ duration: 300 }}
+        class="border-b border-transparent p-4 last:border-transparent"
+        class:border-b-gray-200={isFilled.richText(item.content)}>
+        <PrismicRichText field={item.content} />
       </div>
       <!-- {/if} -->
     {/if}

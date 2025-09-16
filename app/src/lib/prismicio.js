@@ -7,29 +7,29 @@ export const repositoryName = config.repositoryName;
 const routes = [
   {
     type: "page",
-    path: "/:uid",
+    path: "/:uid"
   },
 
   {
     type: "blog_hub",
-    path: "/:uid",
+    path: "/:uid"
   },
 
   {
     type: "product",
-    path: "/products/:uid",
+    path: "/products/:uid"
   },
 
   {
     type: "collection",
-    path: "/collection/:uid",
-  },
+    path: "/collection/:uid"
+  }
 ];
 
 export const createClient = ({ cookies, ...config } = {}) => {
   const client = prismic.createClient(repositoryName, {
     routes,
-    ...config,
+    ...config
   });
 
   enableAutoPreviews({ client, cookies });

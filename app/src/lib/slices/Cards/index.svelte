@@ -5,8 +5,13 @@
 
   import { isFilled } from "@prismicio/client";
   import { Splide, SplideSlide } from "@splidejs/svelte-splide";
-  import { PrismicLink, PrismicText, PrismicImage, PrismicRichText } from "@prismicio/svelte";
-    import { onMount } from 'svelte';
+  import {
+    PrismicLink,
+    PrismicText,
+    PrismicImage,
+    PrismicRichText
+  } from "@prismicio/svelte";
+  import { onMount } from "svelte";
   let zoomContainers = [];
   const prepareTags = (item) => {
     const tags = R.defaultTo("", R.prop("tags", item));
@@ -15,15 +20,15 @@
     const tagsListNormalized = R.map(R.pipe(R.trim), tagsList);
     return R.reject(R.isEmpty, tagsListNormalized);
   };
-   onMount(() => {
+  onMount(() => {
     zoomContainers.forEach((container, index) => {
       if (container) {
-        const img = container.querySelector('img');
-        const overlay = container.querySelector('.zoom-overlay');
-        
+        const img = container.querySelector("img");
+        const overlay = container.querySelector(".zoom-overlay");
+
         if (img && overlay) {
-          const zoomSrc = img.getAttribute('data-zoom') || img.src;
-          
+          const zoomSrc = img.getAttribute("data-zoom") || img.src;
+
           const handleMouseMove = (e) => {
             const rect = container.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -35,41 +40,41 @@
 
             // Update overlay background
             overlay.style.backgroundImage = `url('${zoomSrc}')`;
-            overlay.style.backgroundSize = '200%'; // 2x zoom
+            overlay.style.backgroundSize = "200%"; // 2x zoom
             overlay.style.backgroundPosition = `${xPercent}% ${yPercent}%`;
-            overlay.style.backgroundRepeat = 'no-repeat';
+            overlay.style.backgroundRepeat = "no-repeat";
           };
 
           const handleMouseEnter = () => {
-            overlay.style.opacity = '1';
-            overlay.style.visibility = 'visible';
+            overlay.style.opacity = "1";
+            overlay.style.visibility = "visible";
           };
 
           const handleMouseLeave = () => {
-            overlay.style.opacity = '0';
-            overlay.style.visibility = 'hidden';
+            overlay.style.opacity = "0";
+            overlay.style.visibility = "hidden";
           };
 
-          container.addEventListener('mousemove', handleMouseMove);
-          container.addEventListener('mouseenter', handleMouseEnter);
-          container.addEventListener('mouseleave', handleMouseLeave);
+          container.addEventListener("mousemove", handleMouseMove);
+          container.addEventListener("mouseenter", handleMouseEnter);
+          container.addEventListener("mouseleave", handleMouseLeave);
 
           // Cleanup function
           return () => {
-            container.removeEventListener('mousemove', handleMouseMove);
-            container.removeEventListener('mouseenter', handleMouseEnter);
-            container.removeEventListener('mouseleave', handleMouseLeave);
+            container.removeEventListener("mousemove", handleMouseMove);
+            container.removeEventListener("mouseenter", handleMouseEnter);
+            container.removeEventListener("mouseleave", handleMouseLeave);
           };
         }
       }
     });
   });
 
-    const getZoomUrl = (image, newWidth, newHeight) => {
+  const getZoomUrl = (image, newWidth, newHeight) => {
     const parsedUrl = new URL(image.url || image.src);
 
-  parsedUrl.searchParams.set('w', newWidth);
-  parsedUrl.searchParams.set('h', newHeight);
+    parsedUrl.searchParams.set("w", newWidth);
+    parsedUrl.searchParams.set("h", newHeight);
 
     // Replace this logic with however you determine the zoom URL from your image field
     return parsedUrl.toString();
@@ -77,58 +82,63 @@
 </script>
 
 {#if slice.variation == "default"}
-  <section data-slice-type="{slice.slice_type}" data-slice-variation="{slice.variation}">
-    <div class:shell="{slice.primary.is_contained}">
+  <section
+    data-slice-type={slice.slice_type}
+    data-slice-variation={slice.variation}>
+    <div class:shell={slice.primary.is_contained}>
       <div>
         <div class="mb-2">
-          <PrismicRichText field="{slice.primary.eyebrow_headline}" />
+          <PrismicRichText field={slice.primary.eyebrow_headline} />
         </div>
-        <div class="mb-2 text-3xl md:text-4xl md:mb-4">
-          <PrismicRichText field="{slice.primary.heading}" />
+        <div class="mb-2 text-3xl md:mb-4 md:text-4xl">
+          <PrismicRichText field={slice.primary.heading} />
         </div>
         <div class="text-base text-brand-primary/70">
-          <PrismicRichText field="{slice.primary.description}" />
+          <PrismicRichText field={slice.primary.description} />
         </div>
       </div>
 
       <ul
-        class="grid grid-cols-1 gap-16 mt-12 md:gap-2 {slice.primary.is_4_col_layout
+        class="mt-12 grid grid-cols-1 gap-16 md:gap-2 {slice.primary
+          .is_4_col_layout
           ? 'md:grid-cols-4'
           : 'md:grid-cols-3'} ">
-        {#each slice.items as item , index}
-          <li >
+        {#each slice.items as item, index}
+          <li>
             <PrismicLink
-              field="{item.link}"
-              class="block transition-opacity hover:opacity-90 group">
-              <div class="bg-brand-smoke-darker zoom-container relative overflow-hidden" bind:this={zoomContainers[index]}>
+              field={item.link}
+              class="group block transition-opacity hover:opacity-90">
+              <div
+                class="zoom-container relative overflow-hidden bg-brand-smoke-darker"
+                bind:this={zoomContainers[index]}>
                 <PrismicImage
-                  field="{item.image}"
-                   data-zoom="{getZoomUrl(item.image,1200,1200)}"
-                  class="w-full h-96 {slice.primary.is_cover
+                  field={item.image}
+                  data-zoom={getZoomUrl(item.image, 1200, 1200)}
+                  class="h-96 w-full {slice.primary.is_cover
                     ? 'object-cover'
                     : 'object-contain'} " />
 
-            <div class="zoom-overlay absolute inset-0 pointer-events-none transition-opacity duration-300" 
-               style="opacity: 0; visibility: hidden;"></div>
+                <div
+                  class="zoom-overlay pointer-events-none absolute inset-0 transition-opacity duration-300"
+                  style="opacity: 0; visibility: hidden;">
+                </div>
               </div>
-              
 
               <div class="mt-4 text-base font-medium">
-                <PrismicRichText field="{item.title}" />
+                <PrismicRichText field={item.title} />
               </div>
 
-              <div class="mt-2 font-normal text-brand-gray text-brand-primary">
-                <PrismicRichText field="{item.subtext}" />
+              <div class="text-brand-gray mt-2 font-normal text-brand-primary">
+                <PrismicRichText field={item.subtext} />
               </div>
 
               {#if R.not(R.isEmpty(prepareTags(item)))}
-                <ul class="hidden tags-list">
+                <ul class="tags-list hidden">
                   {#each prepareTags(item) as tag}
                     <li>{tag}</li>
                   {/each}
                 </ul>
               {/if}
-            
             </PrismicLink>
           </li>
         {/each}
@@ -138,65 +148,70 @@
 {/if}
 
 {#if slice.variation == "cardsWithColorToggle"}
-  <section data-slice-type="{slice.slice_type}" data-slice-variation="{slice.variation}">
+  <section
+    data-slice-type={slice.slice_type}
+    data-slice-variation={slice.variation}>
     <div class="shell">
       <div class="mb-12">
         <div class="mb-2">
-          <PrismicRichText field="{slice.primary.eyebrow_headline}" />
+          <PrismicRichText field={slice.primary.eyebrow_headline} />
         </div>
-        <div class="mb-2 text-3xl md:text-4xl md:mb-4">
-          <PrismicRichText field="{slice.primary.heading}" />
+        <div class="mb-2 text-3xl md:mb-4 md:text-4xl">
+          <PrismicRichText field={slice.primary.heading} />
         </div>
         <div class="text-base text-brand-primary/70">
-          <PrismicRichText field="{slice.primary.description}" />
+          <PrismicRichText field={slice.primary.description} />
         </div>
       </div>
 
       <div>
         <Splide
-          options="{{
+          options={{
             rewind: true,
             pagination: false,
             perPage: 4,
             gap: 16,
             breakpoints: {
               1024: {
-                perPage: 3,
+                perPage: 3
               },
 
               768: {
-                perPage: 2,
+                perPage: 2
               },
 
               480: {
-                perPage: 1,
-              },
-            },
-          }}">
+                perPage: 1
+              }
+            }
+          }}>
           {#each slice.items as item, idx}
             <SplideSlide>
               <div class="relative">
-                <PrismicLink field="{item.link}" class="transition-opacity hover:opacity-90 ">
+                <PrismicLink
+                  field={item.link}
+                  class="transition-opacity hover:opacity-90 ">
                   <PrismicImage
-                    class="object-cover w-full h-96 bg-brand-smoke-darker"
-                    field="{item.image}" />
+                    class="h-96 w-full bg-brand-smoke-darker object-cover"
+                    field={item.image} />
 
                   <div class="mt-4">
                     <PrismicImage
-                      class="object-contain object-left w-full h-6 "
-                      field="{item.swatches_image}" />
+                      class="h-6 w-full object-contain object-left "
+                      field={item.swatches_image} />
                   </div>
 
                   <div class="mt-4 text-base font-medium">
-                    <PrismicRichText field="{item.title}" />
+                    <PrismicRichText field={item.title} />
                   </div>
 
-                  <div class="mt-4 font-normal text-brand-gray text-brand-primary/70">
-                    <PrismicRichText field="{item.subtext}" />
+                  <div
+                    class="text-brand-gray mt-4 font-normal text-brand-primary/70">
+                    <PrismicRichText field={item.subtext} />
                   </div>
 
                   {#if isFilled.richText(item.review_text)}
-                    <div class="flex flex-wrap items-start gap-2 mt-2">
+                    <div class="mt-2 flex flex-wrap items-start gap-2">
                       <svg
                         width="108"
                         height="19"
@@ -233,26 +248,38 @@
                             <rect width="20" height="19" fill="white"></rect>
                           </clipPath>
                           <clipPath id="clip1_1718_4100">
-                            <rect width="20" height="19" fill="white" transform="translate(22)"
-                            ></rect>
+                            <rect
+                              width="20"
+                              height="19"
+                              fill="white"
+                              transform="translate(22)"></rect>
                           </clipPath>
                           <clipPath id="clip2_1718_4100">
-                            <rect width="20" height="19" fill="white" transform="translate(44)"
-                            ></rect>
+                            <rect
+                              width="20"
+                              height="19"
+                              fill="white"
+                              transform="translate(44)"></rect>
                           </clipPath>
                           <clipPath id="clip3_1718_4100">
-                            <rect width="20" height="19" fill="white" transform="translate(66)"
-                            ></rect>
+                            <rect
+                              width="20"
+                              height="19"
+                              fill="white"
+                              transform="translate(66)"></rect>
                           </clipPath>
                           <clipPath id="clip4_1718_4100">
-                            <rect width="20" height="19" fill="white" transform="translate(88)"
-                            ></rect>
+                            <rect
+                              width="20"
+                              height="19"
+                              fill="white"
+                              transform="translate(88)"></rect>
                           </clipPath>
                         </defs>
                       </svg>
 
                       <p class="mb-0.5 text-sm">
-                        <PrismicText field="{item.review_text}"></PrismicText>
+                        <PrismicText field={item.review_text}></PrismicText>
                       </p>
                     </div>
                   {/if}
@@ -265,8 +292,9 @@
 
       {#if isFilled.link(slice.primary.link)}
         <div class="mt-16 text-center">
-          <PrismicLink class="inline-flex button secondary" field="{slice.primary.link}"
-            >{slice.primary.button_text}</PrismicLink>
+          <PrismicLink
+            class="button secondary inline-flex"
+            field={slice.primary.link}>{slice.primary.button_text}</PrismicLink>
         </div>
       {/if}
     </div>
@@ -274,42 +302,45 @@
 {/if}
 
 {#if slice.variation == "cardsReviews"}
-  <section data-slice-type="{slice.slice_type}" data-slice-variation="{slice.variation}">
+  <section
+    data-slice-type={slice.slice_type}
+    data-slice-variation={slice.variation}>
     <div class="bg-brand-smoke-darker">
       <div>
         <div class="shell">
           <Splide
             class="py-16 "
-            options="{{
+            options={{
               rewind: true,
-              focus: 'center',
+              focus: "center",
               pagination: false,
               perPage: 3,
               gap: 16,
               breakpoints: {
                 1024: {
-                  perPage: 3,
+                  perPage: 3
                 },
 
                 768: {
-                  perPage: 2,
+                  perPage: 2
                 },
 
                 480: {
-                  perPage: 1,
-                },
-              },
-            }}">
+                  perPage: 1
+                }
+              }
+            }}>
             {#each slice.items as item}
-              <SplideSlide class="relative p-4 bg-white ">
-                <div class="flex flex-col gap-4 transition-opacity hover:opacity-90">
+              <SplideSlide class="relative bg-white p-4 ">
+                <div
+                  class="flex flex-col gap-4 transition-opacity hover:opacity-90">
                   <div class="flex items-center gap-4">
                     <PrismicImage
-                      class="object-cover rounded-full w-14 h-14"
-                      field="{item.image}" />
+                      class="h-14 w-14 rounded-full object-cover"
+                      field={item.image} />
 
                     <p class="text-xl">
-                      <PrismicText field="{item.name}" />
+                      <PrismicText field={item.name} />
                     </p>
                   </div>
 
@@ -350,27 +381,40 @@
                           <rect width="20" height="19" fill="white"></rect>
                         </clipPath>
                         <clipPath id="clip1_1718_4100">
-                          <rect width="20" height="19" fill="white" transform="translate(22)"
-                          ></rect>
+                          <rect
+                            width="20"
+                            height="19"
+                            fill="white"
+                            transform="translate(22)"></rect>
                         </clipPath>
                         <clipPath id="clip2_1718_4100">
-                          <rect width="20" height="19" fill="white" transform="translate(44)"
-                          ></rect>
+                          <rect
+                            width="20"
+                            height="19"
+                            fill="white"
+                            transform="translate(44)"></rect>
                         </clipPath>
                         <clipPath id="clip3_1718_4100">
-                          <rect width="20" height="19" fill="white" transform="translate(66)"
-                          ></rect>
+                          <rect
+                            width="20"
+                            height="19"
+                            fill="white"
+                            transform="translate(66)"></rect>
                         </clipPath>
                         <clipPath id="clip4_1718_4100">
-                          <rect width="20" height="19" fill="white" transform="translate(88)"
-                          ></rect>
+                          <rect
+                            width="20"
+                            height="19"
+                            fill="white"
+                            transform="translate(88)"></rect>
                         </clipPath>
                       </defs>
                     </svg>
                   </div>
 
-                  <div class="font-normal text-brand-gray text-brand-primary/70">
-                    <PrismicRichText field="{item.description}" />
+                  <div
+                    class="text-brand-gray font-normal text-brand-primary/70">
+                    <PrismicRichText field={item.description} />
                   </div>
                 </div>
               </SplideSlide>
@@ -383,16 +427,21 @@
 {/if}
 
 {#if slice.variation == "cards2ColumnsBig"}
-  <section data-slice-type="{slice.slice_type}" data-slice-variation="{slice.variation}">
+  <section
+    data-slice-type={slice.slice_type}
+    data-slice-variation={slice.variation}>
     <ul class="grid grid-cols-1 gap-2 md:grid-cols-2">
       {#each slice.items as item}
         <li>
           <PrismicLink
-            field="{item.link}"
-            class="relative transition-opacity hover:opacity-90 block">
-            <PrismicImage field="{item.image}" class="object-cover w-full lg:h-[48rem] h-[36rem]" />
+            field={item.link}
+            class="relative block transition-opacity hover:opacity-90">
+            <PrismicImage
+              field={item.image}
+              class="h-[36rem] w-full object-cover lg:h-[48rem]" />
 
-            <div class="absolute top-0 left-0 flex items-end justify-center w-full h-full pb-16">
+            <div
+              class="absolute left-0 top-0 flex h-full w-full items-end justify-center pb-16">
               <p class="button secondary">{item.button_text}</p>
             </div>
           </PrismicLink>
@@ -403,58 +452,67 @@
 {/if}
 
 {#if slice.variation == "cardsDualColumn"}
-  <section data-slice-type="{slice.slice_type}" data-slice-variation="{slice.variation}">
+  <section
+    data-slice-type={slice.slice_type}
+    data-slice-variation={slice.variation}>
     <div class="shell">
       <div class="flex flex-wrap items-end justify-between gap-4">
         <div>
           <div class="mb-2">
-            <PrismicRichText field="{slice.primary.eyebrow_headline}" />
+            <PrismicRichText field={slice.primary.eyebrow_headline} />
           </div>
           <div class="text-3xl md:text-4xl">
-            <PrismicRichText field="{slice.primary.heading}" />
+            <PrismicRichText field={slice.primary.heading} />
           </div>
 
           {#if isFilled.richText(slice.primary.description)}
             <div class="mt-4 text-base text-brand-primary/80">
-              <PrismicRichText field="{slice.primary.description}" />
+              <PrismicRichText field={slice.primary.description} />
             </div>
           {/if}
         </div>
 
         <PrismicLink
-          field="{slice.primary.link}"
-          class="inline-flex items-center gap-2 mt-2 md:mb-1 md:mt-0 group">
+          field={slice.primary.link}
+          class="group mt-2 inline-flex items-center gap-2 md:mb-1 md:mt-0">
           <p class="text-sm font-medium md:text-base">
             {slice.primary.button_text}
           </p>
           <svg
-            class="group-hover:translate-x-2 mt-0.5 transition-transform"
+            class="mt-0.5 transition-transform group-hover:translate-x-2"
             width="40"
             height="16"
             viewBox="0 0 40 18"
             fill="none"
             xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 9H40M40 9L31.0344 17.5M40 9L31.0344 0.5" stroke="#3D3D3D"></path>
+            <path
+              d="M0 9H40M40 9L31.0344 17.5M40 9L31.0344 0.5"
+              stroke="#3D3D3D"></path>
           </svg>
         </PrismicLink>
       </div>
 
-      <ul class="grid grid-cols-1 gap-16 mt-16 md:gap-6 md:grid-cols-2">
+      <ul class="mt-16 grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-6">
         {#each slice.items as item}
           <li>
-            <PrismicLink field="{item.link}" class="transition-opacity hover:opacity-90">
-              <PrismicImage class="object-cover w-full h-80" field="{item.image}" />
+            <PrismicLink
+              field={item.link}
+              class="transition-opacity hover:opacity-90">
+              <PrismicImage
+                class="h-80 w-full object-cover"
+                field={item.image} />
 
               <div class="mt-4 text-xl font-medium">
-                <PrismicRichText field="{item.title}" />
+                <PrismicRichText field={item.title} />
               </div>
 
-              <div class="mt-4 text-base font-normal text-brand-gray text-brand-primary/50">
-                <PrismicRichText field="{item.subtext}" />
+              <div
+                class="text-brand-gray mt-4 text-base font-normal text-brand-primary/50">
+                <PrismicRichText field={item.subtext} />
               </div>
 
               <div class="mt-8 text-left">
-                <p class="inline-flex button secondary">{item.button_text}</p>
+                <p class="button secondary inline-flex">{item.button_text}</p>
               </div>
             </PrismicLink>
           </li>
@@ -465,35 +523,41 @@
 {/if}
 
 {#if slice.variation == "cardsListLayout"}
-  <section data-slice-type="{slice.slice_type}" data-slice-variation="{slice.variation}">
+  <section
+    data-slice-type={slice.slice_type}
+    data-slice-variation={slice.variation}>
     <div class="py-16">
       <div class="flex flex-wrap items-end justify-between gap-8">
         <div>
           <div class="mb-2">
-            <PrismicRichText field="{slice.primary.eyebrow_headline}" />
+            <PrismicRichText field={slice.primary.eyebrow_headline} />
           </div>
           <div class="text-3xl md:text-4xl">
-            <PrismicRichText field="{slice.primary.heading}" />
+            <PrismicRichText field={slice.primary.heading} />
           </div>
 
           {#if isFilled.richText(slice.primary.description)}
             <div class="mt-4 text-base text-brand-primary/70">
-              <PrismicRichText field="{slice.primary.description}" />
+              <PrismicRichText field={slice.primary.description} />
             </div>
           {/if}
         </div>
       </div>
 
-      <ul class="grid grid-cols-1 gap-16 mt-16">
+      <ul class="mt-16 grid grid-cols-1 gap-16">
         {#each slice.items as item}
           <li>
-            <PrismicLink field="{item.link}" class="transition-opacity hover:opacity-90">
+            <PrismicLink
+              field={item.link}
+              class="transition-opacity hover:opacity-90">
               <div class="relative">
-                <PrismicImage class="object-cover w-full h-[38rem]" field="{item.image}" />
+                <PrismicImage
+                  class="h-[38rem] w-full object-cover"
+                  field={item.image} />
 
                 {#if isFilled.keyText(item.tag)}
                   <p
-                    class="absolute px-6 py-1.5 text-sm font-medium uppercase bg-white/90 top-4 left-4">
+                    class="absolute left-4 top-4 bg-white/90 px-6 py-1.5 text-sm font-medium uppercase">
                     {item.tag}
                   </p>
                 {/if}
@@ -502,7 +566,7 @@
               <div class="py-8">
                 {#if isFilled.keyText(item.publisher_name)}
                   <div class="flex items-center gap-3">
-                    <div class="w-4 h-4 rounded-full bg-brand-tertiary"></div>
+                    <div class="h-4 w-4 rounded-full bg-brand-tertiary"></div>
                     <p class="text-base">{item.publisher_name}</p>
                   </div>
                 {/if}
@@ -515,16 +579,17 @@
               </div>
 
               <div class="text-xl">
-                <PrismicRichText field="{item.title}" />
+                <PrismicRichText field={item.title} />
               </div>
 
-              <div class="mt-2 text-base font-normal text-brand-gray text-brand-primary/80">
-                <PrismicRichText field="{item.subtext}" />
+              <div
+                class="text-brand-gray mt-2 text-base font-normal text-brand-primary/80">
+                <PrismicRichText field={item.subtext} />
               </div>
 
               {#if isFilled.keyText(item.button_text)}
                 <div class="mt-8 text-left">
-                  <p class="inline-flex h-10 button secondary">
+                  <p class="button secondary inline-flex h-10">
                     {item.button_text}
                   </p>
                 </div>
@@ -538,31 +603,37 @@
 {/if}
 
 {#if slice.variation == "cardsFlatList"}
-  <section data-slice-type="{slice.slice_type}" data-slice-variation="{slice.variation}">
+  <section
+    data-slice-type={slice.slice_type}
+    data-slice-variation={slice.variation}>
     <div>
       <div class="flex flex-wrap items-end justify-between gap-8">
         <div>
           <div class="mb-2">
-            <PrismicRichText field="{slice.primary.eyebrow_headline}" />
+            <PrismicRichText field={slice.primary.eyebrow_headline} />
           </div>
           <div class="text-xl font-medium">
-            <PrismicRichText field="{slice.primary.heading}" />
+            <PrismicRichText field={slice.primary.heading} />
           </div>
 
           {#if isFilled.richText(slice.primary.description)}
             <div class="mt-4 text-base text-brand-primary/70">
-              <PrismicRichText field="{slice.primary.description}" />
+              <PrismicRichText field={slice.primary.description} />
             </div>
           {/if}
         </div>
       </div>
 
-      <ul class="grid grid-cols-1 gap-16 mt-8">
+      <ul class="mt-8 grid grid-cols-1 gap-16">
         {#each slice.items as item}
           <li>
-            <PrismicLink field="{item.link}" class="transition-opacity hover:opacity-90">
+            <PrismicLink
+              field={item.link}
+              class="transition-opacity hover:opacity-90">
               <div class="relative">
-                <PrismicImage class="object-cover w-full h-80" field="{item.image}" />
+                <PrismicImage
+                  class="h-80 w-full object-cover"
+                  field={item.image} />
 
                 {#if isFilled.keyText(item.tag)}
                   <p class="py-4 text-brand-tertiary">
@@ -572,16 +643,17 @@
               </div>
 
               <div class="text-base font-medium">
-                <PrismicRichText field="{item.title}" />
+                <PrismicRichText field={item.title} />
               </div>
 
-              <div class="mt-2 text-sm font-normal text-brand-gray text-brand-primary/80">
-                <PrismicRichText field="{item.subtext}" />
+              <div
+                class="text-brand-gray mt-2 text-sm font-normal text-brand-primary/80">
+                <PrismicRichText field={item.subtext} />
               </div>
 
               {#if isFilled.keyText(item.button_text)}
                 <div class="mt-8 text-left">
-                  <p class="inline-flex h-10 button secondary">
+                  <p class="button secondary inline-flex h-10">
                     {item.button_text}
                   </p>
                 </div>
@@ -594,13 +666,12 @@
   </section>
 {/if}
 
-
 <style>
   .zoom-container {
     position: relative;
     cursor: crosshair;
   }
-  
+
   .zoom-overlay {
     background-color: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(1px);
@@ -608,7 +679,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   }
-  
+
   .zoom-container:hover .zoom-overlay {
     opacity: 1 !important;
     visibility: visible !important;

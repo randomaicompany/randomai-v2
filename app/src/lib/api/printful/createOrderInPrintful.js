@@ -7,8 +7,8 @@ export default async (printfulPayload) => {
   await axios.post(url, printfulPayload, {
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${PRINTFUL_TOKEN}`,
-    },
+      Authorization: `Bearer ${PRINTFUL_TOKEN}`
+    }
   });
   console.log("Printful: Created draft order");
 };

@@ -4,8 +4,13 @@
 
   import * as R from "ramda";
   import { Splide, SplideSlide } from "@splidejs/svelte-splide";
-  import { PrismicImage, PrismicLink, PrismicRichText, PrismicText } from "@prismicio/svelte";
-  import { onMount } from 'svelte';
+  import {
+    PrismicImage,
+    PrismicLink,
+    PrismicRichText,
+    PrismicText
+  } from "@prismicio/svelte";
+  import { onMount } from "svelte";
 
   import Heart from "components/Heart.svelte";
   import { isFilled } from "@prismicio/client";
@@ -23,12 +28,12 @@
   onMount(() => {
     zoomContainers.forEach((container, index) => {
       if (container) {
-        const img = container.querySelector('img');
-        const overlay = container.querySelector('.zoom-overlay');
-        
+        const img = container.querySelector("img");
+        const overlay = container.querySelector(".zoom-overlay");
+
         if (img && overlay) {
-          const zoomSrc = img.getAttribute('data-zoom') || img.src;
-          
+          const zoomSrc = img.getAttribute("data-zoom") || img.src;
+
           const handleMouseMove = (e) => {
             const rect = container.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -40,30 +45,30 @@
 
             // Update overlay background
             overlay.style.backgroundImage = `url('${zoomSrc}')`;
-            overlay.style.backgroundSize = '200%'; // 2x zoom
+            overlay.style.backgroundSize = "200%"; // 2x zoom
             overlay.style.backgroundPosition = `${xPercent}% ${yPercent}%`;
-            overlay.style.backgroundRepeat = 'no-repeat';
+            overlay.style.backgroundRepeat = "no-repeat";
           };
 
           const handleMouseEnter = () => {
-            overlay.style.opacity = '1';
-            overlay.style.visibility = 'visible';
+            overlay.style.opacity = "1";
+            overlay.style.visibility = "visible";
           };
 
           const handleMouseLeave = () => {
-            overlay.style.opacity = '0';
-            overlay.style.visibility = 'hidden';
+            overlay.style.opacity = "0";
+            overlay.style.visibility = "hidden";
           };
 
-          container.addEventListener('mousemove', handleMouseMove);
-          container.addEventListener('mouseenter', handleMouseEnter);
-          container.addEventListener('mouseleave', handleMouseLeave);
+          container.addEventListener("mousemove", handleMouseMove);
+          container.addEventListener("mouseenter", handleMouseEnter);
+          container.addEventListener("mouseleave", handleMouseLeave);
 
           // Cleanup function
           return () => {
-            container.removeEventListener('mousemove', handleMouseMove);
-            container.removeEventListener('mouseenter', handleMouseEnter);
-            container.removeEventListener('mouseleave', handleMouseLeave);
+            container.removeEventListener("mousemove", handleMouseMove);
+            container.removeEventListener("mouseenter", handleMouseEnter);
+            container.removeEventListener("mouseleave", handleMouseLeave);
           };
         }
       }
@@ -73,51 +78,58 @@
   // Function to get zoom URL for image - you'll need to adapt this to your image structure
   const getZoomUrl = (image, newWidth, newHeight) => {
     const imageUrl = image?.url || image?.src;
-    if (!imageUrl) return '';
-    
+    if (!imageUrl) return "";
+
     const parsedUrl = new URL(imageUrl);
 
-  parsedUrl.searchParams.set('w', newWidth);
-  parsedUrl.searchParams.set('h', newHeight);
+    parsedUrl.searchParams.set("w", newWidth);
+    parsedUrl.searchParams.set("h", newHeight);
 
     // Replace this logic with however you determine the zoom URL from your image field
     return parsedUrl.toString();
   };
 </script>
 
-<div class="relative" data-slice-type="{slice.slice_type}" data-slice-variation="{slice.variation}">
-  <Heart product="{slice}" />
+<div
+  class="relative"
+  data-slice-type={slice.slice_type}
+  data-slice-variation={slice.variation}>
+  <Heart product={slice} />
   <Splide
-    on:move="{handleSlideMove}"
-    bind:this="{slider}"
-    options="{{
+    on:move={handleSlideMove}
+    bind:this={slider}
+    options={{
       perPage: 1,
       rewind: true,
       arrows: false,
-      pagination: false,
-    }}">
+      pagination: false
+    }}>
     {#each slice.items as { image }, index}
       <SplideSlide>
-        <div class="zoom-container relative overflow-hidden" bind:this={zoomContainers[index]}>
-          {#if slice.primary.link_text?.[0]?.text.trim().toLowerCase() !== 'buy now'}
+        <div
+          class="zoom-container relative overflow-hidden"
+          bind:this={zoomContainers[index]}>
+          {#if slice.primary.link_text?.[0]?.text
+            .trim()
+            .toLowerCase() !== "buy now"}
             <a href={editorLink}>
-              <PrismicImage 
-                class="object-cover object-top w-full h-96 bg-brand-smoke-darker" 
-                field="{image}"
-                data-zoom="{getZoomUrl(image,1200,1200)}"
-              />
+              <PrismicImage
+                class="h-96 w-full bg-brand-smoke-darker object-cover object-top"
+                field={image}
+                data-zoom={getZoomUrl(image, 1200, 1200)} />
             </a>
           {:else}
-            <PrismicLink field="{slice.primary.link}">
-              <PrismicImage 
-                class="object-cover object-top w-full h-96 bg-brand-smoke-darker" 
-                field="{image}"
-                data-zoom="{getZoomUrl(image,1200,1200)}"
-              />
+            <PrismicLink field={slice.primary.link}>
+              <PrismicImage
+                class="h-96 w-full bg-brand-smoke-darker object-cover object-top"
+                field={image}
+                data-zoom={getZoomUrl(image, 1200, 1200)} />
             </PrismicLink>
           {/if}
-          <div class="zoom-overlay absolute inset-0 pointer-events-none transition-opacity duration-300" 
-               style="opacity: 0; visibility: hidden;"></div>
+          <div
+            class="zoom-overlay pointer-events-none absolute inset-0 transition-opacity duration-300"
+            style="opacity: 0; visibility: hidden;">
+          </div>
         </div>
       </SplideSlide>
     {/each}
@@ -128,55 +140,59 @@
       {@const isCurrent = R.equals(activeIdx, idx)}
       <li>
         <button
-          class="border rounded-full outline-none ring-offset-1 ring-brand-primary"
-          class:ring-2="{isCurrent}"
-          on:click="{goToSlide(idx)}">
-          <PrismicImage class="w-4 h-4 rounded-full" field="{swatch}" />
+          class="rounded-full border outline-none ring-brand-primary ring-offset-1"
+          class:ring-2={isCurrent}
+          on:click={goToSlide(idx)}>
+          <PrismicImage class="h-4 w-4 rounded-full" field={swatch} />
         </button>
       </li>
     {/each}
   </ul>
 
-  <div class="min-h-[10rem] flex flex-col">
+  <div class="flex min-h-[10rem] flex-col">
     <div class="flex-1">
       <p class="text-base font-medium">
-        {#if slice.primary.link_text?.[0]?.text.trim().toLowerCase() !== 'buy now'}
+        {#if slice.primary.link_text?.[0]?.text
+          .trim()
+          .toLowerCase() !== "buy now"}
           <a href={editorLink}>
             {slice?.primary?.product?.title || ""}
           </a>
         {:else}
-        <PrismicLink field="{slice.primary.link}">
-          {slice?.primary?.product?.title || ""}
-        </PrismicLink>
+          <PrismicLink field={slice.primary.link}>
+            {slice?.primary?.product?.title || ""}
+          </PrismicLink>
         {/if}
       </p>
-      <p class="mt-2 font-normal text-brand-gray text-brand-primary/70">
+      <p class="text-brand-gray mt-2 font-normal text-brand-primary/70">
         ${slice.primary.product.variants[0]?.price || ""}
       </p>
 
       {#if slice?.primary?.review_text}
         <div class="flex items-center justify-start gap-2 pt-2">
           <PrismicImage
-            class="object-contain object-left w-28"
-            field="{slice?.primary?.review_stars}" />
+            class="w-28 object-contain object-left"
+            field={slice?.primary?.review_stars} />
           <p class="text-sm">{slice?.primary?.review_text || ""}</p>
         </div>
       {/if}
     </div>
 
     {#if isFilled.link(slice.primary.link)}
-      {#if slice.primary.link_text?.[0]?.text.trim().toLowerCase() !== 'buy now'}
+      {#if slice.primary.link_text?.[0]?.text
+        .trim()
+        .toLowerCase() !== "buy now"}
         <div class="pt-4">
           <a href={editorLink} class="button button-compact">
             <PrismicText field={slice.primary.link_text} />
           </a>
         </div>
       {:else}
-      <div class="pt-4">
-        <PrismicLink field={slice.primary.link} class="button button-compact">
-          <PrismicText field={slice.primary.link_text} />
-        </PrismicLink>
-      </div>
+        <div class="pt-4">
+          <PrismicLink field={slice.primary.link} class="button button-compact">
+            <PrismicText field={slice.primary.link_text} />
+          </PrismicLink>
+        </div>
       {/if}
     {/if}
   </div>
@@ -187,7 +203,7 @@
     position: relative;
     cursor: crosshair;
   }
-  
+
   .zoom-overlay {
     background-color: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(1px);
@@ -195,7 +211,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   }
-  
+
   .zoom-container:hover .zoom-overlay {
     opacity: 1 !important;
     visibility: visible !important;

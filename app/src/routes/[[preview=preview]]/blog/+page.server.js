@@ -19,7 +19,7 @@ export async function load({ params, fetch, cookies }) {
     page,
     feeds,
     meta_title: page.data.meta_title,
-    meta_description: page.data.meta_description,
+    meta_description: page.data.meta_description
   };
 }
 

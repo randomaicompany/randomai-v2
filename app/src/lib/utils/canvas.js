@@ -49,7 +49,11 @@ export const resizeCanvas = (canvas, containerNode) => {
   }
 };
 
-export const exportCanvas = async (canvas, width = 768, isOutputDataURL = false) => {
+export const exportCanvas = async (
+  canvas,
+  width = 768,
+  isOutputDataURL = false
+) => {
   const originalWidth = canvas.width;
   const desiredWidth = width;
 
@@ -57,7 +61,7 @@ export const exportCanvas = async (canvas, width = 768, isOutputDataURL = false)
   const imageURL = canvas.toDataURL({
     quality: 1,
     format: "png",
-    multiplier: scaleFactor,
+    multiplier: scaleFactor
   });
 
   if (!isOutputDataURL) {

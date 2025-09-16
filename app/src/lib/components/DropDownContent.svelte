@@ -13,12 +13,12 @@
   <button
     on:click={toggle}
     class:!text-brand-primary={open}
-    class="flex items-center flex-1 text-brand-tertiary font-medium w-full p-4 text-base text-left border-t cursor-pointer !last:border-b-transparent">
+    class="!last:border-b-transparent flex w-full flex-1 cursor-pointer items-center border-t p-4 text-left text-base font-medium text-brand-tertiary">
     <p class="flex-1">{name}</p>
     <i
       class:rotate-45={open}
-      class="ml-2 !text-2xl transition-transform duration-150 material-symbols-rounded"
-    >add</i>
+      class="material-symbols-rounded ml-2 !text-2xl transition-transform duration-150"
+      >add</i>
   </button>
 
   <div use:accordion={open}>

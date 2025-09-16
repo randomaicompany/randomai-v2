@@ -11,13 +11,13 @@ export async function load({ url, fetch, cookies }) {
   const page = await client.get({
     pageSize: 100,
     orderings: {
-      direction: "asc",
+      direction: "asc"
     },
-    filters: [filter.fulltext("document", query)],
+    filters: [filter.fulltext("document", query)]
   });
 
   return {
-    results: page.results,
+    results: page.results
   };
 }
 

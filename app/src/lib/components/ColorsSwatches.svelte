@@ -17,21 +17,21 @@
 </script>
 
 <div>
-  <div class="flex items-center gap-2 mb-4">
+  <div class="mb-4 flex items-center gap-2">
     <p class="text-xl">{label}</p>
   </div>
   <ul class="flex flex-wrap gap-2 px-1">
     {#each options as { swatch, color_name }, idx}
       <li>
-        <Checkbox on:change="{updateValues(color_name)}">
+        <Checkbox on:change={updateValues(color_name)}>
           {@const isActive = R.includes(color_name, values)}
           {@const isFiltered = R.isEmpty(values)}
           <div
-            class:opacity-50="{!isFiltered}"
-            class:!opacity-100="{isActive}"
-            class:!ring-brand-primary="{isActive}"
-            class="w-5 h-5 transition-all border rounded-full ring-1 ring-offset-1 ring-transparent">
-            <PrismicImage class="rounded-full" field="{swatch}" />
+            class:opacity-50={!isFiltered}
+            class:!opacity-100={isActive}
+            class:!ring-brand-primary={isActive}
+            class="h-5 w-5 rounded-full border ring-1 ring-transparent ring-offset-1 transition-all">
+            <PrismicImage class="rounded-full" field={swatch} />
           </div>
         </Checkbox>
       </li>

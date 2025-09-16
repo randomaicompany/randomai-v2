@@ -1,1571 +1,1571 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Pick your style and start designing",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"eyebrow_headline": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "- Styles",
-							"spans": [
-								{
-									"type": "em",
-									"start": 0,
-									"end": 8
-								}
-							]
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"is_cover": {
-				"__TYPE__": "BooleanContent",
-				"value": true
-			},
-			"is_4_col_layout": {
-				"__TYPE__": "BooleanContent",
-				"value": false
-			},
-			"is_contained": {
-				"__TYPE__": "BooleanContent",
-				"value": false
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"image",
-						{
-							"origin": {
-								"id": "main",
-								"url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
-								"width": 4172,
-								"height": 4000
-							},
-							"url": "https://images.unsplash.com/photo-1586952518485-11b180e92764?rect=0%2C0%2C4171%2C4000&w=438&h=420",
-							"width": 438,
-							"height": 420,
-							"edit": {
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								},
-								"background": "transparent"
-							},
-							"credits": null,
-							"alt": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					],
-					[
-						"title",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Title of Card",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"link",
-						{
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "http://google.com"
-							}
-						}
-					],
-					[
-						"subtext",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Eu cupidatat qui aute deserunt minim nisi esse excepteur incididunt velit ullamco."
-									}
-								}
-							]
-						}
-					]
-				]
-			},
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"title",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Title of Card",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"image",
-						{
-							"url": "https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTIxMjQxOTJ8MA&ixlib=rb-4.0.3&q=85&rect=0%2C0%2C3709%2C5563&w=280&h=420",
-							"alt": "assorted sliced citrus fruits on brown wooden chopping board",
-							"origin": {
-								"id": "1CsaVdwfIew",
-								"url": "https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTIxMjQxOTJ8MA&ixlib=rb-4.0.3&q=85",
-								"width": 3709,
-								"height": 5563
-							},
-							"width": 280,
-							"height": 420,
-							"edit": {
-								"background": "transparent",
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								}
-							},
-							"credits": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					],
-					[
-						"link",
-						{
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "https://prismic.io"
-							}
-						}
-					],
-					[
-						"subtext",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Ut adipisicing incididunt consequat dolore in et eiusmod adipisicing aliquip cillum."
-									}
-								}
-							]
-						}
-					],
-					[
-						"tags",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "shall",
-							"type": "Text"
-						}
-					]
-				]
-			},
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"title",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Title of Card",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"link",
-						{
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "https://slicemachine.dev"
-							}
-						}
-					],
-					[
-						"image",
-						{
-							"url": "https://images.unsplash.com/photo-1590004828948-09db7606e5ac?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw3fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTIxMjQxOTJ8MA&ixlib=rb-4.0.3&q=85&rect=0%2C0%2C3699%2C2959&w=525&h=420",
-							"alt": "sliced orange fruit on white surface",
-							"origin": {
-								"id": "92HwFhCp-MQ",
-								"url": "https://images.unsplash.com/photo-1590004828948-09db7606e5ac?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw3fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTIxMjQxOTJ8MA&ixlib=rb-4.0.3&q=85",
-								"width": 3699,
-								"height": 2959
-							},
-							"width": 525,
-							"height": 420,
-							"edit": {
-								"background": "transparent",
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								}
-							},
-							"credits": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					],
-					[
-						"subtext",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Mollit commodo sit reprehenderit dolore laboris dolor.",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"tags",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Text",
-							"value": "simplest, data, other stuff, #fqwerq"
-						}
-					]
-				]
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "cards2ColumnsBig",
-		"primary": {},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"image",
-						{
-							"origin": {
-								"id": "main",
-								"url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118",
-								"width": 4160,
-								"height": 3120
-							},
-							"url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118?rect=0%2C0%2C4160%2C3120&w=1600&h=1200",
-							"width": 1600,
-							"height": 1200,
-							"edit": {
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								},
-								"background": "transparent"
-							},
-							"credits": null,
-							"alt": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					],
-					[
-						"link",
-						{
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "https://prismic.io"
-							}
-						}
-					],
-					[
-						"button_text",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Text",
-							"value": "Women’s Collections"
-						}
-					]
-				]
-			},
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"image",
-						{
-							"url": "https://images.unsplash.com/photo-1597714026720-8f74c62310ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzEyMTI0MTkyfDA&ixlib=rb-4.0.3&q=85&rect=0%2C0%2C5688%2C3792&w=1800&h=1200",
-							"alt": "orange fruits under blue sky during daytime",
-							"origin": {
-								"id": "eaOjEz8746k",
-								"url": "https://images.unsplash.com/photo-1597714026720-8f74c62310ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzEyMTI0MTkyfDA&ixlib=rb-4.0.3&q=85",
-								"width": 5688,
-								"height": 3792
-							},
-							"width": 1800,
-							"height": 1200,
-							"edit": {
-								"background": "transparent",
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								}
-							},
-							"credits": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					],
-					[
-						"button_text",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Text",
-							"value": "Women’s Collections"
-						}
-					],
-					[
-						"link",
-						{
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "https://prismic.io",
-								"target": ""
-							}
-						}
-					]
-				]
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "cardsWithColorToggle",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Something"
-						}
-					}
-				]
-			},
-			"eyebrow_headline": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "- Text",
-							"spans": [
-								{
-									"type": "em",
-									"start": 0,
-									"end": 6
-								}
-							]
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"button_text": {
-				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "View Collection"
-			},
-			"link": {
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "http://google.com"
-				}
-			},
-			"description": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "fasdfasdfasdfasdfsadfa",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"image",
-						{
-							"origin": {
-								"id": "main",
-								"url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9",
-								"width": 4752,
-								"height": 3168
-							},
-							"url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?rect=0%2C0%2C4752%2C3168&w=630&h=420",
-							"width": 630,
-							"height": 420,
-							"edit": {
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								},
-								"background": "transparent"
-							},
-							"credits": null,
-							"alt": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					],
-					[
-						"title",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Tank in cotton",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"link",
-						{
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "https://prismic.io"
-							}
-						}
-					],
-					[
-						"subtext",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "CA$40.00  (-15%)",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"review_text",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "(5.0) 4 Review",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"swatches_image",
-						{
-							"origin": {
-								"id": "main",
-								"url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a",
-								"width": 4000,
-								"height": 4000
-							},
-							"url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a?rect=0%2C0%2C4000%2C4000&w=24&h=24",
-							"width": 24,
-							"height": 24,
-							"edit": {
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								},
-								"background": "transparent"
-							},
-							"credits": null,
-							"alt": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					]
-				]
-			},
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"image",
-						{
-							"url": "https://images.unsplash.com/photo-1546548970-71785318a17b?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTIxMjQxOTJ8MA&ixlib=rb-4.0.3&q=85&rect=0%2C0%2C3104%2C4656&w=280&h=420",
-							"alt": "flat lay photography of sliced pomegranate, lime, and lemon",
-							"origin": {
-								"id": "7r1HxvVC7AY",
-								"url": "https://images.unsplash.com/photo-1546548970-71785318a17b?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTIxMjQxOTJ8MA&ixlib=rb-4.0.3&q=85",
-								"width": 3104,
-								"height": 4656
-							},
-							"width": 280,
-							"height": 420,
-							"edit": {
-								"background": "transparent",
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								}
-							},
-							"credits": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					],
-					[
-						"subtext",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "CA$40.00  (-15%)",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"title",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Tank in Cotton",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"review_text",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "(5.0) 4 Review",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"swatches_image",
-						{
-							"origin": {
-								"id": "main",
-								"url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f",
-								"width": 6000,
-								"height": 4000
-							},
-							"url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f?rect=0%2C0%2C6000%2C4000&w=36&h=24",
-							"width": 36,
-							"height": 24,
-							"edit": {
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								},
-								"background": "transparent"
-							},
-							"credits": null,
-							"alt": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					]
-				]
-			},
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"image",
-						{
-							"url": "https://images.unsplash.com/photo-1577234286642-fc512a5f8f11?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTIxMjQxOTJ8MA&ixlib=rb-4.0.3&q=85&rect=0%2C0%2C3024%2C4032&w=315&h=420",
-							"alt": "sliced grapefruits",
-							"origin": {
-								"id": "ezSFnAFi9hY",
-								"url": "https://images.unsplash.com/photo-1577234286642-fc512a5f8f11?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTIxMjQxOTJ8MA&ixlib=rb-4.0.3&q=85",
-								"width": 3024,
-								"height": 4032
-							},
-							"width": 315,
-							"height": 420,
-							"edit": {
-								"background": "transparent",
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								}
-							},
-							"credits": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					],
-					[
-						"subtext",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "CA$40.00  (-15%)",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"title",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Tank In Cotton",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"review_text",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "(5.0) 4 Review",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"swatches_image",
-						{
-							"origin": {
-								"id": "main",
-								"url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
-								"width": 4172,
-								"height": 4000
-							},
-							"url": "https://images.unsplash.com/photo-1586952518485-11b180e92764?rect=3%2C0%2C4167%2C4000&w=25&h=24",
-							"width": 25,
-							"height": 24,
-							"edit": {
-								"zoom": 1,
-								"crop": {
-									"x": 3,
-									"y": 0
-								},
-								"background": "transparent"
-							},
-							"credits": null,
-							"alt": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					]
-				]
-			},
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"image",
-						{
-							"url": "https://images.unsplash.com/photo-1592187270271-9a4b84faa228?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw1fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTIxMjQxOTJ8MA&ixlib=rb-4.0.3&q=85&rect=0%2C0%2C4000%2C6000&w=280&h=420",
-							"alt": "sliced orange fruit on blue surface",
-							"origin": {
-								"id": "8ZGgg6rhzxs",
-								"url": "https://images.unsplash.com/photo-1592187270271-9a4b84faa228?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw1fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTIxMjQxOTJ8MA&ixlib=rb-4.0.3&q=85",
-								"width": 4000,
-								"height": 6000
-							},
-							"width": 280,
-							"height": 420,
-							"edit": {
-								"background": "transparent",
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								}
-							},
-							"credits": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					],
-					[
-						"title",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Tank in Cotton",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"subtext",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "CA$40.00  (-15%)",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"review_text",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "(5.0) 4 Review",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"swatches_image",
-						{
-							"origin": {
-								"id": "main",
-								"url": "https://images.unsplash.com/photo-1589321599763-d66926c29613",
-								"width": 3168,
-								"height": 4752
-							},
-							"url": "https://images.unsplash.com/photo-1589321599763-d66926c29613?rect=0%2C0%2C3168%2C4752&w=16&h=24",
-							"width": 16,
-							"height": 24,
-							"edit": {
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								},
-								"background": "transparent"
-							},
-							"credits": null,
-							"alt": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					]
-				]
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "cardsReviews",
-		"primary": {},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"image",
-						{
-							"origin": {
-								"id": "WYE2UhXsU1Y",
-								"url": "https://images.unsplash.com/photo-1611432579699-484f7990b127?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxfHxoZWFkc2hvdHxlbnwwfHx8fDE3MTIyMjMyMzV8MA&ixlib=rb-4.0.3&q=85",
-								"width": 5409,
-								"height": 3606
-							},
-							"url": "https://images.unsplash.com/photo-1611432579699-484f7990b127?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxfHxoZWFkc2hvdHxlbnwwfHx8fDE3MTIyMjMyMzV8MA&ixlib=rb-4.0.3&q=85&rect=902%2C0%2C3606%2C3606&w=100&h=100",
-							"width": 100,
-							"height": 100,
-							"edit": {
-								"background": "transparent",
-								"zoom": 1,
-								"crop": {
-									"x": 902,
-									"y": 0
-								}
-							},
-							"credits": null,
-							"alt": "woman in white scoop neck shirt smiling",
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					],
-					[
-						"description",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Magna nostrud dolore laborum incididunt anim anim ex."
-									}
-								}
-							]
-						}
-					],
-					[
-						"name",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Eu excepteur et id mollit nisi anim ipsum consequat labore. Commodo veniam velit sint id deserunt fugiat aliquip est dolore culpa enim et nulla."
-									}
-								}
-							]
-						}
-					]
-				]
-			},
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"image",
-						{
-							"url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw3fHxoZWFkc2hvdHxlbnwwfHx8fDE3MTIyMjMyMzV8MA&ixlib=rb-4.0.3&q=85&rect=0%2C936%2C3744%2C3744&w=100&h=100",
-							"alt": "closeup photography of woman smiling",
-							"origin": {
-								"id": "mEZ3PoFGs_k",
-								"url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw3fHxoZWFkc2hvdHxlbnwwfHx8fDE3MTIyMjMyMzV8MA&ixlib=rb-4.0.3&q=85",
-								"width": 3744,
-								"height": 5616
-							},
-							"width": 100,
-							"height": 100,
-							"edit": {
-								"background": "transparent",
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 936
-								}
-							},
-							"credits": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					],
-					[
-						"description",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "This is a simple review text to see how it responds.",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"name",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Velit Lorem ex proident."
-									}
-								}
-							]
-						}
-					]
-				]
-			},
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"image",
-						{
-							"url": "https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8aGVhZHNob3R8ZW58MHx8fHwxNzEyMjIzMjM1fDA&ixlib=rb-4.0.3&q=85&rect=0%2C313%2C2504%2C2504&w=100&h=100",
-							"alt": "woman in pink blazer smiling",
-							"origin": {
-								"id": "A73ah5JKtVA",
-								"url": "https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8aGVhZHNob3R8ZW58MHx8fHwxNzEyMjIzMjM1fDA&ixlib=rb-4.0.3&q=85",
-								"width": 2504,
-								"height": 3130
-							},
-							"width": 100,
-							"height": 100,
-							"edit": {
-								"background": "transparent",
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 313
-								}
-							},
-							"credits": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					],
-					[
-						"description",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "This is a simple review text to see how it responds.",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"name",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "In duis esse qui laborum excepteur eiusmod amet est exercitation. Nisi nostrud incididunt in irure enim ipsum ullamco nulla nisi officia."
-									}
-								}
-							]
-						}
-					]
-				]
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "cardsDualColumn",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Latest Blog Posts",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"link": {
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://slicemachine.dev"
-				}
-			},
-			"eyebrow_headline": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "- Blog Hub",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"button_text": {
-				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "View Blog Hub"
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"image",
-						{
-							"origin": {
-								"id": "main",
-								"url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118",
-								"width": 4160,
-								"height": 3120
-							},
-							"url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118?rect=0%2C0%2C4160%2C3120&w=560&h=420",
-							"width": 560,
-							"height": 420,
-							"edit": {
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								},
-								"background": "transparent"
-							},
-							"credits": null,
-							"alt": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					],
-					[
-						"link",
-						{
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "http://google.com"
-							}
-						}
-					],
-					[
-						"subtext",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Ralph Lauren beat Wall Street estimates for quarterly revenue on Wednesday as its younger, more affluent customer base continued to snap up its pricey shirts and sweaters in the US, signaling steady demand ahead of the key holiday season.",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"title",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Ralph Lauren Beats Sales Estimates on Steady Demand",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"button_text",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Text",
-							"value": "Read More"
-						}
-					]
-				]
-			},
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"image",
-						{
-							"url": "https://images.unsplash.com/photo-1597714026720-8f74c62310ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzEyMjExNDI2fDA&ixlib=rb-4.0.3&q=85&rect=0%2C0%2C5688%2C3792&w=630&h=420",
-							"alt": "orange fruits under blue sky during daytime",
-							"origin": {
-								"id": "eaOjEz8746k",
-								"url": "https://images.unsplash.com/photo-1597714026720-8f74c62310ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzEyMjExNDI2fDA&ixlib=rb-4.0.3&q=85",
-								"width": 5688,
-								"height": 3792
-							},
-							"width": 630,
-							"height": 420,
-							"edit": {
-								"background": "transparent",
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								}
-							},
-							"credits": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					],
-					[
-						"title",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Ralph Lauren Beats Sales Estimates on Steady Demand",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"subtext",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Ralph Lauren beat Wall Street estimates for quarterly revenue on Wednesday as its younger, more affluent customer base continued to snap up its pricey shirts and sweaters in the US, signaling steady demand ahead of the key holiday season.",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"button_text",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Text",
-							"value": "Read More"
-						}
-					]
-				]
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "cardsListLayout",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Blogs Hub",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"image",
-						{
-							"origin": {
-								"id": "main",
-								"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
-								"width": 3199,
-								"height": 3199
-							},
-							"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869?rect=0%2C0%2C3199%2C3199&w=420&h=420",
-							"width": 420,
-							"height": 420,
-							"edit": {
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								},
-								"background": "transparent"
-							},
-							"credits": null,
-							"alt": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					],
-					[
-						"title",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Sunt ea velit amet sit proident. Dolore voluptate consequat dolore ullamco id veniam nulla sit nisi occaecat pariatur id."
-									}
-								}
-							]
-						}
-					],
-					[
-						"link",
-						{
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "http://twitter.com"
-							}
-						}
-					],
-					[
-						"subtext",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Et laborum ipsum irure nulla sint voluptate culpa eu dolore voluptate."
-									}
-								}
-							]
-						}
-					],
-					[
-						"button_text",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Text",
-							"value": "Read More"
-						}
-					],
-					[
-						"published_date",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Timestamp",
-							"value": "2021-09-12T09:58:54Z"
-						}
-					],
-					[
-						"publisher_name",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Text",
-							"value": "Donny D"
-						}
-					],
-					[
-						"tag",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "arm",
-							"type": "Text"
-						}
-					]
-				]
-			},
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"image",
-						{
-							"url": "https://images.unsplash.com/photo-1542435503-956c469947f6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw0fHxibG9nfGVufDB8fHx8MTcxMjIyNTgzMHww&ixlib=rb-4.0.3&q=85&rect=0%2C0%2C4517%2C3388&w=560&h=420",
-							"alt": "pen near black lined paper and eyeglasses",
-							"origin": {
-								"id": "q10VITrVYUM",
-								"url": "https://images.unsplash.com/photo-1542435503-956c469947f6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw0fHxibG9nfGVufDB8fHx8MTcxMjIyNTgzMHww&ixlib=rb-4.0.3&q=85",
-								"width": 4518,
-								"height": 3388
-							},
-							"width": 560,
-							"height": 420,
-							"edit": {
-								"background": "transparent",
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								}
-							},
-							"credits": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					],
-					[
-						"title",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Title for ths blog post",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"subtext",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "pen near black lined paper and eyeglasses",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"button_text",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Text",
-							"value": "Read More"
-						}
-					],
-					[
-						"tag",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Text",
-							"value": "Purple"
-						}
-					],
-					[
-						"publisher_name",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Text",
-							"value": "Andy Coffman"
-						}
-					],
-					[
-						"published_date",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Timestamp",
-							"value": "2024-04-02T10:19:00+00:00"
-						}
-					]
-				]
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "cardsFlatList",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Recent stories",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"image",
-						{
-							"origin": {
-								"id": "main",
-								"url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db",
-								"width": 4380,
-								"height": 2895
-							},
-							"url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db?rect=2%2C0%2C4377%2C2895&w=635&h=420",
-							"width": 635,
-							"height": 420,
-							"edit": {
-								"zoom": 1,
-								"crop": {
-									"x": 2,
-									"y": 0
-								},
-								"background": "transparent"
-							},
-							"credits": null,
-							"alt": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					],
-					[
-						"title",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Do labore eiusmod do enim nulla nostrud elit veniam laboris quis duis sunt officia laborum."
-									}
-								}
-							]
-						}
-					],
-					[
-						"link",
-						{
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "https://prismic.io"
-							}
-						}
-					],
-					[
-						"tag",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Text",
-							"value": "Craft"
-						}
-					]
-				]
-			}
-		]
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Pick your style and start designing",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "eyebrow_headline": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "- Styles",
+              "spans": [
+                {
+                  "type": "em",
+                  "start": 0,
+                  "end": 8
+                }
+              ]
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "is_cover": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "is_4_col_layout": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "is_contained": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "image",
+            {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
+                "width": 4172,
+                "height": 4000
+              },
+              "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764?rect=0%2C0%2C4171%2C4000&w=438&h=420",
+              "width": 438,
+              "height": 420,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Title of Card",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "link",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "http://google.com"
+              }
+            }
+          ],
+          [
+            "subtext",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Eu cupidatat qui aute deserunt minim nisi esse excepteur incididunt velit ullamco."
+                  }
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Title of Card",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "image",
+            {
+              "url": "https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTIxMjQxOTJ8MA&ixlib=rb-4.0.3&q=85&rect=0%2C0%2C3709%2C5563&w=280&h=420",
+              "alt": "assorted sliced citrus fruits on brown wooden chopping board",
+              "origin": {
+                "id": "1CsaVdwfIew",
+                "url": "https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTIxMjQxOTJ8MA&ixlib=rb-4.0.3&q=85",
+                "width": 3709,
+                "height": 5563
+              },
+              "width": 280,
+              "height": 420,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "credits": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "link",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "https://prismic.io"
+              }
+            }
+          ],
+          [
+            "subtext",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Ut adipisicing incididunt consequat dolore in et eiusmod adipisicing aliquip cillum."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "tags",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "shall",
+              "type": "Text"
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Title of Card",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "link",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "https://slicemachine.dev"
+              }
+            }
+          ],
+          [
+            "image",
+            {
+              "url": "https://images.unsplash.com/photo-1590004828948-09db7606e5ac?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw3fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTIxMjQxOTJ8MA&ixlib=rb-4.0.3&q=85&rect=0%2C0%2C3699%2C2959&w=525&h=420",
+              "alt": "sliced orange fruit on white surface",
+              "origin": {
+                "id": "92HwFhCp-MQ",
+                "url": "https://images.unsplash.com/photo-1590004828948-09db7606e5ac?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw3fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTIxMjQxOTJ8MA&ixlib=rb-4.0.3&q=85",
+                "width": 3699,
+                "height": 2959
+              },
+              "width": 525,
+              "height": 420,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "credits": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "subtext",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Mollit commodo sit reprehenderit dolore laboris dolor.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "tags",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "simplest, data, other stuff, #fqwerq"
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "cards2ColumnsBig",
+    "primary": {},
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "image",
+            {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118",
+                "width": 4160,
+                "height": 3120
+              },
+              "url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118?rect=0%2C0%2C4160%2C3120&w=1600&h=1200",
+              "width": 1600,
+              "height": 1200,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "link",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "https://prismic.io"
+              }
+            }
+          ],
+          [
+            "button_text",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "Women’s Collections"
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "image",
+            {
+              "url": "https://images.unsplash.com/photo-1597714026720-8f74c62310ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzEyMTI0MTkyfDA&ixlib=rb-4.0.3&q=85&rect=0%2C0%2C5688%2C3792&w=1800&h=1200",
+              "alt": "orange fruits under blue sky during daytime",
+              "origin": {
+                "id": "eaOjEz8746k",
+                "url": "https://images.unsplash.com/photo-1597714026720-8f74c62310ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzEyMTI0MTkyfDA&ixlib=rb-4.0.3&q=85",
+                "width": 5688,
+                "height": 3792
+              },
+              "width": 1800,
+              "height": 1200,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "credits": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "button_text",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "Women’s Collections"
+            }
+          ],
+          [
+            "link",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "https://prismic.io",
+                "target": ""
+              }
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "cardsWithColorToggle",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Something"
+            }
+          }
+        ]
+      },
+      "eyebrow_headline": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "- Text",
+              "spans": [
+                {
+                  "type": "em",
+                  "start": 0,
+                  "end": 6
+                }
+              ]
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "button_text": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "View Collection"
+      },
+      "link": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "http://google.com"
+        }
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "fasdfasdfasdfasdfsadfa",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "image",
+            {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9",
+                "width": 4752,
+                "height": 3168
+              },
+              "url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?rect=0%2C0%2C4752%2C3168&w=630&h=420",
+              "width": 630,
+              "height": 420,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Tank in cotton",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "link",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "https://prismic.io"
+              }
+            }
+          ],
+          [
+            "subtext",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "CA$40.00  (-15%)",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "review_text",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "(5.0) 4 Review",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "swatches_image",
+            {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a",
+                "width": 4000,
+                "height": 4000
+              },
+              "url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a?rect=0%2C0%2C4000%2C4000&w=24&h=24",
+              "width": 24,
+              "height": 24,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "image",
+            {
+              "url": "https://images.unsplash.com/photo-1546548970-71785318a17b?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTIxMjQxOTJ8MA&ixlib=rb-4.0.3&q=85&rect=0%2C0%2C3104%2C4656&w=280&h=420",
+              "alt": "flat lay photography of sliced pomegranate, lime, and lemon",
+              "origin": {
+                "id": "7r1HxvVC7AY",
+                "url": "https://images.unsplash.com/photo-1546548970-71785318a17b?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTIxMjQxOTJ8MA&ixlib=rb-4.0.3&q=85",
+                "width": 3104,
+                "height": 4656
+              },
+              "width": 280,
+              "height": 420,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "credits": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "subtext",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "CA$40.00  (-15%)",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Tank in Cotton",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "review_text",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "(5.0) 4 Review",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "swatches_image",
+            {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f",
+                "width": 6000,
+                "height": 4000
+              },
+              "url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f?rect=0%2C0%2C6000%2C4000&w=36&h=24",
+              "width": 36,
+              "height": 24,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "image",
+            {
+              "url": "https://images.unsplash.com/photo-1577234286642-fc512a5f8f11?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTIxMjQxOTJ8MA&ixlib=rb-4.0.3&q=85&rect=0%2C0%2C3024%2C4032&w=315&h=420",
+              "alt": "sliced grapefruits",
+              "origin": {
+                "id": "ezSFnAFi9hY",
+                "url": "https://images.unsplash.com/photo-1577234286642-fc512a5f8f11?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTIxMjQxOTJ8MA&ixlib=rb-4.0.3&q=85",
+                "width": 3024,
+                "height": 4032
+              },
+              "width": 315,
+              "height": 420,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "credits": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "subtext",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "CA$40.00  (-15%)",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Tank In Cotton",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "review_text",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "(5.0) 4 Review",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "swatches_image",
+            {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
+                "width": 4172,
+                "height": 4000
+              },
+              "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764?rect=3%2C0%2C4167%2C4000&w=25&h=24",
+              "width": 25,
+              "height": 24,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 3,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "image",
+            {
+              "url": "https://images.unsplash.com/photo-1592187270271-9a4b84faa228?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw1fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTIxMjQxOTJ8MA&ixlib=rb-4.0.3&q=85&rect=0%2C0%2C4000%2C6000&w=280&h=420",
+              "alt": "sliced orange fruit on blue surface",
+              "origin": {
+                "id": "8ZGgg6rhzxs",
+                "url": "https://images.unsplash.com/photo-1592187270271-9a4b84faa228?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw1fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTIxMjQxOTJ8MA&ixlib=rb-4.0.3&q=85",
+                "width": 4000,
+                "height": 6000
+              },
+              "width": 280,
+              "height": 420,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "credits": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Tank in Cotton",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "subtext",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "CA$40.00  (-15%)",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "review_text",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "(5.0) 4 Review",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "swatches_image",
+            {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1589321599763-d66926c29613",
+                "width": 3168,
+                "height": 4752
+              },
+              "url": "https://images.unsplash.com/photo-1589321599763-d66926c29613?rect=0%2C0%2C3168%2C4752&w=16&h=24",
+              "width": 16,
+              "height": 24,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "cardsReviews",
+    "primary": {},
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "image",
+            {
+              "origin": {
+                "id": "WYE2UhXsU1Y",
+                "url": "https://images.unsplash.com/photo-1611432579699-484f7990b127?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxfHxoZWFkc2hvdHxlbnwwfHx8fDE3MTIyMjMyMzV8MA&ixlib=rb-4.0.3&q=85",
+                "width": 5409,
+                "height": 3606
+              },
+              "url": "https://images.unsplash.com/photo-1611432579699-484f7990b127?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxfHxoZWFkc2hvdHxlbnwwfHx8fDE3MTIyMjMyMzV8MA&ixlib=rb-4.0.3&q=85&rect=902%2C0%2C3606%2C3606&w=100&h=100",
+              "width": 100,
+              "height": 100,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 902,
+                  "y": 0
+                }
+              },
+              "credits": null,
+              "alt": "woman in white scoop neck shirt smiling",
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Magna nostrud dolore laborum incididunt anim anim ex."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "name",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Eu excepteur et id mollit nisi anim ipsum consequat labore. Commodo veniam velit sint id deserunt fugiat aliquip est dolore culpa enim et nulla."
+                  }
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "image",
+            {
+              "url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw3fHxoZWFkc2hvdHxlbnwwfHx8fDE3MTIyMjMyMzV8MA&ixlib=rb-4.0.3&q=85&rect=0%2C936%2C3744%2C3744&w=100&h=100",
+              "alt": "closeup photography of woman smiling",
+              "origin": {
+                "id": "mEZ3PoFGs_k",
+                "url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw3fHxoZWFkc2hvdHxlbnwwfHx8fDE3MTIyMjMyMzV8MA&ixlib=rb-4.0.3&q=85",
+                "width": 3744,
+                "height": 5616
+              },
+              "width": 100,
+              "height": 100,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 936
+                }
+              },
+              "credits": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "This is a simple review text to see how it responds.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "name",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Velit Lorem ex proident."
+                  }
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "image",
+            {
+              "url": "https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8aGVhZHNob3R8ZW58MHx8fHwxNzEyMjIzMjM1fDA&ixlib=rb-4.0.3&q=85&rect=0%2C313%2C2504%2C2504&w=100&h=100",
+              "alt": "woman in pink blazer smiling",
+              "origin": {
+                "id": "A73ah5JKtVA",
+                "url": "https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8aGVhZHNob3R8ZW58MHx8fHwxNzEyMjIzMjM1fDA&ixlib=rb-4.0.3&q=85",
+                "width": 2504,
+                "height": 3130
+              },
+              "width": 100,
+              "height": 100,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 313
+                }
+              },
+              "credits": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "This is a simple review text to see how it responds.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "name",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "In duis esse qui laborum excepteur eiusmod amet est exercitation. Nisi nostrud incididunt in irure enim ipsum ullamco nulla nisi officia."
+                  }
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "cardsDualColumn",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Latest Blog Posts",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "link": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "https://slicemachine.dev"
+        }
+      },
+      "eyebrow_headline": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "- Blog Hub",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "button_text": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "View Blog Hub"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "image",
+            {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118",
+                "width": 4160,
+                "height": 3120
+              },
+              "url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118?rect=0%2C0%2C4160%2C3120&w=560&h=420",
+              "width": 560,
+              "height": 420,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "link",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "http://google.com"
+              }
+            }
+          ],
+          [
+            "subtext",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Ralph Lauren beat Wall Street estimates for quarterly revenue on Wednesday as its younger, more affluent customer base continued to snap up its pricey shirts and sweaters in the US, signaling steady demand ahead of the key holiday season.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Ralph Lauren Beats Sales Estimates on Steady Demand",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "button_text",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "Read More"
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "image",
+            {
+              "url": "https://images.unsplash.com/photo-1597714026720-8f74c62310ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzEyMjExNDI2fDA&ixlib=rb-4.0.3&q=85&rect=0%2C0%2C5688%2C3792&w=630&h=420",
+              "alt": "orange fruits under blue sky during daytime",
+              "origin": {
+                "id": "eaOjEz8746k",
+                "url": "https://images.unsplash.com/photo-1597714026720-8f74c62310ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzEyMjExNDI2fDA&ixlib=rb-4.0.3&q=85",
+                "width": 5688,
+                "height": 3792
+              },
+              "width": 630,
+              "height": 420,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "credits": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Ralph Lauren Beats Sales Estimates on Steady Demand",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "subtext",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Ralph Lauren beat Wall Street estimates for quarterly revenue on Wednesday as its younger, more affluent customer base continued to snap up its pricey shirts and sweaters in the US, signaling steady demand ahead of the key holiday season.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "button_text",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "Read More"
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "cardsListLayout",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Blogs Hub",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "image",
+            {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
+                "width": 3199,
+                "height": 3199
+              },
+              "url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869?rect=0%2C0%2C3199%2C3199&w=420&h=420",
+              "width": 420,
+              "height": 420,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Sunt ea velit amet sit proident. Dolore voluptate consequat dolore ullamco id veniam nulla sit nisi occaecat pariatur id."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "link",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "http://twitter.com"
+              }
+            }
+          ],
+          [
+            "subtext",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Et laborum ipsum irure nulla sint voluptate culpa eu dolore voluptate."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "button_text",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "Read More"
+            }
+          ],
+          [
+            "published_date",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Timestamp",
+              "value": "2021-09-12T09:58:54Z"
+            }
+          ],
+          [
+            "publisher_name",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "Donny D"
+            }
+          ],
+          [
+            "tag",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "arm",
+              "type": "Text"
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "image",
+            {
+              "url": "https://images.unsplash.com/photo-1542435503-956c469947f6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw0fHxibG9nfGVufDB8fHx8MTcxMjIyNTgzMHww&ixlib=rb-4.0.3&q=85&rect=0%2C0%2C4517%2C3388&w=560&h=420",
+              "alt": "pen near black lined paper and eyeglasses",
+              "origin": {
+                "id": "q10VITrVYUM",
+                "url": "https://images.unsplash.com/photo-1542435503-956c469947f6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw0fHxibG9nfGVufDB8fHx8MTcxMjIyNTgzMHww&ixlib=rb-4.0.3&q=85",
+                "width": 4518,
+                "height": 3388
+              },
+              "width": 560,
+              "height": 420,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "credits": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Title for ths blog post",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "subtext",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "pen near black lined paper and eyeglasses",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "button_text",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "Read More"
+            }
+          ],
+          [
+            "tag",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "Purple"
+            }
+          ],
+          [
+            "publisher_name",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "Andy Coffman"
+            }
+          ],
+          [
+            "published_date",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Timestamp",
+              "value": "2024-04-02T10:19:00+00:00"
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "cardsFlatList",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Recent stories",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "image",
+            {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db",
+                "width": 4380,
+                "height": 2895
+              },
+              "url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db?rect=2%2C0%2C4377%2C2895&w=635&h=420",
+              "width": 635,
+              "height": 420,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 2,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Do labore eiusmod do enim nulla nostrud elit veniam laboris quis duis sunt officia laborum."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "link",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "https://prismic.io"
+              }
+            }
+          ],
+          [
+            "tag",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "Craft"
+            }
+          ]
+        ]
+      }
+    ]
+  }
 ]

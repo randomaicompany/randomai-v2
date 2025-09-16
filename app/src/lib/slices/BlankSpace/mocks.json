@@ -1,14 +1,14 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"size": {
-				"__TYPE__": "FieldContent",
-				"type": "Select",
-				"value": "Small"
-			}
-		},
-		"items": []
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "size": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Small"
+      }
+    },
+    "items": []
+  }
 ]

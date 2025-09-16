@@ -14,7 +14,7 @@
       [R.propEq("Medium", "size"), R.always(8)],
       [R.propEq("Large", "size"), R.always(16)],
       [R.propEq("Extra Large", "size"), R.always(24)],
-      [R.T, R.always(4)],
+      [R.T, R.always(4)]
     ])
   );
 </script>
@@ -23,6 +23,6 @@
 
 <div
   style="height: {height}rem"
-  data-slice-type="{slice.slice_type}"
-  data-slice-variation="{slice.variation}">
+  data-slice-type={slice.slice_type}
+  data-slice-variation={slice.variation}>
 </div>

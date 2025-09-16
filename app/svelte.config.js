@@ -11,9 +11,9 @@ const config = {
       utils: "./src/lib/utils/*",
       stores: "./src/lib/stores/*",
       slices: "./src/lib/slices/*",
-      components: "./src/lib/components/*",
-    },
+      components: "./src/lib/components/*"
+    }
   },
-  preprocess: vitePreprocess(),
+  preprocess: vitePreprocess()
 };
 export default config;

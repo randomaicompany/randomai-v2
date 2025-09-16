@@ -11,12 +11,13 @@
   const dispatch = createEventDispatcher();
 </script>
 
-<button on:click="{toggle}">
+<button on:click={toggle}>
   {#if !$$slots.default}
     {#if isChecked}
-      <i in:scale="{{ start: 0.85 }}" class="material-symbols-rounded filled">check_box</i>
+      <i in:scale={{ start: 0.85 }} class="material-symbols-rounded filled"
+        >check_box</i>
     {:else}
-      <i in:scale="{{ start: 0.85 }}" class="material-symbols-rounded thin"
+      <i in:scale={{ start: 0.85 }} class="material-symbols-rounded thin"
         >check_box_outline_blank</i>
     {/if}
   {:else}

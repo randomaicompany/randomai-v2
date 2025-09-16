@@ -1,63 +1,63 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"poster": {
-				"origin": {
-					"id": "main",
-					"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
-					"width": 3199,
-					"height": 3199
-				},
-				"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869?rect=0%2C926%2C3199%2C1347&w=950&h=400",
-				"width": 950,
-				"height": 400,
-				"edit": {
-					"zoom": 1,
-					"crop": {
-						"x": 0,
-						"y": 926
-					},
-					"background": "transparent"
-				},
-				"credits": null,
-				"alt": null,
-				"__TYPE__": "ImageContent",
-				"thumbnails": {}
-			},
-			"embed": {
-				"embed_url": "https://youtu.be/u0fk6syQ7iY",
-				"__TYPE__": "EmbedContent",
-				"type": "video",
-				"version": "1.0",
-				"title": "Labrinth - Earthquake (Official Video) ft. Tinie Tempah",
-				"author_name": "LabrinthVEVO",
-				"author_url": "https://www.youtube.com/@LabrinthVEVO",
-				"provider_name": "YouTube",
-				"provider_url": "https://www.youtube.com/",
-				"thumbnail_url": "https://i.ytimg.com/vi/u0fk6syQ7iY/hqdefault.jpg",
-				"thumbnail_width": 480,
-				"thumbnail_height": 360,
-				"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/u0fk6syQ7iY?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Labrinth - Earthquake (Official Video) ft. Tinie Tempah\"></iframe>",
-				"all": {
-					"embed_url": "https://youtu.be/u0fk6syQ7iY",
-					"type": "video",
-					"version": "1.0",
-					"title": "Labrinth - Earthquake (Official Video) ft. Tinie Tempah",
-					"author_name": "LabrinthVEVO",
-					"author_url": "https://www.youtube.com/@LabrinthVEVO",
-					"provider_name": "YouTube",
-					"provider_url": "https://www.youtube.com/",
-					"thumbnail_url": "https://i.ytimg.com/vi/u0fk6syQ7iY/hqdefault.jpg",
-					"thumbnail_width": 480,
-					"thumbnail_height": 360,
-					"html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/u0fk6syQ7iY?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Labrinth - Earthquake (Official Video) ft. Tinie Tempah\"></iframe>",
-					"height": 113,
-					"width": 200
-				}
-			}
-		},
-		"items": []
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "poster": {
+        "origin": {
+          "id": "main",
+          "url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
+          "width": 3199,
+          "height": 3199
+        },
+        "url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869?rect=0%2C926%2C3199%2C1347&w=950&h=400",
+        "width": 950,
+        "height": 400,
+        "edit": {
+          "zoom": 1,
+          "crop": {
+            "x": 0,
+            "y": 926
+          },
+          "background": "transparent"
+        },
+        "credits": null,
+        "alt": null,
+        "__TYPE__": "ImageContent",
+        "thumbnails": {}
+      },
+      "embed": {
+        "embed_url": "https://youtu.be/u0fk6syQ7iY",
+        "__TYPE__": "EmbedContent",
+        "type": "video",
+        "version": "1.0",
+        "title": "Labrinth - Earthquake (Official Video) ft. Tinie Tempah",
+        "author_name": "LabrinthVEVO",
+        "author_url": "https://www.youtube.com/@LabrinthVEVO",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_url": "https://i.ytimg.com/vi/u0fk6syQ7iY/hqdefault.jpg",
+        "thumbnail_width": 480,
+        "thumbnail_height": 360,
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/u0fk6syQ7iY?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Labrinth - Earthquake (Official Video) ft. Tinie Tempah\"></iframe>",
+        "all": {
+          "embed_url": "https://youtu.be/u0fk6syQ7iY",
+          "type": "video",
+          "version": "1.0",
+          "title": "Labrinth - Earthquake (Official Video) ft. Tinie Tempah",
+          "author_name": "LabrinthVEVO",
+          "author_url": "https://www.youtube.com/@LabrinthVEVO",
+          "provider_name": "YouTube",
+          "provider_url": "https://www.youtube.com/",
+          "thumbnail_url": "https://i.ytimg.com/vi/u0fk6syQ7iY/hqdefault.jpg",
+          "thumbnail_width": 480,
+          "thumbnail_height": 360,
+          "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/u0fk6syQ7iY?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Labrinth - Earthquake (Official Video) ft. Tinie Tempah\"></iframe>",
+          "height": 113,
+          "width": 200
+        }
+      }
+    },
+    "items": []
+  }
 ]

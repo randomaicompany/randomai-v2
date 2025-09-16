@@ -17,7 +17,7 @@ const firebaseConfig = {
   storageBucket: "even-ally-397218.appspot.com",
   messagingSenderId: "580292304303",
   appId: "1:580292304303:web:23a253fffab3f3d54ae35a",
-  measurementId: "G-2WQ19FXGMC",
+  measurementId: "G-2WQ19FXGMC"
 };
 
 // Initialize Firebase
@@ -32,6 +32,6 @@ if (!import.meta.env.PROD) {
   connectFunctionsEmulator(functions, "localhost", 5001);
   connectStorageEmulator(storage, "localhost", 9199);
   connectAuthEmulator(auth, "http://localhost:9099", {
-    disableWarnings: true,
+    disableWarnings: true
   });
 }

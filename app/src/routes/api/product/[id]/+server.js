@@ -49,7 +49,7 @@ var product = {
       old_inventory_quantity: 9999,
       requires_shipping: true,
       admin_graphql_api_id: "gid://shopify/ProductVariant/48592492429587",
-      image_id: 45694738530579,
+      image_id: 45694738530579
     },
     {
       id: 48592492462355,
@@ -77,7 +77,7 @@ var product = {
       old_inventory_quantity: 9999,
       requires_shipping: true,
       admin_graphql_api_id: "gid://shopify/ProductVariant/48592492462355",
-      image_id: 45694738530579,
+      image_id: 45694738530579
     },
     {
       id: 48592492495123,
@@ -105,7 +105,7 @@ var product = {
       old_inventory_quantity: 9999,
       requires_shipping: true,
       admin_graphql_api_id: "gid://shopify/ProductVariant/48592492495123",
-      image_id: 45694738530579,
+      image_id: 45694738530579
     },
     {
       id: 48592492527891,
@@ -133,7 +133,7 @@ var product = {
       old_inventory_quantity: 9999,
       requires_shipping: true,
       admin_graphql_api_id: "gid://shopify/ProductVariant/48592492527891",
-      image_id: 45694738530579,
+      image_id: 45694738530579
     },
     {
       id: 48592492560659,
@@ -161,7 +161,7 @@ var product = {
       old_inventory_quantity: 9999,
       requires_shipping: true,
       admin_graphql_api_id: "gid://shopify/ProductVariant/48592492560659",
-      image_id: 45694738530579,
+      image_id: 45694738530579
     },
     {
       id: 48592492593427,
@@ -189,7 +189,7 @@ var product = {
       old_inventory_quantity: 9999,
       requires_shipping: true,
       admin_graphql_api_id: "gid://shopify/ProductVariant/48592492593427",
-      image_id: 45694739546387,
+      image_id: 45694739546387
     },
     {
       id: 48592492626195,
@@ -217,7 +217,7 @@ var product = {
       old_inventory_quantity: 9999,
       requires_shipping: true,
       admin_graphql_api_id: "gid://shopify/ProductVariant/48592492626195",
-      image_id: 45694739546387,
+      image_id: 45694739546387
     },
     {
       id: 48592492658963,
@@ -245,7 +245,7 @@ var product = {
       old_inventory_quantity: 9999,
       requires_shipping: true,
       admin_graphql_api_id: "gid://shopify/ProductVariant/48592492658963",
-      image_id: 45694739546387,
+      image_id: 45694739546387
     },
     {
       id: 48592492691731,
@@ -273,7 +273,7 @@ var product = {
       old_inventory_quantity: 9999,
       requires_shipping: true,
       admin_graphql_api_id: "gid://shopify/ProductVariant/48592492691731",
-      image_id: 45694739546387,
+      image_id: 45694739546387
     },
     {
       id: 48592492724499,
@@ -301,7 +301,7 @@ var product = {
       old_inventory_quantity: 9999,
       requires_shipping: true,
       admin_graphql_api_id: "gid://shopify/ProductVariant/48592492724499",
-      image_id: 45694739546387,
+      image_id: 45694739546387
     },
     {
       id: 48592492757267,
@@ -329,7 +329,7 @@ var product = {
       old_inventory_quantity: 9999,
       requires_shipping: true,
       admin_graphql_api_id: "gid://shopify/ProductVariant/48592492757267",
-      image_id: 45694740070675,
+      image_id: 45694740070675
     },
     {
       id: 48592492790035,
@@ -357,7 +357,7 @@ var product = {
       old_inventory_quantity: 9999,
       requires_shipping: true,
       admin_graphql_api_id: "gid://shopify/ProductVariant/48592492790035",
-      image_id: 45694740070675,
+      image_id: 45694740070675
     },
     {
       id: 48592492822803,
@@ -385,7 +385,7 @@ var product = {
       old_inventory_quantity: 9999,
       requires_shipping: true,
       admin_graphql_api_id: "gid://shopify/ProductVariant/48592492822803",
-      image_id: 45694740070675,
+      image_id: 45694740070675
     },
     {
       id: 48592492855571,
@@ -413,7 +413,7 @@ var product = {
       old_inventory_quantity: 9999,
       requires_shipping: true,
       admin_graphql_api_id: "gid://shopify/ProductVariant/48592492855571",
-      image_id: 45694740070675,
+      image_id: 45694740070675
     },
     {
       id: 48592492888339,
@@ -441,7 +441,7 @@ var product = {
       old_inventory_quantity: 9999,
       requires_shipping: true,
       admin_graphql_api_id: "gid://shopify/ProductVariant/48592492888339",
-      image_id: 45694740070675,
+      image_id: 45694740070675
     },
     {
       id: 48592492921107,
@@ -469,7 +469,7 @@ var product = {
       old_inventory_quantity: 9999,
       requires_shipping: true,
       admin_graphql_api_id: "gid://shopify/ProductVariant/48592492921107",
-      image_id: 45694740758803,
+      image_id: 45694740758803
     },
     {
       id: 48592492953875,
@@ -497,7 +497,7 @@ var product = {
       old_inventory_quantity: 9999,
       requires_shipping: true,
       admin_graphql_api_id: "gid://shopify/ProductVariant/48592492953875",
-      image_id: 45694740758803,
+      image_id: 45694740758803
     },
     {
       id: 48592492986643,
@@ -525,7 +525,7 @@ var product = {
       old_inventory_quantity: 9999,
       requires_shipping: true,
       admin_graphql_api_id: "gid://shopify/ProductVariant/48592492986643",
-      image_id: 45694740758803,
+      image_id: 45694740758803
     },
     {
       id: 48592493019411,
@@ -553,7 +553,7 @@ var product = {
       old_inventory_quantity: 9999,
       requires_shipping: true,
       admin_graphql_api_id: "gid://shopify/ProductVariant/48592493019411",
-      image_id: 45694740758803,
+      image_id: 45694740758803
     },
     {
       id: 48592493052179,
@@ -581,8 +581,8 @@ var product = {
       old_inventory_quantity: 9999,
       requires_shipping: true,
       admin_graphql_api_id: "gid://shopify/ProductVariant/48592493052179",
-      image_id: 45694740758803,
-    },
+      image_id: 45694740758803
+    }
   ],
   options: [
     {
@@ -590,15 +590,15 @@ var product = {
       product_id: 9237784396051,
       name: "Color",
       position: 1,
-      values: ["Black", "Navy", "Oxford Grey Heather", "White"],
+      values: ["Black", "Navy", "Oxford Grey Heather", "White"]
     },
     {
       id: 11606814195987,
       product_id: 9237784396051,
       name: "Size",
       position: 2,
-      values: ["S", "M", "L", "XL", "2XL"],
-    },
+      values: ["S", "M", "L", "XL", "2XL"]
+    }
   ],
   images: [
     {
@@ -611,9 +611,11 @@ var product = {
       admin_graphql_api_id: "gid://shopify/ProductImage/45694738530579",
       width: 2000,
       height: 2000,
-      src:
-        "https://cdn.shopify.com/s/files/1/0817/1182/5171/files/mens-champion-t-shirt-black-front-6613c8fdddf86.jpg?v=1712572681",
-      variant_ids: [48592492429587, 48592492462355, 48592492495123, 48592492527891, 48592492560659],
+      src: "https://cdn.shopify.com/s/files/1/0817/1182/5171/files/mens-champion-t-shirt-black-front-6613c8fdddf86.jpg?v=1712572681",
+      variant_ids: [
+        48592492429587, 48592492462355, 48592492495123, 48592492527891,
+        48592492560659
+      ]
     },
     {
       id: 45694738858259,
@@ -625,9 +627,8 @@ var product = {
       admin_graphql_api_id: "gid://shopify/ProductImage/45694738858259",
       width: 2000,
       height: 2000,
-      src:
-        "https://cdn.shopify.com/s/files/1/0817/1182/5171/files/mens-champion-t-shirt-black-back-6613c8fddf195.jpg?v=1712572683",
-      variant_ids: [],
+      src: "https://cdn.shopify.com/s/files/1/0817/1182/5171/files/mens-champion-t-shirt-black-back-6613c8fddf195.jpg?v=1712572683",
+      variant_ids: []
     },
     {
       id: 45694739546387,
@@ -639,9 +640,11 @@ var product = {
       admin_graphql_api_id: "gid://shopify/ProductImage/45694739546387",
       width: 2000,
       height: 2000,
-      src:
-        "https://cdn.shopify.com/s/files/1/0817/1182/5171/files/mens-champion-t-shirt-navy-front-6613c8fddf2ac.jpg?v=1712572685",
-      variant_ids: [48592492593427, 48592492626195, 48592492658963, 48592492691731, 48592492724499],
+      src: "https://cdn.shopify.com/s/files/1/0817/1182/5171/files/mens-champion-t-shirt-navy-front-6613c8fddf2ac.jpg?v=1712572685",
+      variant_ids: [
+        48592492593427, 48592492626195, 48592492658963, 48592492691731,
+        48592492724499
+      ]
     },
     {
       id: 45694739841299,
@@ -653,9 +656,8 @@ var product = {
       admin_graphql_api_id: "gid://shopify/ProductImage/45694739841299",
       width: 2000,
       height: 2000,
-      src:
-        "https://cdn.shopify.com/s/files/1/0817/1182/5171/files/mens-champion-t-shirt-navy-back-6613c8fddf41f.jpg?v=1712572687",
-      variant_ids: [],
+      src: "https://cdn.shopify.com/s/files/1/0817/1182/5171/files/mens-champion-t-shirt-navy-back-6613c8fddf41f.jpg?v=1712572687",
+      variant_ids: []
     },
     {
       id: 45694740070675,
@@ -667,9 +669,11 @@ var product = {
       admin_graphql_api_id: "gid://shopify/ProductImage/45694740070675",
       width: 2000,
       height: 2000,
-      src:
-        "https://cdn.shopify.com/s/files/1/0817/1182/5171/files/mens-champion-t-shirt-oxford-grey-heather-front-6613c8fddf58c.jpg?v=1712572689",
-      variant_ids: [48592492757267, 48592492790035, 48592492822803, 48592492855571, 48592492888339],
+      src: "https://cdn.shopify.com/s/files/1/0817/1182/5171/files/mens-champion-t-shirt-oxford-grey-heather-front-6613c8fddf58c.jpg?v=1712572689",
+      variant_ids: [
+        48592492757267, 48592492790035, 48592492822803, 48592492855571,
+        48592492888339
+      ]
     },
     {
       id: 45694740234515,
@@ -681,9 +685,8 @@ var product = {
       admin_graphql_api_id: "gid://shopify/ProductImage/45694740234515",
       width: 2000,
       height: 2000,
-      src:
-        "https://cdn.shopify.com/s/files/1/0817/1182/5171/files/mens-champion-t-shirt-oxford-grey-heather-back-6613c8fddf78f.jpg?v=1712572691",
-      variant_ids: [],
+      src: "https://cdn.shopify.com/s/files/1/0817/1182/5171/files/mens-champion-t-shirt-oxford-grey-heather-back-6613c8fddf78f.jpg?v=1712572691",
+      variant_ids: []
     },
     {
       id: 45694740758803,
@@ -695,9 +698,11 @@ var product = {
       admin_graphql_api_id: "gid://shopify/ProductImage/45694740758803",
       width: 2000,
       height: 2000,
-      src:
-        "https://cdn.shopify.com/s/files/1/0817/1182/5171/files/mens-champion-t-shirt-white-front-6613c8fddf9b6.jpg?v=1712572693",
-      variant_ids: [48592492921107, 48592492953875, 48592492986643, 48592493019411, 48592493052179],
+      src: "https://cdn.shopify.com/s/files/1/0817/1182/5171/files/mens-champion-t-shirt-white-front-6613c8fddf9b6.jpg?v=1712572693",
+      variant_ids: [
+        48592492921107, 48592492953875, 48592492986643, 48592493019411,
+        48592493052179
+      ]
     },
     {
       id: 45694741315859,
@@ -709,10 +714,9 @@ var product = {
       admin_graphql_api_id: "gid://shopify/ProductImage/45694741315859",
       width: 2000,
       height: 2000,
-      src:
-        "https://cdn.shopify.com/s/files/1/0817/1182/5171/files/mens-champion-t-shirt-white-back-6613c8fddfc4e.jpg?v=1712572695",
-      variant_ids: [],
-    },
+      src: "https://cdn.shopify.com/s/files/1/0817/1182/5171/files/mens-champion-t-shirt-white-back-6613c8fddfc4e.jpg?v=1712572695",
+      variant_ids: []
+    }
   ],
   image: {
     id: 45694738530579,
@@ -724,8 +728,10 @@ var product = {
     admin_graphql_api_id: "gid://shopify/ProductImage/45694738530579",
     width: 2000,
     height: 2000,
-    src:
-      "https://cdn.shopify.com/s/files/1/0817/1182/5171/files/mens-champion-t-shirt-black-front-6613c8fdddf86.jpg?v=1712572681",
-    variant_ids: [48592492429587, 48592492462355, 48592492495123, 48592492527891, 48592492560659],
-  },
+    src: "https://cdn.shopify.com/s/files/1/0817/1182/5171/files/mens-champion-t-shirt-black-front-6613c8fdddf86.jpg?v=1712572681",
+    variant_ids: [
+      48592492429587, 48592492462355, 48592492495123, 48592492527891,
+      48592492560659
+    ]
+  }
 };

@@ -47,7 +47,7 @@
       "aspect_ratio_front",
       "aspect_ratio_back",
       "output_quality",
-      "seed",
+      "seed"
     ])
   );
 
@@ -100,7 +100,7 @@
     const url = await uploadImage(blobURL, `images/${String(Date.now())}`);
     await addDocument("images", {
       url,
-      userId,
+      userId
     });
 
     await loadImages();
@@ -147,14 +147,13 @@
 
 <div>
   <div>
-    <h1 class="heading-lg md:block hidden">AI Designer</h1>
+    <h1 class="heading-lg hidden md:block">AI Designer</h1>
     <ul class="inline-flex flex-row items-center md:pt-8">
       <li class="flex-1">
         <button
           on:click={switchTab(0)}
           class:!bg-brand-smoke-darker={R.equals(tabIdx, 0)}
-          class="flex items-center gap-2 border border-gray-200 border-r-0 p-4 md:py-3 py-2 pl-2 md:text-sm text-xs md:font-normal font-medium transition-all whitespace-nowrap"
-        >
+          class="flex items-center gap-2 whitespace-nowrap border border-r-0 border-gray-200 p-4 py-2 pl-2 text-xs font-medium transition-all md:py-3 md:text-sm md:font-normal">
           <i class="material-symbols-rounded">highlight</i>
           <p>Customize Art</p>
         </button>
@@ -163,8 +162,7 @@
         <button
           on:click={switchTab(1)}
           class:!bg-brand-smoke-darker={R.equals(tabIdx, 1)}
-          class="flex items-center border border-gray-200 gap-2 p-4 md:py-3 py-2 pl-2 md:text-sm text-xs md:font-normal font-medium transition-all whitespace-nowrap"
-        >
+          class="flex items-center gap-2 whitespace-nowrap border border-gray-200 p-4 py-2 pl-2 text-xs font-medium transition-all md:py-3 md:text-sm md:font-normal">
           <i class="material-symbols-rounded">sort_by_alpha</i>
           <p>Customize Text</p>
         </button>
@@ -174,7 +172,7 @@
     <div>
       {#if RA.isNotEmpty(product)}
         <div class="hidden" class:!block={R.equals(tabIdx, 0)}>
-          <h2 class="pt-10 heading-2xl md:block hidden">
+          <h2 class="heading-2xl hidden pt-10 md:block">
             {product?.title || ""}
           </h2>
           <div class="py-5">
@@ -185,15 +183,13 @@
               {aiSettings}
               {stylePresets}
               {promptSuggestions}
-              {tempPromt}
-            />
+              {tempPromt} />
           </div>
           <Options
             on:change={setVariant}
             bind:choice
             bind:selectedVariant={variant}
-            {product}
-          />
+            {product} />
         </div>
       {/if}
 
@@ -208,8 +204,7 @@
       <Images
         gallery={data.data.gallery}
         bind:images={generatedImages}
-        on:select={addSelectedImageToCanvas}
-      />
+        on:select={addSelectedImageToCanvas} />
     </div>
   </div>
 </div>

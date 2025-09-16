@@ -15,7 +15,12 @@
   import { uploadImage } from "api/firebase/storage.js";
   import { pluckPromptSuggestions } from "utils/common.js";
   import { isCanvasEmpty, addBase64ImageToCanvas } from "api/fabric.js";
-  import { PrismicText, PrismicImage, PrismicRichText, PrismicLink } from "@prismicio/svelte";
+  import {
+    PrismicText,
+    PrismicImage,
+    PrismicRichText,
+    PrismicLink
+  } from "@prismicio/svelte";
 
   import Canvas from "components/Designer/Canvas";
   import Editor from "components/Designer/Editor.svelte";
@@ -73,7 +78,11 @@
       return alert("Both sides cannot be empty");
     }
 
-    if (isBackCanvasEmpty && !pageData.is_front_canvas_enabled && pageData.is_back_canvas_enabled) {
+    if (
+      isBackCanvasEmpty &&
+      !pageData.is_front_canvas_enabled &&
+      pageData.is_back_canvas_enabled
+    ) {
       isAddToCartInProgress = false;
       return alert("Canvas cannot be empty");
     }
@@ -87,18 +96,24 @@
     }
 
     if (frontImageUrl) {
-      frontImageHostedUrl = await uploadImage(frontImageUrl, `images/front-${String(Date.now())}`);
+      frontImageHostedUrl = await uploadImage(
+        frontImageUrl,
+        `images/front-${String(Date.now())}`
+      );
     }
 
     if (backImageUrl) {
-      backImageHostedUrl = await uploadImage(backImageUrl, `images/back-${String(Date.now())}`);
+      backImageHostedUrl = await uploadImage(
+        backImageUrl,
+        `images/back-${String(Date.now())}`
+      );
     }
 
     await addToCartWithProps(
       {
         ...variant,
         frontImageUrl: frontImageHostedUrl,
-        backImageUrl: backImageHostedUrl,
+        backImageUrl: backImageHostedUrl
       },
       Number(quantity)
     );
@@ -126,15 +141,16 @@
     hasProductAndVariantIds = true;
   });
 
-  const openModal = () => isModalOpen = true;
-  const closeModal = () => isModalOpen = false;
+  const openModal = () => (isModalOpen = true);
+  const closeModal = () => (isModalOpen = false);
 
-  $: browser && (document.body.style.overflow = isModalOpen ? "hidden" : "auto");
+  $: browser &&
+    (document.body.style.overflow = isModalOpen ? "hidden" : "auto");
 </script>
 
 <svelte:head>
   <title>{data.meta_title}</title>
-  <meta name="description" content="{data.meta_description}" />
+  <meta name="description" content={data.meta_description} />
 
   {#if data.data.head && data.data.head.length > 0}
     {@html data.data.head[0].text}
@@ -144,9 +160,11 @@
 {#if isLoading}
   <p class="block p-4 text-center">Loading...</p>
 {:else}
-  <div class="shell md:py-16 py-8 max-w-[1600px]" class:!hidden="{!hasProductAndVariantIds}">
-    <div class="flex flex-col-reverse md:gap-12 gap-4 md:flex-row">
-      <div class="flex-0 md:w-[30rem] mt-[100px] md:mt-0">
+  <div
+    class="shell max-w-[1600px] py-8 md:py-16"
+    class:!hidden={!hasProductAndVariantIds}>
+    <div class="flex flex-col-reverse gap-4 md:flex-row md:gap-12">
+      <div class="flex-0 mt-[100px] md:mt-0 md:w-[30rem]">
         {#if canvas}
           <Editor
             {canvas}
@@ -158,15 +176,16 @@
             bind:selectedGalleryImage
             bind:isGenerating
             bind:currentViewIdx
-            bind:images="{productImages}"
-            bind:imageUrl="{generatedImage}" />
+            bind:images={productImages}
+            bind:imageUrl={generatedImage} />
         {/if}
 
-        <footer class="flex items-center justify-end gap-4 pt-[50px] md:pt-[20px] flex-wrap md:flex-nowrap">
+        <footer
+          class="flex flex-wrap items-center justify-end gap-4 pt-[50px] md:flex-nowrap md:pt-[20px]">
           <button
-            on:click="{exportAndAddToCart}"
-            disabled="{isAddToCartInProgress}"
-            class="border-transparent button bg-brand-accent-light w-full md:max-w-max">
+            on:click={exportAndAddToCart}
+            disabled={isAddToCartInProgress}
+            class="button w-full border-transparent bg-brand-accent-light md:max-w-max">
             {#if isAddToCartInProgress}
               Please wait...
             {:else}
@@ -182,15 +201,16 @@
         </footer>
       </div>
 
-      <div class="relative max-w-2xl ml-auto">
+      <div class="relative ml-auto max-w-2xl">
         <div class="pb-4">
-          <h2 class="md:heading-2xl heading-lg md:font-normal font-medium md:hidden block">
+          <h2
+            class="md:heading-2xl heading-lg block font-medium md:hidden md:font-normal">
             {product?.title || ""}
           </h2>
         </div>
         <Canvas
-          isLoading="{isGenerating}"
-          page="{pageData}"
+          isLoading={isGenerating}
+          page={pageData}
           {isFrontCanvasOnly}
           bind:canvas
           bind:productImages
@@ -219,9 +239,9 @@
   </div>
 
   {#if !hasProductAndVariantIds}
-    <div class="flex items-center justify-center h-[60vh]">
+    <div class="flex h-[60vh] items-center justify-center">
       <!--  -->
-      <div class="w-full max-w-xl p-8 text-center bg-white">
+      <div class="w-full max-w-xl bg-white p-8 text-center">
         <div class="mb-16">
           <p class="mb-2 text-4xl">Please select a product</p>
           <p class="text-lg text-brand-primary/50">
@@ -237,105 +257,123 @@
 
 {#if isModalOpen}
   <div
-    in:fade="{{ duration: 300 }}"
-    out:fade="{{ duration: 300 }}"
-    class="fixed top-0 left-0 z-10 flex items-start justify-center w-full h-full p-4 overflow-auto bg-brand-black/50 rounded-md">
+    in:fade={{ duration: 300 }}
+    out:fade={{ duration: 300 }}
+    class="fixed left-0 top-0 z-10 flex h-full w-full items-start justify-center overflow-auto rounded-md bg-brand-black/50 p-4">
     <div
-      in:fly="{{ duration: 300, delay: 100, y: 12 }}"
-      out:fly="{{ duration: 300, y: 12 }}"
-      class="flex-1 max-w-xl bg-white mt-[8vh] p-8 relative rounded-md"
+      in:fly={{ duration: 300, delay: 100, y: 12 }}
+      out:fly={{ duration: 300, y: 12 }}
+      class="relative mt-[8vh] max-w-xl flex-1 rounded-md bg-white p-8"
       use:clickOutside
-      on:clickOutside="{closeModal}">
-      <button on:click="{closeModal}" class="absolute px-2 bg-brand-accent text-white -top-3 -right-3 md:-top-6 md:-right-6 w-8 h-8 md:w-10 md:h-10 rounded-full flex justify-center items-center"
+      on:clickOutside={closeModal}>
+      <button
+        on:click={closeModal}
+        class="absolute -right-3 -top-3 flex h-8 w-8 items-center justify-center rounded-full bg-brand-accent px-2 text-white md:-right-6 md:-top-6 md:h-10 md:w-10"
         ><i class="material-symbols-rounded !text-xl">close</i>
       </button>
+      <div>
         <div>
-          <div>
-            <ul>
-              {#each pageData.product_details as { heading, content }, i}
-                <li>
-                  <DropDownContent name={heading} isOpen={i === 0}>
-                    <div class="px-4 pb-6 text-sm">
-                      <PrismicRichText field={content} />
-                    </div>
-                  </DropDownContent>
-                </li>
-              {/each}
-            </ul>
-          </div>
-          <div class="pt-16">
-            <p class="text-base font-medium">
-              Reviews ({R.length(pageData.reviews)})
-            </p>
-            <ul class="flex flex-col max-w-xl gap-8 pt-6">
-              {#each pageData.reviews || [] as { user_name, title, review }}
-                <li>
-                  <svg
-                    width="90"
-                    height="16"
-                    viewBox="0 0 108 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_1718_4100)">
-                      <path
-                        d="M3.825 19L5.45 11.975L0 7.25L7.2 6.625L10 0L12.8 6.625L20 7.25L14.55 11.975L16.175 19L10 15.275L3.825 19Z"
-                        fill="#FFE500"></path>
-                    </g>
-                    <g clip-path="url(#clip1_1718_4100)">
-                      <path
-                        d="M25.825 19L27.45 11.975L22 7.25L29.2 6.625L32 0L34.8 6.625L42 7.25L36.55 11.975L38.175 19L32 15.275L25.825 19Z"
-                        fill="#FFE500"></path>
-                    </g>
-                    <g clip-path="url(#clip2_1718_4100)">
-                      <path
-                        d="M47.825 19L49.45 11.975L44 7.25L51.2 6.625L54 0L56.8 6.625L64 7.25L58.55 11.975L60.175 19L54 15.275L47.825 19Z"
-                        fill="#FFE500"></path>
-                    </g>
-                    <g clip-path="url(#clip3_1718_4100)">
-                      <path
-                        d="M69.825 19L71.45 11.975L66 7.25L73.2 6.625L76 0L78.8 6.625L86 7.25L80.55 11.975L82.175 19L76 15.275L69.825 19Z"
-                        fill="#FFE500"></path>
-                    </g>
-                    <g clip-path="url(#clip4_1718_4100)">
-                      <path
-                        d="M91.825 19L93.45 11.975L88 7.25L95.2 6.625L98 0L100.8 6.625L108 7.25L102.55 11.975L104.175 19L98 15.275L91.825 19Z"
-                        fill="#FFE500"></path>
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_1718_4100">
-                        <rect width="20" height="19" fill="white"></rect>
-                      </clipPath>
-                      <clipPath id="clip1_1718_4100">
-                        <rect width="20" height="19" fill="white" transform="translate(22)"></rect>
-                      </clipPath>
-                      <clipPath id="clip2_1718_4100">
-                        <rect width="20" height="19" fill="white" transform="translate(44)"></rect>
-                      </clipPath>
-                      <clipPath id="clip3_1718_4100">
-                        <rect width="20" height="19" fill="white" transform="translate(66)"></rect>
-                      </clipPath>
-                      <clipPath id="clip4_1718_4100">
-                        <rect width="20" height="19" fill="white" transform="translate(88)"></rect>
-                      </clipPath>
-                    </defs>
-                  </svg>
-      
-                  <div>
-                    <p class="mt-3 mb-3 text-xs text-brand-secondary">
-                      {user_name}
-                    </p>
-                    <div>
-                      <p class="mb-3 text-base text-brand-primary">{title}</p>
-                      <p class="text-sm font-light text-brand-secondary">
-                        <PrismicText field="{review}" />
-                      </p>
-                    </div>
+          <ul>
+            {#each pageData.product_details as { heading, content }, i}
+              <li>
+                <DropDownContent name={heading} isOpen={i === 0}>
+                  <div class="px-4 pb-6 text-sm">
+                    <PrismicRichText field={content} />
                   </div>
-                </li>
-              {/each}
-            </ul>
-          </div>
+                </DropDownContent>
+              </li>
+            {/each}
+          </ul>
         </div>
+        <div class="pt-16">
+          <p class="text-base font-medium">
+            Reviews ({R.length(pageData.reviews)})
+          </p>
+          <ul class="flex max-w-xl flex-col gap-8 pt-6">
+            {#each pageData.reviews || [] as { user_name, title, review }}
+              <li>
+                <svg
+                  width="90"
+                  height="16"
+                  viewBox="0 0 108 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_1718_4100)">
+                    <path
+                      d="M3.825 19L5.45 11.975L0 7.25L7.2 6.625L10 0L12.8 6.625L20 7.25L14.55 11.975L16.175 19L10 15.275L3.825 19Z"
+                      fill="#FFE500"></path>
+                  </g>
+                  <g clip-path="url(#clip1_1718_4100)">
+                    <path
+                      d="M25.825 19L27.45 11.975L22 7.25L29.2 6.625L32 0L34.8 6.625L42 7.25L36.55 11.975L38.175 19L32 15.275L25.825 19Z"
+                      fill="#FFE500"></path>
+                  </g>
+                  <g clip-path="url(#clip2_1718_4100)">
+                    <path
+                      d="M47.825 19L49.45 11.975L44 7.25L51.2 6.625L54 0L56.8 6.625L64 7.25L58.55 11.975L60.175 19L54 15.275L47.825 19Z"
+                      fill="#FFE500"></path>
+                  </g>
+                  <g clip-path="url(#clip3_1718_4100)">
+                    <path
+                      d="M69.825 19L71.45 11.975L66 7.25L73.2 6.625L76 0L78.8 6.625L86 7.25L80.55 11.975L82.175 19L76 15.275L69.825 19Z"
+                      fill="#FFE500"></path>
+                  </g>
+                  <g clip-path="url(#clip4_1718_4100)">
+                    <path
+                      d="M91.825 19L93.45 11.975L88 7.25L95.2 6.625L98 0L100.8 6.625L108 7.25L102.55 11.975L104.175 19L98 15.275L91.825 19Z"
+                      fill="#FFE500"></path>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1718_4100">
+                      <rect width="20" height="19" fill="white"></rect>
+                    </clipPath>
+                    <clipPath id="clip1_1718_4100">
+                      <rect
+                        width="20"
+                        height="19"
+                        fill="white"
+                        transform="translate(22)"></rect>
+                    </clipPath>
+                    <clipPath id="clip2_1718_4100">
+                      <rect
+                        width="20"
+                        height="19"
+                        fill="white"
+                        transform="translate(44)"></rect>
+                    </clipPath>
+                    <clipPath id="clip3_1718_4100">
+                      <rect
+                        width="20"
+                        height="19"
+                        fill="white"
+                        transform="translate(66)"></rect>
+                    </clipPath>
+                    <clipPath id="clip4_1718_4100">
+                      <rect
+                        width="20"
+                        height="19"
+                        fill="white"
+                        transform="translate(88)"></rect>
+                    </clipPath>
+                  </defs>
+                </svg>
+
+                <div>
+                  <p class="mb-3 mt-3 text-xs text-brand-secondary">
+                    {user_name}
+                  </p>
+                  <div>
+                    <p class="mb-3 text-base text-brand-primary">{title}</p>
+                    <p class="text-sm font-light text-brand-secondary">
+                      <PrismicText field={review} />
+                    </p>
+                  </div>
+                </div>
+              </li>
+            {/each}
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 {/if}

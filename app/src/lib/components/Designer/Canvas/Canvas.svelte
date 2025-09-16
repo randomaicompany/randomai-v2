@@ -3,7 +3,10 @@
   import { fabric } from "fabric";
   //
   import { resizeCanvas, convertToStyles } from "root/src/lib/utils/canvas";
-  import { isCanvasEmpty, putBoundaryConstraints } from "root/src/lib/api/fabric";
+  import {
+    isCanvasEmpty,
+    putBoundaryConstraints
+  } from "root/src/lib/api/fabric";
   //
   import Image from "components/Image.svelte";
   //
@@ -26,8 +29,14 @@
     // putBoundaryConstraints(canvas);
 
     showPlaceholderImage = isCanvasEmpty(canvas);
-    canvas.on("object:removed", () => (showPlaceholderImage = isCanvasEmpty(canvas)));
-    canvas.on("object:added", () => (showPlaceholderImage = isCanvasEmpty(canvas)));
+    canvas.on(
+      "object:removed",
+      () => (showPlaceholderImage = isCanvasEmpty(canvas))
+    );
+    canvas.on(
+      "object:added",
+      () => (showPlaceholderImage = isCanvasEmpty(canvas))
+    );
   };
 
   onMount(() => {
@@ -40,31 +49,35 @@
   });
 </script>
 
-<div class="{className}">
+<div class={className}>
   {#if showPlaceholderImage && !isLoading}
     <Image
-      src="{placeholder}"
-      style="{convertToStyles(canvasStyles)}"
-      class="absolute object-contain scale-[.7] -translate-y-[16%]" />
+      src={placeholder}
+      style={convertToStyles(canvasStyles)}
+      class="absolute -translate-y-[16%] scale-[.7] object-contain" />
   {/if}
 
-  <div bind:this="{canvasContainer}" class="absolute" style="{convertToStyles(canvasStyles)}">
+  <div
+    bind:this={canvasContainer}
+    class="absolute"
+    style={convertToStyles(canvasStyles)}>
     <div class="relative">
       {#if isLoading}
         <div
-          class="w-full h-full flex items-center justify-center absolute top-0 left-0 pb-16 z-10">
-          <div class="w-14 h-14 p-2 rounded-full bg-white">
+          class="absolute left-0 top-0 z-10 flex h-full w-full items-center justify-center pb-16">
+          <div class="h-14 w-14 rounded-full bg-white p-2">
             <div
               style="animation-duration:0.4s"
-              class="bg-transparent border-[3px] rounded-full animate-spin border-r-transparent w-full h-full border-brand-accent">
+              class="h-full w-full animate-spin rounded-full border-[3px] border-brand-accent border-r-transparent bg-transparent">
             </div>
           </div>
         </div>
       {/if}
 
       <canvas
-        bind:this="{canvasElm}"
-        class="w-full h-full border-dashed opacity-100 hover:border active:border"></canvas>
+        bind:this={canvasElm}
+        class="h-full w-full border-dashed opacity-100 hover:border active:border"
+      ></canvas>
     </div>
   </div>
 </div>
