@@ -142,10 +142,8 @@ export const changeFontFamily = (canvas, newFontFamily) => {
 	) {
 		activeObject.set('fontFamily', newFontFamily);
 
-		console.log(newFontFamily);
 		canvas.requestRenderAll();
 	} else {
-		console.log('No text object selected or incorrect object type!');
 	}
 };
 

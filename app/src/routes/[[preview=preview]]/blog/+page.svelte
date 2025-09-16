@@ -9,6 +9,9 @@
 	import { clickOutside } from 'root/src/lib/utils/common.js';
 	import { fade, fly } from 'svelte/transition';
 	import { browser } from '$app/environment';
+	// Ensure correct state on mount
+	import { onMount } from 'svelte';
+	let { data } = $props();
 
 	let isModalOpen = $state(false);
 	let previewItem = $state({});
@@ -68,9 +71,6 @@
 		updateButtonStates();
 	}
 
-	// Ensure correct state on mount
-	import { onMount } from 'svelte';
-	let { data } = $props();
 	onMount(() => {
 		updateButtonStates();
 	});

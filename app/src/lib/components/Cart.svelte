@@ -49,7 +49,7 @@
 
 	const remove = (variantId) => async () => {
 		isLoading = true;
-		console.log(variantId);
+
 		await removeItem(variantId);
 		isLoading = false;
 	};

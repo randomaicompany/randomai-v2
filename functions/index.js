@@ -39,7 +39,7 @@ const pluckItemHTML = (item) => {
   const _image = $("img:first").get(0)?.attribs.src;
   const image = R.defaultTo(null, _image);
 
-  // console.log(content);
+  //
 
   return {
     image,
@@ -60,7 +60,6 @@ const fetchRSSFeed = async (data, idx) => {
     const feedItems = R.prop("items", feed);
     return R.map(pluckItemHTML, feedItems);
   } catch (error) {
-    console.log({ source_rss, error });
     return [];
   }
 };
@@ -93,7 +92,10 @@ const fetchAndSaveRSS = async () => {
 
       const body = { name: data.source_name, logo: data.source_logo, items };
       await sleep(100 * idx);
-      await firestore.collection("rss").doc(data.source_name).set(body, { merge: true });
+      await firestore
+        .collection("rss")
+        .doc(data.source_name)
+        .set(body, { merge: true });
 
       logger.log("Ends of iteration");
       await sleep(2000 * idx);
@@ -106,19 +108,16 @@ const fetchAndSaveRSS = async () => {
   }
 };
 
-
 export const refreshRSSFeed = onSchedule(
   {
-    schedule: '0 * * * *', // Runs every hour
-    timeoutSeconds: 60,    // Function timeout configuration
+    schedule: "0 * * * *", // Runs every hour
+    timeoutSeconds: 60, // Function timeout configuration
   },
   async (event) => {
     try {
-
-      console.log(event.jobName);
       await fetchAndSaveRSS();
     } catch (error) {
-      console.error('Error fetching and saving RSS feed:', error);
+      console.error("Error fetching and saving RSS feed:", error);
     }
   }
 );

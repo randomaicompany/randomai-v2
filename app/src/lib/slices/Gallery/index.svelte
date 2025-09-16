@@ -26,10 +26,7 @@
 	};
 
 	const copyToClipboard = (text) => {
-		console.log(text[0].text);
-		navigator.clipboard.writeText(text[0].text).then(() => {
-			console.log('Copied to clipboard:', text[0].text);
-		});
+		navigator.clipboard.writeText(text[0].text).then(() => {});
 	};
 
 	run(() => {

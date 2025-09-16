@@ -39,7 +39,6 @@
 
 	run(() => {
 		if (!hasInitializedPrompt && !prompt?.trim() && tempPromt?.trim()) {
-			console.log('Setting prompt from tempPromt:', tempPromt);
 			prompt = tempPromt;
 			hasInitializedPrompt = true;
 		}
