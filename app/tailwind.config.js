@@ -4,11 +4,12 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Poppins", "sans-serif"],
-        ultra: ['Ultra', 'sans-serif'],
-        inter: ['Inter', 'sans-serif'],
+        ultra: ["Ultra", "sans-serif"],
+        inter: ["Inter", "sans-serif"]
       },
       boxShadow: {
-        'bordered': 'rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px',
+        bordered:
+          "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px"
       },
       colors: {
         "brand-primary": "#3D3D3D",
@@ -21,16 +22,16 @@ export default {
         "brand-green": "#58885A",
         "brand-mint": "#E3EBE0",
         "brand-smoke": "#FAFAFA",
-        "brand-smoke-darker": "#F2F2F2",
-      },
+        "brand-smoke-darker": "#F2F2F2"
+      }
     },
     screens: {
-      'sm': '640px',
-      'md': '768px',
-      'lg': '1024px',
-      'xl': '1280px',
-      '2xl': '1536px',
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px"
     }
   },
-  plugins: [require("tailwind-scrollbar-hide")],
+  plugins: [require("tailwind-scrollbar-hide")]
 };

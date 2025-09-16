@@ -1,6 +1,7 @@
 <script>
   import { goto } from "$app/navigation";
   import { page } from "$app/stores";
+  import { browser } from "$app/environment";
   import { get } from "svelte/store";
 
   export let data;
@@ -37,7 +38,7 @@
   let debounceTimeout;
   let inputRef; 
 
-  $: shouldAutofocus = $page.url.pathname.includes("/search");
+  $: shouldAutofocus = browser && $page.url.pathname.includes("/search");
 
   function handleInput(event) {
     query = event.target.value;

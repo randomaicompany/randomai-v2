@@ -9,7 +9,7 @@ export default defineConfig({
       root: "./*",
       src: "./src/*",
       utils: "./src/utils/*",
-      components: "./src/lib/components/*",
-    },
-  },
+      components: "./src/lib/components/*"
+    }
+  }
 });

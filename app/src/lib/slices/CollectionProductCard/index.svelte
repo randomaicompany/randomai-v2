@@ -72,7 +72,10 @@
 
   // Function to get zoom URL for image - you'll need to adapt this to your image structure
   const getZoomUrl = (image, newWidth, newHeight) => {
-    const parsedUrl = new URL(image.url || image.src);
+    const imageUrl = image?.url || image?.src;
+    if (!imageUrl) return '';
+    
+    const parsedUrl = new URL(imageUrl);
 
   parsedUrl.searchParams.set('w', newWidth);
   parsedUrl.searchParams.set('h', newHeight);
