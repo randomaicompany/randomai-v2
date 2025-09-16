@@ -55,7 +55,7 @@
       transition:fly={{ duration: 300, y: 12 }}
       class="z-100 absolute right-1/2 top-full w-[24rem]">
       <ul class="rounded border bg-white text-left shadow-2xl">
-        {#each [1, 2, 3] as idx}
+        {#each [1, 2, 3] as item (item)}
           <li class="flex gap-2 border-b p-4 last:border-b-transparent">
             <div class="flex w-16 min-w-[4rem] border bg-brand-smoke">
               <img

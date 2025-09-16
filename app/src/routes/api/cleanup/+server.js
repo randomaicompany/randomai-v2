@@ -1,7 +1,7 @@
 import os from "os";
 
 import { uploadToGCS } from "api/storage";
-import { json, error } from "@sveltejs/kit";
+import { json } from "@sveltejs/kit";
 
 import removeBg from "api/utils/removeBg.js";
 import downloadFile from "api/utils/downloadFile.js";

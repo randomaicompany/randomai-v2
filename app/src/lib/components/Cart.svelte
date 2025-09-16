@@ -75,7 +75,7 @@
     </div>
 
     <ul class="flex-1 overflow-auto">
-      {#each $cart?.lineItems || [] as lineItem}
+      {#each $cart?.lineItems || [] as lineItem (lineItem.variant.id)}
         {@const frontImageUrl = attributesToMap(lineItem)["front"]}
         {@const backImageUrl = attributesToMap(lineItem)["back"]}
         <li

@@ -12,7 +12,7 @@
   import { convertToStyles } from "root/src/lib/utils/canvas";
   import { findVariantImages } from "root/src/lib/utils/shopify.js";
 
-  import { asLink, isFilled } from "@prismicio/client";
+  import { isFilled } from "@prismicio/client";
   import { Splide, SplideSlide } from "@splidejs/svelte-splide";
   import {
     PrismicText,
@@ -89,7 +89,7 @@
           on:dragging={hidePlaceholder}
           options={{ pagination: false, arrows: false }}
           aria-label="product images">
-          {#each variantImages as image, idx}
+          {#each variantImages as image, idx (idx)}
             {#if image?.src}
               <SplideSlide>
                 <div class="relative mx-auto max-w-xl border md:border-none">
@@ -124,7 +124,7 @@
         </Splide>
 
         <div class="mt-4 flex items-start gap-2">
-          {#each variantImages as image, idx}
+          {#each variantImages as image, idx (idx)}
             {@const isCurrent = R.equals(idx, currentImageIdx)}
             {#if image?.src}
               <button
@@ -145,7 +145,7 @@
             Reviews ({R.length(page.reviews)})
           </p>
           <ul class="flex max-w-xl flex-col gap-8 pt-6">
-            {#each page.reviews || [] as { user_name, title, review }}
+            {#each page.reviews || [] as { user_name, title, review } (user_name + title)}
               <li>
                 <svg
                   width="90"
@@ -298,7 +298,7 @@
 
         <div>
           <ul>
-            {#each page.product_details as { heading, content }, i}
+            {#each page.product_details as { heading, content }, i (i)}
               <li>
                 <DropDownContent name={heading} isOpen={i === 0}>
                   <div class="px-4 pb-6 text-sm">
@@ -316,7 +316,7 @@
           Reviews ({R.length(page.reviews)})
         </p>
         <ul class="flex max-w-xl flex-col gap-8 pt-6">
-          {#each page.reviews || [] as { user_name, title, review }}
+          {#each page.reviews || [] as { user_name, title, review } (user_name + title)}
             <li>
               <svg
                 width="90"

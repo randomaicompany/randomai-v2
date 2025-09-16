@@ -4,8 +4,7 @@
   //
   import { resizeCanvas, convertToStyles } from "root/src/lib/utils/canvas";
   import {
-    isCanvasEmpty,
-    putBoundaryConstraints
+    isCanvasEmpty
   } from "root/src/lib/api/fabric";
   //
   import Image from "components/Image.svelte";

@@ -72,7 +72,7 @@
 
   $: aiSettings = getCurrentAiSettings(currentViewIdx, defaultAiSettings);
 
-  const switchTab = R.curry((idx, _) => (tabIdx = idx));
+  const switchTab = (idx) => () => (tabIdx = idx);
 
   const setVariant = ({ detail: selectedVariant }) => {
     const { id, product_id } = selectedVariant;

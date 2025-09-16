@@ -1,7 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
   export let isChecked = false;
-  import { fade, fly, scale } from "svelte/transition";
+  import { scale } from "svelte/transition";
 
   const toggle = () => {
     isChecked = !isChecked;

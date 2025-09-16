@@ -1,5 +1,4 @@
 <script>
-  import * as R from "ramda";
   import user from "root/src/lib/stores/user";
   //
   import { asImageSrc } from "@prismicio/client";
@@ -24,7 +23,7 @@
 
   export let gallery = [];
 
-  const selectImage = R.curry((url, _) => dispatch("select", url));
+  const selectImage = (url) => () => dispatch("select", url);
 
   const loadImages = async () => {
     isLoadingImages = true;
@@ -60,11 +59,11 @@
 
 <ul class="flex gap-2 overflow-x-auto">
   {#if userId}
-    {#await loadImages() then res}
+    {#await loadImages()}
       {#if isLoadingImages}
         <p>Please wait...</p>
       {:else}
-        {#each images as { url }}
+        {#each images as { url } (url)}
           <li>
             <button on:click={selectImage(url)}>
               <img
@@ -76,7 +75,7 @@
             </button>
           </li>
         {:else}
-          {#each gallery as { image }}
+          {#each gallery as { image } (image.url || image.src)}
             <button on:click={selectImage(asImageSrc(image))}>
               <PrismicImage
                 field={image}

@@ -28,7 +28,7 @@
     <div class="flex-[1_1_33.33%]">
       <p class="mb-3 text-base font-light text-white md:mb-6">Information</p>
       <ul>
-        {#each data.data.links_group_1 as { link, label }}
+        {#each data.data.links_group_1 as { link, label } (label)}
           <li>
             <PrismicLink field={link} class="inline-block pb-2">
               {label}
@@ -41,7 +41,7 @@
     <div class="flex-[1_1_33.33%]">
       <p class="mb-3 text-base font-light text-white md:mb-6">Support</p>
       <ul>
-        {#each data.data.links_group_2 as { link, label }}
+        {#each data.data.links_group_2 as { link, label } (label)}
           <li>
             <PrismicLink field={link} class="inline-block pb-2">
               {label}
@@ -54,7 +54,7 @@
     <div class="flex-[1_1_33.33%]">
       <p class="mb-3 text-base font-light text-white md:mb-6">Support</p>
       <ul>
-        {#each data.data.links_group_3 as { link, label }}
+        {#each data.data.links_group_3 as { link, label } (label)}
           <li>
             <PrismicLink field={link} class="inline-block pb-2">
               {label}
@@ -67,7 +67,7 @@
     <div class="flex-[1_1_33.33%]">
       <p class="mb-3 text-base font-light text-white md:mb-6">Social</p>
       <ul class="flex flex-wrap items-center gap-2">
-        {#each data.data.social_links as { link, icon }}
+        {#each data.data.social_links as { link, icon } (icon)}
           <li>
             <PrismicLink
               field={link}

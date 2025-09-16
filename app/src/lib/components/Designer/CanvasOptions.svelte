@@ -1,13 +1,10 @@
 <script>
-  import { ref } from "firebase/storage";
-  import { storage } from "$lib/firebase";
   import { fabric } from "fabric";
 
   export let isRemovingBackground;
   import {
     clearAll,
     deleteItem,
-    bringToFront,
     verticallyAlign,
     horizontallyAlign,
     getImageInCanvas,

@@ -1,6 +1,5 @@
 <script>
   import * as R from "ramda";
-  import * as RA from "ramda-adjunct";
 
   import Checkbox from "./Checkbox.svelte";
   import { PrismicImage } from "@prismicio/svelte";
@@ -9,7 +8,7 @@
   export let values = [];
   export let options = [];
 
-  const updateValues = (option) => (event) => {
+  const updateValues = (option) => () => {
     return (values = R.includes(option, values)
       ? R.without([option], values)
       : R.append(option, values));
@@ -21,7 +20,7 @@
     <p class="text-xl">{label}</p>
   </div>
   <ul class="flex flex-wrap gap-2 px-1">
-    {#each options as { swatch, color_name }, idx}
+    {#each options as { swatch, color_name } (color_name)}
       <li>
         <Checkbox on:change={updateValues(color_name)}>
           {@const isActive = R.includes(color_name, values)}

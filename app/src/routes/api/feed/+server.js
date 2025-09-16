@@ -1,6 +1,6 @@
 import * as R from "ramda";
 import * as RA from "ramda-adjunct";
-import { json, error } from "@sveltejs/kit";
+import { json } from "@sveltejs/kit";
 import { firestore } from "root/src/lib/firebase-admin.js";
 
 export async function GET() {

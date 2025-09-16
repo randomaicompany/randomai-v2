@@ -1,8 +1,6 @@
-import axios from "axios";
 import Replicate from "replicate";
-import { json, text } from "@sveltejs/kit";
-import { generate } from "root/src/lib/api/replicate.js";
-import { RUNPOD_API_KEY, REPLICATE_TOKEN } from "$env/static/private";
+import { json } from "@sveltejs/kit";
+import { REPLICATE_TOKEN } from "$env/static/private";
 
 const replicate = new Replicate({
   auth: REPLICATE_TOKEN

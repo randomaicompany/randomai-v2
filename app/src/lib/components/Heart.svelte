@@ -1,16 +1,12 @@
 <script>
   import * as R from "ramda";
   import whishlist from "root/src/lib/stores/whishlist";
-  import { onMount } from "svelte";
   import { db, auth } from "root/src/lib/firebase";
   import { asImageSrc, asLink } from "@prismicio/client";
   import {
     doc,
-    getDoc,
     setDoc,
-    addDoc,
     updateDoc,
-    onSnapshot,
     arrayUnion,
     arrayRemove
   } from "firebase/firestore";

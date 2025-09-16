@@ -12,16 +12,6 @@
   export let canvas;
   export let fontFamily = { label: "inherit", value: "inherit" };
 
-  let fonts = [
-    "Arial",
-    "Arial Black",
-    "Courier New",
-    "Georgia",
-    "Impact",
-    "Times New Roman",
-    "Trebuchet MS",
-    "Verdana"
-  ];
 
   const toggleFontDropdown = () => (isFontDropdownOpen = !isFontDropdownOpen);
   const closeFontDropdown = () => (isFontDropdownOpen = false);
@@ -452,7 +442,7 @@
         {#if isFontDropdownOpen}
           <ul
             class="absolute left-0 top-full h-64 w-full overflow-auto border border-gray-400 bg-white shadow-2xl">
-            {#each fontFamilyList as { label, value }}
+            {#each fontFamilyList as { label, value } (value)}
               <li>
                 <button
                   on:click={setFontFamily({ label, value })}

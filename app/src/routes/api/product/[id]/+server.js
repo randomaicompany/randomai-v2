@@ -1,7 +1,6 @@
-import { getProduct } from "root/src/lib/api/shopify";
 import { json } from "@sveltejs/kit";
 
-export const GET = async ({ params: { id } }) => {
+export const GET = async () => {
   // const product = await getProduct(id);
   return json(product, { status: 200 });
 };

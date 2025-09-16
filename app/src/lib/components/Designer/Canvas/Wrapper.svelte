@@ -77,7 +77,7 @@
     <ul
       class:opacity-100={hasImageLoaded}
       class="absolute bottom-4 right-4 block opacity-0">
-      {#each productImages as src, idx}
+      {#each productImages as src, idx (idx)}
         {@const isCurrent = R.equals(idx, currentViewIdx)}
         <li>
           <button

@@ -12,7 +12,7 @@
       (selectedFile.type === "image/jpeg" || selectedFile.type === "image/png")
     ) {
       const reader = new FileReader();
-      reader.onload = function (e) {
+      reader.onload = function () {
         const blobURL = URL.createObjectURL(selectedFile);
 
         dispatch("change", {

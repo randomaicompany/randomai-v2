@@ -35,7 +35,7 @@
     );
   });
 
-  const setOption = R.curry((value, position, _) => {
+  const setOption = (value, position) => () => {
     const positionString = R.toString(R.inc(position));
     const key = R.concat("option", positionString);
     choice = { ...choice, [key]: value };
@@ -63,14 +63,14 @@
       <p>Loading...</p>
     {:then colorsList}
       <ul class="flex w-full flex-col gap-2">
-        {#each product.options as option, idx}
+        {#each product.options as option, idx (option.name)}
           {@const optionKey = R.concat("option", R.toString(R.inc(idx)))}
 
           {#if R.propEq("Color", "name", option)}
             <li>
               <Accordion isOpen={true} name={option.name}>
                 <ul class="flex flex-wrap gap-2 pl-1 pt-1 text-center">
-                  {#each getMatchedColors(option.values, colorsList) as { name, hex }}
+                  {#each getMatchedColors(option.values, colorsList) as { name, hex } (name)}
                     {@const isActive = R.propEq(name, optionKey, choice)}
                     <li>
                       <button
@@ -90,7 +90,7 @@
           {#if R.propEq("Size", "name", option)}
             <Accordion isOpen={true} name={option.name}>
               <ul class="flex flex-wrap gap-2 pt-1">
-                {#each option.values as size}
+                {#each option.values as size (size)}
                   {@const isActive = R.propEq(size, optionKey, choice)}
                   <li>
                     <button

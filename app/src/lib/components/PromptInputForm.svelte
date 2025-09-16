@@ -81,9 +81,6 @@
     }
   };
 
-  const debouncedInput = debounce(handleInput, 3000);
-  const toggleStickerMode = () =>
-    (isStickerModeEnabled = !isStickerModeEnabled);
 </script>
 
 <form
@@ -97,7 +94,7 @@
         <select
           bind:value={stylePreset}
           class="input-field w-full border border-gray-200 px-2 text-base md:text-sm">
-          {#each stylePresets as { name, ...rest }, idx}
+          {#each stylePresets as { name, ...rest }, idx (name)}
             <option selected={idx} value={JSON.stringify({ name, ...rest })}
               >{name}</option>
           {/each}

@@ -1,8 +1,6 @@
 <script>
   import { goto } from "$app/navigation";
   import { page } from "$app/stores";
-  import { browser } from "$app/environment";
-  import { get } from "svelte/store";
 
   export let data;
   import { onMount } from "svelte";
@@ -96,7 +94,7 @@
 
     <div class="flex-1">
       <ul class="hidden flex-1 items-center justify-center xl:flex">
-        {#each data.data.links as { link, label }}
+        {#each data.data.links as { link, label } (label)}
           <li>
             <PrismicLink field={link} class="px-5 py-4 text-sm font-medium">
               {label}
@@ -196,7 +194,7 @@
       class="absolute left-0 top-full w-full border-t bg-white pt-0 shadow-xl">
       <nav class="shell pb-8">
         <ul>
-          {#each data.data.links as { link, label }}
+          {#each data.data.links as { link, label } (label)}
             <li>
               <PrismicLink
                 field={link}
