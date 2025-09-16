@@ -30,6 +30,9 @@
   onMount(async () => {
     await fetchCartItems();
     isCartLoading = false;
+    
+    // Check if we should autofocus the search input
+    shouldAutofocus = $page.url.pathname.includes("/search");
   });
 
   beforeNavigate(() => (isMenuOpen = false));
@@ -37,8 +40,7 @@
   let query = "";
   let debounceTimeout;
   let inputRef;
-
-  $: shouldAutofocus = browser && $page.url.pathname.includes("/search");
+  let shouldAutofocus = false;
 
   function handleInput(event) {
     query = event.target.value;
