@@ -1,8 +1,10 @@
 <script>
-  import { goto } from "$app/navigation";
-  import { page } from "$app/stores";
+  import { createBubbler, preventDefault } from 'svelte/legacy';
 
-  export let data;
+  const bubble = createBubbler();
+  import { goto } from "$app/navigation";
+  import { page } from "$app/state";
+
   import { onMount } from "svelte";
   import { isFilled } from "@prismicio/client";
   import { cart, isCartOpen, fetchCartItems } from "root/src/lib/stores/cart";
@@ -16,10 +18,11 @@
   import WishList from "components/WishList.svelte";
   import { fly } from "svelte/transition";
   import { beforeNavigate } from "$app/navigation";
+  let { data } = $props();
   //
   let isOpen = false;
-  let isMenuOpen = false;
-  let isCartLoading = true;
+  let isMenuOpen = $state(false);
+  let isCartLoading = $state(true);
   const hasNoticeText = isFilled.richText(data.data.notice);
 
   const openCart = () => ($isCartOpen = true);
@@ -30,15 +33,15 @@
     isCartLoading = false;
     
     // Check if we should autofocus the search input
-    shouldAutofocus = $page.url.pathname.includes("/search");
+    shouldAutofocus = page.url.pathname.includes("/search");
   });
 
   beforeNavigate(() => (isMenuOpen = false));
 
   let query = "";
   let debounceTimeout;
-  let inputRef;
-  let shouldAutofocus = false;
+  let inputRef = $state();
+  let shouldAutofocus = $state(false);
 
   function handleInput(event) {
     query = event.target.value;
@@ -74,7 +77,7 @@
 <header class:top-9={hasNoticeText} class="sticky top-0 z-10 border bg-white">
   <nav class="shell flex h-20 w-full items-center gap-4">
     <button
-      on:click={toggleMenu}
+      onclick={toggleMenu}
       class="relative flex items-center justify-center xl:hidden">
       {#if isMenuOpen}
         <i class="material-symbols-rounded">close</i>
@@ -104,15 +107,15 @@
       </ul>
     </div>
 
-    <form on:submit|preventDefault class="hidden md:block">
+    <form onsubmit={preventDefault(bubble('submit'))} class="hidden md:block">
       <label class="input-field-container">
-        <!-- svelte-ignore a11y-autofocus -->
+        <!-- svelte-ignore a11y_autofocus -->
         <input
           bind:this={inputRef}
           placeholder="Search"
           name="query"
           class="input-field input-w-icon-left shadow-bordered"
-          on:input={handleInput}
+          oninput={handleInput}
           autofocus={shouldAutofocus ? true : undefined} />
         <button type="submit">
           <i
@@ -136,7 +139,7 @@
 
       <li class="flex h-[42px] w-[42px] items-center justify-center">
         <button
-          on:click={openCart}
+          onclick={openCart}
           class:bg-brand-smoke-darker={isOpen}
           class="relative z-10 rounded-full p-3 transition-all">
           {#if $cart?.lineItems?.length}

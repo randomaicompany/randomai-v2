@@ -8,6 +8,6 @@ export const GET = async () => {
     return json(colors, { status: 200 });
   } catch (err) {
     console.error(err.response);
-    throw error(500, err);
+    error(500, err);
   }
 };

@@ -6,8 +6,8 @@
   import { onDestroy, onMount } from "svelte";
   import { extractScriptsFromHTML } from "root/src/lib/utils";
 
-  export let slice;
-  let iframe;
+  let { slice } = $props();
+  let iframe = $state();
 
   const buildIframe = () => {
     const headHTMLString = asText(slice.primary.head);

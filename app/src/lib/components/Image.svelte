@@ -1,9 +1,17 @@
 <script>
+  import { run } from 'svelte/legacy';
+
   import { createEventDispatcher } from "svelte";
 
-  export let src = "";
-  export let alt = "";
-  export let isLoading = true;
+  /**
+   * @typedef {Object} Props
+   * @property {string} [src]
+   * @property {string} [alt]
+   * @property {boolean} [isLoading]
+   */
+
+  /** @type {Props & { [key: string]: any }} */
+  let { src = "", alt = "", isLoading = $bindable(true), ...rest } = $props();
 
   const dispatch = createEventDispatcher();
 
@@ -12,9 +20,11 @@
     dispatch("load");
   };
 
-  $: src, (isLoading = true);
+  run(() => {
+    src, (isLoading = true);
+  });
 </script>
 
 <div class:!opacity-50={isLoading} class="opacity-100 transition-opacity">
-  <img {src} {alt} {...$$restProps} on:load={handleLoad} />
+  <img {src} {alt} {...rest} onload={handleLoad} />
 </div>

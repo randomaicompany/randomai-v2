@@ -1,10 +1,10 @@
 <script>
-  export let slice;
   import clickOutside from "root/src/lib/utils/clickOutside";
   import { PrismicImage } from "@prismicio/svelte";
   import { fade, fly } from "svelte/transition";
+  let { slice } = $props();
 
-  let openVideoModal = false;
+  let openVideoModal = $state(false);
   const toggle = () => (openVideoModal = !openVideoModal);
 </script>
 
@@ -13,7 +13,7 @@
   data-slice-variation={slice.variation}>
   <div class="flex items-end justify-center md:h-[700px]">
     <button
-      on:click={toggle}
+      onclick={toggle}
       class="group relative w-full transition-opacity hover:opacity-80">
       <PrismicImage
         class="h-full w-full object-cover"
@@ -54,7 +54,7 @@
       in:fly={{ duration: 200, y: 24, delay: 200 }}
       out:fly={{ duration: 200, y: 24 }}
       use:clickOutside
-      on:clickOutside={toggle}
+      onclickOutside={toggle}
       class="video-container flex h-96 w-full max-w-4xl items-center justify-center">
       {@html slice.primary.embed.html}
     </div>

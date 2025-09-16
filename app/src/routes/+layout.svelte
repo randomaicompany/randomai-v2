@@ -1,5 +1,4 @@
 <script>
-  export let data = {};
   import "src/app.css";
   import "material-symbols";
   import user from "root/src/lib/stores/user";
@@ -10,6 +9,7 @@
   import Footer from "components/Footer.svelte";
   import { onMount } from "svelte";
   import { browser } from "$app/environment";
+  let { data = {}, children } = $props();
 
   onMount(async () => {
     if (!browser) return;
@@ -27,7 +27,7 @@
 <Header {data} />
 
 <main class="min-h-[100vh]">
-  <slot />
+  {@render children?.()}
 </main>
 
 <Footer {data} />

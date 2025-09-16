@@ -1,6 +1,6 @@
 <script>
-  export let file;
   import { createEventDispatcher } from "svelte";
+  let { file = $bindable() } = $props();
 
   const dispatch = createEventDispatcher();
 
@@ -45,5 +45,5 @@
     class="hidden"
     type="file"
     bind:files={file}
-    on:change={handleFileChange} />
+    onchange={handleFileChange} />
 </div>

@@ -1,7 +1,8 @@
 <script>
+  import { run } from 'svelte/legacy';
+
   import { fabric } from "fabric";
 
-  export let isRemovingBackground;
   import {
     clearAll,
     deleteItem,
@@ -12,20 +13,35 @@
     replaceActiveImageSrc
   } from "root/src/lib/api/fabric";
 
-  export let canvas;
 
   import IconButton from "./IconButton.svelte";
 
   // Zoom state and helpers
-  let zoom = 1;
-  export let minZoom = 0.25;
-  export let maxZoom = 4;
-  export let zoomStep = 0.1;
+  let zoom = $state(1);
+  /**
+   * @typedef {Object} Props
+   * @property {any} isRemovingBackground
+   * @property {any} canvas
+   * @property {number} [minZoom]
+   * @property {number} [maxZoom]
+   * @property {number} [zoomStep]
+   */
 
-  $: if (canvas && typeof canvas.getZoom === "function") {
-    // keep local zoom in sync when canvas changes externally
-    zoom = canvas.getZoom();
-  }
+  /** @type {Props} */
+  let {
+    isRemovingBackground = $bindable(),
+    canvas,
+    minZoom = 0.25,
+    maxZoom = 4,
+    zoomStep = 0.1
+  } = $props();
+
+  run(() => {
+    if (canvas && typeof canvas.getZoom === "function") {
+      // keep local zoom in sync when canvas changes externally
+      zoom = canvas.getZoom();
+    }
+  });
 
   const setZoom = (value) => {
     if (!canvas) return;
@@ -123,7 +139,7 @@
           max={maxZoom}
           step={zoomStep}
           value={zoom}
-          on:input={(e) => setZoom(+e.target.value)}
+          oninput={(e) => setZoom(+e.target.value)}
           aria-label="Canvas zoom" />
         <span class="w-10 select-none text-center text-xs"
           >{Math.round(zoom * 100)}%</span>

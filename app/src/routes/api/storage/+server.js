@@ -8,6 +8,6 @@ export async function GET() {
     return json(signedURLResponse, { status: 200 });
   } catch (err) {
     console.error(err);
-    throw error(500, err);
+    error(500, err);
   }
 }

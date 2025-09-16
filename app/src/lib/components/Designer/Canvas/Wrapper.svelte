@@ -1,4 +1,6 @@
 <script>
+  import { run } from 'svelte/legacy';
+
   import * as R from "ramda";
   //
   import { onMount } from "svelte";
@@ -6,22 +8,39 @@
   import Image from "components/Image.svelte";
   import CanvasOptions from "components/Designer/CanvasOptions.svelte";
 
-  export let page;
-  export let canvas;
-  export let frontCanvas;
-  export let backCanvas;
-  export let isLoading = false;
 
-  export let canvasStyles = [];
-  export let productImages = [];
-  export let placeholderImage =
-    "https://images.prismic.io/randomai-10/ZhPSPhrFxhpPBXhg_Placeholder.png";
 
-  export let currentViewIdx = 0;
-  let hasImageLoaded = false;
+  /**
+   * @typedef {Object} Props
+   * @property {any} page
+   * @property {any} canvas
+   * @property {any} frontCanvas
+   * @property {any} backCanvas
+   * @property {boolean} [isLoading]
+   * @property {any} [canvasStyles]
+   * @property {any} [productImages]
+   * @property {string} [placeholderImage]
+   * @property {number} [currentViewIdx]
+   */
 
-  $: activeImage = productImages[currentViewIdx];
-  $: canvas = currentViewIdx == 0 ? frontCanvas : backCanvas;
+  /** @type {Props} */
+  let {
+    page,
+    canvas = $bindable(),
+    frontCanvas = $bindable(),
+    backCanvas = $bindable(),
+    isLoading = false,
+    canvasStyles = [],
+    productImages = [],
+    placeholderImage = "https://images.prismic.io/randomai-10/ZhPSPhrFxhpPBXhg_Placeholder.png",
+    currentViewIdx = $bindable(0)
+  } = $props();
+  let hasImageLoaded = $state(false);
+
+  let activeImage = $derived(productImages[currentViewIdx]);
+  run(() => {
+    canvas = currentViewIdx == 0 ? frontCanvas : backCanvas;
+  });
 
   const handleImageLoad = () => setTimeout(() => (hasImageLoaded = true), 500);
   const switchView = (idx) => () => (currentViewIdx = idx);
@@ -81,7 +100,7 @@
         {@const isCurrent = R.equals(idx, currentViewIdx)}
         <li>
           <button
-            on:click={switchView(idx)}
+            onclick={switchView(idx)}
             class:!opacity-100={isCurrent}
             class:!border-gray-500={isCurrent}
             class="w-16 border object-cover opacity-50">

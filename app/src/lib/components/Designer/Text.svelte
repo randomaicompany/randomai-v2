@@ -1,4 +1,6 @@
 <script>
+  import { run, preventDefault } from 'svelte/legacy';
+
   import { clickOutside } from "root/src/lib/utils/common";
   import {
     changeFontFamily,
@@ -6,11 +8,17 @@
     changeActiveColor
   } from "root/src/lib/api/fabric";
 
-  let textInput = "";
-  let textColor = "black";
-  // let fontFamily = "Arial";
-  export let canvas;
-  export let fontFamily = { label: "inherit", value: "inherit" };
+  let textInput = $state("");
+  let textColor = $state("black");
+  
+  /**
+   * @typedef {Object} Props
+   * @property {any} canvas - let fontFamily = "Arial";
+   * @property {any} [fontFamily]
+   */
+
+  /** @type {Props} */
+  let { canvas, fontFamily = $bindable({ label: "inherit", value: "inherit" }) } = $props();
 
 
   const toggleFontDropdown = () => (isFontDropdownOpen = !isFontDropdownOpen);
@@ -327,7 +335,7 @@
     }
   ];
 
-  let isFontDropdownOpen = false;
+  let isFontDropdownOpen = $state(false);
 
   const setFontFamily =
     ({ label, value }) =>
@@ -351,11 +359,13 @@
     return;
   };
 
-  $: textColor, textColor && canvas && changeColor(textColor);
   const changeColor = () => {
     changeActiveColor(canvas, textColor);
     return;
   };
+  run(() => {
+    textColor, textColor && canvas && changeColor(textColor);
+  });
 </script>
 
 <svelte:head>
@@ -389,7 +399,7 @@
 
 <div>
   <p class="mb-2 mt-8 text-sm">Enter your text</p>
-  <form on:submit|preventDefault={addText}>
+  <form onsubmit={preventDefault(addText)}>
     <div class="relative flex-1">
       <textarea
         rows="2"
@@ -423,10 +433,10 @@
       <div
         class="relative"
         use:clickOutside
-        on:clickOutside={closeFontDropdown}>
+        onclickOutside={closeFontDropdown}>
         <button
           type="button"
-          on:click={toggleFontDropdown}
+          onclick={toggleFontDropdown}
           class="flex h-14 w-full cursor-pointer items-center justify-between gap-4 border border-gray-400 py-3 pl-4 pr-3 font-medium">
           {#if fontFamily.label.match("fontFamily")}
             <p>Select a Font</p>
@@ -445,7 +455,7 @@
             {#each fontFamilyList as { label, value } (value)}
               <li>
                 <button
-                  on:click={setFontFamily({ label, value })}
+                  onclick={setFontFamily({ label, value })}
                   class="w-full p-4 text-left hover:bg-stone-100">
                   <p class="text-xl" style="font-family: {value};">{label}</p>
                 </button>

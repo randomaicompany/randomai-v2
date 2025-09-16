@@ -13,15 +13,14 @@
   import UploadImage from "components/Designer/UploadImage.svelte";
 
   //
-  $: currentUser = $user;
-  $: userId = currentUser?.uid;
+  let currentUser = $derived($user);
+  let userId = $derived(currentUser?.uid);
   const dispatch = createEventDispatcher();
 
-  export let images = [];
-  let isLoadingImages = true;
-  let isUploadingInProgress = false;
+  let isLoadingImages = $state(true);
+  let isUploadingInProgress = $state(false);
 
-  export let gallery = [];
+  let { images = $bindable([]), gallery = [] } = $props();
 
   const selectImage = (url) => () => dispatch("select", url);
 
@@ -65,7 +64,7 @@
       {:else}
         {#each images as { url } (url)}
           <li>
-            <button on:click={selectImage(url)}>
+            <button onclick={selectImage(url)}>
               <img
                 width="96"
                 height="96"
@@ -76,7 +75,7 @@
           </li>
         {:else}
           {#each gallery as { image } (image.url || image.src)}
-            <button on:click={selectImage(asImageSrc(image))}>
+            <button onclick={selectImage(asImageSrc(image))}>
               <PrismicImage
                 field={image}
                 class="md:w-24 md:h-24 md:min-w-[6rem] w-16 h-16 min-w-[4rem] object-contain  hover:opacity-90 transition-opacity" />

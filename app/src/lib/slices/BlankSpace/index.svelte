@@ -1,11 +1,9 @@
 <script>
-  export let slice;
 
   import * as R from "ramda";
+  let { slice } = $props();
 
-  let innerWidth;
-  $: isViewMobile = innerWidth < 768 ? true : false;
-  $: height = isViewMobile ? getHeight(slice) / 2 : getHeight(slice);
+  let innerWidth = $state();
 
   const getHeight = R.pipe(
     R.prop("primary"),
@@ -17,6 +15,8 @@
       [R.T, R.always(4)]
     ])
   );
+  let isViewMobile = $derived(innerWidth < 768 ? true : false);
+  let height = $derived(isViewMobile ? getHeight(slice) / 2 : getHeight(slice));
 </script>
 
 <svelte:window bind:innerWidth />

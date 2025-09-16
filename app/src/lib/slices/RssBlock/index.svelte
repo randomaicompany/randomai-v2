@@ -1,8 +1,14 @@
 <script>
   import { PrismicText } from "@prismicio/svelte";
 
-  /** @type {import("@prismicio/client").Content.RssBlockSlice} */
-  export let slice;
+  
+  /**
+   * @typedef {Object} Props
+   * @property {import("@prismicio/client").Content.RssBlockSlice} slice
+   */
+
+  /** @type {Props} */
+  let { slice } = $props();
 </script>
 
 <section

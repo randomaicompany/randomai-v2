@@ -2,7 +2,7 @@
   import { browser } from "$app/environment";
   import { PrismicText } from "@prismicio/svelte";
 
-  export let slice;
+  let { slice } = $props();
 
   console.log(slice.primary.embed[0].text);
 </script>

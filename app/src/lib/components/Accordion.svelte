@@ -1,15 +1,22 @@
 <script>
   import { accordion } from "root/src/lib/utils/accordion";
 
-  export let isOpen = false;
-  export let name = "Accordion Heading";
+  /**
+   * @typedef {Object} Props
+   * @property {boolean} [isOpen]
+   * @property {string} [name]
+   * @property {import('svelte').Snippet} [children]
+   */
+
+  /** @type {Props} */
+  let { isOpen = $bindable(false), name = "Accordion Heading", children } = $props();
 
   const toggle = () => (isOpen = !isOpen);
 </script>
 
 <div>
   <button
-    on:click={toggle}
+    onclick={toggle}
     class="flex w-full flex-1 cursor-pointer items-center py-2 text-left text-sm font-medium">
     {name}
     <i
@@ -20,7 +27,7 @@
 
   <div use:accordion={isOpen}>
     <div class="overflow-hidden text-base transition-all">
-      <slot />
+      {@render children?.()}
     </div>
   </div>
 </div>

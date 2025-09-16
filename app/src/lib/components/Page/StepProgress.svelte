@@ -1,6 +1,12 @@
 <script>
   import * as R from "ramda";
-  export let currentStep = 1;
+  /**
+   * @typedef {Object} Props
+   * @property {number} [currentStep]
+   */
+
+  /** @type {Props} */
+  let { currentStep = 1 } = $props();
 
   const isFistStep = R.gte(currentStep, 1);
   const isSecondStep = R.gte(currentStep, 2);

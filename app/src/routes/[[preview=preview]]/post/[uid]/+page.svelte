@@ -1,7 +1,7 @@
 <script>
-  export let data;
   import { components } from "root/src/lib/slices";
   import { SliceZone } from "@prismicio/svelte";
+  let { data } = $props();
 </script>
 
 <svelte:head>

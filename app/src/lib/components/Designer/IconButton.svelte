@@ -1,15 +1,29 @@
 <script>
+  import { createBubbler } from 'svelte/legacy';
+
+  const bubble = createBubbler();
   import { onDestroy } from "svelte";
   import { activeLabelButtonId } from "../../stores/icon-bottom";
 
-  export let label = "";
-  export let iconName = "";
-  export let className = "";
-  export let isbackground = false;
+  /**
+   * @typedef {Object} Props
+   * @property {string} [label]
+   * @property {string} [iconName]
+   * @property {string} [className]
+   * @property {boolean} [isbackground]
+   */
+
+  /** @type {Props} */
+  let {
+    label = "",
+    iconName = "",
+    className = "",
+    isbackground = false
+  } = $props();
 
   const id = Math.random().toString(36).substring(2, 9);
 
-  let currentActiveButtonId = null;
+  let currentActiveButtonId = $state(null);
   const unsubscribe = activeLabelButtonId.subscribe((value) => {
     currentActiveButtonId = value;
   });
@@ -33,7 +47,7 @@
     }
   }
 
-  $: restingLabelClasses = (() => {
+  let restingLabelClasses = $derived((() => {
     if (isbackground) {
       const anotherButtonIsActive =
         currentActiveButtonId !== null && currentActiveButtonId !== id;
@@ -46,15 +60,15 @@
     } else {
       return "opacity-0";
     }
-  })();
+  })());
 </script>
 
 <button
-  on:click
-  on:mouseenter={handleInteractionStart}
-  on:mouseleave={handleInteractionEnd}
-  on:focus={handleInteractionStart}
-  on:blur={handleInteractionEnd}
+  onclick={bubble('click')}
+  onmouseenter={handleInteractionStart}
+  onmouseleave={handleInteractionEnd}
+  onfocus={handleInteractionStart}
+  onblur={handleInteractionEnd}
   class="group relative flex h-8 w-8 items-center justify-center rounded-full border bg-white outline-none transition-all hover:border-brand-accent hover:bg-brand-accent hover:text-white active:bg-gray-200 {className}">
   <i class="material-symbols-rounded !text-xl">{iconName}</i>
 

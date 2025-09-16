@@ -1,5 +1,4 @@
 <script>
-  export let data;
   import * as R from "ramda";
   import * as RA from "ramda-adjunct";
 
@@ -20,24 +19,45 @@
   import { uploadImage } from "api/firebase/storage";
   import { addDocument, fetchDocumentsByUserId } from "api/firebase/firestore";
 
-  export let canvas;
-  export let choice = {};
-  export let variant = {};
-  export let product = {};
-  export let images = [];
-  export let imageUrl = "";
-  export let isGenerating = false;
-  export let generatedImages = [];
-  export let promptSuggestions = [];
-  export let selectedGalleryImage = null;
-  export let currentViewIdx = 0;
 
-  export let tempPromt = "";
+  /**
+   * @typedef {Object} Props
+   * @property {any} data
+   * @property {any} canvas
+   * @property {any} [choice]
+   * @property {any} [variant]
+   * @property {any} [product]
+   * @property {any} [images]
+   * @property {string} [imageUrl]
+   * @property {boolean} [isGenerating]
+   * @property {any} [generatedImages]
+   * @property {any} [promptSuggestions]
+   * @property {any} [selectedGalleryImage]
+   * @property {number} [currentViewIdx]
+   * @property {string} [tempPromt]
+   */
 
-  let tabIdx = 0;
+  /** @type {Props} */
+  let {
+    data,
+    canvas = $bindable(),
+    choice = $bindable({}),
+    variant = $bindable({}),
+    product = {},
+    images = $bindable([]),
+    imageUrl = $bindable(""),
+    isGenerating = $bindable(false),
+    generatedImages = $bindable([]),
+    promptSuggestions = [],
+    selectedGalleryImage = $bindable(null),
+    currentViewIdx = 0,
+    tempPromt = $bindable("")
+  } = $props();
 
-  $: currentUser = $user;
-  $: userId = currentUser?.uid;
+  let tabIdx = $state(0);
+
+  let currentUser = $derived($user);
+  let userId = $derived(currentUser?.uid);
 
   const stylePresets = R.path(["data", "style_presets"], data);
 
@@ -70,7 +90,7 @@
       : buildBack(defaultAiSettings);
   };
 
-  $: aiSettings = getCurrentAiSettings(currentViewIdx, defaultAiSettings);
+  let aiSettings = $derived(getCurrentAiSettings(currentViewIdx, defaultAiSettings));
 
   const switchTab = (idx) => () => (tabIdx = idx);
 
@@ -151,7 +171,7 @@
     <ul class="inline-flex flex-row items-center md:pt-8">
       <li class="flex-1">
         <button
-          on:click={switchTab(0)}
+          onclick={switchTab(0)}
           class:!bg-brand-smoke-darker={R.equals(tabIdx, 0)}
           class="flex items-center gap-2 whitespace-nowrap border border-r-0 border-gray-200 p-4 py-2 pl-2 text-xs font-medium transition-all md:py-3 md:text-sm md:font-normal">
           <i class="material-symbols-rounded">highlight</i>
@@ -160,7 +180,7 @@
       </li>
       <li class="flex-1">
         <button
-          on:click={switchTab(1)}
+          onclick={switchTab(1)}
           class:!bg-brand-smoke-darker={R.equals(tabIdx, 1)}
           class="flex items-center gap-2 whitespace-nowrap border border-gray-200 p-4 py-2 pl-2 text-xs font-medium transition-all md:py-3 md:text-sm md:font-normal">
           <i class="material-symbols-rounded">sort_by_alpha</i>

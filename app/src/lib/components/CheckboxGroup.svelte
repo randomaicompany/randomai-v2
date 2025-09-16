@@ -2,9 +2,15 @@
   import * as R from "ramda";
   import Checkbox from "./Checkbox.svelte";
 
-  export let label = "";
-  export let values = [];
-  export let options = [];
+  /**
+   * @typedef {Object} Props
+   * @property {string} [label]
+   * @property {any} [values]
+   * @property {any} [options]
+   */
+
+  /** @type {Props} */
+  let { label = "", values = $bindable([]), options = [] } = $props();
 
   const updateValues = (option) => () => {
     return (values = R.includes(option, values)

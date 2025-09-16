@@ -8,18 +8,30 @@
   } from "root/src/lib/api/fabric";
   //
   import Image from "components/Image.svelte";
-  //
+  
 
-  export let canvas;
-  export let placeholder;
-  export let isLoading = false;
-  export { className as class };
-  export let canvasStyles = {};
+  
   //
-  let className = "";
-  let canvasElm;
-  let canvasContainer;
-  let showPlaceholderImage = true;
+  /**
+   * @typedef {Object} Props
+   * @property {any} canvas
+   * @property {any} placeholder
+   * @property {boolean} [isLoading]
+   * @property {any} [canvasStyles]
+   * @property {string} [class]
+   */
+
+  /** @type {Props} */
+  let {
+    canvas = $bindable(),
+    placeholder,
+    isLoading = false,
+    canvasStyles = {},
+    class: className = ""
+  } = $props();
+  let canvasElm = $state();
+  let canvasContainer = $state();
+  let showPlaceholderImage = $state(true);
 
   const resize = () => resizeCanvas(canvas, canvasContainer);
 

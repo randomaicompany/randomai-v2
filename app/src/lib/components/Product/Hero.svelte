@@ -1,5 +1,6 @@
 <script>
-  export let data = {};
+  import { run } from 'svelte/legacy';
+
 
   import * as R from "ramda";
   import "@splidejs/svelte-splide/css";
@@ -25,25 +26,28 @@
   import Options from "components/Product/Options.svelte";
   import DropDownContent from "components/DropDownContent.svelte";
   import QuantityPicker from "components/Product/QuantityPicker.svelte";
+  let { data = {} } = $props();
 
   const uid = R.path(["productPage", "uid"], data);
   const page = R.path(["productPage", "data"], data);
   const product = R.path(["productPage", "data", "product"], data);
 
-  let slider;
+  let slider = $state();
   let thumbs;
-  let quantity = 1;
-  let variantImages = [];
-  let selectedVariant = {};
-  let currentImageIdx = 0;
-  let isAddingToCart = false;
-  let isPlaceholderVisible = true;
+  let quantity = $state(1);
+  let variantImages = $state([]);
+  let selectedVariant = $state({});
+  let currentImageIdx = $state(0);
+  let isAddingToCart = $state(false);
+  let isPlaceholderVisible = $state(true);
 
   const frontStyles = convertToStyles(page.front);
   const backStyles = convertToStyles(page.back);
 
-  $: selectedVariant,
-    (variantImages = findVariantImages(product, selectedVariant));
+  run(() => {
+    selectedVariant,
+      (variantImages = findVariantImages(product, selectedVariant));
+  });
 
   const changeImageIdx = (event) => {
     currentImageIdx = event.detail.index;
@@ -131,7 +135,7 @@
                 class="border opacity-50"
                 class:!opacity-100={isCurrent}
                 class:border-brand-accent={isCurrent}
-                on:click={changeSlide(idx)}>
+                onclick={changeSlide(idx)}>
                 <Image
                   src={image?.src}
                   class="h-14 w-14 object-contain md:h-20 md:w-20" />
@@ -277,7 +281,7 @@
         {#if page.is_predesigned}
           <div class="flex gap-4 py-2">
             <button
-              on:click={addProductToCart}
+              onclick={addProductToCart}
               disabled={isAddingToCart}
               class="button w-full border-[#ED7675] bg-[#ED7675] text-white">
               {#if isAddingToCart}

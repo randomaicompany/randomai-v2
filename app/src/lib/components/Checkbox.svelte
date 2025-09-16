@@ -1,7 +1,14 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  export let isChecked = false;
   import { scale } from "svelte/transition";
+  /**
+   * @typedef {Object} Props
+   * @property {boolean} [isChecked]
+   * @property {import('svelte').Snippet} [children]
+   */
+
+  /** @type {Props} */
+  let { isChecked = $bindable(false), children } = $props();
 
   const toggle = () => {
     isChecked = !isChecked;
@@ -11,8 +18,8 @@
   const dispatch = createEventDispatcher();
 </script>
 
-<button on:click={toggle}>
-  {#if !$$slots.default}
+<button onclick={toggle}>
+  {#if !children}
     {#if isChecked}
       <i in:scale={{ start: 0.85 }} class="material-symbols-rounded filled"
         >check_box</i>
@@ -21,7 +28,7 @@
         >check_box_outline_blank</i>
     {/if}
   {:else}
-    <slot></slot>
+    {@render children?.()}
   {/if}
 </button>
 

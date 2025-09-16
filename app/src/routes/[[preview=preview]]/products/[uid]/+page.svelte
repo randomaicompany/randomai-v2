@@ -1,10 +1,10 @@
 <script>
-  export let data = {};
   import * as R from "ramda";
   import { components } from "root/src/lib/slices";
   import { SliceZone } from "@prismicio/svelte";
 
   import Hero from "components/Product/Hero.svelte";
+  let { data = {} } = $props();
 
   const slices = data.productPage.data.slices;
   const breadbrumbsSlices = R.filter(
