@@ -135,7 +135,7 @@
 			{@const isCurrent = R.equals(activeIdx, idx)}
 			<li>
 				<button
-					class="ring-brand-primary rounded-full border outline-none ring-offset-1"
+					class="ring-brand-primary rounded-full border outline-hidden ring-offset-1"
 					class:ring-2={isCurrent}
 					onclick={goToSlide(idx)}
 				>
@@ -145,7 +145,7 @@
 		{/each}
 	</ul>
 
-	<div class="flex min-h-[10rem] flex-col">
+	<div class="flex min-h-40 flex-col">
 		<div class="flex-1">
 			<p class="text-base font-medium">
 				{#if slice.primary.link_text?.[0]?.text.trim().toLowerCase() !== 'buy now'}

@@ -148,7 +148,7 @@
 {:else}
 	<div class="shell max-w-[1600px] py-8 md:py-16" class:!hidden={!hasProductAndVariantIds}>
 		<div class="flex flex-col-reverse gap-4 md:flex-row md:gap-12">
-			<div class="flex-0 mt-[100px] md:mt-0 md:w-[30rem]">
+			<div class="flex-0 mt-[100px] md:mt-0 md:w-120">
 				{#if canvas}
 					<Editor
 						{canvas}
@@ -258,7 +258,7 @@
 			<button
 				onclick={closeModal}
 				class="bg-brand-accent absolute -right-3 -top-3 flex h-8 w-8 items-center justify-center rounded-full px-2 text-white md:-right-6 md:-top-6 md:h-10 md:w-10"
-				><i class="material-symbols-rounded !text-xl">close</i>
+				><i class="material-symbols-rounded text-xl!">close</i>
 			</button>
 			<div>
 				<div>

@@ -157,7 +157,7 @@
 
       {#if !isRemovingBackground}
         <IconButton
-          className="!bg-brand-accent-light !text-white !border-brand-accent-light active:!bg-brand-accent"
+          className="bg-brand-accent-light! text-white! border-brand-accent-light! active:bg-brand-accent!"
           on:click={removeBackground}
           label="Clear Background"
           isbackground={true}

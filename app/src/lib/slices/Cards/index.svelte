@@ -404,7 +404,7 @@
 			{#each slice.items as item, idx (idx)}
 				<li>
 					<PrismicLink field={item.link} class="relative block transition-opacity hover:opacity-90">
-						<PrismicImage field={item.image} class="h-[36rem] w-full object-cover lg:h-[48rem]" />
+						<PrismicImage field={item.image} class="h-144 w-full object-cover lg:h-192" />
 
 						<div class="absolute left-0 top-0 flex h-full w-full items-end justify-center pb-16">
 							<p class="button secondary">{item.button_text}</p>
@@ -505,7 +505,7 @@
 					<li>
 						<PrismicLink field={item.link} class="transition-opacity hover:opacity-90">
 							<div class="relative">
-								<PrismicImage class="h-[38rem] w-full object-cover" field={item.image} />
+								<PrismicImage class="h-152 w-full object-cover" field={item.image} />
 
 								{#if isFilled.keyText(item.tag)}
 									<p

@@ -73,7 +73,7 @@
     <button class="button-text"> Explore styles </button>
 
     <button class="button-text">
-      <i class="material-symbols-sharp !text-[21.2px]">model_training</i>
+      <i class="material-symbols-sharp text-[21.2px]!">model_training</i>
       <p>Explore styles</p>
     </button>
   </div>
@@ -96,7 +96,7 @@
       <span>Generate AI art</span>
     </button>
 
-    <button class="button-compact button-gradient-bg-var-1 shadow">
+    <button class="button-compact button-gradient-bg-var-1 shadow-sm">
       <svg
         width="16"
         height="22"
@@ -112,7 +112,7 @@
     </button>
 
     <button
-      class="button-compact button-gradient-bg-var-2 animate-bg-gradients shadow">
+      class="button-compact button-gradient-bg-var-2 animate-bg-gradients shadow-sm">
       <svg
         width="16"
         height="22"
@@ -127,7 +127,7 @@
       <span>Generate AI art</span>
     </button>
 
-    <button class="button-compact button-gradient-bg-var-3 shadow">
+    <button class="button-compact button-gradient-bg-var-3 shadow-sm">
       <svg
         width="16"
         height="22"
@@ -142,7 +142,7 @@
       <span>Generate AI art</span>
     </button>
 
-    <button class="button-compact button-gradient-bg-var-4 shadow">
+    <button class="button-compact button-gradient-bg-var-4 shadow-sm">
       <svg
         width="16"
         height="22"
@@ -157,7 +157,7 @@
       <span>Generate AI art</span>
     </button>
 
-    <button class="button-compact button-gradient-bg-var-5 shadow">
+    <button class="button-compact button-gradient-bg-var-5 shadow-sm">
       <svg
         width="16"
         height="22"

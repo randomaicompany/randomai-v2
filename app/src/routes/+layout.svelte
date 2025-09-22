@@ -36,7 +36,7 @@
 
 <Header {data} />
 
-<main class="min-h-[100vh] duration-500" class:opacity-50={navigating.to}>
+<main class="min-h-screen duration-500" class:opacity-50={navigating.to}>
 	{@render children?.()}
 </main>
 

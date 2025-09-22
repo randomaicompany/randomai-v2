@@ -37,7 +37,7 @@
   <label
     for="file"
     class="group flex cursor-pointer items-center gap-1 text-xs text-brand-accent md:text-sm">
-    <i class="material-symbols-rounded !text-xl">upload</i>
+    <i class="material-symbols-rounded text-xl!">upload</i>
     <span class="block group-hover:underline">Upload Image</span>
   </label>
   <input

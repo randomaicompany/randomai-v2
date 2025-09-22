@@ -401,7 +401,7 @@
 				maxlength="40"
 				required
 				placeholder="Enter text you want to print"
-				class="w-full min-w-[256px] resize-none border border-gray-400 px-4 py-4 text-base font-normal outline-none focus:border md:text-sm"
+				class="w-full min-w-[256px] resize-none border border-gray-400 px-4 py-4 text-base font-normal outline-hidden focus:border md:text-sm"
 			></textarea>
 
 			<input
@@ -414,7 +414,7 @@
 		<div class="mt-4 text-right">
 			<!-- <div class="inline-flex items-center bg-brand-smoke-darker">
         <select
-          class="h-10 px-4 text-base bg-transparent outline-none appearance-none md:text-sm"
+          class="h-10 px-4 text-base bg-transparent outline-hidden appearance-none md:text-sm"
           bind:value="{fontFamily}"
           on:change="{() => changeFont(fontFamily, canvas)}">
           <option value="inherit">Default Font</option>
@@ -422,7 +422,7 @@
             <option value="{font}">{font}</option>
           {/each}
         </select>
-        <i class="material-symbols-rounded !text-lg mr-4">expand_more</i>
+        <i class="material-symbols-rounded text-lg! mr-4">expand_more</i>
       </div> -->
 
 			<div class="relative" use:clickOutside onclickOutside={closeFontDropdown}>
@@ -439,7 +439,7 @@
 						</p>
 					{/if}
 
-					<i class="material-symbols-rounded !text-xl">expand_more</i>
+					<i class="material-symbols-rounded text-xl!">expand_more</i>
 				</button>
 
 				{#if isFontDropdownOpen}

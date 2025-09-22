@@ -21,7 +21,7 @@
     {name}
     <i
       class:rotate-180={isOpen}
-      class="material-symbols-rounded ml-2 !text-lg transition-transform duration-150"
+      class="material-symbols-rounded ml-2 text-lg! transition-transform duration-150"
       >expand_more</i>
   </button>
 

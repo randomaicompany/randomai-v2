@@ -96,7 +96,7 @@
 		</div>
 
 		<form onsubmit={preventDefault(bubble('submit'))} class="hidden md:block">
-			<label class="input-field-container">
+			<label class="input-field-container relative">
 				<!-- svelte-ignore a11y_autofocus -->
 				<input
 					bind:this={inputRef}
@@ -107,7 +107,7 @@
 					autofocus={shouldAutofocus ? true : undefined}
 				/>
 				<button type="submit">
-					<i class="material-symbols-rounded absolute left-4 top-2.5 h-6 opacity-55"> search </i>
+					<i class="material-symbols-rounded absolute -top-0.5 left-4 h-6 opacity-55"> search </i>
 				</button>
 			</label>
 		</form>
@@ -131,7 +131,7 @@
 				>
 					{#if $cart?.lineItems?.length}
 						<p
-							class="bg-brand-accent-light absolute -top-1 right-2 flex h-4 min-w-[1rem] items-center justify-center rounded-full text-xs leading-none text-white"
+							class="bg-brand-accent-light absolute -top-1 right-2 flex h-4 min-w-4 items-center justify-center rounded-full text-xs leading-none text-white"
 						>
 							{$cart?.lineItems?.length || 0}
 						</p>

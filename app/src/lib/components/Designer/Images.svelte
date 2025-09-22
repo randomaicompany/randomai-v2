@@ -70,7 +70,7 @@
                 height="96"
                 src={url}
                 alt="user generated art"
-                class="bg-gray h-16 w-16 min-w-[4rem] border object-contain transition-opacity hover:opacity-90 md:h-24 md:w-24 md:min-w-[6rem]" />
+                class="bg-gray h-16 w-16 min-w-16 border object-contain transition-opacity hover:opacity-90 md:h-24 md:w-24 md:min-w-24" />
             </button>
           </li>
         {:else}
@@ -78,7 +78,7 @@
             <button onclick={selectImage(asImageSrc(image))}>
               <PrismicImage
                 field={image}
-                class="md:w-24 md:h-24 md:min-w-[6rem] w-16 h-16 min-w-[4rem] object-contain  hover:opacity-90 transition-opacity" />
+                class="md:w-24 md:h-24 md:min-w-24 w-16 h-16 min-w-16 object-contain  hover:opacity-90 transition-opacity" />
             </button>
           {/each}
         {/each}

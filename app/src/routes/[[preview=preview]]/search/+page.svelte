@@ -28,7 +28,7 @@
 						{/if}
 
 						<p
-							class="bg-brand-smoke-darker mb-4 flex max-w-[max-content] justify-start rounded-sm p-2 py-1 text-xs uppercase"
+							class="bg-brand-smoke-darker mb-4 flex max-w-max justify-start rounded-xs p-2 py-1 text-xs uppercase"
 						>
 							{page.type}
 						</p>
@@ -39,7 +39,7 @@
 						<div
 							class="inline-flex items-center gap-1 border border-gray-400 p-2 py-1 text-xs md:gap-4 md:p-4 md:py-2"
 						>
-							<i class="material-symbols-rounded !text-lg">open_in_new</i>
+							<i class="material-symbols-rounded text-lg!">open_in_new</i>
 							<p>View Product</p>
 						</div>
 					</PrismicLink>

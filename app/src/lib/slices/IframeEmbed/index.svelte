@@ -53,7 +53,7 @@
     <iframe
       bind:this={iframe}
       style="min-height: {slice.primary.minimum_height + 'rem'}"
-      class="!aspect-auto w-full overflow-hidden"
+      class="aspect-auto! w-full overflow-hidden"
       title={asText(slice.primary.heading)}
       src="/iframeEmbed.html"></iframe>
   {/if}

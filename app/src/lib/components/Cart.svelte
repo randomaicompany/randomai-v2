@@ -92,7 +92,7 @@
 				>
 					<!-- Remove Icon Button -->
 					<button
-						class="absolute right-2 top-2 rounded p-1 transition hover:bg-red-100"
+						class="absolute right-2 top-2 rounded-sm p-1 transition hover:bg-red-100"
 						aria-label="Remove item"
 						onclick={remove(lineItem.variant.id)}
 						disabled={isLoading}
@@ -154,7 +154,7 @@
 										disabled={isLoading}
 										class="active:border-brand-yellow active:bg-brand-smoke-darker border bg-white p-1 transition-all"
 									>
-										<i class="material-symbols-rounded !text-lg">remove</i>
+										<i class="material-symbols-rounded text-lg!">remove</i>
 									</button>
 								</li>
 								<li class="flex h-10 items-center justify-center border p-1 px-4">
@@ -166,7 +166,7 @@
 										onclick={increment(lineItem.variant.id)}
 										class="active:border-brand-yellow active:bg-brand-smoke-darker border bg-white p-1 transition-all"
 									>
-										<i class="material-symbols-rounded !text-lg">add</i>
+										<i class="material-symbols-rounded text-lg!">add</i>
 									</button>
 								</li>
 							</ul>

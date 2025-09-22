@@ -23,7 +23,7 @@
 
 		{#if !isLastItem}
 			<li>
-				<i class="material-symbols-rounded mt-0.5 !text-xl">chevron_right</i>
+				<i class="material-symbols-rounded mt-0.5 text-xl!">chevron_right</i>
 			</li>
 		{/if}
 	{/each}

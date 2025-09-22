@@ -54,7 +54,7 @@ https://svelte.dev/e/node_invalid_placement -->
 		class="fixed left-0 top-0 z-50 h-full w-full bg-black/50 py-8"
 	>
 		<div class="mx-auto max-h-[90vh] max-w-6xl overflow-auto rounded-xl bg-white">
-			<div class="sticky top-0 z-[1] flex items-center justify-between bg-white p-8 pb-4">
+			<div class="sticky top-0 z-1 flex items-center justify-between bg-white p-8 pb-4">
 				<div>
 					<h2 class="text-xl md:text-xl">Favourite Items</h2>
 					<p class="text-brand-tertiary text-sm font-thin">
@@ -64,7 +64,7 @@ https://svelte.dev/e/node_invalid_placement -->
 				<button on:click={close}><i class="material-symbols-rounded">close</i></button>
 			</div>
 
-			<div class="flex h-full min-h-[20rem] w-full">
+			<div class="flex h-full min-h-80 w-full">
 				<div class="w-full p-8">
 					{#if R.isEmpty($whishlist)}
 						<p class="w-full text-center text-sm font-thin">No items in your whishlist</p>

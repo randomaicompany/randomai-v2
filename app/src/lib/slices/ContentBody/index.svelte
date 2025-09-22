@@ -21,7 +21,7 @@
 		</div>
 
 		{#each slice.items as item, idx (idx)}
-			<PrismicImage class="mb-8 max-h-[36rem] w-full object-cover" field={item.image} />
+			<PrismicImage class="mb-8 max-h-144 w-full object-cover" field={item.image} />
 
 			{#if isFilled.richText(item.text_content)}
 				<div class="rich-content text-base font-light">

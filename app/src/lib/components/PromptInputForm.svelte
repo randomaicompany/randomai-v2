@@ -125,7 +125,7 @@
 			bind:value={prompt}
 			onkeydown={handleKeyDown}
 			placeholder="Enter your prompt to generate an image"
-			class="mb-10 min-h-[5rem] w-full resize-none border-none font-light outline-none ring-0 focus:border-none focus:outline-none focus:ring-0 {className}"
+			class="mb-10 min-h-20 w-full resize-none border-none font-light outline-hidden ring-0 focus:border-none focus:outline-hidden focus:ring-0 {className}"
 		></textarea>
 
 		<div
@@ -162,9 +162,9 @@
 					{#if buttonText}
 						<p class="text-[13px]">{buttonText}</p>
 					{/if}
-					<i class="material-symbols-sharp !text-[21.5px]">{iconName}</i>
+					<i class="material-symbols-sharp text-[21.5px]!">{iconName}</i>
 					<p
-						class="bg-brand-green absolute -bottom-8 select-none whitespace-nowrap rounded-sm px-2 py-1 text-xs text-white opacity-0 transition-opacity delay-300 group-hover:opacity-100"
+						class="bg-brand-green absolute -bottom-8 select-none whitespace-nowrap rounded-xs px-2 py-1 text-xs text-white opacity-0 transition-opacity delay-300 group-hover:opacity-100"
 					>
 						Random Prompt
 					</p>
@@ -181,7 +181,7 @@
         on:click="{() => generate(prompt)}"
         class:pointer-events-none="{isLoading}"
         class="gap-2 button button-gradient-bg-var-5 button-compact">
-        <i class:!animate-spin="{isLoading}" class="material-symbols-sharp !text-[21.5008px]">refresh</i>
+        <i class:!animate-spin="{isLoading}" class="material-symbols-sharp text-[21.5008px]!">refresh</i>
         {#if isLoading}
           <span>Generating...</span>
         {:else}

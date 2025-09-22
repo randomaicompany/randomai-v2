@@ -61,7 +61,7 @@
 	disabled={isInProgress}
 	class:opacity-50={isInProgress}
 	onclick={isInWhishlist ? removeWhishlistItem : addToWhislist}
-	class="absolute right-4 top-4 z-[1]"
+	class="absolute right-4 top-4 z-1"
 >
 	<svg
 		width="25"

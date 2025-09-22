@@ -43,7 +43,7 @@
 		class:!bg-brand-smoke-darker={slice.primary.is_bg_gray}
 	>
 		<div class="relative flex min-h-[80vh] flex-col-reverse items-center lg:flex-row">
-			<div class="shell relative z-[1] pb-24 md:pb-0">
+			<div class="shell relative z-1 pb-24 md:pb-0">
 				<div class="lg:w-1/2">
 					<div class="mb-2">
 						<PrismicRichText field={slice.primary.eyebrow_headline} />
@@ -87,7 +87,7 @@
 		class:!bg-brand-smoke-darker={slice.primary.is_bg_gray}
 	>
 		<div
-			class="shell relative z-[1] flex max-w-[1600px] flex-col-reverse items-center gap-4 py-8 md:flex-row md:gap-8 md:py-16"
+			class="shell relative z-1 flex max-w-[1600px] flex-col-reverse items-center gap-4 py-8 md:flex-row md:gap-8 md:py-16"
 		>
 			<div class="flex-1">
 				<div class="mb-2">
@@ -182,7 +182,7 @@
 {#if slice.variation == 'forRssBlogs'}
 	<section class="py-24" data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
 		<div class="shell max-w-3xl text-center">
-			<div class="heading-3xl lg:heading-4xl relative mb-4 !font-medium leading-snug">
+			<div class="heading-3xl lg:heading-4xl relative mb-4 font-medium! leading-snug">
 				<PrismicRichText field={slice.primary.heading} />
 
 				{#if slice.primary.is_underlined}

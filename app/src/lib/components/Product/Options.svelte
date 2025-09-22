@@ -73,7 +73,7 @@ https://svelte.dev/e/js_parse_error -->
 												style="background-color: {hex};"
 												onclick={setOption(name, idx)}
 												class:!ring-brand-primary={isActive}
-												class="hover:ring-brand-tertiary h-6 w-6 rounded-full border-2 outline-none ring-2 ring-transparent ring-offset-1 transition-all active:opacity-80"
+												class="hover:ring-brand-tertiary h-6 w-6 rounded-full border-2 outline-hidden ring-2 ring-transparent ring-offset-1 transition-all active:opacity-80"
 											></button>
 										</li>
 									{/each}

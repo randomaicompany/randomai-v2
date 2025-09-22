@@ -95,7 +95,7 @@
 												{#if page.is_front_canvas_enabled}
 													<div style={frontStyles} class="absolute">
 														<PrismicImage
-															class="z-[2] object-contain p-4"
+															class="z-2 object-contain p-4"
 															field={page.placeholder_sicker}
 														/>
 													</div>
@@ -106,7 +106,7 @@
 												{#if page.is_back_canvas_enabled}
 													<div style={backStyles} class="absolute">
 														<PrismicImage
-															class="z-[2] object-contain p-4 "
+															class="z-2 object-contain p-4 "
 															field={page.placeholder_sicker}
 														/>
 													</div>

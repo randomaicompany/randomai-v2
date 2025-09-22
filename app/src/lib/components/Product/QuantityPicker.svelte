@@ -13,7 +13,7 @@
 		<button
 			aria-label="icon button"
 			onclick={() => quantity >= 2 && (quantity = quantity - 1)}
-			class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-100 focus:outline-none"
+			class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-100 focus:outline-hidden"
 			type="button"
 		>
 			<svg
@@ -34,7 +34,7 @@
 		</button>
 		<div>
 			<p
-				class="flex h-8 min-w-8 items-center justify-center overflow-hidden text-ellipsis rounded-full bg-gray-50 px-2 text-sm text-gray-900 outline-none"
+				class="flex h-8 min-w-8 items-center justify-center overflow-hidden text-ellipsis rounded-full bg-gray-50 px-2 text-sm text-gray-900 outline-hidden"
 			>
 				{quantity}
 			</p>
@@ -42,7 +42,7 @@
 		</div>
 		<button
 			onclick={() => (quantity = quantity + 1)}
-			class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-100 focus:outline-none"
+			class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-100 focus:outline-hidden"
 			type="button"
 		>
 			<span class="sr-only">Quantity button</span>

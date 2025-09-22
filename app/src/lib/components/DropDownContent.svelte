@@ -24,7 +24,7 @@
     <p class="flex-1">{name}</p>
     <i
       class:rotate-45={open}
-      class="material-symbols-rounded ml-2 !text-2xl transition-transform duration-150"
+      class="material-symbols-rounded ml-2 text-2xl! transition-transform duration-150"
       >add</i>
   </button>
 

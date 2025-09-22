@@ -22,7 +22,7 @@
 	{#each slice.items as item, idx (idx)}
 		<button
 			on:click={toggle(idx)}
-			class="flex w-full items-center gap-2 border-b p-4 text-left outline-none"
+			class="flex w-full items-center gap-2 border-b p-4 text-left outline-hidden"
 		>
 			<div class="w-full font-medium">
 				<PrismicRichText field={item.heading} />

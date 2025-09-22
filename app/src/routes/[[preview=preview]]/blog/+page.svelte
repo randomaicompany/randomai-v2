@@ -111,13 +111,13 @@
 	<ul
 		bind:this={scrollContainer}
 		onscroll={handleScroll}
-		class="scrollbar-hide flex items-start gap-4 overflow-x-auto scroll-smooth rounded bg-white p-2"
+		class="scrollbar-hide flex items-start gap-4 overflow-x-auto scroll-smooth rounded-sm bg-white p-2"
 	>
 		{#each data.feeds as feed, idx (idx)}
 			<li>
 				<a
 					href={`#${feed.name}`}
-					class="hover:text-brand-accent block whitespace-nowrap rounded border bg-gray-50 px-4 py-2 text-sm font-medium"
+					class="hover:text-brand-accent block whitespace-nowrap rounded-sm border bg-gray-50 px-4 py-2 text-sm font-medium"
 				>
 					{feed.name}
 				</a>
@@ -127,12 +127,12 @@
 </div>
 
 <!-- <ul
-  class="flex items-start gap-4 max-w-7xl mx-auto overflow-x-auto scrollbar-hide mb-8 bg-white p-2 rounded">
+  class="flex items-start gap-4 max-w-7xl mx-auto overflow-x-auto scrollbar-hide mb-8 bg-white p-2 rounded-sm">
   {#each data.feeds as feed}
     <li>
       <a
         href="#{feed.name}"
-        class="block whitespace-nowrap p-4 py-2 text-sm font-medium rounded border hover:text-brand-accent bg-gray-50"
+        class="block whitespace-nowrap p-4 py-2 text-sm font-medium rounded-sm border hover:text-brand-accent bg-gray-50"
         >{feed.name}</a>
     </li>
   {/each}
@@ -150,7 +150,7 @@
 					<Splide {options}>
 						{#each feed.items as item, idx (idx)}
 							<SplideSlide>
-								<div class=" flex h-[42.5rem] flex-col border border-gray-300 bg-white p-4">
+								<div class=" flex h-170 flex-col border border-gray-300 bg-white p-4">
 									<div class="flex-1">
 										<div class="mb-4 flex items-center gap-3">
 											<img alt="logo" class="h-8 w-8 rounded-full" src={feed.logo} />
@@ -185,7 +185,7 @@
 
 												{#if item.title.length > 120}
 													<p
-														class="absolute bottom-[60%] left-0 border bg-white p-4 text-sm font-medium opacity-0 shadow transition-opacity group-hover:opacity-100"
+														class="absolute bottom-[60%] left-0 border bg-white p-4 text-sm font-medium opacity-0 shadow-sm transition-opacity group-hover:opacity-100"
 													>
 														{item.title}
 													</p>
@@ -199,7 +199,7 @@
 											<ul class="mt-4 flex flex-wrap items-center gap-2">
 												{#each R.slice(0, 3, item.categories) as category, idx (idx)}
 													<li>
-														<p class="bg-brand-tertiary/30 inline-block rounded px-3 py-1 text-xs">
+														<p class="bg-brand-tertiary/30 inline-block rounded-sm px-3 py-1 text-xs">
 															{category}
 														</p>
 													</li>
@@ -239,7 +239,7 @@
 			onclickOutside={closeModal}
 		>
 			<button onclick={closeModal} class="absolute -top-8 right-0 bg-white p-1 px-2"
-				><i class="material-symbols-rounded !text-xl">close</i></button
+				><i class="material-symbols-rounded text-xl!">close</i></button
 			>
 
 			<div class="flex items-center justify-between">
@@ -279,7 +279,7 @@
 				<ul class="mt-4 flex flex-wrap items-center gap-2">
 					{#each previewItem.categories as category, idx (idx)}
 						<li>
-							<p class="bg-brand-tertiary/30 inline-block rounded px-3 py-1 text-xs">
+							<p class="bg-brand-tertiary/30 inline-block rounded-sm px-3 py-1 text-xs">
 								{category}
 							</p>
 						</li>
