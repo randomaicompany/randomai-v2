@@ -42,6 +42,9 @@ export const CREATE_CART_MUTATION = `
                     id
                     title
                     handle
+                    featuredImage {
+                     url
+                    }
                   }
                 }
               }
@@ -104,6 +107,9 @@ export const ADD_TO_CART_MUTATION = `
                     id
                     title
                     handle
+                    featuredImage {
+                     url
+                    }
                   }
                 }
               }
@@ -166,6 +172,9 @@ export const UPDATE_CART_MUTATION = `
                     id
                     title
                     handle
+                    featuredImage {
+                     url
+                    }
                   }
                 }
               }
@@ -228,6 +237,9 @@ export const REMOVE_FROM_CART_MUTATION = `
                     id
                     title
                     handle
+                    featuredImage {
+                     url
+                    }
                   }
                 }
               }
@@ -289,6 +301,9 @@ export const GET_CART_QUERY = `
                   id
                   title
                   handle
+                  featuredImage {
+                     url
+                  }
                 }
               }
             }

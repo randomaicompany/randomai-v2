@@ -137,16 +137,16 @@ export const fetchCartItems = async () => {
 
 		if (cartId) {
 			try {
-				const cart = await fetchCheckout(cartId);
+				const fetchedCart = await fetchCheckout(cartId);
 
-				if (cart) {
-					cart.set(cart);
-					return cart;
+				if (fetchedCart) {
+					cart.set(fetchedCart);
+					return fetchedCart;
 				} else {
 					localStorage.removeItem('cartId');
 					cartId = null;
 				}
-			} catch (fetchError) {
+			} catch {
 				localStorage.removeItem('cartId');
 				cartId = null;
 			}

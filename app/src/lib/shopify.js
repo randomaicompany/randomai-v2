@@ -75,7 +75,11 @@ function transformCartData(cartData) {
 					product: {
 						id: edge.node.merchandise.product.id,
 						title: edge.node.merchandise.product.title,
-						handle: edge.node.merchandise.product.handle
+						handle: edge.node.merchandise.product.handle,
+						featuredImage: edge.node.merchandise.product.featuredImage
+					},
+					image: {
+						src: edge.node.merchandise.product.featuredImage?.url
 					}
 				},
 				totalPrice: edge.node.estimatedCost?.totalAmount?.amount || '0.00',

@@ -38,7 +38,11 @@
 			})());
 	});
 
-	cart.subscribe((cart) => cart?.lineItems?.length <= 0 && close());
+	cart.subscribe((cartData) => {
+		if (cartData?.lineItems?.length <= 0 && isCartOpen) {
+			close();
+		}
+	});
 
 	const attributesToMap = (lineItem) => {
 		let map = {};
@@ -60,7 +64,7 @@
 		in:fade={{ duration: 200 }}
 		out:fade={{ duration: 200, delay: 100 }}
 		onclick={close}
-		class="fixed left-0 top-0 z-50 flex h-full w-full justify-end bg-white bg-opacity-10 backdrop-blur-md"
+		class="bg-white/05 fixed left-0 top-0 z-50 flex h-full w-full justify-end bg-opacity-10 backdrop-blur-md"
 	>
 		x
 	</button>
@@ -130,11 +134,13 @@
 								{/if}
 							</div>
 						{/if}
+
+						<!-- {console.log(lineItem?.variant)}
 						<img
 							alt={lineItem.title}
 							class="h-16 w-16 border object-contain"
 							src={lineItem?.variant?.image?.src}
-						/>
+						/> -->
 					</div>
 
 					<div class="w-full">
