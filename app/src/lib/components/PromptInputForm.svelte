@@ -7,6 +7,7 @@
 	//
 	import { createEventDispatcher } from 'svelte';
 	import { consecutiveUniqueRandom } from 'unique-random';
+	import StyleDropdown from './StyleDropdown.svelte';
 
 	let hasInitializedPrompt = $state(false);
 	/**
@@ -95,27 +96,11 @@
 
 <form
 	class:opacity-50={isLoading}
-	class="relative flex flex-col gap-4"
+	class="relative flex flex-col"
 	onsubmit={preventDefault(() => generate(prompt))}
 >
-	{#if RA.isNonEmptyArray(stylePresets)}
-		<div>
-			<label class="input-field-container block w-full">
-				<p class="mb-2 text-sm font-medium">Style</p>
-				<select
-					bind:value={stylePreset}
-					class="input-field w-full border border-gray-200 px-2 text-base md:text-sm"
-				>
-					{#each stylePresets as { name, ...rest }, idx (name)}
-						<option selected={idx} value={JSON.stringify({ name, ...rest })}>{name}</option>
-					{/each}
-				</select>
-			</label>
-		</div>
-	{/if}
-
-	<label
-		class="input-field-container input-box input-field shadow-bordered block min-h-[10em] w-full flex-1 items-start gap-4 py-2 pt-3 text-[14px]"
+	<div
+		class="input-field-container shadow-bordered relative flex w-full flex-col rounded-md border border-gray-200 bg-white p-3 pb-14 text-[14px]"
 	>
 		<textarea
 			required
@@ -125,12 +110,27 @@
 			bind:value={prompt}
 			onkeydown={handleKeyDown}
 			placeholder="Enter your prompt to generate an image"
-			class="mb-10 min-h-20 w-full resize-none border-none font-light outline-hidden ring-0 focus:border-none focus:outline-hidden focus:ring-0 {className}"
+			style="field-sizing: content;"
+			class="min-h-12 w-full resize-none overflow-hidden border-none bg-transparent font-light outline-hidden ring-0 focus:border-none focus:outline-hidden focus:ring-0 {className}"
 		></textarea>
 
-		<div
-			class="absolute bottom-2 left-[115px] mt-5 flex h-8 items-center gap-3 text-sm md:bottom-4 md:left-[130px]"
-		>
+		<div class="absolute bottom-3 right-3 flex items-center gap-1.5">
+			{#if RA.isNonEmptyArray(stylePresets)}
+				<StyleDropdown {stylePresets} bind:selectedStyle={stylePreset} disabled={isLoading} />
+			{/if}
+
+			{#if !isLoading}
+				<button
+					onclick={handlers(bubble('click'), suggestPrompt)}
+					type="button"
+					disabled={isLoading}
+					class="text-brand-green hover:bg-brand-green flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full ring-1 ring-gray-200 transition-all hover:text-white"
+					title="Random Prompt"
+				>
+					<i class="material-symbols-sharp text-[18px]">{iconName}</i>
+				</button>
+			{/if}
+
 			{#if isLoading}
 				<div
 					style="animation-duration:0.3s;"
@@ -140,38 +140,16 @@
 				<button
 					onclick={() => generate(prompt)}
 					disabled={!prompt}
-					class="group relative flex items-center justify-center bg-[#fccc26] transition-all hover:opacity-80 hover:ring-offset-4 disabled:cursor-not-allowed disabled:opacity-50"
+					class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#fccc26] transition-all hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-50"
+					title="Generate"
 				>
-					<p
-						class="absolute right-0 flex items-center gap-1 whitespace-nowrap rounded-full bg-[#fccc26] px-3 py-1 text-[12px] font-medium text-white transition-opacity delay-300 md:py-[6px] md:text-[14px]"
-					>
-						<span class="flex h-4 w-4 items-center justify-center md:w-5">
-							<img src="/magic-wand.png" alt="Magic Wand" class="h-4 w-4 object-contain invert" />
-						</span>
-						Generate
-					</p>
-				</button>
-
-				<button
-					onclick={handlers(bubble('click'), suggestPrompt)}
-					type="button"
-					disabled={isLoading}
-					class:!pl-2={buttonText}
-					class="text-brand-green hover:bg-brand-green hover:ring-brand-green group relative flex h-6 w-6 items-center justify-center gap-2 rounded-full ring-1 ring-gray-200 ring-offset-2 transition-all hover:text-white hover:ring-offset-4"
-				>
-					{#if buttonText}
-						<p class="text-[13px]">{buttonText}</p>
-					{/if}
-					<i class="material-symbols-sharp text-[21.5px]!">{iconName}</i>
-					<p
-						class="bg-brand-green absolute -bottom-8 select-none whitespace-nowrap rounded-xs px-2 py-1 text-xs text-white opacity-0 transition-opacity delay-300 group-hover:opacity-100"
-					>
-						Random Prompt
-					</p>
+					<span class="flex h-4 w-4 items-center justify-center">
+						<img src="/magic-wand.png" alt="Magic Wand" class="h-4 w-4 object-contain invert" />
+					</span>
 				</button>
 			{/if}
 		</div>
-	</label>
+	</div>
 
 	<!-- {#if prompt}
     <div class="pt-4">

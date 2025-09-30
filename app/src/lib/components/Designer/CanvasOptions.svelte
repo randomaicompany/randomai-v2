@@ -106,7 +106,7 @@
 {#if canvas}
   <div class="tools-box-wrapper flex flex-col justify-center">
     <div
-      class="tools-box flex gap-2 rounded-md p-2 shadow-[0px_2px_8px_rgba(99,99,99,0.2)]">
+      class="tools-box flex gap-2 overflow-x-auto rounded-md p-2 shadow-[0px_2px_8px_rgba(99,99,99,0.2)] md:gap-2">
       <IconButton
         label="Delete"
         iconName="delete"
@@ -133,7 +133,7 @@
       <IconButton label="Zoom out" iconName="zoom_out" on:click={zoomOut} />
       <div class="flex items-center gap-2 px-1">
         <input
-          class="w-28 accent-brand-accent"
+          class="w-20 accent-brand-accent md:w-28"
           type="range"
           min={minZoom}
           max={maxZoom}
