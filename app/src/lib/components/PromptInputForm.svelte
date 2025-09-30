@@ -30,7 +30,6 @@
 		promptSuggestions = [],
 		stylePresets = [],
 		class: className = '',
-		buttonText = '',
 		iconName = 'model_training',
 		imageUrl = $bindable(''),
 		isLoading = $bindable(false),
@@ -111,7 +110,7 @@
 			onkeydown={handleKeyDown}
 			placeholder="Enter your prompt to generate an image"
 			style="field-sizing: content;"
-			class="min-h-12 w-full resize-none overflow-hidden border-none bg-transparent font-light outline-hidden ring-0 focus:border-none focus:outline-hidden focus:ring-0 {className}"
+			class="outline-hidden focus:outline-hidden min-h-12 w-full resize-none overflow-hidden border-none bg-transparent font-light ring-0 focus:border-none focus:ring-0 {className}"
 		></textarea>
 
 		<div class="absolute bottom-3 right-3 flex items-center gap-1.5">
@@ -124,10 +123,10 @@
 					onclick={handlers(bubble('click'), suggestPrompt)}
 					type="button"
 					disabled={isLoading}
-					class="text-brand-green hover:bg-brand-green flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full ring-1 ring-gray-200 transition-all hover:text-white"
-					title="Random Prompt"
+					class="text-brand-green hover:bg-brand-green group flex h-8 w-8 flex-shrink-0 items-center gap-1.5 overflow-hidden rounded-full px-1.5 ring-1 ring-gray-200 duration-500 hover:w-24 hover:text-white"
 				>
-					<i class="material-symbols-sharp text-[18px]">{iconName}</i>
+					<i class="material-symbols-sharp flex-shrink-0 !text-[20px]">{iconName}</i>
+					<span class="whitespace-nowrap text-sm font-medium"> Random </span>
 				</button>
 			{/if}
 
@@ -140,12 +139,12 @@
 				<button
 					onclick={() => generate(prompt)}
 					disabled={!prompt}
-					class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#fccc26] transition-all hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-50"
-					title="Generate"
+					class="group flex h-8 w-8 flex-shrink-0 items-center gap-1.5 overflow-hidden rounded-full bg-[#fccc26] px-1.5 duration-500 hover:w-28 hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-50"
 				>
-					<span class="flex h-4 w-4 items-center justify-center">
-						<img src="/magic-wand.png" alt="Magic Wand" class="h-4 w-4 object-contain invert" />
+					<span class="flex h-5 w-5 flex-shrink-0 items-center justify-center">
+						<img src="/magic-wand.png" alt="Magic Wand" class="h-5 w-5 object-contain invert" />
 					</span>
+					<span class="whitespace-nowrap text-sm font-medium text-white">Generate</span>
 				</button>
 			{/if}
 		</div>

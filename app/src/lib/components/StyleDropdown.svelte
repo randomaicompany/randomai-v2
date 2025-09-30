@@ -1,5 +1,6 @@
 <script>
 	import { clickOutside } from 'root/src/lib/utils/common.js';
+	import { fly } from 'svelte/transition';
 
 	/**
 	 * @typedef {Object} Props
@@ -9,11 +10,7 @@
 	 */
 
 	/** @type {Props} */
-	let {
-		stylePresets = [],
-		selectedStyle = $bindable(''),
-		disabled = false
-	} = $props();
+	let { stylePresets = [], selectedStyle = $bindable(''), disabled = false } = $props();
 
 	let isOpen = $state(false);
 
@@ -43,18 +40,22 @@
 	<button
 		onclick={toggleDropdown}
 		type="button"
-		disabled={disabled}
-		class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full ring-1 ring-gray-200 transition-all hover:bg-gray-50"
-		title={getSelectedStyleName()}
+		{disabled}
+		class:!ring-transparent={isOpen}
+		class:!bg-red-50={isOpen}
+		class:w-64={isOpen}
+		class="group flex h-8 w-8 flex-shrink-0 items-center gap-1.5 overflow-hidden rounded-full px-1.5 ring-1 ring-gray-200 duration-500 hover:w-64 hover:bg-gray-50"
 	>
-		<i class="material-symbols-sharp text-[18px]">palette</i>
+		<i class="material-symbols-sharp flex-shrink-0 !text-[20px]">palette</i>
+		<span class="whitespace-nowrap text-xs font-medium">{getSelectedStyleName()}</span>
 	</button>
 
 	{#if isOpen}
 		<div
+			transition:fly={{ duration: 300, y: 12 }}
 			use:clickOutside
 			onclickOutside={closeDropdown}
-			class="absolute bottom-full right-0 mb-2 max-h-60 w-64 overflow-y-auto rounded-md border border-gray-200 bg-white shadow-lg"
+			class="absolute -right-20 bottom-full mb-2 max-h-60 w-96 overflow-y-auto rounded-md border border-gray-200 bg-white shadow-lg"
 		>
 			{#each stylePresets as style (style.name)}
 				<button

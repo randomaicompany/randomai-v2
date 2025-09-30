@@ -263,6 +263,10 @@
 		font-family: 'Inter', sans-serif;
 	}
 
+	button {
+		@apply cursor-pointer;
+	}
+
 	.shell {
 		@apply mx-auto px-4 md:px-8 xl:px-32;
 	}
