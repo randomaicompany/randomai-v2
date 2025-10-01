@@ -123,7 +123,7 @@
 					onclick={handlers(bubble('click'), suggestPrompt)}
 					type="button"
 					disabled={isLoading}
-					class="text-brand-green hover:bg-brand-green group flex h-8 w-8 flex-shrink-0 items-center gap-1.5 overflow-hidden rounded-full px-1.5 ring-1 ring-gray-200 duration-500 hover:w-24 hover:text-white"
+					class="text-brand-green hover:bg-brand-green group flex h-8 w-24 flex-shrink-0 items-center gap-1.5 overflow-hidden rounded-full px-1.5 ring-1 ring-gray-200 duration-500 hover:w-24 hover:text-white md:w-8"
 				>
 					<i class="material-symbols-sharp flex-shrink-0 !text-[20px]">{iconName}</i>
 					<span class="whitespace-nowrap text-sm font-medium"> Random </span>
@@ -139,7 +139,7 @@
 				<button
 					onclick={() => generate(prompt)}
 					disabled={!prompt}
-					class="group flex h-8 w-8 flex-shrink-0 items-center gap-1.5 overflow-hidden rounded-full bg-[#fccc26] px-1.5 duration-500 hover:w-28 hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-50"
+					class="group flex h-8 w-28 flex-shrink-0 items-center gap-1.5 overflow-hidden rounded-full bg-[#fccc26] px-1.5 duration-500 hover:w-28 hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-50 md:w-8"
 				>
 					<span class="flex h-5 w-5 flex-shrink-0 items-center justify-center">
 						<img src="/magic-wand.png" alt="Magic Wand" class="h-5 w-5 object-contain invert" />

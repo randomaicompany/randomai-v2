@@ -102,24 +102,24 @@
 		<div
 			class=" flex flex-col gap-2 rounded-md p-2 shadow-[0px_2px_8px_rgba(99,99,99,0.2)] md:flex-row md:gap-2"
 		>
-			<IconButton label="Delete" iconName="delete" on:click={() => deleteItem(canvas)} />
-			<IconButton label="Clear everything" iconName="clear_all" on:click={() => clearAll(canvas)} />
+			<IconButton label="Delete" iconName="delete" onclick={() => deleteItem(canvas)} />
+			<IconButton label="Clear everything" iconName="clear_all" onclick={() => clearAll(canvas)} />
 
 			<IconButton
 				label="Vertically align"
 				iconName="vertical_align_center"
-				on:click={() => verticallyAlign(canvas)}
+				onclick={() => verticallyAlign(canvas)}
 			/>
 
 			<IconButton
 				label="Horizontally align"
 				iconName="align_horizontal_center"
-				on:click={() => horizontallyAlign(canvas)}
+				onclick={() => horizontallyAlign(canvas)}
 			/>
 
 			<!-- Zoom controls -->
 			<div class="mx-2 h-6 w-px self-center bg-gray-200" aria-hidden="true"></div>
-			<IconButton label="Zoom out" iconName="zoom_out" on:click={zoomOut} />
+			<IconButton label="Zoom out" iconName="zoom_out" onclick={zoomOut} />
 			<div class=" hidden items-center gap-2 px-1 md:flex">
 				<input
 					class="accent-brand-accent w-20 md:w-28"
@@ -133,20 +133,19 @@
 				/>
 				<span class="w-10 select-none text-center text-xs">{Math.round(zoom * 100)}%</span>
 			</div>
-			<IconButton label="Zoom in" iconName="zoom_in" on:click={zoomIn} />
-			<IconButton label="Reset zoom" iconName="center_focus_strong" on:click={resetZoom} />
+			<IconButton label="Zoom in" iconName="zoom_in" onclick={zoomIn} />
+			<IconButton label="Reset zoom" iconName="center_focus_strong" onclick={resetZoom} />
 
 			<!-- <IconButton
         label="Bring to front"
         iconName="layers"
-        on:click="{() => bringToFront(canvas)}" /> -->
+        onclick={() => bringToFront(canvas)} /> -->
 
 			{#if !isRemovingBackground}
 				<IconButton
 					className="bg-brand-accent-light! text-white! border-brand-accent-light! active:bg-brand-accent!"
-					on:click={removeBackground}
+					onclick={removeBackground}
 					label="Clear Background"
-					isbackground={true}
 					iconName="wallpaper"
 				/>
 			{:else}

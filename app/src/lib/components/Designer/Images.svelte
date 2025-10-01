@@ -48,7 +48,7 @@
 </script>
 
 <div class="flex items-center justify-between pb-4 text-sm">
-	<p class="heading-base">Images ({isLoadingImages ?? 'loading..'})</p>
+	<p class="heading-base">Images</p>
 	<div>
 		{#if isUploadingInProgress}
 			<p class=" text-brand-accent-light">Please wait...</p>
