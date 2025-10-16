@@ -1,4 +1,6 @@
 <script>
+	import { fade, fly } from "svelte/transition";
+
 	let { label = '', iconName = '', className = '', onclick } = $props();
 
 	let visible = $state(false);
@@ -6,8 +8,8 @@
 
 <div class="relative inline">
 	{#if label && visible}
-		<p class="absolute inset-0 -translate-x-8 -translate-y-12 whitespace-nowrap text-xs">
-			<span class="bg-brand-accent inline-block rounded p-1 text-white">{label}</span>
+		<p transition:fly={{duration:200, y:4}} class="absolute inset-0 sm-translate-x-8 -translate-x-2 sm:-translate-y-12 -translate-y-8 whitespace-nowrap text-xs">
+			<span class="bg-brand-accent inline-block rounded-lg py-0.5 px-2 text-white">{label}</span>
 		</p>
 	{/if}
 

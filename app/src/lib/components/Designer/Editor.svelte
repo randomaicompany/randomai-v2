@@ -18,25 +18,6 @@
 	//
 	import { uploadImage } from 'api/firebase/storage';
 	import { addDocument, fetchDocumentsByUserId } from 'api/firebase/firestore';
-
-	/**
-	 * @typedef {Object} Props
-	 * @property {any} data
-	 * @property {any} canvas
-	 * @property {any} [choice]
-	 * @property {any} [variant]
-	 * @property {any} [product]
-	 * @property {any} [images]
-	 * @property {string} [imageUrl]
-	 * @property {boolean} [isGenerating]
-	 * @property {any} [generatedImages]
-	 * @property {any} [promptSuggestions]
-	 * @property {any} [selectedGalleryImage]
-	 * @property {number} [currentViewIdx]
-	 * @property {string} [tempPromt]
-	 */
-
-	/** @type {Props} */
 	let {
 		data,
 		canvas = $bindable(),
