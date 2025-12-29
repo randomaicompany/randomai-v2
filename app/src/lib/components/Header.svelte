@@ -96,7 +96,7 @@
 		</div>
 
 		<form onsubmit={preventDefault(bubble('submit'))} class="hidden md:block">
-			<label class="input-field-container relative">
+			<label class="input-field-container relative block">
 				<!-- svelte-ignore a11y_autofocus -->
 				<input
 					bind:this={inputRef}
@@ -107,7 +107,7 @@
 					autofocus={shouldAutofocus ? true : undefined}
 				/>
 				<button type="submit">
-					<i class="material-symbols-rounded absolute -top-0.5 left-4 h-6 opacity-55"> search </i>
+					<i class="material-symbols-rounded absolute left-4 top-[8px] opacity-55"> search </i>
 				</button>
 			</label>
 		</form>

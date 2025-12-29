@@ -348,6 +348,13 @@
 		@apply leading-relaxed;
 	}
 
+	/* Prevent iOS zoom on input focus - inputs must be 16px or larger */
+	input,
+	textarea,
+	select {
+		font-size: 16px;
+	}
+
 	.heading-5xl strong,
 	.heading-5xl b,
 	.heading-4xl strong,
