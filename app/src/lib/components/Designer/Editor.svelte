@@ -4,7 +4,6 @@
 
 	import user from 'stores/user';
 
-	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
 
 	import Text from 'components/Designer/Text.svelte';
@@ -117,11 +116,17 @@
 		await uploadImageToStorage(base64Image);
 	};
 
+	let hasLoadedHomeImage = $state(false);
+
 	const setHomeGeneratedImage = () => {
+		if (hasLoadedHomeImage) return;
+
 		const localImageUrl = localStorage.getItem('imageUrl');
 		const localPromt = localStorage.getItem('tempPromt');
 
-		if (!browser || !localImageUrl) return;
+		if (!browser || !localImageUrl || !canvas) return;
+
+		hasLoadedHomeImage = true;
 		addBase64ImageToCanvas(canvas, localImageUrl);
 
 		imageUrl = localImageUrl;
@@ -131,8 +136,10 @@
 		localStorage.removeItem('tempPromt');
 	};
 
-	onMount(() => {
-		canvas && setHomeGeneratedImage();
+	$effect(() => {
+		if (canvas) {
+			setHomeGeneratedImage();
+		}
 	});
 </script>
 
