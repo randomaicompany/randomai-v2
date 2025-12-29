@@ -1,0 +1,309 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Latest from Random AI"
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"title",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "heading3",
+									"content": {
+										"text": "How AI is Revolutionizing Creative Design"
+									}
+								}
+							]
+						}
+					],
+					[
+						"featured_image",
+						{
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+								"width": 3277,
+								"height": 4092
+							},
+							"url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055?rect=0%2C1124%2C3277%2C1843&w=800&h=450",
+							"width": 800,
+							"height": 450,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 1124
+								},
+								"background": "transparent"
+							},
+							"alt": "AI Design Concept",
+							"credits": null,
+							"__TYPE__": "ImageContent"
+						}
+					],
+					[
+						"excerpt",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Discover how artificial intelligence is transforming the way designers create stunning visuals and push creative boundaries."
+									}
+								}
+							]
+						}
+					],
+					[
+						"content",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Artificial intelligence has become a powerful tool in the creative industry. From generating unique artwork to assisting with complex design decisions, AI is helping designers work faster and more efficiently than ever before."
+									}
+								}
+							]
+						}
+					],
+					[
+						"categories",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "AI, Design, Creativity",
+							"type": "Text"
+						}
+					],
+					[
+						"author",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Sarah Chen",
+							"type": "Text"
+						}
+					],
+					[
+						"publish_date",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Date",
+							"value": "2024-12-15"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"title",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "heading3",
+									"content": {
+										"text": "Getting Started with AI Image Generation"
+									}
+								}
+							]
+						}
+					],
+					[
+						"featured_image",
+						{
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+								"width": 3277,
+								"height": 4092
+							},
+							"url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055?rect=0%2C1124%2C3277%2C1843&w=800&h=450",
+							"width": 800,
+							"height": 450,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 1124
+								},
+								"background": "transparent"
+							},
+							"alt": "AI Tutorial",
+							"credits": null,
+							"__TYPE__": "ImageContent"
+						}
+					],
+					[
+						"excerpt",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "A beginner-friendly guide to creating stunning AI-generated images using the latest tools and techniques."
+									}
+								}
+							]
+						}
+					],
+					[
+						"content",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "AI image generation has opened up incredible possibilities for artists and designers. This comprehensive tutorial will walk you through the basics of prompt engineering and style selection."
+									}
+								}
+							]
+						}
+					],
+					[
+						"categories",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Tutorial, AI, Beginners",
+							"type": "Text"
+						}
+					],
+					[
+						"author",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Mike Johnson",
+							"type": "Text"
+						}
+					],
+					[
+						"publish_date",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Date",
+							"value": "2024-12-10"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"title",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "heading3",
+									"content": {
+										"text": "The Future of Print-on-Demand with AI"
+									}
+								}
+							]
+						}
+					],
+					[
+						"featured_image",
+						{
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+								"width": 3277,
+								"height": 4092
+							},
+							"url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055?rect=0%2C1124%2C3277%2C1843&w=800&h=450",
+							"width": 800,
+							"height": 450,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 1124
+								},
+								"background": "transparent"
+							},
+							"alt": "Print on Demand",
+							"credits": null,
+							"__TYPE__": "ImageContent"
+						}
+					],
+					[
+						"excerpt",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Explore how AI is reshaping the print-on-demand industry and creating new opportunities for entrepreneurs."
+									}
+								}
+							]
+						}
+					],
+					[
+						"content",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "The print-on-demand industry is experiencing a revolution thanks to AI technology. Business owners can now create unique, personalized products at scale."
+									}
+								}
+							]
+						}
+					],
+					[
+						"categories",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Business, AI, E-commerce",
+							"type": "Text"
+						}
+					],
+					[
+						"author",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Emily Rodriguez",
+							"type": "Text"
+						}
+					],
+					[
+						"publish_date",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Date",
+							"value": "2024-12-05"
+						}
+					]
+				]
+			}
+		]
+	}
+]

@@ -31,6 +31,7 @@
 
 	const filterFeedWithItems = R.filter(R.pipe(R.prop('items'), RA.isNotEmpty));
 	const heroSlice = R.filter(R.propEq('hero', 'slice_type'), data.page.data.slices);
+	const manualBlogSlices = R.filter(R.propEq('manual_blog_block', 'slice_type'), data.page.data.slices);
 
 	const openModal = (item) => () => ((previewItem = item), (isModalOpen = true));
 	const closeModal = () => ((previewItem = {}), (isModalOpen = false));
@@ -113,6 +114,16 @@
 		onscroll={handleScroll}
 		class="scrollbar-hide flex items-start gap-4 overflow-x-auto scroll-smooth rounded-sm bg-white p-2"
 	>
+		{#if manualBlogSlices.length > 0}
+			<li>
+				<a
+					href="#random-ai"
+					class="hover:text-brand-accent block whitespace-nowrap rounded-sm border bg-gray-50 px-4 py-2 text-sm font-medium"
+				>
+					Random AI
+				</a>
+			</li>
+		{/if}
 		{#each data.feeds as feed, idx (idx)}
 			<li>
 				<a
@@ -125,6 +136,12 @@
 		{/each}
 	</ul>
 </div>
+
+{#if manualBlogSlices.length > 0}
+	<div id="random-ai">
+		<SliceZone slices={manualBlogSlices} {components} />
+	</div>
+{/if}
 
 <!-- <ul
   class="flex items-start gap-4 max-w-7xl mx-auto overflow-x-auto scrollbar-hide mb-8 bg-white p-2 rounded-sm">
