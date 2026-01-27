@@ -24,7 +24,7 @@
 {#if navigating.to}
 	<div
 		transition:fade={{ duration: 200 }}
-		class="loader fixed left-0 top-0 z-50 h-1 w-full rounded-full bg-gray-300"
+		class="loader fixed top-0 left-0 z-50 h-1 w-full rounded-full bg-gray-300"
 	></div>
 {/if}
 
@@ -36,7 +36,7 @@
 
 <Header {data} />
 
-<main class="min-h-screen duration-500" class:opacity-50={navigating.to}>
+<main class="min-h-screen py-32 duration-500" class:opacity-50={navigating.to}>
 	{@render children?.()}
 </main>
 

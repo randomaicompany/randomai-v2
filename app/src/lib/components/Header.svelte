@@ -60,20 +60,18 @@
 	}
 </script>
 
-{#if hasNoticeText}
-	<div
-		class="bg-brand-accent sticky top-0 z-10 flex h-9 w-full items-center justify-center text-sm text-white"
-	>
-		<PrismicRichText field={data.data.notice} />
-	</div>
-{/if}
+<header class="fixed top-0 z-10 w-full border-b bg-white">
+	{#if hasNoticeText}
+		<div class="flex w-full items-center justify-center bg-brand-accent py-2 text-sm text-white">
+			<PrismicRichText field={data.data.notice} />
+		</div>
+	{/if}
 
-<header class:top-9={hasNoticeText} class="sticky top-0 z-10 border bg-white">
 	<nav class="shell flex h-20 w-full items-center gap-4">
 		<button onclick={toggleMenu} class="relative flex items-center justify-center xl:hidden">
 			{#if isMenuOpen}
 				<i class="material-symbols-rounded">close</i>
-				<div class="bg-brand-primary/10 absolute -left-1.5 -top-1.5 h-9 w-9 rounded-full"></div>
+				<div class="absolute -top-1.5 -left-1.5 h-9 w-9 rounded-full bg-brand-primary/10"></div>
 			{:else}
 				<i class="material-symbols-rounded">menu</i>
 			{/if}
@@ -107,7 +105,7 @@
 					autofocus={shouldAutofocus ? true : undefined}
 				/>
 				<button type="submit">
-					<i class="material-symbols-rounded absolute left-4 top-[8px] opacity-55"> search </i>
+					<i class="material-symbols-rounded absolute top-[8px] left-4 opacity-55"> search </i>
 				</button>
 			</label>
 		</form>
@@ -131,7 +129,7 @@
 				>
 					{#if $cart?.lineItems?.length}
 						<p
-							class="bg-brand-accent-light absolute -top-1 right-2 flex h-4 min-w-4 items-center justify-center rounded-full text-xs leading-none text-white"
+							class="absolute -top-1 right-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-brand-accent-light text-xs leading-none text-white"
 						>
 							{$cart?.lineItems?.length || 0}
 						</p>
@@ -187,7 +185,7 @@
 	{#if isMenuOpen}
 		<div
 			transition:fly={{ duration: 200, y: -12 }}
-			class="absolute left-0 top-full w-full border-t bg-white pt-0 shadow-xl"
+			class="absolute top-full left-0 w-full border-t bg-white pt-0 shadow-xl"
 		>
 			<nav class="shell pb-8">
 				<ul>
