@@ -21,11 +21,6 @@
 
 	const selectImage = (url) => () => dispatch('select', url);
 
-	const fetchImages = async () => {
-		const docs = await fetchDocumentsByUserId('images', userId);
-		return docs;
-	};
-
 	const loadImages = async () => {
 		isLoadingImages = true;
 		const docs = await fetchDocumentsByUserId('images', userId);
@@ -33,6 +28,13 @@
 		isLoadingImages = false;
 		return docs;
 	};
+
+	// Fetch images on mount when userId is available
+	$effect(() => {
+		if (userId) {
+			loadImages();
+		}
+	});
 
 	const handleFileUpload = async ({ detail: { name, blobURL } }) => {
 		isUploadingInProgress = true;
@@ -60,34 +62,32 @@
 
 <ul class="flex gap-2 overflow-x-auto">
 	{#if userId}
-		{#await fetchImages()}
+		{#if isLoadingImages}
 			<p>Please wait...</p>
-		{:then docs}
-			{#if docs && docs.length > 0}
-				{#each docs as { url } (url)}
-					<li>
-						<button onclick={selectImage(url)}>
-							<img
-								width="96"
-								height="96"
-								src={url}
-								alt="user generated art"
-								class="bg-gray h-16 w-16 min-w-16 border object-contain transition-opacity hover:opacity-90 md:h-24 md:w-24 md:min-w-24"
-							/>
-						</button>
-					</li>
-				{/each}
-			{:else}
-				{#each gallery as { image } (image.url || image.src)}
-					<button onclick={selectImage(asImageSrc(image))}>
-						<PrismicImage
-							field={image}
-							class="h-16 w-16 min-w-16 object-contain transition-opacity hover:opacity-90 md:h-24  md:w-24 md:min-w-24"
+		{:else if images && images.length > 0}
+			{#each images as { url } (url)}
+				<li>
+					<button onclick={selectImage(url)}>
+						<img
+							width="96"
+							height="96"
+							src={url}
+							alt="user generated art"
+							class="bg-gray h-16 w-16 min-w-16 border object-contain transition-opacity hover:opacity-90 md:h-24 md:w-24 md:min-w-24"
 						/>
 					</button>
-				{/each}
-			{/if}
-		{/await}
+				</li>
+			{/each}
+		{:else}
+			{#each gallery as { image } (image.url || image.src)}
+				<button onclick={selectImage(asImageSrc(image))}>
+					<PrismicImage
+						field={image}
+						class="h-16 w-16 min-w-16 object-contain transition-opacity hover:opacity-90 md:h-24  md:w-24 md:min-w-24"
+					/>
+				</button>
+			{/each}
+		{/if}
 	{:else}
 		{#each gallery as { image } (image.url || image.src)}
 			<button onclick={selectImage(asImageSrc(image))}>
